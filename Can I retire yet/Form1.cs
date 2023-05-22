@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Data;
+using System.Globalization;
+using System.Linq;
 using System.Windows.Forms;
 using System.Reflection;
 using Can_I_retire_yet.functions;
@@ -22,7 +25,11 @@ namespace Can_I_retire_yet
             DatagridviewFunctions.SetUpViews(dgv_income, 2);
         }
 
-        
+        private void btn_close_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
 
         private void lbl_expenses_add_Click(object sender, EventArgs e)
         {
@@ -83,5 +90,20 @@ namespace Can_I_retire_yet
         {
             DatagridviewFunctions.DeleteRow(dgv_income);
         }
+
+        private void dgv_assets_CellStateChanged(object sender, DataGridViewCellStateChangedEventArgs e)
+        {
+            if (dgv_assets.CurrentCell.ColumnIndex == 1)
+            {
+                lbl_assets_total.Text = dgv_assets.Rows.Cast<DataGridViewRow>()
+                    .AsEnumerable()
+                    .Sum(x => decimal.Parse(x.Cells[1].Value.ToString()))
+                    .ToString();
+
+                
+            }
+        }
+
+       
     }
 }

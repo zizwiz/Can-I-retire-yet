@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -120,6 +121,13 @@ namespace Can_I_retire_yet.functions
             dgv.AllowUserToAddRows = false; //remove last empty row
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; //fit columns to grid view 
             dgv.RowHeadersVisible = false; //remove left hand column
+
+            //dgv.Columns[1].DefaultCellStyle.Format = "c"; //set up column 1 for currency
+
+            //dgv.Columns[1].DefaultCellStyle.Format = "c2";
+            //dgv.Columns[1].DefaultCellStyle.FormatProvider = CultureInfo.GetCultureInfo("en-GB");
+
+            dgv.Columns[1].DefaultCellStyle.Format = "£0.00  ";
         }
     }
 }
