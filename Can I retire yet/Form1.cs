@@ -93,17 +93,39 @@ namespace Can_I_retire_yet
 
         private void dgv_assets_CellStateChanged(object sender, DataGridViewCellStateChangedEventArgs e)
         {
-            if (dgv_assets.CurrentCell.ColumnIndex == 1)
-            {
-                lbl_assets_total.Text = dgv_assets.Rows.Cast<DataGridViewRow>()
-                    .AsEnumerable()
-                    .Sum(x => decimal.Parse(x.Cells[1].Value.ToString()))
-                    .ToString();
+            //if (dgv_assets.CurrentCell.ColumnIndex == 1)
+            //{
+            //    lbl_assets_total.Text = dgv_assets.Rows.Cast<DataGridViewRow>()
+            //        .AsEnumerable()
+            //        .Sum(x => decimal.Parse(x.Cells[1].Value.ToString()))
+            //        .ToString();
 
                 
+            //}
+        }
+
+        private void dgv_assets_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgv_assets.Columns[e.ColumnIndex].Name == "Amount")
+            {
+                MessageBox.Show("dgv_assets");
             }
         }
 
-       
+        private void dgv_expenses_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgv_expenses.Columns[e.ColumnIndex].Name == "Monthly")
+            {
+                MessageBox.Show("dgv_expenses");
+            }
+        }
+
+        private void dgv_income_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgv_income.Columns[e.ColumnIndex].Name == "Monthly")
+            {
+                MessageBox.Show("dgv_income");
+            }
+        }
     }
 }

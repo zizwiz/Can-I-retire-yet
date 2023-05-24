@@ -31,31 +31,9 @@ namespace Can_I_retire_yet
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.lbl_assets_total = new System.Windows.Forms.Label();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tab_overall = new System.Windows.Forms.TabPage();
             this.tab_expenses = new System.Windows.Forms.TabPage();
             this.tab_income = new System.Windows.Forms.TabPage();
             this.panel19 = new System.Windows.Forms.Panel();
@@ -107,24 +85,20 @@ namespace Can_I_retire_yet
             this.lbl_assets_save = new System.Windows.Forms.Label();
             this.lbl_assets_add = new System.Windows.Forms.Label();
             this.lbl_assets_delete = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lbl_assets = new System.Windows.Forms.Label();
+            this.lbl_expenses = new System.Windows.Forms.Label();
+            this.lbl_income = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.tableLayoutPanel5.SuspendLayout();
-            this.panel11.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.tableLayoutPanel4.SuspendLayout();
-            this.panel9.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.tableLayoutPanel6.SuspendLayout();
-            this.panel13.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
-            this.panel6.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.tab_overall.SuspendLayout();
             this.tab_expenses.SuspendLayout();
             this.tab_income.SuspendLayout();
             this.panel19.SuspendLayout();
@@ -160,6 +134,9 @@ namespace Can_I_retire_yet
             this.panel42.SuspendLayout();
             this.panel43.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_assets)).BeginInit();
+            this.panel2.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -170,241 +147,6 @@ namespace Can_I_retire_yet
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1405, 828);
             this.panel1.TabIndex = 0;
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 0, 1);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 99);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1325, 572);
-            this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.tableLayoutPanel2);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1319, 250);
-            this.panel2.TabIndex = 0;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 3;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33F));
-            this.tableLayoutPanel2.Controls.Add(this.panel3, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.panel4, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.panel5, 2, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1319, 250);
-            this.tableLayoutPanel2.TabIndex = 0;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.tableLayoutPanel5);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(3, 3);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(429, 244);
-            this.panel3.TabIndex = 0;
-            // 
-            // tableLayoutPanel5
-            // 
-            this.tableLayoutPanel5.ColumnCount = 1;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Controls.Add(this.panel10, 0, 1);
-            this.tableLayoutPanel5.Controls.Add(this.panel11, 0, 0);
-            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 2;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.04301F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 77.95699F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(429, 244);
-            this.tableLayoutPanel5.TabIndex = 1;
-            // 
-            // panel10
-            // 
-            this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel10.Location = new System.Drawing.Point(3, 56);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(423, 185);
-            this.panel10.TabIndex = 0;
-            // 
-            // panel11
-            // 
-            this.panel11.Controls.Add(this.label6);
-            this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel11.Location = new System.Drawing.Point(3, 3);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(423, 47);
-            this.panel11.TabIndex = 1;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(3, 18);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(90, 29);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Assets";
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.tableLayoutPanel4);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(438, 3);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(442, 244);
-            this.panel4.TabIndex = 1;
-            // 
-            // tableLayoutPanel4
-            // 
-            this.tableLayoutPanel4.ColumnCount = 1;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Controls.Add(this.panel8, 0, 1);
-            this.tableLayoutPanel4.Controls.Add(this.panel9, 0, 0);
-            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 2;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.04301F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 77.95699F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(442, 244);
-            this.tableLayoutPanel4.TabIndex = 0;
-            // 
-            // panel8
-            // 
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(3, 56);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(436, 185);
-            this.panel8.TabIndex = 0;
-            // 
-            // panel9
-            // 
-            this.panel9.Controls.Add(this.label1);
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel9.Location = new System.Drawing.Point(3, 3);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(436, 47);
-            this.panel9.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(127, 29);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Expenses";
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.tableLayoutPanel6);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(886, 3);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(430, 244);
-            this.panel5.TabIndex = 2;
-            // 
-            // tableLayoutPanel6
-            // 
-            this.tableLayoutPanel6.ColumnCount = 1;
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.Controls.Add(this.panel12, 0, 1);
-            this.tableLayoutPanel6.Controls.Add(this.panel13, 0, 0);
-            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-            this.tableLayoutPanel6.RowCount = 2;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.04301F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 77.95699F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(430, 244);
-            this.tableLayoutPanel6.TabIndex = 2;
-            // 
-            // panel12
-            // 
-            this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel12.Location = new System.Drawing.Point(3, 56);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(424, 185);
-            this.panel12.TabIndex = 0;
-            // 
-            // panel13
-            // 
-            this.panel13.Controls.Add(this.label7);
-            this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel13.Location = new System.Drawing.Point(3, 3);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(424, 47);
-            this.panel13.TabIndex = 1;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(3, 18);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(98, 29);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Income";
-            // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Controls.Add(this.panel6, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.panel7, 1, 0);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 259);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(1319, 250);
-            this.tableLayoutPanel3.TabIndex = 1;
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.lbl_assets_total);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(3, 3);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(653, 244);
-            this.panel6.TabIndex = 0;
-            // 
-            // panel7
-            // 
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(662, 3);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(654, 244);
-            this.panel7.TabIndex = 1;
-            // 
-            // lbl_assets_total
-            // 
-            this.lbl_assets_total.AutoSize = true;
-            this.lbl_assets_total.Location = new System.Drawing.Point(132, 92);
-            this.lbl_assets_total.Name = "lbl_assets_total";
-            this.lbl_assets_total.Size = new System.Drawing.Size(51, 20);
-            this.lbl_assets_total.TabIndex = 0;
-            this.lbl_assets_total.Text = "label2";
             // 
             // tableLayoutPanel7
             // 
@@ -423,7 +165,7 @@ namespace Can_I_retire_yet
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tab_overall);
             this.tabControl1.Controls.Add(this.tab_assets);
             this.tabControl1.Controls.Add(this.tab_expenses);
             this.tabControl1.Controls.Add(this.tab_income);
@@ -434,16 +176,16 @@ namespace Can_I_retire_yet
             this.tabControl1.Size = new System.Drawing.Size(1399, 742);
             this.tabControl1.TabIndex = 0;
             // 
-            // tabPage1
+            // tab_overall
             // 
-            this.tabPage1.Controls.Add(this.tableLayoutPanel1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 29);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1391, 709);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tab_overall.Controls.Add(this.panel2);
+            this.tab_overall.Location = new System.Drawing.Point(4, 29);
+            this.tab_overall.Name = "tab_overall";
+            this.tab_overall.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_overall.Size = new System.Drawing.Size(1391, 709);
+            this.tab_overall.TabIndex = 0;
+            this.tab_overall.Text = "Overall";
+            this.tab_overall.UseVisualStyleBackColor = true;
             // 
             // tab_expenses
             // 
@@ -542,6 +284,7 @@ namespace Can_I_retire_yet
             this.dgv_expenses.RowTemplate.Height = 28;
             this.dgv_expenses.Size = new System.Drawing.Size(1385, 633);
             this.dgv_expenses.TabIndex = 1;
+            this.dgv_expenses.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_expenses_CellValueChanged);
             // 
             // panel25
             // 
@@ -562,6 +305,7 @@ namespace Can_I_retire_yet
             this.dgv_income.RowTemplate.Height = 28;
             this.dgv_income.Size = new System.Drawing.Size(1385, 633);
             this.dgv_income.TabIndex = 1;
+            this.dgv_income.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_income_CellValueChanged);
             // 
             // panel26
             // 
@@ -941,6 +685,7 @@ namespace Can_I_retire_yet
             this.dgv_assets.RowTemplate.Height = 28;
             this.dgv_assets.Size = new System.Drawing.Size(1379, 627);
             this.dgv_assets.TabIndex = 2;
+            this.dgv_assets.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_assets_CellValueChanged);
             // 
             // label2
             // 
@@ -996,6 +741,106 @@ namespace Can_I_retire_yet
             this.lbl_assets_delete.Text = "delete";
             this.lbl_assets_delete.Click += new System.EventHandler(this.lbl_assets_delete_Click);
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.tableLayoutPanel1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(3, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1385, 703);
+            this.panel2.TabIndex = 0;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 300F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.panel3, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel4, 1, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1385, 703);
+            this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.lbl_income);
+            this.panel3.Controls.Add(this.lbl_expenses);
+            this.panel3.Controls.Add(this.lbl_assets);
+            this.panel3.Controls.Add(this.label4);
+            this.panel3.Controls.Add(this.label3);
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(3, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(294, 697);
+            this.panel3.TabIndex = 0;
+            // 
+            // panel4
+            // 
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(303, 3);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1079, 697);
+            this.panel4.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(21, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(58, 20);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Assets";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(21, 61);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(79, 20);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Expenses";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(21, 105);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(62, 20);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Income";
+            // 
+            // lbl_assets
+            // 
+            this.lbl_assets.AutoSize = true;
+            this.lbl_assets.Location = new System.Drawing.Point(137, 22);
+            this.lbl_assets.Name = "lbl_assets";
+            this.lbl_assets.Size = new System.Drawing.Size(21, 20);
+            this.lbl_assets.TabIndex = 3;
+            this.lbl_assets.Text = "...";
+            // 
+            // lbl_expenses
+            // 
+            this.lbl_expenses.AutoSize = true;
+            this.lbl_expenses.Location = new System.Drawing.Point(137, 61);
+            this.lbl_expenses.Name = "lbl_expenses";
+            this.lbl_expenses.Size = new System.Drawing.Size(21, 20);
+            this.lbl_expenses.TabIndex = 4;
+            this.lbl_expenses.Text = "...";
+            // 
+            // lbl_income
+            // 
+            this.lbl_income.AutoSize = true;
+            this.lbl_income.Location = new System.Drawing.Point(137, 105);
+            this.lbl_income.Name = "lbl_income";
+            this.lbl_income.Size = new System.Drawing.Size(21, 20);
+            this.lbl_income.TabIndex = 5;
+            this.lbl_income.Text = "...";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -1007,27 +852,9 @@ namespace Can_I_retire_yet
             this.Text = "Can I Retire Yet";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.tableLayoutPanel5.ResumeLayout(false);
-            this.panel11.ResumeLayout(false);
-            this.panel11.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.tableLayoutPanel4.ResumeLayout(false);
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.tableLayoutPanel6.ResumeLayout(false);
-            this.panel13.ResumeLayout(false);
-            this.panel13.PerformLayout();
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
             this.tableLayoutPanel7.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
+            this.tab_overall.ResumeLayout(false);
             this.tab_expenses.ResumeLayout(false);
             this.tab_income.ResumeLayout(false);
             this.panel19.ResumeLayout(false);
@@ -1078,6 +905,10 @@ namespace Can_I_retire_yet
             this.panel43.ResumeLayout(false);
             this.panel43.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_assets)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1085,31 +916,9 @@ namespace Can_I_retire_yet
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
-        private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
-        private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.Panel panel13;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label lbl_assets_total;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tab_overall;
         private System.Windows.Forms.TabPage tab_expenses;
         private System.Windows.Forms.TabPage tab_income;
         private System.Windows.Forms.Panel panel19;
@@ -1161,6 +970,16 @@ namespace Can_I_retire_yet
         private System.Windows.Forms.Label lbl_assets_add;
         private System.Windows.Forms.Label lbl_assets_delete;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label lbl_income;
+        private System.Windows.Forms.Label lbl_expenses;
+        private System.Windows.Forms.Label lbl_assets;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel4;
     }
 }
 

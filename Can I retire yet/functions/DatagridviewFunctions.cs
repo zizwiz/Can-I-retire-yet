@@ -127,7 +127,8 @@ namespace Can_I_retire_yet.functions
             //dgv.Columns[1].DefaultCellStyle.Format = "c2";
             //dgv.Columns[1].DefaultCellStyle.FormatProvider = CultureInfo.GetCultureInfo("en-GB");
 
-            dgv.Columns[1].DefaultCellStyle.Format = "£0.00  ";
+            //dgv.Columns[1].DefaultCellStyle.Format = "£0.00  ";
+            dgv.Columns[1].DefaultCellStyle.Format = "C";
         }
     }
 }
