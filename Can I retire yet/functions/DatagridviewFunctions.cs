@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -40,9 +41,25 @@ namespace Can_I_retire_yet.functions
             }
         }
 
-        public static void OpenFile(DataGridView dgv)
+        public static string CalculateTabTotal(DataGridView dgv, DataGridViewCellEventArgs e)
         {
-           OpenFileDialog openFileDialog1 = new OpenFileDialog
+            Decimal sum = 0;
+
+            for (int i = 0; i < dgv.Rows.Count; ++i)
+            {
+                sum += decimal.Parse(dgv.Rows[i].Cells[e.ColumnIndex].Value.ToString(), NumberStyles.Currency, CultureInfo.CreateSpecificCulture("en-GB").NumberFormat);
+            }
+
+          
+            return string.Format(new CultureInfo("en-GB"), "{0:C}", sum);
+        }
+
+
+
+
+        public  static void OpenFile(DataGridView dgv)
+        {
+            OpenFileDialog openFileDialog1 = new OpenFileDialog
             {
                 InitialDirectory = Assembly.GetEntryAssembly().Location,
                 Title = "Browse CSV Files",
@@ -59,11 +76,43 @@ namespace Can_I_retire_yet.functions
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 if (dgv.RowCount > 0) dgv.Rows.Clear(); //clear grid
+
+                // Replace | with , especially in currency.
+                //string text = File.ReadAllText(openFileDialog1.FileName);
+                //text = text.Replace('|', ',');
+                //File.WriteAllText(openFileDialog1.FileName, text);
+
                 //Write the data to the Grid
-                File.ReadLines(openFileDialog1.FileName).Skip(1)
-                    .Select(x => x.Split(','))
-                    .ToList()
-                    .ForEach(line => dgv.Rows.Add(line));
+                //File.ReadLines(openFileDialog1.FileName).Skip(1)
+                //    .Select(x => x.Split(','))
+                //    .ToList()
+                //    .ForEach(line => dgv.Rows.Add(line));
+
+                Form1.flag = false;
+
+                foreach (var srLine in File.ReadAllLines(openFileDialog1.FileName).Skip(1))
+                {
+                    dgv.Rows.Add(srLine.Split(','));
+                }
+
+                
+
+                for (int i = 0; i < dgv.RowCount; i++)
+                {
+                    for (int j = 0; j < dgv.ColumnCount; j++)
+                    {
+                        dgv[j, i].Value = dgv[j, i].Value.ToString().Replace('|', ',');
+                    }
+
+                }
+
+
+                //Form1 frm = new Form1();
+                //DataGridViewCellEventArgs e = new DataGridViewCellEventArgs(0, 0);
+
+                //frm.lbl_assets.Text = CalculateTabTotal(frm.dgv_assets, e);
+
+                Form1.flag = true;
             }
         }
 
@@ -82,6 +131,7 @@ namespace Can_I_retire_yet.functions
                 int columnCount = dgv.ColumnCount;
                 string columnNames = "";
                 string[] output = new string[dgv.RowCount + 1];
+
                 for (int i = 0; i < columnCount; i++)
                 {
                     columnNames += dgv.Columns[i].Name + ",";
@@ -91,7 +141,9 @@ namespace Can_I_retire_yet.functions
                 {
                     for (int j = 0; j < columnCount; j++)
                     {
-                        output[i] += dgv.Rows[i - 1].Cells[j].Value + ",";
+                        dgv.CurrentCell = dgv[0, 0]; //Move cursor back to cell[0,0] incase it is resting in an updating cell.
+                        output[i] += dgv.Rows[i - 1].Cells[j].Value.ToString().Replace(',', '|') + ",";
+                        //output[i] += dgv.Rows[i - 1].Cells[j].Value + ",";
                     }
                 }
                 File.WriteAllLines(saveFileDialog1.FileName, output, Encoding.UTF8);
@@ -116,6 +168,18 @@ namespace Can_I_retire_yet.functions
             {
                 dgv.Columns[0].Name = "Name";
                 dgv.Columns[1].Name = "Monthly";
+            }
+            else if (dgv.Name == "dgv_future_income")
+            {
+                dgv.Columns[0].Name = "Year";
+                dgv.Columns[1].Name = "Name";
+                dgv.Columns[2].Name = "Amount";
+            }
+            else if (dgv.Name == "dgv_future_expenses")
+            {
+                dgv.Columns[0].Name = "Year";
+                dgv.Columns[1].Name = "Name";
+                dgv.Columns[2].Name = "Amount";
             }
 
             dgv.AllowUserToAddRows = false; //remove last empty row
