@@ -5,7 +5,7 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Reflection;
 using Can_I_retire_yet.functions;
-
+using Can_I_retire_yet.MonteCarlo;
 
 namespace Can_I_retire_yet
 {
@@ -29,7 +29,7 @@ namespace Can_I_retire_yet
         {
             Text += " : v" + Assembly.GetExecutingAssembly().GetName().Version; // put in the version number
 
-            DatagridviewFunctions.SetUpViews(dgv_expenses,2);
+            DatagridviewFunctions.SetUpViews(dgv_expenses, 2);
             DatagridviewFunctions.SetUpViews(dgv_assets, 2);
             DatagridviewFunctions.SetUpViews(dgv_income, 2);
             DatagridviewFunctions.SetUpViews(dgv_future_expenses, 3);
@@ -126,7 +126,7 @@ namespace Can_I_retire_yet
         {
             DatagridviewFunctions.OpenFile(dgv_future_income);
         }
-    
+
 
         private void lbl_future_income_save_Click(object sender, EventArgs e)
         {
@@ -152,7 +152,7 @@ namespace Can_I_retire_yet
             //        .Sum(x => decimal.Parse(x.Cells[1].Value.ToString()))
             //        .ToString();
 
-                
+
             //}
         }
 
@@ -180,6 +180,63 @@ namespace Can_I_retire_yet
             }
         }
 
- 
+        private void dgv_future_expenses_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if ((dgv_future_expenses.Columns[e.ColumnIndex].Name == "Amount") && (flag))
+            {
+                lbl_future_expenses.Text = DatagridviewFunctions.CalculateTabTotal(dgv_future_expenses, e);
+            }
+        }
+
+        private void dgv_future_income_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if ((dgv_future_income.Columns[e.ColumnIndex].Name == "Amount") && (flag))
+            {
+                lbl_future_income.Text = DatagridviewFunctions.CalculateTabTotal(dgv_future_income, e);
+            }
+        }
+
+        private void lbl_totals_TextChanged(object sender, EventArgs e)
+        {
+            lbl_1st_pass_total.Text = ((decimal.Parse(lbl_assets.Text, NumberStyles.Currency, CultureInfo.CreateSpecificCulture("en-GB").NumberFormat)
+                                                                    + decimal.Parse(lbl_income.Text, NumberStyles.Currency, CultureInfo.CreateSpecificCulture("en-GB").NumberFormat))
+                                                                   - decimal.Parse(lbl_expenses.Text, NumberStyles.Currency, CultureInfo.CreateSpecificCulture("en-GB").NumberFormat)).ToString("C", new CultureInfo("en-GB"));//     .Format(new CultureInfo("en-GB"), "{0:C}");
+        }
+
+        private void btn_open_all_Click(object sender, EventArgs e)
+        {
+            DatagridviewFunctions.OpenFile(dgv_assets);
+            DatagridviewFunctions.OpenFile(dgv_income);
+            DatagridviewFunctions.OpenFile(dgv_expenses);
+            DatagridviewFunctions.OpenFile(dgv_future_income);
+            DatagridviewFunctions.OpenFile(dgv_future_expenses);
+        }
+
+        private void btn_run_monte_carlo_Click(object sender, EventArgs e)
+        {
+            
+            try
+            {
+                var mc = new RetirementMonteCarlo(
+                    initialBalance: 1_000_000,   // Starting portfolio
+                    annualWithdrawal: 40_000,   // Annual spending
+                    stockMeanReturn: 0.07,      // 7% avg stock return
+                    stockStdDev: 0.15,          // 15% volatility
+                    bondMeanReturn: 0.03,       // 3% avg bond return
+                    bondStdDev: 0.05,           // 5% volatility
+                    stockAllocation: 0.6,       // 60% stocks, 40% bonds
+                    years: 30,                  // Retirement length
+                    simulations: 10000          // Number of Monte Carlo runs
+                );
+
+                double successProbability = mc.RunSimulation();
+                rchtxtbx_monte_carlo_output.AppendText($"Probability of not running out of money: {successProbability:P2}");
+
+            }
+            catch (Exception ex)
+            {
+                rchtxtbx_monte_carlo_output.AppendText($"Error: {ex.Message}");
+            }
+        }
     }
 }
