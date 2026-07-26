@@ -137,12 +137,31 @@ namespace Can_I_retire_yet
             this.lbl_future_income_delete = new System.Windows.Forms.Label();
             this.panel44 = new System.Windows.Forms.Panel();
             this.label21 = new System.Windows.Forms.Label();
+            this.tab_MonteCarlo = new System.Windows.Forms.TabPage();
+            this.rchtxtbx_monte_carlo_output = new System.Windows.Forms.RichTextBox();
+            this.btn_run_monte_carlo = new System.Windows.Forms.Button();
             this.panel19 = new System.Windows.Forms.Panel();
             this.btn_open_all = new System.Windows.Forms.Button();
             this.btn_close = new System.Windows.Forms.Button();
-            this.tab_MonteCarlo = new System.Windows.Forms.TabPage();
-            this.btn_run_monte_carlo = new System.Windows.Forms.Button();
-            this.rchtxtbx_monte_carlo_output = new System.Windows.Forms.RichTextBox();
+            this.txtbx_starting_portfolio = new System.Windows.Forms.TextBox();
+            this.txtbx_annual_spending = new System.Windows.Forms.TextBox();
+            this.txtbx_stock_returns = new System.Windows.Forms.TextBox();
+            this.txtbx_stock_volatility = new System.Windows.Forms.TextBox();
+            this.txtbx_avg_bond_return = new System.Windows.Forms.TextBox();
+            this.txtbx_bond_volatility = new System.Windows.Forms.TextBox();
+            this.txtbx_stock_allocation = new System.Windows.Forms.TextBox();
+            this.txtbx_monte_carlo_iterations = new System.Windows.Forms.TextBox();
+            this.lbl_starting_portfolio = new System.Windows.Forms.Label();
+            this.lbl_annual_spending = new System.Windows.Forms.Label();
+            this.lbl_stock_volatility = new System.Windows.Forms.Label();
+            this.lbl_avg_stock_return = new System.Windows.Forms.Label();
+            this.lbl_bond_volatility = new System.Windows.Forms.Label();
+            this.lbl_avg_bond_return = new System.Windows.Forms.Label();
+            this.lbl_retirement_length = new System.Windows.Forms.Label();
+            this.lbl_allocation_stocks_bonds = new System.Windows.Forms.Label();
+            this.lbl_monte_carlo_runs = new System.Windows.Forms.Label();
+            this.trkbr_retirement_length = new System.Windows.Forms.TrackBar();
+            this.lbl_trackbar_value = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -208,8 +227,9 @@ namespace Can_I_retire_yet
             this.panel21.SuspendLayout();
             this.panel22.SuspendLayout();
             this.panel44.SuspendLayout();
-            this.panel19.SuspendLayout();
             this.tab_MonteCarlo.SuspendLayout();
+            this.panel19.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trkbr_retirement_length)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -1346,6 +1366,55 @@ namespace Can_I_retire_yet
             this.label21.TabIndex = 2;
             this.label21.Text = "Future Income";
             // 
+            // tab_MonteCarlo
+            // 
+            this.tab_MonteCarlo.Controls.Add(this.lbl_trackbar_value);
+            this.tab_MonteCarlo.Controls.Add(this.lbl_monte_carlo_runs);
+            this.tab_MonteCarlo.Controls.Add(this.lbl_retirement_length);
+            this.tab_MonteCarlo.Controls.Add(this.lbl_allocation_stocks_bonds);
+            this.tab_MonteCarlo.Controls.Add(this.lbl_bond_volatility);
+            this.tab_MonteCarlo.Controls.Add(this.lbl_avg_bond_return);
+            this.tab_MonteCarlo.Controls.Add(this.lbl_stock_volatility);
+            this.tab_MonteCarlo.Controls.Add(this.lbl_avg_stock_return);
+            this.tab_MonteCarlo.Controls.Add(this.lbl_annual_spending);
+            this.tab_MonteCarlo.Controls.Add(this.lbl_starting_portfolio);
+            this.tab_MonteCarlo.Controls.Add(this.txtbx_monte_carlo_iterations);
+            this.tab_MonteCarlo.Controls.Add(this.txtbx_stock_allocation);
+            this.tab_MonteCarlo.Controls.Add(this.txtbx_bond_volatility);
+            this.tab_MonteCarlo.Controls.Add(this.txtbx_avg_bond_return);
+            this.tab_MonteCarlo.Controls.Add(this.txtbx_stock_volatility);
+            this.tab_MonteCarlo.Controls.Add(this.txtbx_stock_returns);
+            this.tab_MonteCarlo.Controls.Add(this.txtbx_annual_spending);
+            this.tab_MonteCarlo.Controls.Add(this.txtbx_starting_portfolio);
+            this.tab_MonteCarlo.Controls.Add(this.rchtxtbx_monte_carlo_output);
+            this.tab_MonteCarlo.Controls.Add(this.btn_run_monte_carlo);
+            this.tab_MonteCarlo.Controls.Add(this.trkbr_retirement_length);
+            this.tab_MonteCarlo.Location = new System.Drawing.Point(4, 29);
+            this.tab_MonteCarlo.Name = "tab_MonteCarlo";
+            this.tab_MonteCarlo.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_MonteCarlo.Size = new System.Drawing.Size(1391, 709);
+            this.tab_MonteCarlo.TabIndex = 7;
+            this.tab_MonteCarlo.Text = "Monte Carlo Simulation";
+            this.tab_MonteCarlo.UseVisualStyleBackColor = true;
+            // 
+            // rchtxtbx_monte_carlo_output
+            // 
+            this.rchtxtbx_monte_carlo_output.Location = new System.Drawing.Point(775, 55);
+            this.rchtxtbx_monte_carlo_output.Name = "rchtxtbx_monte_carlo_output";
+            this.rchtxtbx_monte_carlo_output.Size = new System.Drawing.Size(558, 594);
+            this.rchtxtbx_monte_carlo_output.TabIndex = 1;
+            this.rchtxtbx_monte_carlo_output.Text = "";
+            // 
+            // btn_run_monte_carlo
+            // 
+            this.btn_run_monte_carlo.Location = new System.Drawing.Point(579, 587);
+            this.btn_run_monte_carlo.Name = "btn_run_monte_carlo";
+            this.btn_run_monte_carlo.Size = new System.Drawing.Size(147, 48);
+            this.btn_run_monte_carlo.TabIndex = 0;
+            this.btn_run_monte_carlo.Text = "Run";
+            this.btn_run_monte_carlo.UseVisualStyleBackColor = true;
+            this.btn_run_monte_carlo.Click += new System.EventHandler(this.btn_run_monte_carlo_Click);
+            // 
             // panel19
             // 
             this.panel19.Controls.Add(this.btn_open_all);
@@ -1376,35 +1445,169 @@ namespace Can_I_retire_yet
             this.btn_close.UseVisualStyleBackColor = true;
             this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
             // 
-            // tab_MonteCarlo
+            // txtbx_starting_portfolio
             // 
-            this.tab_MonteCarlo.Controls.Add(this.rchtxtbx_monte_carlo_output);
-            this.tab_MonteCarlo.Controls.Add(this.btn_run_monte_carlo);
-            this.tab_MonteCarlo.Location = new System.Drawing.Point(4, 29);
-            this.tab_MonteCarlo.Name = "tab_MonteCarlo";
-            this.tab_MonteCarlo.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_MonteCarlo.Size = new System.Drawing.Size(1391, 709);
-            this.tab_MonteCarlo.TabIndex = 7;
-            this.tab_MonteCarlo.Text = "Monte Carlo Simulation";
-            this.tab_MonteCarlo.UseVisualStyleBackColor = true;
+            this.txtbx_starting_portfolio.Location = new System.Drawing.Point(251, 43);
+            this.txtbx_starting_portfolio.Name = "txtbx_starting_portfolio";
+            this.txtbx_starting_portfolio.Size = new System.Drawing.Size(236, 26);
+            this.txtbx_starting_portfolio.TabIndex = 2;
+            this.txtbx_starting_portfolio.Text = "1 000 000.00";
             // 
-            // btn_run_monte_carlo
+            // txtbx_annual_spending
             // 
-            this.btn_run_monte_carlo.Location = new System.Drawing.Point(87, 39);
-            this.btn_run_monte_carlo.Name = "btn_run_monte_carlo";
-            this.btn_run_monte_carlo.Size = new System.Drawing.Size(147, 48);
-            this.btn_run_monte_carlo.TabIndex = 0;
-            this.btn_run_monte_carlo.Text = "Run";
-            this.btn_run_monte_carlo.UseVisualStyleBackColor = true;
-            this.btn_run_monte_carlo.Click += new System.EventHandler(this.btn_run_monte_carlo_Click);
+            this.txtbx_annual_spending.Location = new System.Drawing.Point(251, 75);
+            this.txtbx_annual_spending.Name = "txtbx_annual_spending";
+            this.txtbx_annual_spending.Size = new System.Drawing.Size(236, 26);
+            this.txtbx_annual_spending.TabIndex = 3;
+            this.txtbx_annual_spending.Text = "40 000.00";
             // 
-            // rchtxtbx_monte_carlo_output
+            // txtbx_stock_returns
             // 
-            this.rchtxtbx_monte_carlo_output.Location = new System.Drawing.Point(775, 55);
-            this.rchtxtbx_monte_carlo_output.Name = "rchtxtbx_monte_carlo_output";
-            this.rchtxtbx_monte_carlo_output.Size = new System.Drawing.Size(558, 594);
-            this.rchtxtbx_monte_carlo_output.TabIndex = 1;
-            this.rchtxtbx_monte_carlo_output.Text = "";
+            this.txtbx_stock_returns.Location = new System.Drawing.Point(251, 107);
+            this.txtbx_stock_returns.Name = "txtbx_stock_returns";
+            this.txtbx_stock_returns.Size = new System.Drawing.Size(236, 26);
+            this.txtbx_stock_returns.TabIndex = 4;
+            this.txtbx_stock_returns.Text = "7";
+            // 
+            // txtbx_stock_volatility
+            // 
+            this.txtbx_stock_volatility.Location = new System.Drawing.Point(251, 139);
+            this.txtbx_stock_volatility.Name = "txtbx_stock_volatility";
+            this.txtbx_stock_volatility.Size = new System.Drawing.Size(236, 26);
+            this.txtbx_stock_volatility.TabIndex = 5;
+            this.txtbx_stock_volatility.Text = "15";
+            // 
+            // txtbx_avg_bond_return
+            // 
+            this.txtbx_avg_bond_return.Location = new System.Drawing.Point(251, 171);
+            this.txtbx_avg_bond_return.Name = "txtbx_avg_bond_return";
+            this.txtbx_avg_bond_return.Size = new System.Drawing.Size(236, 26);
+            this.txtbx_avg_bond_return.TabIndex = 6;
+            this.txtbx_avg_bond_return.Text = "3";
+            // 
+            // txtbx_bond_volatility
+            // 
+            this.txtbx_bond_volatility.Location = new System.Drawing.Point(251, 203);
+            this.txtbx_bond_volatility.Name = "txtbx_bond_volatility";
+            this.txtbx_bond_volatility.Size = new System.Drawing.Size(236, 26);
+            this.txtbx_bond_volatility.TabIndex = 7;
+            this.txtbx_bond_volatility.Text = "5";
+            // 
+            // txtbx_stock_allocation
+            // 
+            this.txtbx_stock_allocation.Location = new System.Drawing.Point(251, 235);
+            this.txtbx_stock_allocation.Name = "txtbx_stock_allocation";
+            this.txtbx_stock_allocation.Size = new System.Drawing.Size(236, 26);
+            this.txtbx_stock_allocation.TabIndex = 8;
+            this.txtbx_stock_allocation.Text = "60";
+            // 
+            // txtbx_monte_carlo_iterations
+            // 
+            this.txtbx_monte_carlo_iterations.Location = new System.Drawing.Point(251, 407);
+            this.txtbx_monte_carlo_iterations.Name = "txtbx_monte_carlo_iterations";
+            this.txtbx_monte_carlo_iterations.Size = new System.Drawing.Size(236, 26);
+            this.txtbx_monte_carlo_iterations.TabIndex = 10;
+            this.txtbx_monte_carlo_iterations.Text = "1000";
+            // 
+            // lbl_starting_portfolio
+            // 
+            this.lbl_starting_portfolio.AutoSize = true;
+            this.lbl_starting_portfolio.Location = new System.Drawing.Point(32, 46);
+            this.lbl_starting_portfolio.Name = "lbl_starting_portfolio";
+            this.lbl_starting_portfolio.Size = new System.Drawing.Size(126, 20);
+            this.lbl_starting_portfolio.TabIndex = 11;
+            this.lbl_starting_portfolio.Text = "Starting portfolio";
+            // 
+            // lbl_annual_spending
+            // 
+            this.lbl_annual_spending.AutoSize = true;
+            this.lbl_annual_spending.Location = new System.Drawing.Point(32, 78);
+            this.lbl_annual_spending.Name = "lbl_annual_spending";
+            this.lbl_annual_spending.Size = new System.Drawing.Size(128, 20);
+            this.lbl_annual_spending.TabIndex = 12;
+            this.lbl_annual_spending.Text = "Annual spending";
+            // 
+            // lbl_stock_volatility
+            // 
+            this.lbl_stock_volatility.AutoSize = true;
+            this.lbl_stock_volatility.Location = new System.Drawing.Point(32, 142);
+            this.lbl_stock_volatility.Name = "lbl_stock_volatility";
+            this.lbl_stock_volatility.Size = new System.Drawing.Size(126, 20);
+            this.lbl_stock_volatility.TabIndex = 14;
+            this.lbl_stock_volatility.Text = "% Stock volatility";
+            // 
+            // lbl_avg_stock_return
+            // 
+            this.lbl_avg_stock_return.AutoSize = true;
+            this.lbl_avg_stock_return.Location = new System.Drawing.Point(32, 110);
+            this.lbl_avg_stock_return.Name = "lbl_avg_stock_return";
+            this.lbl_avg_stock_return.Size = new System.Drawing.Size(142, 20);
+            this.lbl_avg_stock_return.TabIndex = 13;
+            this.lbl_avg_stock_return.Text = "Avg % stock return";
+            // 
+            // lbl_bond_volatility
+            // 
+            this.lbl_bond_volatility.AutoSize = true;
+            this.lbl_bond_volatility.Location = new System.Drawing.Point(32, 206);
+            this.lbl_bond_volatility.Name = "lbl_bond_volatility";
+            this.lbl_bond_volatility.Size = new System.Drawing.Size(123, 20);
+            this.lbl_bond_volatility.TabIndex = 16;
+            this.lbl_bond_volatility.Text = "% Bond volatility";
+            // 
+            // lbl_avg_bond_return
+            // 
+            this.lbl_avg_bond_return.AutoSize = true;
+            this.lbl_avg_bond_return.Location = new System.Drawing.Point(32, 174);
+            this.lbl_avg_bond_return.Name = "lbl_avg_bond_return";
+            this.lbl_avg_bond_return.Size = new System.Drawing.Size(140, 20);
+            this.lbl_avg_bond_return.TabIndex = 15;
+            this.lbl_avg_bond_return.Text = "Avg % bond return";
+            // 
+            // lbl_retirement_length
+            // 
+            this.lbl_retirement_length.AutoSize = true;
+            this.lbl_retirement_length.Location = new System.Drawing.Point(32, 270);
+            this.lbl_retirement_length.Name = "lbl_retirement_length";
+            this.lbl_retirement_length.Size = new System.Drawing.Size(142, 20);
+            this.lbl_retirement_length.TabIndex = 18;
+            this.lbl_retirement_length.Text = "Retirement Length";
+            // 
+            // lbl_allocation_stocks_bonds
+            // 
+            this.lbl_allocation_stocks_bonds.AutoSize = true;
+            this.lbl_allocation_stocks_bonds.Location = new System.Drawing.Point(32, 238);
+            this.lbl_allocation_stocks_bonds.Name = "lbl_allocation_stocks_bonds";
+            this.lbl_allocation_stocks_bonds.Size = new System.Drawing.Size(147, 20);
+            this.lbl_allocation_stocks_bonds.TabIndex = 17;
+            this.lbl_allocation_stocks_bonds.Text = "% Stocks allocation";
+            // 
+            // lbl_monte_carlo_runs
+            // 
+            this.lbl_monte_carlo_runs.AutoSize = true;
+            this.lbl_monte_carlo_runs.Location = new System.Drawing.Point(32, 410);
+            this.lbl_monte_carlo_runs.Name = "lbl_monte_carlo_runs";
+            this.lbl_monte_carlo_runs.Size = new System.Drawing.Size(208, 20);
+            this.lbl_monte_carlo_runs.TabIndex = 19;
+            this.lbl_monte_carlo_runs.Text = "Number of Monte Carlo runs";
+            // 
+            // trkbr_retirement_length
+            // 
+            this.trkbr_retirement_length.Location = new System.Drawing.Point(251, 267);
+            this.trkbr_retirement_length.Maximum = 50;
+            this.trkbr_retirement_length.Name = "trkbr_retirement_length";
+            this.trkbr_retirement_length.Size = new System.Drawing.Size(236, 69);
+            this.trkbr_retirement_length.TabIndex = 20;
+            this.trkbr_retirement_length.Value = 30;
+            this.trkbr_retirement_length.Scroll += new System.EventHandler(this.trkbr_retirement_length_Scroll);
+            // 
+            // lbl_trackbar_value
+            // 
+            this.lbl_trackbar_value.AutoSize = true;
+            this.lbl_trackbar_value.Location = new System.Drawing.Point(270, 316);
+            this.lbl_trackbar_value.Name = "lbl_trackbar_value";
+            this.lbl_trackbar_value.Size = new System.Drawing.Size(58, 20);
+            this.lbl_trackbar_value.TabIndex = 21;
+            this.lbl_trackbar_value.Text = "Value: ";
             // 
             // Form1
             // 
@@ -1507,8 +1710,10 @@ namespace Can_I_retire_yet
             this.panel22.PerformLayout();
             this.panel44.ResumeLayout(false);
             this.panel44.PerformLayout();
-            this.panel19.ResumeLayout(false);
             this.tab_MonteCarlo.ResumeLayout(false);
+            this.tab_MonteCarlo.PerformLayout();
+            this.panel19.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.trkbr_retirement_length)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1626,6 +1831,25 @@ namespace Can_I_retire_yet
         private System.Windows.Forms.TabPage tab_MonteCarlo;
         private System.Windows.Forms.RichTextBox rchtxtbx_monte_carlo_output;
         private System.Windows.Forms.Button btn_run_monte_carlo;
+        private System.Windows.Forms.TextBox txtbx_bond_volatility;
+        private System.Windows.Forms.TextBox txtbx_avg_bond_return;
+        private System.Windows.Forms.TextBox txtbx_stock_volatility;
+        private System.Windows.Forms.TextBox txtbx_stock_returns;
+        private System.Windows.Forms.TextBox txtbx_annual_spending;
+        private System.Windows.Forms.TextBox txtbx_starting_portfolio;
+        private System.Windows.Forms.Label lbl_monte_carlo_runs;
+        private System.Windows.Forms.Label lbl_retirement_length;
+        private System.Windows.Forms.Label lbl_allocation_stocks_bonds;
+        private System.Windows.Forms.Label lbl_bond_volatility;
+        private System.Windows.Forms.Label lbl_avg_bond_return;
+        private System.Windows.Forms.Label lbl_stock_volatility;
+        private System.Windows.Forms.Label lbl_avg_stock_return;
+        private System.Windows.Forms.Label lbl_annual_spending;
+        private System.Windows.Forms.Label lbl_starting_portfolio;
+        private System.Windows.Forms.TextBox txtbx_monte_carlo_iterations;
+        private System.Windows.Forms.TextBox txtbx_stock_allocation;
+        private System.Windows.Forms.TrackBar trkbr_retirement_length;
+        private System.Windows.Forms.Label lbl_trackbar_value;
     }
 }
 

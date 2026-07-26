@@ -34,6 +34,8 @@ namespace Can_I_retire_yet
             DatagridviewFunctions.SetUpViews(dgv_income, 2);
             DatagridviewFunctions.SetUpViews(dgv_future_expenses, 3);
             DatagridviewFunctions.SetUpViews(dgv_future_income, 3);
+
+            lbl_trackbar_value.Text = $"Value: {trkbr_retirement_length.Value}";
         }
 
         private void btn_close_Click(object sender, EventArgs e)
@@ -218,25 +220,30 @@ namespace Can_I_retire_yet
             try
             {
                 var mc = new RetirementMonteCarlo(
-                    initialBalance: 1_000_000,   // Starting portfolio
-                    annualWithdrawal: 40_000,   // Annual spending
-                    stockMeanReturn: 0.07,      // 7% avg stock return
-                    stockStdDev: 0.15,          // 15% volatility
-                    bondMeanReturn: 0.03,       // 3% avg bond return
-                    bondStdDev: 0.05,           // 5% volatility
-                    stockAllocation: 0.6,       // 60% stocks, 40% bonds
-                    years: 30,                  // Retirement length
-                    simulations: 10000          // Number of Monte Carlo runs
+                    initialBalance: 1_000_000, // Starting portfolio
+                    annualWithdrawal: 40_000, // Annual spending
+                    stockMeanReturn: (double.Parse(txtbx_stock_returns.Text)/100), // 7% avg stock return
+                    stockStdDev: (double.Parse(txtbx_stock_volatility.Text)/100), // 15% volatility
+                    bondMeanReturn: (double.Parse(txtbx_avg_bond_return.Text)/100), // 3% avg bond return
+                    bondStdDev: (double.Parse(txtbx_stock_volatility.Text)/100), // 5% volatility
+                    stockAllocation: (double.Parse(txtbx_stock_allocation.Text)/100), // 60% stocks, 40% bonds
+                    years: trkbr_retirement_length.Value, // Retirement length 0 - 50 years
+                    simulations: int.Parse(txtbx_monte_carlo_iterations.Text) // Number of Monte Carlo runs
                 );
 
                 double successProbability = mc.RunSimulation();
-                rchtxtbx_monte_carlo_output.AppendText($"Probability of not running out of money: {successProbability:P2}");
+                rchtxtbx_monte_carlo_output.AppendText($"Probability of not running out of money: {successProbability:P2}\r");
 
             }
             catch (Exception ex)
             {
-                rchtxtbx_monte_carlo_output.AppendText($"Error: {ex.Message}");
+                rchtxtbx_monte_carlo_output.AppendText($"Error: {ex.Message}\r");
             }
+        }
+
+        private void trkbr_retirement_length_Scroll(object sender, EventArgs e)
+        {
+            lbl_trackbar_value.Text = $"Value: {trkbr_retirement_length.Value}";
         }
     }
 }
