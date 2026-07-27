@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Data;
 using System.Globalization;
-using System.Linq;
 using System.Windows.Forms;
 using System.Reflection;
 using Can_I_retire_yet.functions;
@@ -17,9 +15,7 @@ namespace Can_I_retire_yet
     public partial class Form1 : Form
     {
         static public bool flag = true;
-        //private DataGridViewCellEventArgs e = new DataGridViewCellEventArgs(0,0);
-
-
+        
         public Form1()
         {
             InitializeComponent();
@@ -35,127 +31,145 @@ namespace Can_I_retire_yet
             DatagridviewFunctions.SetUpViews(dgv_future_expenses, 3);
             DatagridviewFunctions.SetUpViews(dgv_future_income, 3);
 
-            lbl_trackbar_value.Text = $"Value: {trkbr_retirement_length.Value}";
+
+
+
+
+            lbl_trackbar_value.Text = $"Value: {trkbr_retirement_age.Value}";
         }
 
         private void btn_close_Click(object sender, EventArgs e)
         {
+            SaveInfo();
             Close();
         }
 
+        private void btn_save_all_Click(object sender, EventArgs e)
+        {
+            SaveInfo();
+        }
+
+        private void SaveInfo()
+        {
+            //This is where we save all the info to file
+            //When we press save it asks for location to save it and the name but we append name with _DDMMMYYYYY 
+        }
 
         private void lbl_expenses_add_Click(object sender, EventArgs e)
         {
-            DatagridviewFunctions.AddRow(dgv_expenses);
-        }
-
-        private void lbl_expenses_delete_Click(object sender, EventArgs e)
-        {
-            DatagridviewFunctions.DeleteRow(dgv_expenses);
-        }
-
-        private void lbl_expenses_open_Click(object sender, EventArgs e)
-        {
-            DatagridviewFunctions.OpenFile(dgv_expenses);
-        }
-
-        private void lbl_expenses_save_Click(object sender, EventArgs e)
-        {
-            DatagridviewFunctions.SaveFile(dgv_expenses);
-        }
-
-        private void lbl_assets_open_Click(object sender, EventArgs e)
-        {
-            DatagridviewFunctions.OpenFile(dgv_assets);
-        }
-
-        private void lbl_assets_save_Click(object sender, EventArgs e)
-        {
-            DatagridviewFunctions.SaveFile(dgv_assets);
+            if (DataGridViewAdd(dgv_expenses)){}
         }
 
         private void lbl_assets_add_Click(object sender, EventArgs e)
         {
-            DatagridviewFunctions.AddRow(dgv_assets);
-        }
-
-        private void lbl_assets_delete_Click(object sender, EventArgs e)
-        {
-            DatagridviewFunctions.DeleteRow(dgv_assets);
-        }
-
-        private void lbl_income_open_Click(object sender, EventArgs e)
-        {
-            DatagridviewFunctions.OpenFile(dgv_income);
-        }
-
-        private void lbl_income_save_Click(object sender, EventArgs e)
-        {
-            DatagridviewFunctions.SaveFile(dgv_income);
+            if (DataGridViewAdd(dgv_assets)) { }
         }
 
         private void lbl_income_add_Click(object sender, EventArgs e)
         {
-            DatagridviewFunctions.AddRow(dgv_income);
-        }
-
-        private void lbl_income_delete_Click(object sender, EventArgs e)
-        {
-            DatagridviewFunctions.DeleteRow(dgv_income);
-        }
-
-        private void lbl_future_expenses_open_Click(object sender, EventArgs e)
-        {
-            DatagridviewFunctions.OpenFile(dgv_future_expenses);
-        }
-
-        private void lbl_future_expenses_save_Click(object sender, EventArgs e)
-        {
-            DatagridviewFunctions.SaveFile(dgv_future_expenses);
+            if (DataGridViewAdd(dgv_income)) { }
         }
 
         private void lbl_future_expenses_add_Click(object sender, EventArgs e)
         {
-            DatagridviewFunctions.AddRow(dgv_future_expenses);
-        }
-
-        private void lbl_future_expenses_delete_Click(object sender, EventArgs e)
-        {
-            DatagridviewFunctions.DeleteRow(dgv_future_expenses);
-        }
-
-        private void lbl_future_income_open_Click(object sender, EventArgs e)
-        {
-            DatagridviewFunctions.OpenFile(dgv_future_income);
-        }
-
-
-        private void lbl_future_income_save_Click(object sender, EventArgs e)
-        {
-            DatagridviewFunctions.SaveFile(dgv_future_income);
+            if (DataGridViewAdd(dgv_future_expenses)) { }
         }
 
         private void lbl_future_income_add_Click(object sender, EventArgs e)
         {
-            DatagridviewFunctions.AddRow(dgv_future_income);
+            if (DataGridViewAdd(dgv_future_income)) { }
+        }
+        private void lbl_cash_add_Click(object sender, EventArgs e)
+        {
+            if (DataGridViewAdd(dgv_cash)) { }
+        }
+
+        private void lbl_stocks_shares_add_Click(object sender, EventArgs e)
+        {
+            if (DataGridViewAdd(dgv_stocks_shares)) { }
+        }
+
+        private void lbl_bonds_add_Click(object sender, EventArgs e)
+        {
+            if (DataGridViewAdd(dgv_bonds)) { }
+        }
+
+        private void lbl_savings_add_Click(object sender, EventArgs e)
+        {
+            if (DataGridViewAdd(dgv_savings)) { }
+        }
+
+        private bool DataGridViewAdd(DataGridView dgv)
+        {
+            try
+            {
+                DatagridviewFunctions.AddRow(dgv);
+                return true;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Exception: " + e);
+                return false;
+            }
+        }
+
+        private void lbl_expenses_delete_Click(object sender, EventArgs e)
+        {
+            if (DataGridViewDelete(dgv_expenses)) { }
+        }
+
+        private void lbl_assets_delete_Click(object sender, EventArgs e)
+        {
+            if (DataGridViewDelete(dgv_assets)) { }
+        }
+
+        private void lbl_income_delete_Click(object sender, EventArgs e)
+        {
+            if (DataGridViewDelete(dgv_income)) { }
+        }
+
+        private void lbl_future_expenses_delete_Click(object sender, EventArgs e)
+        {
+            if (DataGridViewDelete(dgv_future_expenses)) { }
         }
 
         private void lbl_future_income_delete_Click(object sender, EventArgs e)
         {
-            DatagridviewFunctions.DeleteRow(dgv_future_income);
+            if (DataGridViewDelete(dgv_future_income)) { }
         }
 
-        private void dgv_assets_CellStateChanged(object sender, DataGridViewCellStateChangedEventArgs e)
+        private void lbl_cash_delete_Click(object sender, EventArgs e)
         {
-            //if (dgv_assets.CurrentCell.ColumnIndex == 1)
-            //{
-            //    lbl_assets_total.Text = dgv_assets.Rows.Cast<DataGridViewRow>()
-            //        .AsEnumerable()
-            //        .Sum(x => decimal.Parse(x.Cells[1].Value.ToString()))
-            //        .ToString();
+            if (DataGridViewDelete(dgv_cash)) { }
+        }
 
+        private void lbl_savings_delete_Click(object sender, EventArgs e)
+        {
+            if (DataGridViewDelete(dgv_savings)) { }
+        }
 
-            //}
+        private void lbl_stocks_shares_delete_Click(object sender, EventArgs e)
+        {
+            if (DataGridViewDelete(dgv_stocks_shares)) { }
+        }
+
+        private void lbl_bonds_delete_Click(object sender, EventArgs e)
+        {
+            if (DataGridViewDelete(dgv_bonds)) { }
+        }
+
+        private bool DataGridViewDelete(DataGridView dgv)
+        {
+            try
+            {
+                DatagridviewFunctions.DeleteRow(dgv);
+                return true;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Exception: " + e);
+                return false;
+            }
         }
 
         private void dgv_assets_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -216,18 +230,18 @@ namespace Can_I_retire_yet
 
         private void btn_run_monte_carlo_Click(object sender, EventArgs e)
         {
-            
+
             try
             {
                 var mc = new RetirementMonteCarlo(
                     initialBalance: 1_000_000, // Starting portfolio
                     annualWithdrawal: 40_000, // Annual spending
-                    stockMeanReturn: (double.Parse(txtbx_stock_returns.Text)/100), // 7% avg stock return
-                    stockStdDev: (double.Parse(txtbx_stock_volatility.Text)/100), // 15% volatility
-                    bondMeanReturn: (double.Parse(txtbx_avg_bond_return.Text)/100), // 3% avg bond return
-                    bondStdDev: (double.Parse(txtbx_stock_volatility.Text)/100), // 5% volatility
-                    stockAllocation: (double.Parse(txtbx_stock_allocation.Text)/100), // 60% stocks, 40% bonds
-                    years: trkbr_retirement_length.Value, // Retirement length 0 - 50 years
+                    stockMeanReturn: (double.Parse(txtbx_stock_returns.Text) / 100), // 7% avg stock return
+                    stockStdDev: (double.Parse(txtbx_stock_volatility.Text) / 100), // 15% volatility
+                    bondMeanReturn: (double.Parse(txtbx_avg_bond_return.Text) / 100), // 3% avg bond return
+                    bondStdDev: (double.Parse(txtbx_stock_volatility.Text) / 100), // 5% volatility
+                    stockAllocation: (double.Parse(txtbx_stock_allocation.Text) / 100), // 60% stocks, 40% bonds
+                    years: 100 - trkbr_retirement_age.Value, // Retirement length 0 - 50 years
                     simulations: int.Parse(txtbx_monte_carlo_iterations.Text) // Number of Monte Carlo runs
                 );
 
@@ -243,7 +257,12 @@ namespace Can_I_retire_yet
 
         private void trkbr_retirement_length_Scroll(object sender, EventArgs e)
         {
-            lbl_trackbar_value.Text = $"Value: {trkbr_retirement_length.Value}";
+            lbl_trackbar_value.Text = $"Value: {trkbr_retirement_age.Value}";
         }
+
+
+
+
+
     }
 }
