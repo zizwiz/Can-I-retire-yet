@@ -206,11 +206,29 @@ namespace Can_I_retire_yet
             this.panel71 = new System.Windows.Forms.Panel();
             this.lbl_bonds_delete = new System.Windows.Forms.Label();
             this.panel72 = new System.Windows.Forms.Panel();
-            this.lbl_bonds = new System.Windows.Forms.Label();
+            this.lable5 = new System.Windows.Forms.Label();
             this.lbl_income_add = new System.Windows.Forms.Label();
             this.lbl_future_expenses_add = new System.Windows.Forms.Label();
             this.lbl_future_income_add = new System.Windows.Forms.Label();
             this.lbl_expenses_add = new System.Windows.Forms.Label();
+            this.lbl_bonds = new System.Windows.Forms.Label();
+            this.lbl_savings = new System.Windows.Forms.Label();
+            this.lbl_cash = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.lbl_stocks_shares = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.lbl_total_minus_expenses = new System.Windows.Forms.Label();
+            this.Label23 = new System.Windows.Forms.Label();
+            this.btn_new = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -218,6 +236,7 @@ namespace Can_I_retire_yet
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.tab_assets.SuspendLayout();
             this.tableLayoutPanel14.SuspendLayout();
             this.panel16.SuspendLayout();
@@ -305,6 +324,7 @@ namespace Can_I_retire_yet
             this.panel68.SuspendLayout();
             this.panel71.SuspendLayout();
             this.panel72.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -388,6 +408,17 @@ namespace Can_I_retire_yet
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.groupBox3);
+            this.panel3.Controls.Add(this.lbl_total_minus_expenses);
+            this.panel3.Controls.Add(this.Label23);
+            this.panel3.Controls.Add(this.lbl_stocks_shares);
+            this.panel3.Controls.Add(this.label7);
+            this.panel3.Controls.Add(this.lbl_bonds);
+            this.panel3.Controls.Add(this.lbl_savings);
+            this.panel3.Controls.Add(this.lbl_cash);
+            this.panel3.Controls.Add(this.label17);
+            this.panel3.Controls.Add(this.label18);
+            this.panel3.Controls.Add(this.label19);
             this.panel3.Controls.Add(this.groupBox1);
             this.panel3.Controls.Add(this.lbl_1st_pass_total);
             this.panel3.Controls.Add(this.label12);
@@ -409,7 +440,10 @@ namespace Can_I_retire_yet
             // 
             // groupBox1
             // 
-            this.groupBox1.Location = new System.Drawing.Point(24, 142);
+            this.groupBox1.Controls.Add(this.groupBox2);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.label15);
+            this.groupBox1.Location = new System.Drawing.Point(24, 150);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(245, 8);
             this.groupBox1.TabIndex = 12;
@@ -418,7 +452,7 @@ namespace Can_I_retire_yet
             // lbl_1st_pass_total
             // 
             this.lbl_1st_pass_total.AutoSize = true;
-            this.lbl_1st_pass_total.Location = new System.Drawing.Point(175, 164);
+            this.lbl_1st_pass_total.Location = new System.Drawing.Point(175, 172);
             this.lbl_1st_pass_total.Name = "lbl_1st_pass_total";
             this.lbl_1st_pass_total.Size = new System.Drawing.Size(49, 20);
             this.lbl_1st_pass_total.TabIndex = 11;
@@ -427,7 +461,7 @@ namespace Can_I_retire_yet
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(21, 164);
+            this.label12.Location = new System.Drawing.Point(21, 172);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(44, 20);
             this.label12.TabIndex = 10;
@@ -436,7 +470,7 @@ namespace Can_I_retire_yet
             // lbl_future_income
             // 
             this.lbl_future_income.AutoSize = true;
-            this.lbl_future_income.Location = new System.Drawing.Point(175, 371);
+            this.lbl_future_income.Location = new System.Drawing.Point(175, 437);
             this.lbl_future_income.Name = "lbl_future_income";
             this.lbl_future_income.Size = new System.Drawing.Size(49, 20);
             this.lbl_future_income.TabIndex = 9;
@@ -445,7 +479,7 @@ namespace Can_I_retire_yet
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(21, 371);
+            this.label8.Location = new System.Drawing.Point(21, 437);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(113, 20);
             this.label8.TabIndex = 8;
@@ -454,7 +488,7 @@ namespace Can_I_retire_yet
             // lbl_future_expenses
             // 
             this.lbl_future_expenses.AutoSize = true;
-            this.lbl_future_expenses.Location = new System.Drawing.Point(175, 327);
+            this.lbl_future_expenses.Location = new System.Drawing.Point(175, 393);
             this.lbl_future_expenses.Name = "lbl_future_expenses";
             this.lbl_future_expenses.Size = new System.Drawing.Size(49, 20);
             this.lbl_future_expenses.TabIndex = 7;
@@ -463,7 +497,7 @@ namespace Can_I_retire_yet
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(21, 327);
+            this.label6.Location = new System.Drawing.Point(21, 393);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(130, 20);
             this.label6.TabIndex = 6;
@@ -472,7 +506,7 @@ namespace Can_I_retire_yet
             // lbl_income
             // 
             this.lbl_income.AutoSize = true;
-            this.lbl_income.Location = new System.Drawing.Point(175, 105);
+            this.lbl_income.Location = new System.Drawing.Point(175, 42);
             this.lbl_income.Name = "lbl_income";
             this.lbl_income.Size = new System.Drawing.Size(49, 20);
             this.lbl_income.TabIndex = 5;
@@ -482,7 +516,7 @@ namespace Can_I_retire_yet
             // lbl_expenses
             // 
             this.lbl_expenses.AutoSize = true;
-            this.lbl_expenses.Location = new System.Drawing.Point(175, 61);
+            this.lbl_expenses.Location = new System.Drawing.Point(174, 231);
             this.lbl_expenses.Name = "lbl_expenses";
             this.lbl_expenses.Size = new System.Drawing.Size(49, 20);
             this.lbl_expenses.TabIndex = 4;
@@ -502,7 +536,7 @@ namespace Can_I_retire_yet
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(21, 105);
+            this.label4.Location = new System.Drawing.Point(21, 42);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(62, 20);
             this.label4.TabIndex = 2;
@@ -511,7 +545,7 @@ namespace Can_I_retire_yet
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(21, 61);
+            this.label3.Location = new System.Drawing.Point(20, 231);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(79, 20);
             this.label3.TabIndex = 1;
@@ -1323,6 +1357,7 @@ namespace Can_I_retire_yet
             // 
             // panel19
             // 
+            this.panel19.Controls.Add(this.btn_new);
             this.panel19.Controls.Add(this.btn_save_all);
             this.panel19.Controls.Add(this.btn_open_all);
             this.panel19.Controls.Add(this.btn_close);
@@ -1629,6 +1664,7 @@ namespace Can_I_retire_yet
             this.dgv_cash.RowTemplate.Height = 28;
             this.dgv_cash.Size = new System.Drawing.Size(1385, 633);
             this.dgv_cash.TabIndex = 2;
+            this.dgv_cash.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_cash_CellValueChanged);
             // 
             // panel46
             // 
@@ -1769,6 +1805,7 @@ namespace Can_I_retire_yet
             this.dgv_savings.RowTemplate.Height = 28;
             this.dgv_savings.Size = new System.Drawing.Size(1385, 633);
             this.dgv_savings.TabIndex = 2;
+            this.dgv_savings.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_savings_CellValueChanged);
             // 
             // panel53
             // 
@@ -1909,6 +1946,7 @@ namespace Can_I_retire_yet
             this.dgv_stocks_shares.RowTemplate.Height = 28;
             this.dgv_stocks_shares.Size = new System.Drawing.Size(1385, 633);
             this.dgv_stocks_shares.TabIndex = 2;
+            this.dgv_stocks_shares.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_stocks_shares_CellValueChanged);
             // 
             // panel60
             // 
@@ -2049,6 +2087,7 @@ namespace Can_I_retire_yet
             this.dgv_bonds.RowTemplate.Height = 28;
             this.dgv_bonds.Size = new System.Drawing.Size(1385, 633);
             this.dgv_bonds.TabIndex = 2;
+            this.dgv_bonds.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_bonds_CellValueChanged);
             // 
             // panel67
             // 
@@ -2138,22 +2177,22 @@ namespace Can_I_retire_yet
             // 
             // panel72
             // 
-            this.panel72.Controls.Add(this.lbl_bonds);
+            this.panel72.Controls.Add(this.lable5);
             this.panel72.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel72.Location = new System.Drawing.Point(203, 3);
             this.panel72.Name = "panel72";
             this.panel72.Size = new System.Drawing.Size(979, 58);
             this.panel72.TabIndex = 4;
             // 
-            // lbl_bonds
+            // lable5
             // 
-            this.lbl_bonds.AutoSize = true;
-            this.lbl_bonds.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_bonds.Location = new System.Drawing.Point(427, 11);
-            this.lbl_bonds.Name = "lbl_bonds";
-            this.lbl_bonds.Size = new System.Drawing.Size(113, 37);
-            this.lbl_bonds.TabIndex = 2;
-            this.lbl_bonds.Text = "Bonds";
+            this.lable5.AutoSize = true;
+            this.lable5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lable5.Location = new System.Drawing.Point(428, 11);
+            this.lable5.Name = "lable5";
+            this.lable5.Size = new System.Drawing.Size(113, 37);
+            this.lable5.TabIndex = 2;
+            this.lable5.Text = "Bonds";
             // 
             // lbl_income_add
             // 
@@ -2199,6 +2238,173 @@ namespace Can_I_retire_yet
             this.lbl_expenses_add.Text = "Add";
             this.lbl_expenses_add.Click += new System.EventHandler(this.lbl_expenses_add_Click);
             // 
+            // lbl_bonds
+            // 
+            this.lbl_bonds.AutoSize = true;
+            this.lbl_bonds.Location = new System.Drawing.Point(175, 102);
+            this.lbl_bonds.Name = "lbl_bonds";
+            this.lbl_bonds.Size = new System.Drawing.Size(49, 20);
+            this.lbl_bonds.TabIndex = 18;
+            this.lbl_bonds.Text = "£0.00";
+            this.lbl_bonds.TextChanged += new System.EventHandler(this.lbl_totals_TextChanged);
+            // 
+            // lbl_savings
+            // 
+            this.lbl_savings.AutoSize = true;
+            this.lbl_savings.Location = new System.Drawing.Point(175, 82);
+            this.lbl_savings.Name = "lbl_savings";
+            this.lbl_savings.Size = new System.Drawing.Size(49, 20);
+            this.lbl_savings.TabIndex = 17;
+            this.lbl_savings.Text = "£0.00";
+            this.lbl_savings.TextChanged += new System.EventHandler(this.lbl_totals_TextChanged);
+            // 
+            // lbl_cash
+            // 
+            this.lbl_cash.AutoSize = true;
+            this.lbl_cash.Location = new System.Drawing.Point(175, 62);
+            this.lbl_cash.Name = "lbl_cash";
+            this.lbl_cash.Size = new System.Drawing.Size(49, 20);
+            this.lbl_cash.TabIndex = 16;
+            this.lbl_cash.Text = "£0.00";
+            this.lbl_cash.TextChanged += new System.EventHandler(this.lbl_totals_TextChanged);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(21, 102);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(55, 20);
+            this.label17.TabIndex = 15;
+            this.label17.Text = "Bonds";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(21, 82);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(65, 20);
+            this.label18.TabIndex = 14;
+            this.label18.Text = "Savings";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(21, 62);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(46, 20);
+            this.label19.TabIndex = 13;
+            this.label19.Text = "Cash";
+            // 
+            // lbl_stocks_shares
+            // 
+            this.lbl_stocks_shares.AutoSize = true;
+            this.lbl_stocks_shares.Location = new System.Drawing.Point(175, 122);
+            this.lbl_stocks_shares.Name = "lbl_stocks_shares";
+            this.lbl_stocks_shares.Size = new System.Drawing.Size(49, 20);
+            this.lbl_stocks_shares.TabIndex = 20;
+            this.lbl_stocks_shares.Text = "£0.00";
+            this.lbl_stocks_shares.TextChanged += new System.EventHandler(this.lbl_totals_TextChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(21, 122);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(144, 20);
+            this.label7.TabIndex = 19;
+            this.label7.Text = "Stocks and Shares";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Location = new System.Drawing.Point(1, -17);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(245, 8);
+            this.groupBox2.TabIndex = 15;
+            this.groupBox2.TabStop = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(152, 5);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(49, 20);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "£0.00";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(-2, 5);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(44, 20);
+            this.label15.TabIndex = 13;
+            this.label15.Text = "Total";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.groupBox4);
+            this.groupBox3.Controls.Add(this.label20);
+            this.groupBox3.Controls.Add(this.label22);
+            this.groupBox3.Location = new System.Drawing.Point(23, 258);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(245, 8);
+            this.groupBox3.TabIndex = 23;
+            this.groupBox3.TabStop = false;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Location = new System.Drawing.Point(1, -17);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(245, 8);
+            this.groupBox4.TabIndex = 15;
+            this.groupBox4.TabStop = false;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(152, 5);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(49, 20);
+            this.label20.TabIndex = 14;
+            this.label20.Text = "£0.00";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(-2, 5);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(44, 20);
+            this.label22.TabIndex = 13;
+            this.label22.Text = "Total";
+            // 
+            // lbl_total_minus_expenses
+            // 
+            this.lbl_total_minus_expenses.AutoSize = true;
+            this.lbl_total_minus_expenses.Location = new System.Drawing.Point(174, 280);
+            this.lbl_total_minus_expenses.Name = "lbl_total_minus_expenses";
+            this.lbl_total_minus_expenses.Size = new System.Drawing.Size(49, 20);
+            this.lbl_total_minus_expenses.TabIndex = 22;
+            this.lbl_total_minus_expenses.Text = "£0.00";
+            // 
+            // Label23
+            // 
+            this.Label23.AutoSize = true;
+            this.Label23.Location = new System.Drawing.Point(20, 280);
+            this.Label23.Name = "Label23";
+            this.Label23.Size = new System.Drawing.Size(44, 20);
+            this.Label23.TabIndex = 21;
+            this.Label23.Text = "Total";
+            // 
+            // btn_new
+            // 
+            this.btn_new.Location = new System.Drawing.Point(613, 13);
+            this.btn_new.Name = "btn_new";
+            this.btn_new.Size = new System.Drawing.Size(172, 49);
+            this.btn_new.TabIndex = 3;
+            this.btn_new.Text = "New";
+            this.btn_new.UseVisualStyleBackColor = true;
+            this.btn_new.Click += new System.EventHandler(this.btn_new_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -2217,6 +2423,8 @@ namespace Can_I_retire_yet
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.tab_assets.ResumeLayout(false);
             this.tableLayoutPanel14.ResumeLayout(false);
             this.panel16.ResumeLayout(false);
@@ -2332,6 +2540,8 @@ namespace Can_I_retire_yet
             this.panel71.PerformLayout();
             this.panel72.ResumeLayout(false);
             this.panel72.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2512,11 +2722,29 @@ namespace Can_I_retire_yet
         private System.Windows.Forms.Panel panel71;
         private System.Windows.Forms.Label lbl_bonds_delete;
         private System.Windows.Forms.Panel panel72;
-        private System.Windows.Forms.Label lbl_bonds;
+        private System.Windows.Forms.Label lable5;
         private System.Windows.Forms.Label lbl_income_add;
         private System.Windows.Forms.Label lbl_future_expenses_add;
         private System.Windows.Forms.Label lbl_future_income_add;
         private System.Windows.Forms.Label lbl_expenses_add;
+        private System.Windows.Forms.Label lbl_bonds;
+        private System.Windows.Forms.Label lbl_savings;
+        protected internal System.Windows.Forms.Label lbl_cash;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label lbl_stocks_shares;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label lbl_total_minus_expenses;
+        private System.Windows.Forms.Label Label23;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Button btn_new;
     }
 }
 

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Globalization;
+using System.IO;
 using System.Windows.Forms;
 using System.Reflection;
 using Can_I_retire_yet.functions;
+using Can_I_retire_yet.Models;
 using Can_I_retire_yet.MonteCarlo;
 
 namespace Can_I_retire_yet
@@ -15,7 +17,8 @@ namespace Can_I_retire_yet
     public partial class Form1 : Form
     {
         static public bool flag = true;
-        
+        private string lastFilePath = "";
+
         public Form1()
         {
             InitializeComponent();
@@ -26,16 +29,17 @@ namespace Can_I_retire_yet
             Text += " : v" + Assembly.GetExecutingAssembly().GetName().Version; // put in the version number
 
             DatagridviewFunctions.SetUpViews(dgv_expenses, 2);
+            DatagridviewFunctions.SetUpViews(dgv_cash, 2);
+            DatagridviewFunctions.SetUpViews(dgv_savings, 2);
+            DatagridviewFunctions.SetUpViews(dgv_bonds, 2);
+            DatagridviewFunctions.SetUpViews(dgv_stocks_shares, 2);
             DatagridviewFunctions.SetUpViews(dgv_assets, 2);
             DatagridviewFunctions.SetUpViews(dgv_income, 2);
             DatagridviewFunctions.SetUpViews(dgv_future_expenses, 3);
             DatagridviewFunctions.SetUpViews(dgv_future_income, 3);
 
-
-
-
-
             lbl_trackbar_value.Text = $"Value: {trkbr_retirement_age.Value}";
+
         }
 
         private void btn_close_Click(object sender, EventArgs e)
@@ -48,11 +52,50 @@ namespace Can_I_retire_yet
         {
             SaveInfo();
         }
+        
 
         private void SaveInfo()
         {
-            //This is where we save all the info to file
-            //When we press save it asks for location to save it and the name but we append name with _DDMMMYYYYY 
+            var saveDialog = new SaveFileDialog
+            {
+                InitialDirectory = string.IsNullOrEmpty(lastFilePath)
+                    ? Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
+                    : Path.GetDirectoryName(lastFilePath),
+
+                Filter = "JSON files (*.json)|*.json",
+                DefaultExt = "json",
+                AddExtension = true,
+                Title = "Save Retirement Data"
+            };
+
+            if (saveDialog.ShowDialog() != DialogResult.OK)
+                return;
+
+            string timestamp = DateTime.Now.ToString("_ddMMMyyyy_HHmmss");
+            string finalPath = Path.Combine(
+                Path.GetDirectoryName(saveDialog.FileName),
+                Path.GetFileNameWithoutExtension(saveDialog.FileName) + timestamp + ".json"
+            );
+
+            lastFilePath = finalPath;
+
+            var data = new SavedData
+            {
+                assets = DatagridviewFunctions.ExtractGrid(dgv_assets),
+                cash = DatagridviewFunctions.ExtractGrid(dgv_cash),
+                savings = DatagridviewFunctions.ExtractGrid(dgv_savings),
+                bonds = DatagridviewFunctions.ExtractGrid(dgv_bonds),
+                stocks_shares = DatagridviewFunctions.ExtractGrid(dgv_stocks_shares),
+                income = DatagridviewFunctions.ExtractGrid(dgv_income),
+                expenses = DatagridviewFunctions.ExtractGrid(dgv_expenses),
+                future_income = DatagridviewFunctions.ExtractGrid(dgv_future_income),
+                future_expenses = DatagridviewFunctions.ExtractGrid(dgv_future_expenses)
+            };
+
+            string json = Newtonsoft.Json.JsonConvert.SerializeObject(data, Newtonsoft.Json.Formatting.Indented);
+            File.WriteAllText(finalPath, json);
+
+            MessageBox.Show("Saved successfully.");
         }
 
         private void lbl_expenses_add_Click(object sender, EventArgs e)
@@ -212,21 +255,96 @@ namespace Can_I_retire_yet
             }
         }
 
+        private void dgv_cash_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if ((dgv_cash.Columns[e.ColumnIndex].Name == "Amount") && (flag))
+            {
+                lbl_cash.Text = DatagridviewFunctions.CalculateTabTotal(dgv_cash, e);
+            }
+        }
+
+        private void dgv_savings_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if ((dgv_savings.Columns[e.ColumnIndex].Name == "Amount") && (flag))
+            {
+                lbl_savings.Text = DatagridviewFunctions.CalculateTabTotal(dgv_savings, e);
+            }
+        }
+
+        private void dgv_stocks_shares_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if ((dgv_stocks_shares.Columns[e.ColumnIndex].Name == "Amount") && (flag))
+            {
+                lbl_stocks_shares.Text = DatagridviewFunctions.CalculateTabTotal(dgv_stocks_shares, e);
+            }
+        }
+
+        private void dgv_bonds_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if ((dgv_bonds.Columns[e.ColumnIndex].Name == "Amount") && (flag))
+            {
+                lbl_bonds.Text = DatagridviewFunctions.CalculateTabTotal(dgv_bonds, e);
+            }
+        }
+
         private void lbl_totals_TextChanged(object sender, EventArgs e)
         {
-            lbl_1st_pass_total.Text = ((decimal.Parse(lbl_assets.Text, NumberStyles.Currency, CultureInfo.CreateSpecificCulture("en-GB").NumberFormat)
-                                                                    + decimal.Parse(lbl_income.Text, NumberStyles.Currency, CultureInfo.CreateSpecificCulture("en-GB").NumberFormat))
-                                                                   - decimal.Parse(lbl_expenses.Text, NumberStyles.Currency, CultureInfo.CreateSpecificCulture("en-GB").NumberFormat)).ToString("C", new CultureInfo("en-GB"));//     .Format(new CultureInfo("en-GB"), "{0:C}");
+            lbl_1st_pass_total.Text = ((decimal.Parse(lbl_assets.Text, NumberStyles.Currency,
+                                            CultureInfo.CreateSpecificCulture("en-GB").NumberFormat)
+                                        + decimal.Parse(lbl_income.Text, NumberStyles.Currency,
+                                            CultureInfo.CreateSpecificCulture("en-GB").NumberFormat)
+                                        + decimal.Parse(lbl_stocks_shares.Text, NumberStyles.Currency,
+                                            CultureInfo.CreateSpecificCulture("en-GB").NumberFormat)
+                                        + decimal.Parse(lbl_bonds.Text, NumberStyles.Currency,
+                                            CultureInfo.CreateSpecificCulture("en-GB").NumberFormat)
+                                        + decimal.Parse(lbl_savings.Text, NumberStyles.Currency,
+                                            CultureInfo.CreateSpecificCulture("en-GB").NumberFormat)
+                                        + decimal.Parse(lbl_cash.Text, NumberStyles.Currency,
+                                            CultureInfo.CreateSpecificCulture("en-GB").NumberFormat)).ToString("C", new CultureInfo("en-GB"))); ;
+
+
+            Label23.Text = ((decimal.Parse(lbl_1st_pass_total.Text, NumberStyles.Currency, CultureInfo.CreateSpecificCulture("en-GB").NumberFormat)
+                - decimal.Parse(lbl_expenses.Text, NumberStyles.Currency, CultureInfo.CreateSpecificCulture("en-GB").NumberFormat)).ToString("C", new CultureInfo("en-GB")));
         }
 
         private void btn_open_all_Click(object sender, EventArgs e)
         {
-            DatagridviewFunctions.OpenFile(dgv_assets);
-            DatagridviewFunctions.OpenFile(dgv_income);
-            DatagridviewFunctions.OpenFile(dgv_expenses);
-            DatagridviewFunctions.OpenFile(dgv_future_income);
-            DatagridviewFunctions.OpenFile(dgv_future_expenses);
+            var openDialog = new OpenFileDialog
+            {
+                InitialDirectory = string.IsNullOrEmpty(lastFilePath)
+                    ? Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
+                    : Path.GetDirectoryName(lastFilePath),
+
+                Filter = "JSON files (*.json)|*.json",
+                DefaultExt = "json",
+                Title = "Open Retirement Data"
+            };
+
+            if (openDialog.ShowDialog() != DialogResult.OK)
+                return;
+
+            lastFilePath = openDialog.FileName;
+
+            string json = File.ReadAllText(openDialog.FileName);
+            var data = Newtonsoft.Json.JsonConvert.DeserializeObject<SavedData>(json);
+
+            flag = false;
+
+            DatagridviewFunctions.LoadGrid(dgv_assets, data.assets);
+            DatagridviewFunctions.LoadGrid(dgv_cash, data.cash);
+            DatagridviewFunctions.LoadGrid(dgv_savings, data.savings);
+            DatagridviewFunctions.LoadGrid(dgv_bonds, data.bonds);
+            DatagridviewFunctions.LoadGrid(dgv_stocks_shares, data.stocks_shares);
+            DatagridviewFunctions.LoadGrid(dgv_income, data.income);
+            DatagridviewFunctions.LoadGrid(dgv_expenses, data.expenses);
+            DatagridviewFunctions.LoadGrid(dgv_future_income, data.future_income);
+            DatagridviewFunctions.LoadGrid(dgv_future_expenses, data.future_expenses);
+
+            RecalculateAllTotals();
+
+            flag = true;
         }
+
 
         private void btn_run_monte_carlo_Click(object sender, EventArgs e)
         {
@@ -260,9 +378,25 @@ namespace Can_I_retire_yet
             lbl_trackbar_value.Text = $"Value: {trkbr_retirement_age.Value}";
         }
 
+        private void RecalculateAllTotals()
+        {
+            lbl_assets.Text = DatagridviewFunctions.CalculateTabTotal(dgv_assets, new DataGridViewCellEventArgs(1, 0));
+            lbl_cash.Text = DatagridviewFunctions.CalculateTabTotal(dgv_cash, new DataGridViewCellEventArgs(1, 0));
+            lbl_savings.Text = DatagridviewFunctions.CalculateTabTotal(dgv_savings, new DataGridViewCellEventArgs(1, 0));
+            lbl_bonds.Text = DatagridviewFunctions.CalculateTabTotal(dgv_bonds, new DataGridViewCellEventArgs(1, 0));
+            lbl_stocks_shares.Text = DatagridviewFunctions.CalculateTabTotal(dgv_stocks_shares, new DataGridViewCellEventArgs(1, 0));
 
+            lbl_income.Text = DatagridviewFunctions.CalculateTabTotal(dgv_income, new DataGridViewCellEventArgs(1, 0));
+            lbl_expenses.Text = DatagridviewFunctions.CalculateTabTotal(dgv_expenses, new DataGridViewCellEventArgs(1, 0));
 
+            lbl_future_income.Text = DatagridviewFunctions.CalculateTabTotal(dgv_future_income, new DataGridViewCellEventArgs(2, 0));
+            lbl_future_expenses.Text = DatagridviewFunctions.CalculateTabTotal(dgv_future_expenses, new DataGridViewCellEventArgs(2, 0));
+        }
 
-
+        private void btn_new_Click(object sender, EventArgs e)
+        {
+            DatagridviewFunctions.NewSetUp(dgv_assets, dgv_cash, dgv_savings, dgv_bonds, dgv_stocks_shares, dgv_income, dgv_expenses,
+                dgv_future_income, dgv_future_expenses);
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -43,111 +44,20 @@ namespace Can_I_retire_yet.functions
 
         public static string CalculateTabTotal(DataGridView dgv, DataGridViewCellEventArgs e)
         {
-            Decimal sum = 0;
+            decimal total = 0;
 
-            for (int i = 0; i < dgv.Rows.Count; ++i)
+            foreach (DataGridViewRow row in dgv.Rows)
             {
-                sum += decimal.Parse(dgv.Rows[i].Cells[e.ColumnIndex].Value.ToString(), NumberStyles.Currency, CultureInfo.CreateSpecificCulture("en-GB").NumberFormat);
+                if (!row.IsNewRow)
+                {
+                    var cellValue = row.Cells[e.ColumnIndex].Value?.ToString() ?? "";
+
+                    if (TryParseMoney(cellValue, out decimal amount))
+                        total += amount;
+                }
             }
 
-          
-            return string.Format(new CultureInfo("en-GB"), "{0:C}", sum);
-        }
-
-
-
-
-        public  static void OpenFile(DataGridView dgv)
-        {
-            OpenFileDialog openFileDialog1 = new OpenFileDialog
-            {
-                InitialDirectory = Assembly.GetEntryAssembly().Location,
-                Title = "Browse CSV Files",
-
-                CheckFileExists = true,
-                CheckPathExists = true,
-
-                DefaultExt = "csv",
-                Filter = "csv files (*.csv)|*.csv|" + "All files (*.*)|*.*",
-                FilterIndex = 1,
-                RestoreDirectory = true,
-            };
-
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                if (dgv.RowCount > 0) dgv.Rows.Clear(); //clear grid
-
-                // Replace | with , especially in currency.
-                //string text = File.ReadAllText(openFileDialog1.FileName);
-                //text = text.Replace('|', ',');
-                //File.WriteAllText(openFileDialog1.FileName, text);
-
-                //Write the data to the Grid
-                //File.ReadLines(openFileDialog1.FileName).Skip(1)
-                //    .Select(x => x.Split(','))
-                //    .ToList()
-                //    .ForEach(line => dgv.Rows.Add(line));
-
-                Form1.flag = false;
-
-                foreach (var srLine in File.ReadAllLines(openFileDialog1.FileName).Skip(1))
-                {
-                    dgv.Rows.Add(srLine.Split(','));
-                }
-
-                
-
-                for (int i = 0; i < dgv.RowCount; i++)
-                {
-                    for (int j = 0; j < dgv.ColumnCount; j++)
-                    {
-                        dgv[j, i].Value = dgv[j, i].Value.ToString().Replace('|', ',');
-                    }
-
-                }
-
-
-                //Form1 frm = new Form1();
-                //DataGridViewCellEventArgs e = new DataGridViewCellEventArgs(0, 0);
-
-                //frm.lbl_assets.Text = CalculateTabTotal(frm.dgv_assets, e);
-
-                Form1.flag = true;
-            }
-        }
-
-        public static void SaveFile(DataGridView dgv)
-        {
-            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-            saveFileDialog1.InitialDirectory = Assembly.GetEntryAssembly().Location;
-            saveFileDialog1.Title = "Save csv Files";
-            saveFileDialog1.CheckPathExists = true;
-            saveFileDialog1.DefaultExt = "csv";
-            saveFileDialog1.Filter = "csv files (*.csv)|*.csv|All files (*.*)|*.*";
-            saveFileDialog1.FilterIndex = 1;
-            saveFileDialog1.RestoreDirectory = true;
-            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                int columnCount = dgv.ColumnCount;
-                string columnNames = "";
-                string[] output = new string[dgv.RowCount + 1];
-
-                for (int i = 0; i < columnCount; i++)
-                {
-                    columnNames += dgv.Columns[i].Name + ",";
-                }
-                output[0] += columnNames;
-                for (int i = 1; (i - 1) < dgv.RowCount; i++)
-                {
-                    for (int j = 0; j < columnCount; j++)
-                    {
-                        dgv.CurrentCell = dgv[0, 0]; //Move cursor back to cell[0,0] incase it is resting in an updating cell.
-                        output[i] += dgv.Rows[i - 1].Cells[j].Value.ToString().Replace(',', '|') + ",";
-                        //output[i] += dgv.Rows[i - 1].Cells[j].Value + ",";
-                    }
-                }
-                File.WriteAllLines(saveFileDialog1.FileName, output, Encoding.UTF8);
-            }
+            return total.ToString("C", CultureInfo.GetCultureInfo("en-GB"));
         }
 
         public static void SetUpViews(DataGridView dgv, int NumCols)
@@ -181,6 +91,26 @@ namespace Can_I_retire_yet.functions
                 dgv.Columns[1].Name = "Name";
                 dgv.Columns[2].Name = "Amount";
             }
+            else if (dgv.Name == "dgv_cash")
+            {
+                dgv.Columns[0].Name = "Institution";
+                dgv.Columns[1].Name = "Amount";
+            }
+            else if (dgv.Name == "dgv_savings")
+            {
+                dgv.Columns[0].Name = "Institution";
+                dgv.Columns[1].Name = "Amount";
+            }
+            else if (dgv.Name == "dgv_bonds")
+            {
+                dgv.Columns[0].Name = "Institution";
+                dgv.Columns[1].Name = "Amount";
+            }
+            else if (dgv.Name == "dgv_stocks_shares")
+            {
+                dgv.Columns[0].Name = "Institution";
+                dgv.Columns[1].Name = "Amount";
+            }
 
             dgv.AllowUserToAddRows = false; //remove last empty row
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; //fit columns to grid view 
@@ -194,5 +124,180 @@ namespace Can_I_retire_yet.functions
             //dgv.Columns[1].DefaultCellStyle.Format = "£0.00  ";
             dgv.Columns[1].DefaultCellStyle.Format = "C";
         }
+
+        public static List<List<string>> ExtractGrid(DataGridView dgv)
+        {
+            var list = new List<List<string>>();
+
+            foreach (DataGridViewRow row in dgv.Rows)
+            {
+                if (!row.IsNewRow)
+                {
+                    var rowList = new List<string>();
+                    foreach (DataGridViewCell cell in row.Cells)
+                        rowList.Add(cell.Value?.ToString() ?? "");
+                    list.Add(rowList);
+                }
+            }
+
+            return list;
+        }
+
+        public static void LoadGrid(DataGridView dgv, List<List<string>> data)
+        {
+            dgv.Rows.Clear();
+
+            foreach (var row in data)
+                dgv.Rows.Add(row.ToArray());
+        }
+
+        public static bool TryParseMoney(string input, out decimal value)
+        {
+            value = 0;
+
+            if (string.IsNullOrWhiteSpace(input))
+                return false;
+
+            string cleaned = input.Trim();
+
+            // Remove currency symbols
+            cleaned = cleaned.Replace("£", "")
+                .Replace("$", "")
+                .Replace("€", "");
+
+            // Remove spaces
+            cleaned = cleaned.Replace(" ", "");
+
+            // Replace commas with nothing
+            cleaned = cleaned.Replace(",", "");
+
+            // Handle shorthand like "100k" or "£250k"
+            if (cleaned.EndsWith("k", StringComparison.OrdinalIgnoreCase))
+            {
+                cleaned = cleaned.Substring(0, cleaned.Length - 1);
+                if (decimal.TryParse(cleaned, out decimal kVal))
+                {
+                    value = kVal * 1000;
+                    return true;
+                }
+            }
+
+            // Try standard decimal parsing
+            if (decimal.TryParse(cleaned,
+                    NumberStyles.Any,
+                    CultureInfo.InvariantCulture,
+                    out decimal parsed))
+            {
+                value = parsed;
+                return true;
+            }
+
+            // Try UK culture (handles commas, decimals, currency)
+            if (decimal.TryParse(cleaned,
+                    NumberStyles.Any,
+                    CultureInfo.GetCultureInfo("en-GB"),
+                    out parsed))
+            {
+                value = parsed;
+                return true;
+            }
+
+            return false;
+        }
+
+        public static void NewSetUp(DataGridView dgv_assets, DataGridView dgv_cash, DataGridView dgv_savings,
+            DataGridView dgv_bonds, DataGridView dgv_stocks_shares, DataGridView dgv_income,
+            DataGridView dgv_expenses, DataGridView dgv_future_income, DataGridView dgv_future_expenses)
+        {
+            dgv_assets.DataSource = null;
+            dgv_assets.Rows.Clear();
+            dgv_cash.DataSource = null;
+            dgv_cash.Rows.Clear();
+            dgv_savings.DataSource = null;
+            dgv_savings.Rows.Clear();
+            dgv_bonds.DataSource = null;
+            dgv_bonds.Rows.Clear();
+            dgv_stocks_shares.DataSource = null;
+            dgv_stocks_shares.Rows.Clear();
+            dgv_income.DataSource = null;
+            dgv_income.Rows.Clear();
+            dgv_expenses.DataSource = null;
+            dgv_expenses.Rows.Clear();
+            dgv_future_income.DataSource = null;
+            dgv_future_income.Rows.Clear();
+            dgv_future_expenses.DataSource = null;
+            dgv_future_expenses.Rows.Clear();
+
+            dgv_expenses.Rows.Add("Rent", "");
+            dgv_expenses.Rows.Add("Property service charge", "");
+            dgv_expenses.Rows.Add("House maintenance", "");
+            dgv_expenses.Rows.Add("Food", "");
+            dgv_expenses.Rows.Add("Clothing", "");
+            dgv_expenses.Rows.Add("Hair, Dental & Optical", "");
+            dgv_expenses.Rows.Add("Tax", "");
+            dgv_expenses.Rows.Add("Other day to day essential expenses", "");
+            dgv_expenses.Rows.Add("Telephone", "");
+            dgv_expenses.Rows.Add("Mobile phone", "");
+            dgv_expenses.Rows.Add("Internet/Broadband subscription", "");
+            dgv_expenses.Rows.Add("TV licence", "");
+            dgv_expenses.Rows.Add("Gas", "");
+            dgv_expenses.Rows.Add("Water", "");
+            dgv_expenses.Rows.Add("Electricity", "");
+            dgv_expenses.Rows.Add("Council tax", "");
+            dgv_expenses.Rows.Add("Travel card", "");
+            dgv_expenses.Rows.Add("Parking permit", "");
+            dgv_expenses.Rows.Add("Fuel", "");
+            dgv_expenses.Rows.Add("Vehicle insurance", "");
+            dgv_expenses.Rows.Add("Road tax", "");
+            dgv_expenses.Rows.Add("Vehicle maintenance/MOT", "");
+            dgv_expenses.Rows.Add("Bicycle", "");
+            dgv_expenses.Rows.Add("Other travel expenses", "");
+            dgv_expenses.Rows.Add("Alcohol", "");
+            dgv_expenses.Rows.Add("Tobacco", "");
+            dgv_expenses.Rows.Add("Lunch", "");
+            dgv_expenses.Rows.Add("Beauty", "");
+            dgv_expenses.Rows.Add("Christmas", "");
+            dgv_expenses.Rows.Add("Birthdays", "");
+            dgv_expenses.Rows.Add("Newspapers & Subscriptions", "");
+            dgv_expenses.Rows.Add("Other day to day expenses", "");
+            dgv_expenses.Rows.Add("Recreation and entertainment", "");
+            dgv_expenses.Rows.Add("Holiday and travel", "");
+            dgv_expenses.Rows.Add("Memberships (Gym/Sports/Museum)", "");
+            dgv_expenses.Rows.Add("Other leisure expenses", "");
+            dgv_expenses.Rows.Add("Child care", "");
+            dgv_expenses.Rows.Add("Child maintenance", "");
+            dgv_expenses.Rows.Add("Education or school fees", "");
+            dgv_expenses.Rows.Add("Other child expenses", "");
+            dgv_expenses.Rows.Add("Mortgage", "");
+            dgv_expenses.Rows.Add("Loans or hire purchase payments", "");
+            dgv_expenses.Rows.Add("Credit card or store cards payments", "");
+            dgv_expenses.Rows.Add("Vehicle payments", "");
+            dgv_expenses.Rows.Add("Pension premium", "");
+            dgv_expenses.Rows.Add("ISA premium", "");
+            dgv_expenses.Rows.Add("Premium Bonds", "");
+            dgv_expenses.Rows.Add("Lottery", "");
+            dgv_expenses.Rows.Add("Gambling", "");
+            dgv_expenses.Rows.Add("Children's savings premium", "");
+            dgv_expenses.Rows.Add("Other regular savings premium", "");
+            dgv_expenses.Rows.Add("Home and contents insurance", "");
+            dgv_expenses.Rows.Add("Life assurance", "");
+            dgv_expenses.Rows.Add("Critical illness cover", "");
+            dgv_expenses.Rows.Add("Life assurance and critical illness cover", "");
+            dgv_expenses.Rows.Add("Medical insurance", "");
+            dgv_expenses.Rows.Add("Income protection", "");
+            dgv_expenses.Rows.Add("Accident, sickness and unemployment", "");
+            dgv_expenses.Rows.Add("Other regular insurance", "");
+            dgv_expenses.Rows.Add("Cash spending", "");
+            dgv_expenses.Rows.Add("Charitable Giving", "");
+            dgv_expenses.Rows.Add("Miscellaneous Spending", "");
+
+            dgv_income.Rows.Add("Your take home pay", "");
+            dgv_income.Rows.Add("Your net bonus", "");
+            dgv_income.Rows.Add("Your other income", "");
+            dgv_income.Rows.Add("Your partner's take home pay", "");
+            dgv_income.Rows.Add("Your partner's net bonus", "");
+            dgv_income.Rows.Add("Your partner's other income", "");
+        }
+
     }
 }
