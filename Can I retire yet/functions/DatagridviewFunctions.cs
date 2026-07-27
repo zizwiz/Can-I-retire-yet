@@ -209,25 +209,18 @@ namespace Can_I_retire_yet.functions
             DataGridView dgv_bonds, DataGridView dgv_stocks_shares, DataGridView dgv_income,
             DataGridView dgv_expenses, DataGridView dgv_future_income, DataGridView dgv_future_expenses)
         {
-            dgv_assets.DataSource = null;
-            dgv_assets.Rows.Clear();
-            dgv_cash.DataSource = null;
-            dgv_cash.Rows.Clear();
-            dgv_savings.DataSource = null;
-            dgv_savings.Rows.Clear();
-            dgv_bonds.DataSource = null;
-            dgv_bonds.Rows.Clear();
-            dgv_stocks_shares.DataSource = null;
-            dgv_stocks_shares.Rows.Clear();
-            dgv_income.DataSource = null;
-            dgv_income.Rows.Clear();
-            dgv_expenses.DataSource = null;
-            dgv_expenses.Rows.Clear();
-            dgv_future_income.DataSource = null;
-            dgv_future_income.Rows.Clear();
-            dgv_future_expenses.DataSource = null;
-            dgv_future_expenses.Rows.Clear();
+            //Clear the existing DataGridViews
+            ResetDataGridView(dgv_assets);
+            ResetDataGridView(dgv_cash);
+            ResetDataGridView(dgv_savings);
+            ResetDataGridView(dgv_bonds);
+            ResetDataGridView(dgv_stocks_shares);
+            ResetDataGridView(dgv_income);
+            ResetDataGridView(dgv_expenses);
+            ResetDataGridView(dgv_future_income);
+            ResetDataGridView(dgv_future_expenses);
 
+            //Add Aide Memoirs to existing DataGridViews
             dgv_expenses.Rows.Add("Rent", "");
             dgv_expenses.Rows.Add("Property service charge", "");
             dgv_expenses.Rows.Add("House maintenance", "");
@@ -297,6 +290,13 @@ namespace Can_I_retire_yet.functions
             dgv_income.Rows.Add("Your partner's take home pay", "");
             dgv_income.Rows.Add("Your partner's net bonus", "");
             dgv_income.Rows.Add("Your partner's other income", "");
+        }
+
+        private static void ResetDataGridView(DataGridView dgv)
+        {
+            dgv.DataSource = null;
+            dgv.Rows.Clear();
+            dgv.Refresh();
         }
 
     }
