@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Windows.Forms;
@@ -6,6 +7,8 @@ using System.Reflection;
 using Can_I_retire_yet.functions;
 using Can_I_retire_yet.Models;
 using Can_I_retire_yet.MonteCarlo;
+using Can_I_retire_yet.utils;
+using CenteredMessagebox;
 
 namespace Can_I_retire_yet
 {
@@ -19,6 +22,16 @@ namespace Can_I_retire_yet
         static public bool flag = true;
         private string lastFilePath = "";
 
+        private ThinSlider salarySlider = new ThinSlider()
+        {
+            Location = new Point(60, 185),
+            Height = 20,
+            Width = 130,
+            Minimum = 0,
+            Maximum = 50000,
+            Value = 20000
+        };
+
         public Form1()
         {
             InitializeComponent();
@@ -30,7 +43,7 @@ namespace Can_I_retire_yet
 
             DatagridviewFunctions.SetUpViews(dgv_expenses, 2);
             DatagridviewFunctions.SetUpViews(dgv_cash, 2);
-            DatagridviewFunctions.SetUpViews(dgv_savings, 2);
+            DatagridviewFunctions.SetUpViews(dgv_savings, 4);
             DatagridviewFunctions.SetUpViews(dgv_bonds, 2);
             DatagridviewFunctions.SetUpViews(dgv_stocks_shares, 2);
             DatagridviewFunctions.SetUpViews(dgv_assets, 2);
@@ -39,6 +52,21 @@ namespace Can_I_retire_yet
             DatagridviewFunctions.SetUpViews(dgv_future_income, 3);
 
             lbl_trackbar_value.Text = $"Value: {trkbr_retirement_age.Value}";
+
+            //We make a custom trackbar that we can make thinner. we then subscribe to its value change event.
+            //var slider = new ThinSlider()
+
+
+
+
+            tab_overall.Controls.Add(salarySlider);
+            salarySlider.BringToFront(); //bring to the front
+
+            //Put in initial value
+            txtbx_salary.Text = $"£{salarySlider.Value}";
+
+            // Subscribe to slider ValueChanged event
+            salarySlider.ValueChanged += (s, e2) => { txtbx_salary.Text = $"£{salarySlider.Value}"; };
 
         }
 
@@ -52,7 +80,7 @@ namespace Can_I_retire_yet
         {
             SaveInfo();
         }
-        
+
 
         private void SaveInfo()
         {
@@ -95,12 +123,12 @@ namespace Can_I_retire_yet
             string json = Newtonsoft.Json.JsonConvert.SerializeObject(data, Newtonsoft.Json.Formatting.Indented);
             File.WriteAllText(finalPath, json);
 
-            MessageBox.Show("Saved successfully.");
+            MsgBox.Show("Saved successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void lbl_expenses_add_Click(object sender, EventArgs e)
         {
-            if (DataGridViewAdd(dgv_expenses)){}
+            if (DataGridViewAdd(dgv_expenses)) { }
         }
 
         private void lbl_assets_add_Click(object sender, EventArgs e)
@@ -151,7 +179,7 @@ namespace Can_I_retire_yet
             }
             catch (Exception e)
             {
-                MessageBox.Show("Exception: " + e);
+                MsgBox.Show("Exception: " + e, "Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }
@@ -210,7 +238,7 @@ namespace Can_I_retire_yet
             }
             catch (Exception e)
             {
-                MessageBox.Show("Exception: " + e);
+                MsgBox.Show("Exception: " + e, "Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }
@@ -289,22 +317,28 @@ namespace Can_I_retire_yet
 
         private void lbl_totals_TextChanged(object sender, EventArgs e)
         {
+            Recalculate();
+        }
+
+        private void Recalculate()
+        {
             lbl_1st_pass_total.Text = ((decimal.Parse(lbl_assets.Text, NumberStyles.Currency,
-                                            CultureInfo.CreateSpecificCulture("en-GB").NumberFormat)
-                                        + decimal.Parse(lbl_income.Text, NumberStyles.Currency,
-                                            CultureInfo.CreateSpecificCulture("en-GB").NumberFormat)
-                                        + decimal.Parse(lbl_stocks_shares.Text, NumberStyles.Currency,
-                                            CultureInfo.CreateSpecificCulture("en-GB").NumberFormat)
-                                        + decimal.Parse(lbl_bonds.Text, NumberStyles.Currency,
-                                            CultureInfo.CreateSpecificCulture("en-GB").NumberFormat)
-                                        + decimal.Parse(lbl_savings.Text, NumberStyles.Currency,
-                                            CultureInfo.CreateSpecificCulture("en-GB").NumberFormat)
-                                        + decimal.Parse(lbl_cash.Text, NumberStyles.Currency,
-                                            CultureInfo.CreateSpecificCulture("en-GB").NumberFormat)).ToString("C", new CultureInfo("en-GB"))); ;
+                                                CultureInfo.CreateSpecificCulture("en-GB").NumberFormat)
+                                            + decimal.Parse(lbl_income.Text, NumberStyles.Currency,
+                                                CultureInfo.CreateSpecificCulture("en-GB").NumberFormat)
+                                            + decimal.Parse(lbl_stocks_shares.Text, NumberStyles.Currency,
+                                                CultureInfo.CreateSpecificCulture("en-GB").NumberFormat)
+                                            + decimal.Parse(lbl_bonds.Text, NumberStyles.Currency,
+                                                CultureInfo.CreateSpecificCulture("en-GB").NumberFormat)
+                                            + decimal.Parse(lbl_savings.Text, NumberStyles.Currency,
+                                                CultureInfo.CreateSpecificCulture("en-GB").NumberFormat)
+                                            + decimal.Parse(lbl_cash.Text, NumberStyles.Currency,
+                                                CultureInfo.CreateSpecificCulture("en-GB").NumberFormat)).ToString("C", new CultureInfo("en-GB"))); ;
 
 
-            Label23.Text = ((decimal.Parse(lbl_1st_pass_total.Text, NumberStyles.Currency, CultureInfo.CreateSpecificCulture("en-GB").NumberFormat)
-                - decimal.Parse(lbl_expenses.Text, NumberStyles.Currency, CultureInfo.CreateSpecificCulture("en-GB").NumberFormat)).ToString("C", new CultureInfo("en-GB")));
+            lbl_total_minus_expenses.Text = ((decimal.Parse(lbl_1st_pass_total.Text, NumberStyles.Currency, CultureInfo.CreateSpecificCulture("en-GB").NumberFormat)
+                                              + decimal.Parse(txtbx_salary.Text, NumberStyles.Currency, CultureInfo.CreateSpecificCulture("en-GB").NumberFormat)
+                                                 - decimal.Parse(lbl_expenses.Text, NumberStyles.Currency, CultureInfo.CreateSpecificCulture("en-GB").NumberFormat)).ToString("C", new CultureInfo("en-GB")));
         }
 
         private void btn_open_all_Click(object sender, EventArgs e)
@@ -397,6 +431,15 @@ namespace Can_I_retire_yet
         {
             DatagridviewFunctions.NewSetUp(dgv_assets, dgv_cash, dgv_savings, dgv_bonds, dgv_stocks_shares, dgv_income, dgv_expenses,
                 dgv_future_income, dgv_future_expenses);
+        }
+
+        private void txtbx_salary_TextChanged(object sender, EventArgs e)
+        {
+            if (txtbx_salary.Text.Length > 1)
+            {
+                salarySlider.Value = Int32.Parse(txtbx_salary.Text.Substring(1, txtbx_salary.Text.Length - 1));
+                Recalculate();
+            }
         }
     }
 }

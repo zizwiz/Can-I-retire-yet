@@ -100,6 +100,8 @@ namespace Can_I_retire_yet.functions
             {
                 dgv.Columns[0].Name = "Institution";
                 dgv.Columns[1].Name = "Amount";
+                dgv.Columns[2].Name = "Interest";
+                dgv.Columns[3].Name = "Taxable";
             }
             else if (dgv.Name == "dgv_bonds")
             {
