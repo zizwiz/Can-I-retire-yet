@@ -67,7 +67,7 @@ namespace Can_I_retire_yet.functions
             if (dgv.Name == "dgv_expenses")
             {
                 dgv.Columns[0].Name = "Name";
-                dgv.Columns[1].Name = "Monthly";
+                dgv.Columns[1].Name = "Annually";
             }
             else if (dgv.Name == "dgv_assets")
             {
@@ -77,7 +77,7 @@ namespace Can_I_retire_yet.functions
             else if (dgv.Name == "dgv_income")
             {
                 dgv.Columns[0].Name = "Name";
-                dgv.Columns[1].Name = "Monthly";
+                dgv.Columns[1].Name = "Annually";
             }
             else if (dgv.Name == "dgv_future_income")
             {
@@ -125,6 +125,13 @@ namespace Can_I_retire_yet.functions
 
             //dgv.Columns[1].DefaultCellStyle.Format = "£0.00  ";
             dgv.Columns[1].DefaultCellStyle.Format = "C";
+
+            // We tell the ystem which columns are currency ones so can validate and format correctly
+            foreach (DataGridViewColumn col in dgv.Columns)
+            {
+                if (col.Name == "Amount" || col.Name == "Monthly")
+                    col.Tag = "currency";
+            }
         }
 
         public static List<List<string>> ExtractGrid(DataGridView dgv)
@@ -162,39 +169,44 @@ namespace Can_I_retire_yet.functions
 
             string cleaned = input.Trim();
 
-            // Remove currency symbols
+            // Remove ANY currency symbol
             cleaned = cleaned.Replace("£", "")
                 .Replace("$", "")
-                .Replace("€", "");
+                .Replace("€", "")
+                .Replace("¥", "")
+                .Replace("CHF", "")
+                .Replace("AUD", "")
+                .Replace("CAD", "");
 
-            // Remove spaces
-            cleaned = cleaned.Replace(" ", "");
+            cleaned = cleaned.Replace(" ", "")
+                .Replace(",", "");
 
-            // Replace commas with nothing
-            cleaned = cleaned.Replace(",", "");
-
-            // Handle shorthand like "100k" or "£250k"
+            // Handle shorthand like "100k"
             if (cleaned.EndsWith("k", StringComparison.OrdinalIgnoreCase))
             {
-                cleaned = cleaned.Substring(0, cleaned.Length - 1);
-                if (decimal.TryParse(cleaned, out decimal kVal))
+                cleaned = cleaned.Substring(0, cleaned.Length - 1); // C# 7.3 compatible
+
+                decimal kVal;
+                if (decimal.TryParse(cleaned, out kVal))
                 {
                     value = kVal * 1000;
                     return true;
                 }
             }
 
-            // Try standard decimal parsing
+            decimal parsed;
+
+            // Try invariant culture
             if (decimal.TryParse(cleaned,
                     NumberStyles.Any,
                     CultureInfo.InvariantCulture,
-                    out decimal parsed))
+                    out parsed))
             {
                 value = parsed;
                 return true;
             }
 
-            // Try UK culture (handles commas, decimals, currency)
+            // Try UK culture
             if (decimal.TryParse(cleaned,
                     NumberStyles.Any,
                     CultureInfo.GetCultureInfo("en-GB"),
@@ -206,6 +218,8 @@ namespace Can_I_retire_yet.functions
 
             return false;
         }
+
+
 
         public static void NewSetUp(DataGridView dgv_assets, DataGridView dgv_cash, DataGridView dgv_savings,
             DataGridView dgv_bonds, DataGridView dgv_stocks_shares, DataGridView dgv_income,

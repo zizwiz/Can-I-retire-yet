@@ -53,8 +53,7 @@ namespace Can_I_retire_yet
 
             lbl_trackbar_value.Text = $"Value: {trkbr_retirement_age.Value}";
 
-            //We make a custom trackbar that we can make thinner. we then subscribe to its value change event.
-            //var slider = new ThinSlider()
+            cmbx_currency.SelectedIndex = 0; // default to £
 
 
 
@@ -117,7 +116,10 @@ namespace Can_I_retire_yet
                 income = DatagridviewFunctions.ExtractGrid(dgv_income),
                 expenses = DatagridviewFunctions.ExtractGrid(dgv_expenses),
                 future_income = DatagridviewFunctions.ExtractGrid(dgv_future_income),
-                future_expenses = DatagridviewFunctions.ExtractGrid(dgv_future_expenses)
+                future_expenses = DatagridviewFunctions.ExtractGrid(dgv_future_expenses),
+                salary = txtbx_salary.Text,
+                inflation = txtbx_inflation.Text,
+                currency = cmbx_currency.Text
             };
 
             string json = Newtonsoft.Json.JsonConvert.SerializeObject(data, Newtonsoft.Json.Formatting.Indented);
@@ -337,7 +339,7 @@ namespace Can_I_retire_yet
 
 
             lbl_total_minus_expenses.Text = ((decimal.Parse(lbl_1st_pass_total.Text, NumberStyles.Currency, CultureInfo.CreateSpecificCulture("en-GB").NumberFormat)
-                                              + decimal.Parse(txtbx_salary.Text, NumberStyles.Currency, CultureInfo.CreateSpecificCulture("en-GB").NumberFormat)
+                                             - decimal.Parse(txtbx_salary.Text, NumberStyles.Currency, CultureInfo.CreateSpecificCulture("en-GB").NumberFormat)
                                                  - decimal.Parse(lbl_expenses.Text, NumberStyles.Currency, CultureInfo.CreateSpecificCulture("en-GB").NumberFormat)).ToString("C", new CultureInfo("en-GB")));
         }
 
@@ -374,6 +376,11 @@ namespace Can_I_retire_yet
             DatagridviewFunctions.LoadGrid(dgv_future_income, data.future_income);
             DatagridviewFunctions.LoadGrid(dgv_future_expenses, data.future_expenses);
 
+            txtbx_salary.Text = data.salary ?? "";
+            txtbx_inflation.Text = data.inflation ?? "";
+            cmbx_currency.Text = data.currency ?? "£";
+
+            ApplyCurrencyFormattingToAllGrids();
             RecalculateAllTotals();
 
             flag = true;
@@ -441,5 +448,81 @@ namespace Can_I_retire_yet
                 Recalculate();
             }
         }
+
+        private void Dgv_CellLeave_FormatCurrency(object sender, DataGridViewCellEventArgs e)
+        {
+            var dgv = sender as DataGridView;
+            var col = dgv.Columns[e.ColumnIndex];
+
+            // Only format currency columns
+            if (col.Tag?.ToString() != "currency")
+                return;
+
+            // Force commit of edit so cell.Value is up-to-date
+            dgv.EndEdit();
+
+            var cell = dgv.Rows[e.RowIndex].Cells[e.ColumnIndex];
+            string raw = cell.Value?.ToString() ?? "";
+
+            if (DatagridviewFunctions.TryParseMoney(raw, out decimal value))
+            {
+                cell.Style.ForeColor = Color.Black;
+
+                string symbol = cmbx_currency.Text;
+
+                cell.Value = symbol + value.ToString("N2");
+
+                // Ensure CellValueChanged fires so totals update
+                dgv.NotifyCurrentCellDirty(true);
+                dgv.CommitEdit(DataGridViewDataErrorContexts.Commit);
+            }
+            else
+            {
+                cell.Style.ForeColor = Color.Red;
+            }
+        }
+
+
+
+        private void ApplyCurrencyFormattingToAllGrids()
+        {
+            string symbol = cmbx_currency.Text;
+
+            Action<DataGridView> formatGrid = dgv =>
+            {
+                foreach (DataGridViewRow row in dgv.Rows)
+                {
+                    if (!row.IsNewRow)
+                    {
+                        foreach (DataGridViewCell cell in row.Cells)
+                        {
+                            if (cell.OwningColumn.Tag?.ToString() == "currency")
+                            {
+                                if (DatagridviewFunctions.TryParseMoney(cell.Value?.ToString() ?? "", out decimal val))
+                                {
+                                    cell.Style.ForeColor = Color.Black;
+                                    cell.Value = $"{symbol}{val:N2}";
+                                }
+                                else
+                                {
+                                    cell.Style.ForeColor = Color.Red;
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+
+            formatGrid(dgv_cash);
+            formatGrid(dgv_savings);
+            formatGrid(dgv_bonds);
+            formatGrid(dgv_stocks_shares);
+            formatGrid(dgv_assets);
+            formatGrid(dgv_income);
+            formatGrid(dgv_expenses);
+            formatGrid(dgv_future_income);
+            formatGrid(dgv_future_expenses);
+        }
+
     }
 }

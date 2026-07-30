@@ -233,6 +233,10 @@ namespace Can_I_retire_yet
             this.label24 = new System.Windows.Forms.Label();
             this.lbl_salary = new System.Windows.Forms.Label();
             this.txtbx_salary = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.txtbx_inflation = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.cmbx_currency = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -413,6 +417,10 @@ namespace Can_I_retire_yet
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.cmbx_currency);
+            this.panel3.Controls.Add(this.label26);
+            this.panel3.Controls.Add(this.txtbx_inflation);
+            this.panel3.Controls.Add(this.label25);
             this.panel3.Controls.Add(this.txtbx_salary);
             this.panel3.Controls.Add(this.lbl_salary);
             this.panel3.Controls.Add(this.label24);
@@ -607,6 +615,7 @@ namespace Can_I_retire_yet
             this.dgv_assets.RowTemplate.Height = 28;
             this.dgv_assets.Size = new System.Drawing.Size(1379, 627);
             this.dgv_assets.TabIndex = 2;
+            this.dgv_assets.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_CellLeave_FormatCurrency);
             this.dgv_assets.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_assets_CellValueChanged);
             // 
             // panel38
@@ -747,6 +756,7 @@ namespace Can_I_retire_yet
             this.dgv_expenses.RowTemplate.Height = 28;
             this.dgv_expenses.Size = new System.Drawing.Size(1385, 633);
             this.dgv_expenses.TabIndex = 1;
+            this.dgv_expenses.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_CellLeave_FormatCurrency);
             this.dgv_expenses.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_expenses_CellValueChanged);
             // 
             // panel26
@@ -896,6 +906,7 @@ namespace Can_I_retire_yet
             this.dgv_income.RowTemplate.Height = 28;
             this.dgv_income.Size = new System.Drawing.Size(1385, 633);
             this.dgv_income.TabIndex = 1;
+            this.dgv_income.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_CellLeave_FormatCurrency);
             this.dgv_income.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_income_CellValueChanged);
             // 
             // panel32
@@ -1046,6 +1057,7 @@ namespace Can_I_retire_yet
             this.dgv_future_expenses.RowTemplate.Height = 28;
             this.dgv_future_expenses.Size = new System.Drawing.Size(1385, 633);
             this.dgv_future_expenses.TabIndex = 2;
+            this.dgv_future_expenses.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_CellLeave_FormatCurrency);
             this.dgv_future_expenses.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_future_expenses_CellValueChanged);
             // 
             // panel9
@@ -1202,6 +1214,7 @@ namespace Can_I_retire_yet
             this.dgv_future_income.RowTemplate.Height = 28;
             this.dgv_future_income.Size = new System.Drawing.Size(1385, 633);
             this.dgv_future_income.TabIndex = 2;
+            this.dgv_future_income.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_CellLeave_FormatCurrency);
             this.dgv_future_income.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_future_income_CellValueChanged);
             // 
             // panel17
@@ -1658,6 +1671,7 @@ namespace Can_I_retire_yet
             this.dgv_cash.RowTemplate.Height = 28;
             this.dgv_cash.Size = new System.Drawing.Size(1385, 633);
             this.dgv_cash.TabIndex = 2;
+            this.dgv_cash.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_CellLeave_FormatCurrency);
             this.dgv_cash.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_cash_CellValueChanged);
             // 
             // panel46
@@ -1799,6 +1813,7 @@ namespace Can_I_retire_yet
             this.dgv_savings.RowTemplate.Height = 28;
             this.dgv_savings.Size = new System.Drawing.Size(1385, 633);
             this.dgv_savings.TabIndex = 2;
+            this.dgv_savings.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_CellLeave_FormatCurrency);
             this.dgv_savings.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_savings_CellValueChanged);
             // 
             // panel53
@@ -1940,6 +1955,7 @@ namespace Can_I_retire_yet
             this.dgv_stocks_shares.RowTemplate.Height = 28;
             this.dgv_stocks_shares.Size = new System.Drawing.Size(1385, 633);
             this.dgv_stocks_shares.TabIndex = 2;
+            this.dgv_stocks_shares.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_CellLeave_FormatCurrency);
             this.dgv_stocks_shares.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_stocks_shares_CellValueChanged);
             // 
             // panel60
@@ -2081,6 +2097,7 @@ namespace Can_I_retire_yet
             this.dgv_bonds.RowTemplate.Height = 28;
             this.dgv_bonds.Size = new System.Drawing.Size(1385, 633);
             this.dgv_bonds.TabIndex = 2;
+            this.dgv_bonds.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_CellLeave_FormatCurrency);
             this.dgv_bonds.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_bonds_CellValueChanged);
             // 
             // panel67
@@ -2449,6 +2466,47 @@ namespace Can_I_retire_yet
             this.txtbx_salary.TabIndex = 27;
             this.txtbx_salary.TextChanged += new System.EventHandler(this.txtbx_salary_TextChanged);
             // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(20, 606);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(66, 20);
+            this.label25.TabIndex = 28;
+            this.label25.Text = "Inflation";
+            // 
+            // txtbx_inflation
+            // 
+            this.txtbx_inflation.Location = new System.Drawing.Point(155, 603);
+            this.txtbx_inflation.Name = "txtbx_inflation";
+            this.txtbx_inflation.Size = new System.Drawing.Size(100, 26);
+            this.txtbx_inflation.TabIndex = 29;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(21, 639);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(72, 20);
+            this.label26.TabIndex = 30;
+            this.label26.Text = "Currency";
+            // 
+            // cmbx_currency
+            // 
+            this.cmbx_currency.FormattingEnabled = true;
+            this.cmbx_currency.Items.AddRange(new object[] {
+            "£",
+            "€",
+            "$",
+            "¥",
+            "CHF",
+            "AUD",
+            "CAD"});
+            this.cmbx_currency.Location = new System.Drawing.Point(153, 639);
+            this.cmbx_currency.Name = "cmbx_currency";
+            this.cmbx_currency.Size = new System.Drawing.Size(102, 28);
+            this.cmbx_currency.TabIndex = 31;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -2796,6 +2854,10 @@ namespace Can_I_retire_yet
         private System.Windows.Forms.GroupBox groupBox5;
         public System.Windows.Forms.Label lbl_salary;
         private System.Windows.Forms.TextBox txtbx_salary;
+        private System.Windows.Forms.TextBox txtbx_inflation;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.ComboBox cmbx_currency;
+        private System.Windows.Forms.Label label26;
     }
 }
 

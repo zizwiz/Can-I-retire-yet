@@ -13,5 +13,8 @@ namespace Can_I_retire_yet.Models
         public List<List<string>> expenses { get; set; }
         public List<List<string>> future_income { get; set; }
         public List<List<string>> future_expenses { get; set; }
+        public string salary { get; set; }
+        public string inflation { get; set; }
+        public string currency { get; set; }
     }
 }
