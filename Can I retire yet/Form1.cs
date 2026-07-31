@@ -518,15 +518,15 @@ namespace Can_I_retire_yet
 
         private void thinsldr_salary_ValueChanged(object sender, EventArgs e)
         {
-            txtbx_salary.Text = cmbx_currency.Text + thinsldr_salary.Value.ToString("N2");
+            txtbx_salary.Text = cmbx_currency.Text + thinsldr_salary.Value; //ToString("N2");
         }
 
         private void txtbx_salary_TextChanged(object sender, EventArgs e)
         {
             if (txtbx_salary.Text.Length > 1)
             {
-                //    thinsldr_salary.Value = Int32.Parse(txtbx_salary.Text.Substring(1, txtbx_salary.Text.Length - 1));
-                //    Recalculate();
+                thinsldr_salary.Value = Int32.Parse(txtbx_salary.Text.Substring(1, txtbx_salary.Text.Length - 1));
+                Recalculate();
             }
         }
     }

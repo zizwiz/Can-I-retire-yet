@@ -238,6 +238,13 @@ namespace Can_I_retire_yet
             this.btn_open_all = new System.Windows.Forms.Button();
             this.btn_close = new System.Windows.Forms.Button();
             this.thinsldr_salary = new Can_I_retire_yet.utils.ThinSlider();
+            this.thinsldr_Age = new Can_I_retire_yet.utils.ThinSlider();
+            this.txtbx_age = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.thinsldr_Length = new Can_I_retire_yet.utils.ThinSlider();
+            this.txtbx_length = new System.Windows.Forms.TextBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -336,6 +343,7 @@ namespace Can_I_retire_yet
             this.tab_MonteCarlo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trkbr_retirement_age)).BeginInit();
             this.panel19.SuspendLayout();
+            this.groupBox7.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -344,7 +352,7 @@ namespace Can_I_retire_yet
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1405, 828);
+            this.panel1.Size = new System.Drawing.Size(1405, 894);
             this.panel1.TabIndex = 0;
             // 
             // tableLayoutPanel7
@@ -359,7 +367,7 @@ namespace Can_I_retire_yet
             this.tableLayoutPanel7.RowCount = 2;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(1405, 828);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(1405, 894);
             this.tableLayoutPanel7.TabIndex = 1;
             // 
             // tabControl1
@@ -379,7 +387,7 @@ namespace Can_I_retire_yet
             this.tabControl1.Location = new System.Drawing.Point(3, 3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1399, 742);
+            this.tabControl1.Size = new System.Drawing.Size(1399, 808);
             this.tabControl1.TabIndex = 0;
             // 
             // tab_overall
@@ -388,7 +396,7 @@ namespace Can_I_retire_yet
             this.tab_overall.Location = new System.Drawing.Point(4, 29);
             this.tab_overall.Name = "tab_overall";
             this.tab_overall.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_overall.Size = new System.Drawing.Size(1391, 709);
+            this.tab_overall.Size = new System.Drawing.Size(1391, 775);
             this.tab_overall.TabIndex = 0;
             this.tab_overall.Text = "Overall";
             this.tab_overall.UseVisualStyleBackColor = true;
@@ -399,7 +407,7 @@ namespace Can_I_retire_yet
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1385, 703);
+            this.panel2.Size = new System.Drawing.Size(1385, 769);
             this.panel2.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -414,11 +422,12 @@ namespace Can_I_retire_yet
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1385, 703);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1385, 769);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.groupBox7);
             this.panel3.Controls.Add(this.groupBox6);
             this.panel3.Controls.Add(this.cmbx_currency);
             this.panel3.Controls.Add(this.label26);
@@ -432,7 +441,7 @@ namespace Can_I_retire_yet
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(294, 697);
+            this.panel3.Size = new System.Drawing.Size(294, 763);
             this.panel3.TabIndex = 0;
             // 
             // groupBox6
@@ -780,7 +789,7 @@ namespace Can_I_retire_yet
             // lbl_future_income
             // 
             this.lbl_future_income.AutoSize = true;
-            this.lbl_future_income.Location = new System.Drawing.Point(175, 545);
+            this.lbl_future_income.Location = new System.Drawing.Point(176, 729);
             this.lbl_future_income.Name = "lbl_future_income";
             this.lbl_future_income.Size = new System.Drawing.Size(49, 20);
             this.lbl_future_income.TabIndex = 9;
@@ -789,7 +798,7 @@ namespace Can_I_retire_yet
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(21, 545);
+            this.label8.Location = new System.Drawing.Point(22, 729);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(113, 20);
             this.label8.TabIndex = 8;
@@ -798,7 +807,7 @@ namespace Can_I_retire_yet
             // lbl_future_expenses
             // 
             this.lbl_future_expenses.AutoSize = true;
-            this.lbl_future_expenses.Location = new System.Drawing.Point(175, 501);
+            this.lbl_future_expenses.Location = new System.Drawing.Point(176, 685);
             this.lbl_future_expenses.Name = "lbl_future_expenses";
             this.lbl_future_expenses.Size = new System.Drawing.Size(49, 20);
             this.lbl_future_expenses.TabIndex = 7;
@@ -807,7 +816,7 @@ namespace Can_I_retire_yet
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(21, 501);
+            this.label6.Location = new System.Drawing.Point(22, 685);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(130, 20);
             this.label6.TabIndex = 6;
@@ -818,7 +827,7 @@ namespace Can_I_retire_yet
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(303, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1079, 697);
+            this.panel4.Size = new System.Drawing.Size(1079, 763);
             this.panel4.TabIndex = 1;
             // 
             // tab_assets
@@ -2465,7 +2474,7 @@ namespace Can_I_retire_yet
             this.panel19.Controls.Add(this.btn_open_all);
             this.panel19.Controls.Add(this.btn_close);
             this.panel19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel19.Location = new System.Drawing.Point(3, 751);
+            this.panel19.Location = new System.Drawing.Point(3, 817);
             this.panel19.Name = "panel19";
             this.panel19.Size = new System.Drawing.Size(1399, 74);
             this.panel19.TabIndex = 1;
@@ -2512,6 +2521,7 @@ namespace Can_I_retire_yet
             // 
             // thinsldr_salary
             // 
+            this.thinsldr_salary.BackColor = System.Drawing.Color.White;
             this.thinsldr_salary.Location = new System.Drawing.Point(81, 30);
             this.thinsldr_salary.Maximum = 50000;
             this.thinsldr_salary.Minimum = 0;
@@ -2519,16 +2529,91 @@ namespace Can_I_retire_yet
             this.thinsldr_salary.Size = new System.Drawing.Size(172, 18);
             this.thinsldr_salary.TabIndex = 28;
             this.thinsldr_salary.Text = "thinSlider1";
-            this.thinsldr_salary.ThumbColor = System.Drawing.Color.Red;
+            this.thinsldr_salary.ThumbColor = System.Drawing.Color.DodgerBlue;
             this.thinsldr_salary.TrackColor = System.Drawing.Color.Gray;
             this.thinsldr_salary.Value = 20000;
             this.thinsldr_salary.ValueChanged += new System.EventHandler(this.thinsldr_salary_ValueChanged);
+            // 
+            // thinsldr_Age
+            // 
+            this.thinsldr_Age.BackColor = System.Drawing.Color.White;
+            this.thinsldr_Age.Location = new System.Drawing.Point(83, 28);
+            this.thinsldr_Age.Maximum = 100;
+            this.thinsldr_Age.Minimum = 50;
+            this.thinsldr_Age.Name = "thinsldr_Age";
+            this.thinsldr_Age.Size = new System.Drawing.Size(172, 18);
+            this.thinsldr_Age.TabIndex = 35;
+            this.thinsldr_Age.Text = "thinSlider1";
+            this.thinsldr_Age.ThumbColor = System.Drawing.Color.DodgerBlue;
+            this.thinsldr_Age.TrackColor = System.Drawing.Color.Gray;
+            this.thinsldr_Age.Value = 60;
+            // 
+            // txtbx_age
+            // 
+            this.txtbx_age.Location = new System.Drawing.Point(155, 50);
+            this.txtbx_age.Name = "txtbx_age";
+            this.txtbx_age.Size = new System.Drawing.Size(100, 26);
+            this.txtbx_age.TabIndex = 34;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(6, 27);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(38, 20);
+            this.label27.TabIndex = 33;
+            this.label27.Text = "Age";
+            // 
+            // thinsldr_Length
+            // 
+            this.thinsldr_Length.BackColor = System.Drawing.Color.White;
+            this.thinsldr_Length.Location = new System.Drawing.Point(82, 82);
+            this.thinsldr_Length.Maximum = 60;
+            this.thinsldr_Length.Minimum = 0;
+            this.thinsldr_Length.Name = "thinsldr_Length";
+            this.thinsldr_Length.Size = new System.Drawing.Size(172, 18);
+            this.thinsldr_Length.TabIndex = 38;
+            this.thinsldr_Length.Text = "thinSlider1";
+            this.thinsldr_Length.ThumbColor = System.Drawing.Color.DodgerBlue;
+            this.thinsldr_Length.TrackColor = System.Drawing.Color.Gray;
+            this.thinsldr_Length.Value = 40;
+            // 
+            // txtbx_length
+            // 
+            this.txtbx_length.Location = new System.Drawing.Point(154, 104);
+            this.txtbx_length.Name = "txtbx_length";
+            this.txtbx_length.Size = new System.Drawing.Size(100, 26);
+            this.txtbx_length.TabIndex = 37;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(5, 81);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(59, 20);
+            this.label28.TabIndex = 36;
+            this.label28.Text = "Length";
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.thinsldr_Length);
+            this.groupBox7.Controls.Add(this.txtbx_length);
+            this.groupBox7.Controls.Add(this.label28);
+            this.groupBox7.Controls.Add(this.thinsldr_Age);
+            this.groupBox7.Controls.Add(this.txtbx_age);
+            this.groupBox7.Controls.Add(this.label27);
+            this.groupBox7.Location = new System.Drawing.Point(14, 422);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(264, 149);
+            this.groupBox7.TabIndex = 39;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Retirement";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1405, 828);
+            this.ClientSize = new System.Drawing.Size(1405, 894);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
@@ -2666,6 +2751,8 @@ namespace Can_I_retire_yet
             this.tab_MonteCarlo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trkbr_retirement_age)).EndInit();
             this.panel19.ResumeLayout(false);
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2878,6 +2965,13 @@ namespace Can_I_retire_yet
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.GroupBox groupBox6;
         private utils.ThinSlider thinsldr_salary;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private utils.ThinSlider thinsldr_Length;
+        private System.Windows.Forms.TextBox txtbx_length;
+        private System.Windows.Forms.Label label28;
+        private utils.ThinSlider thinsldr_Age;
+        private System.Windows.Forms.TextBox txtbx_age;
+        private System.Windows.Forms.Label label27;
     }
 }
 

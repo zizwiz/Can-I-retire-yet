@@ -10,8 +10,33 @@ namespace Can_I_retire_yet.utils
     //Explicitly make this class public so we can get access to it
     public class ThinSlider : Control
     {
-        public Color ThumbColor { get; set; } = Color.DodgerBlue;
-        public Color TrackColor { get; set; } = Color.Gray;
+        //public Color ThumbColor { get; set; } = Color.DodgerBlue;
+        //public Color TrackColor { get; set; } = Color.OrangeRed; // Color.Gray;
+
+        private Color _thumbColor = Color.DodgerBlue;
+        [Category("Appearance")]
+        public Color ThumbColor
+        {
+            get => _thumbColor;
+            set
+            {
+                _thumbColor = value;
+                Invalidate();   // force repaint
+            }
+        }
+
+        private Color _trackColor = Color.Gray;
+        [Category("Appearance")]
+        public Color TrackColor
+        {
+            get => _trackColor;
+            set
+            {
+                _trackColor = value;
+                Invalidate();   // force repaint
+            }
+        }
+
 
         [Category("Behavior")]
         public event EventHandler ValueChanged;
@@ -58,16 +83,29 @@ namespace Can_I_retire_yet.utils
         {
             base.OnPaint(e);
 
+            // Ensure we have space to draw
+            if (Width <= 0 || Height <= 0)
+                return;
+
             // Track
             int trackHeight = 4;
             int trackY = (Height - trackHeight) / 2;
-            e.Graphics.FillRectangle(Brushes.Gray, 0, trackY, Width, trackHeight);
+
+            using (Brush trackBrush = new SolidBrush(TrackColor))
+            {
+                e.Graphics.FillRectangle(trackBrush, 0, trackY, Width, trackHeight);
+            }
 
             // Thumb
             float percent = (float)(Value - Minimum) / (Maximum - Minimum);
             int thumbX = (int)(percent * (Width - 10));
-            e.Graphics.FillEllipse(Brushes.DodgerBlue, thumbX, trackY - 4, 10, 10);
+
+            using (Brush thumbBrush = new SolidBrush(ThumbColor))
+            {
+                e.Graphics.FillEllipse(thumbBrush, thumbX, trackY - 4, 10, 10);
+            }
         }
+
 
         protected override void OnMouseDown(MouseEventArgs e)
         {
