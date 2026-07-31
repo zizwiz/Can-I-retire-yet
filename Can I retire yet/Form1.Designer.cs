@@ -39,19 +39,44 @@ namespace Can_I_retire_yet
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.txtbx_salary = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.lbl_total_minus_expenses = new System.Windows.Forms.Label();
+            this.Label23 = new System.Windows.Forms.Label();
+            this.lbl_expenses = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cmbx_currency = new System.Windows.Forms.ComboBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.txtbx_inflation = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.lbl_stocks_shares = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lbl_bonds = new System.Windows.Forms.Label();
+            this.lbl_savings = new System.Windows.Forms.Label();
+            this.lbl_cash = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.lbl_1st_pass_total = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.lbl_income = new System.Windows.Forms.Label();
+            this.lbl_assets = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.lbl_future_income = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.lbl_future_expenses = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.lbl_income = new System.Windows.Forms.Label();
-            this.lbl_expenses = new System.Windows.Forms.Label();
-            this.lbl_assets = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.tab_assets = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
@@ -60,12 +85,69 @@ namespace Can_I_retire_yet
             this.panel38 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
             this.panel39 = new System.Windows.Forms.Panel();
+            this.lbl_assets_add = new System.Windows.Forms.Label();
             this.panel40 = new System.Windows.Forms.Panel();
             this.panel41 = new System.Windows.Forms.Panel();
             this.panel42 = new System.Windows.Forms.Panel();
             this.lbl_assets_delete = new System.Windows.Forms.Label();
             this.panel43 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
+            this.tab_cash = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel45 = new System.Windows.Forms.Panel();
+            this.dgv_cash = new System.Windows.Forms.DataGridView();
+            this.panel46 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel47 = new System.Windows.Forms.Panel();
+            this.lbl_cash_add = new System.Windows.Forms.Label();
+            this.panel48 = new System.Windows.Forms.Panel();
+            this.panel49 = new System.Windows.Forms.Panel();
+            this.panel50 = new System.Windows.Forms.Panel();
+            this.lbl_cash_delete = new System.Windows.Forms.Label();
+            this.panel51 = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.tab_savings = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel52 = new System.Windows.Forms.Panel();
+            this.dgv_savings = new System.Windows.Forms.DataGridView();
+            this.panel53 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel16 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel54 = new System.Windows.Forms.Panel();
+            this.lbl_savings_add = new System.Windows.Forms.Label();
+            this.panel55 = new System.Windows.Forms.Panel();
+            this.panel56 = new System.Windows.Forms.Panel();
+            this.panel57 = new System.Windows.Forms.Panel();
+            this.lbl_savings_delete = new System.Windows.Forms.Label();
+            this.panel58 = new System.Windows.Forms.Panel();
+            this.label13 = new System.Windows.Forms.Label();
+            this.tab_stocks_shares = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel59 = new System.Windows.Forms.Panel();
+            this.dgv_stocks_shares = new System.Windows.Forms.DataGridView();
+            this.panel60 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel61 = new System.Windows.Forms.Panel();
+            this.lbl_stocks_shares_add = new System.Windows.Forms.Label();
+            this.panel62 = new System.Windows.Forms.Panel();
+            this.panel63 = new System.Windows.Forms.Panel();
+            this.panel64 = new System.Windows.Forms.Panel();
+            this.lbl_stocks_shares_delete = new System.Windows.Forms.Label();
+            this.panel65 = new System.Windows.Forms.Panel();
+            this.label14 = new System.Windows.Forms.Label();
+            this.tab_bonds = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel19 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel66 = new System.Windows.Forms.Panel();
+            this.dgv_bonds = new System.Windows.Forms.DataGridView();
+            this.panel67 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel20 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel68 = new System.Windows.Forms.Panel();
+            this.lbl_bonds_adds = new System.Windows.Forms.Label();
+            this.panel69 = new System.Windows.Forms.Panel();
+            this.panel70 = new System.Windows.Forms.Panel();
+            this.panel71 = new System.Windows.Forms.Panel();
+            this.lbl_bonds_delete = new System.Windows.Forms.Label();
+            this.panel72 = new System.Windows.Forms.Panel();
+            this.lable5 = new System.Windows.Forms.Label();
             this.tab_expenses = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.panel24 = new System.Windows.Forms.Panel();
@@ -73,6 +155,7 @@ namespace Can_I_retire_yet
             this.panel26 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
             this.panel27 = new System.Windows.Forms.Panel();
+            this.lbl_expenses_add = new System.Windows.Forms.Label();
             this.panel28 = new System.Windows.Forms.Panel();
             this.panel29 = new System.Windows.Forms.Panel();
             this.panel30 = new System.Windows.Forms.Panel();
@@ -87,6 +170,7 @@ namespace Can_I_retire_yet
             this.panel32 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
             this.panel33 = new System.Windows.Forms.Panel();
+            this.lbl_income_add = new System.Windows.Forms.Label();
             this.panel34 = new System.Windows.Forms.Panel();
             this.panel35 = new System.Windows.Forms.Panel();
             this.panel36 = new System.Windows.Forms.Panel();
@@ -101,6 +185,7 @@ namespace Can_I_retire_yet
             this.panel9 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.lbl_future_expenses_add = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
@@ -116,6 +201,7 @@ namespace Can_I_retire_yet
             this.panel17 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.panel18 = new System.Windows.Forms.Panel();
+            this.lbl_future_income_add = new System.Windows.Forms.Label();
             this.panel20 = new System.Windows.Forms.Panel();
             this.panel21 = new System.Windows.Forms.Panel();
             this.panel22 = new System.Windows.Forms.Panel();
@@ -123,120 +209,35 @@ namespace Can_I_retire_yet
             this.panel44 = new System.Windows.Forms.Panel();
             this.label21 = new System.Windows.Forms.Label();
             this.tab_MonteCarlo = new System.Windows.Forms.TabPage();
-            this.rchtxtbx_monte_carlo_output = new System.Windows.Forms.RichTextBox();
-            this.btn_run_monte_carlo = new System.Windows.Forms.Button();
-            this.panel19 = new System.Windows.Forms.Panel();
-            this.btn_open_all = new System.Windows.Forms.Button();
-            this.btn_close = new System.Windows.Forms.Button();
-            this.txtbx_starting_portfolio = new System.Windows.Forms.TextBox();
-            this.txtbx_annual_spending = new System.Windows.Forms.TextBox();
-            this.txtbx_stock_returns = new System.Windows.Forms.TextBox();
-            this.txtbx_stock_volatility = new System.Windows.Forms.TextBox();
-            this.txtbx_avg_bond_return = new System.Windows.Forms.TextBox();
-            this.txtbx_bond_volatility = new System.Windows.Forms.TextBox();
-            this.txtbx_stock_allocation = new System.Windows.Forms.TextBox();
-            this.txtbx_monte_carlo_iterations = new System.Windows.Forms.TextBox();
-            this.lbl_starting_portfolio = new System.Windows.Forms.Label();
-            this.lbl_annual_spending = new System.Windows.Forms.Label();
-            this.lbl_stock_volatility = new System.Windows.Forms.Label();
-            this.lbl_avg_stock_return = new System.Windows.Forms.Label();
-            this.lbl_bond_volatility = new System.Windows.Forms.Label();
-            this.lbl_avg_bond_return = new System.Windows.Forms.Label();
-            this.lbl_retirement_length = new System.Windows.Forms.Label();
-            this.lbl_allocation_stocks_bonds = new System.Windows.Forms.Label();
-            this.lbl_monte_carlo_runs = new System.Windows.Forms.Label();
-            this.trkbr_retirement_age = new System.Windows.Forms.TrackBar();
-            this.lbl_trackbar_value = new System.Windows.Forms.Label();
             this.lbl_retirement_age = new System.Windows.Forms.Label();
             this.txtbx_retirement_age = new System.Windows.Forms.TextBox();
-            this.btn_save_all = new System.Windows.Forms.Button();
-            this.tab_savings = new System.Windows.Forms.TabPage();
-            this.tab_cash = new System.Windows.Forms.TabPage();
-            this.tab_stocks_shares = new System.Windows.Forms.TabPage();
-            this.tab_bonds = new System.Windows.Forms.TabPage();
-            this.lbl_assets_add = new System.Windows.Forms.Label();
-            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel45 = new System.Windows.Forms.Panel();
-            this.dgv_cash = new System.Windows.Forms.DataGridView();
-            this.panel46 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel47 = new System.Windows.Forms.Panel();
-            this.lbl_cash_add = new System.Windows.Forms.Label();
-            this.panel48 = new System.Windows.Forms.Panel();
-            this.panel49 = new System.Windows.Forms.Panel();
-            this.panel50 = new System.Windows.Forms.Panel();
-            this.lbl_cash_delete = new System.Windows.Forms.Label();
-            this.panel51 = new System.Windows.Forms.Panel();
-            this.label11 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel52 = new System.Windows.Forms.Panel();
-            this.dgv_savings = new System.Windows.Forms.DataGridView();
-            this.panel53 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel16 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel54 = new System.Windows.Forms.Panel();
-            this.lbl_savings_add = new System.Windows.Forms.Label();
-            this.panel55 = new System.Windows.Forms.Panel();
-            this.panel56 = new System.Windows.Forms.Panel();
-            this.panel57 = new System.Windows.Forms.Panel();
-            this.lbl_savings_delete = new System.Windows.Forms.Label();
-            this.panel58 = new System.Windows.Forms.Panel();
-            this.label13 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel59 = new System.Windows.Forms.Panel();
-            this.dgv_stocks_shares = new System.Windows.Forms.DataGridView();
-            this.panel60 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel61 = new System.Windows.Forms.Panel();
-            this.lbl_stocks_shares_add = new System.Windows.Forms.Label();
-            this.panel62 = new System.Windows.Forms.Panel();
-            this.panel63 = new System.Windows.Forms.Panel();
-            this.panel64 = new System.Windows.Forms.Panel();
-            this.lbl_stocks_shares_delete = new System.Windows.Forms.Label();
-            this.panel65 = new System.Windows.Forms.Panel();
-            this.label14 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel19 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel66 = new System.Windows.Forms.Panel();
-            this.dgv_bonds = new System.Windows.Forms.DataGridView();
-            this.panel67 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel20 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel68 = new System.Windows.Forms.Panel();
-            this.lbl_bonds_adds = new System.Windows.Forms.Label();
-            this.panel69 = new System.Windows.Forms.Panel();
-            this.panel70 = new System.Windows.Forms.Panel();
-            this.panel71 = new System.Windows.Forms.Panel();
-            this.lbl_bonds_delete = new System.Windows.Forms.Label();
-            this.panel72 = new System.Windows.Forms.Panel();
-            this.lable5 = new System.Windows.Forms.Label();
-            this.lbl_income_add = new System.Windows.Forms.Label();
-            this.lbl_future_expenses_add = new System.Windows.Forms.Label();
-            this.lbl_future_income_add = new System.Windows.Forms.Label();
-            this.lbl_expenses_add = new System.Windows.Forms.Label();
-            this.lbl_bonds = new System.Windows.Forms.Label();
-            this.lbl_savings = new System.Windows.Forms.Label();
-            this.lbl_cash = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.lbl_stocks_shares = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.lbl_total_minus_expenses = new System.Windows.Forms.Label();
-            this.Label23 = new System.Windows.Forms.Label();
+            this.lbl_trackbar_value = new System.Windows.Forms.Label();
+            this.lbl_monte_carlo_runs = new System.Windows.Forms.Label();
+            this.lbl_retirement_length = new System.Windows.Forms.Label();
+            this.lbl_allocation_stocks_bonds = new System.Windows.Forms.Label();
+            this.lbl_bond_volatility = new System.Windows.Forms.Label();
+            this.lbl_avg_bond_return = new System.Windows.Forms.Label();
+            this.lbl_stock_volatility = new System.Windows.Forms.Label();
+            this.lbl_avg_stock_return = new System.Windows.Forms.Label();
+            this.lbl_annual_spending = new System.Windows.Forms.Label();
+            this.lbl_starting_portfolio = new System.Windows.Forms.Label();
+            this.txtbx_monte_carlo_iterations = new System.Windows.Forms.TextBox();
+            this.txtbx_stock_allocation = new System.Windows.Forms.TextBox();
+            this.txtbx_bond_volatility = new System.Windows.Forms.TextBox();
+            this.txtbx_avg_bond_return = new System.Windows.Forms.TextBox();
+            this.txtbx_stock_volatility = new System.Windows.Forms.TextBox();
+            this.txtbx_stock_returns = new System.Windows.Forms.TextBox();
+            this.txtbx_annual_spending = new System.Windows.Forms.TextBox();
+            this.txtbx_starting_portfolio = new System.Windows.Forms.TextBox();
+            this.rchtxtbx_monte_carlo_output = new System.Windows.Forms.RichTextBox();
+            this.btn_run_monte_carlo = new System.Windows.Forms.Button();
+            this.trkbr_retirement_age = new System.Windows.Forms.TrackBar();
+            this.panel19 = new System.Windows.Forms.Panel();
             this.btn_new = new System.Windows.Forms.Button();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.label24 = new System.Windows.Forms.Label();
-            this.lbl_salary = new System.Windows.Forms.Label();
-            this.txtbx_salary = new System.Windows.Forms.TextBox();
-            this.label25 = new System.Windows.Forms.Label();
-            this.txtbx_inflation = new System.Windows.Forms.TextBox();
-            this.label26 = new System.Windows.Forms.Label();
-            this.cmbx_currency = new System.Windows.Forms.ComboBox();
+            this.btn_save_all = new System.Windows.Forms.Button();
+            this.btn_open_all = new System.Windows.Forms.Button();
+            this.btn_close = new System.Windows.Forms.Button();
+            this.thinsldr_salary = new Can_I_retire_yet.utils.ThinSlider();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -244,6 +245,9 @@ namespace Can_I_retire_yet
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tab_assets.SuspendLayout();
             this.tableLayoutPanel14.SuspendLayout();
@@ -254,6 +258,42 @@ namespace Can_I_retire_yet
             this.panel39.SuspendLayout();
             this.panel42.SuspendLayout();
             this.panel43.SuspendLayout();
+            this.tab_cash.SuspendLayout();
+            this.tableLayoutPanel6.SuspendLayout();
+            this.panel45.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_cash)).BeginInit();
+            this.panel46.SuspendLayout();
+            this.tableLayoutPanel8.SuspendLayout();
+            this.panel47.SuspendLayout();
+            this.panel50.SuspendLayout();
+            this.panel51.SuspendLayout();
+            this.tab_savings.SuspendLayout();
+            this.tableLayoutPanel9.SuspendLayout();
+            this.panel52.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_savings)).BeginInit();
+            this.panel53.SuspendLayout();
+            this.tableLayoutPanel16.SuspendLayout();
+            this.panel54.SuspendLayout();
+            this.panel57.SuspendLayout();
+            this.panel58.SuspendLayout();
+            this.tab_stocks_shares.SuspendLayout();
+            this.tableLayoutPanel17.SuspendLayout();
+            this.panel59.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_stocks_shares)).BeginInit();
+            this.panel60.SuspendLayout();
+            this.tableLayoutPanel18.SuspendLayout();
+            this.panel61.SuspendLayout();
+            this.panel64.SuspendLayout();
+            this.panel65.SuspendLayout();
+            this.tab_bonds.SuspendLayout();
+            this.tableLayoutPanel19.SuspendLayout();
+            this.panel66.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_bonds)).BeginInit();
+            this.panel67.SuspendLayout();
+            this.tableLayoutPanel20.SuspendLayout();
+            this.panel68.SuspendLayout();
+            this.panel71.SuspendLayout();
+            this.panel72.SuspendLayout();
             this.tab_expenses.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
             this.panel24.SuspendLayout();
@@ -294,46 +334,8 @@ namespace Can_I_retire_yet
             this.panel22.SuspendLayout();
             this.panel44.SuspendLayout();
             this.tab_MonteCarlo.SuspendLayout();
-            this.panel19.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trkbr_retirement_age)).BeginInit();
-            this.tab_savings.SuspendLayout();
-            this.tab_cash.SuspendLayout();
-            this.tab_stocks_shares.SuspendLayout();
-            this.tab_bonds.SuspendLayout();
-            this.tableLayoutPanel6.SuspendLayout();
-            this.panel45.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_cash)).BeginInit();
-            this.panel46.SuspendLayout();
-            this.tableLayoutPanel8.SuspendLayout();
-            this.panel47.SuspendLayout();
-            this.panel50.SuspendLayout();
-            this.panel51.SuspendLayout();
-            this.tableLayoutPanel9.SuspendLayout();
-            this.panel52.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_savings)).BeginInit();
-            this.panel53.SuspendLayout();
-            this.tableLayoutPanel16.SuspendLayout();
-            this.panel54.SuspendLayout();
-            this.panel57.SuspendLayout();
-            this.panel58.SuspendLayout();
-            this.tableLayoutPanel17.SuspendLayout();
-            this.panel59.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_stocks_shares)).BeginInit();
-            this.panel60.SuspendLayout();
-            this.tableLayoutPanel18.SuspendLayout();
-            this.panel61.SuspendLayout();
-            this.panel64.SuspendLayout();
-            this.panel65.SuspendLayout();
-            this.tableLayoutPanel19.SuspendLayout();
-            this.panel66.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_bonds)).BeginInit();
-            this.panel67.SuspendLayout();
-            this.tableLayoutPanel20.SuspendLayout();
-            this.panel68.SuspendLayout();
-            this.panel71.SuspendLayout();
-            this.panel72.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox5.SuspendLayout();
+            this.panel19.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -417,28 +419,270 @@ namespace Can_I_retire_yet
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.groupBox6);
             this.panel3.Controls.Add(this.cmbx_currency);
             this.panel3.Controls.Add(this.label26);
             this.panel3.Controls.Add(this.txtbx_inflation);
             this.panel3.Controls.Add(this.label25);
-            this.panel3.Controls.Add(this.txtbx_salary);
-            this.panel3.Controls.Add(this.lbl_salary);
-            this.panel3.Controls.Add(this.label24);
             this.panel3.Controls.Add(this.groupBox5);
-            this.panel3.Controls.Add(this.groupBox3);
-            this.panel3.Controls.Add(this.lbl_total_minus_expenses);
-            this.panel3.Controls.Add(this.Label23);
             this.panel3.Controls.Add(this.lbl_future_income);
             this.panel3.Controls.Add(this.label8);
             this.panel3.Controls.Add(this.lbl_future_expenses);
             this.panel3.Controls.Add(this.label6);
-            this.panel3.Controls.Add(this.lbl_expenses);
-            this.panel3.Controls.Add(this.label3);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(294, 697);
             this.panel3.TabIndex = 0;
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.thinsldr_salary);
+            this.groupBox6.Controls.Add(this.txtbx_salary);
+            this.groupBox6.Controls.Add(this.label24);
+            this.groupBox6.Controls.Add(this.groupBox3);
+            this.groupBox6.Controls.Add(this.lbl_total_minus_expenses);
+            this.groupBox6.Controls.Add(this.Label23);
+            this.groupBox6.Controls.Add(this.lbl_expenses);
+            this.groupBox6.Controls.Add(this.label3);
+            this.groupBox6.Location = new System.Drawing.Point(15, 233);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(263, 168);
+            this.groupBox6.TabIndex = 32;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Outgoings";
+            // 
+            // txtbx_salary
+            // 
+            this.txtbx_salary.Location = new System.Drawing.Point(153, 52);
+            this.txtbx_salary.Name = "txtbx_salary";
+            this.txtbx_salary.Size = new System.Drawing.Size(100, 26);
+            this.txtbx_salary.TabIndex = 27;
+            this.txtbx_salary.TextChanged += new System.EventHandler(this.txtbx_salary_TextChanged);
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(4, 29);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(53, 20);
+            this.label24.TabIndex = 25;
+            this.label24.Text = "Salary";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.groupBox4);
+            this.groupBox3.Controls.Add(this.label20);
+            this.groupBox3.Controls.Add(this.label22);
+            this.groupBox3.Location = new System.Drawing.Point(8, 112);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(245, 8);
+            this.groupBox3.TabIndex = 23;
+            this.groupBox3.TabStop = false;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Location = new System.Drawing.Point(1, -17);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(245, 8);
+            this.groupBox4.TabIndex = 15;
+            this.groupBox4.TabStop = false;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(152, 5);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(49, 20);
+            this.label20.TabIndex = 14;
+            this.label20.Text = "£0.00";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(-2, 5);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(44, 20);
+            this.label22.TabIndex = 13;
+            this.label22.Text = "Total";
+            // 
+            // lbl_total_minus_expenses
+            // 
+            this.lbl_total_minus_expenses.AutoSize = true;
+            this.lbl_total_minus_expenses.Location = new System.Drawing.Point(159, 134);
+            this.lbl_total_minus_expenses.Name = "lbl_total_minus_expenses";
+            this.lbl_total_minus_expenses.Size = new System.Drawing.Size(49, 20);
+            this.lbl_total_minus_expenses.TabIndex = 22;
+            this.lbl_total_minus_expenses.Text = "£0.00";
+            // 
+            // Label23
+            // 
+            this.Label23.AutoSize = true;
+            this.Label23.Location = new System.Drawing.Point(5, 134);
+            this.Label23.Name = "Label23";
+            this.Label23.Size = new System.Drawing.Size(124, 20);
+            this.Label23.TabIndex = 21;
+            this.Label23.Text = "Total Remaining";
+            // 
+            // lbl_expenses
+            // 
+            this.lbl_expenses.AutoSize = true;
+            this.lbl_expenses.Location = new System.Drawing.Point(159, 85);
+            this.lbl_expenses.Name = "lbl_expenses";
+            this.lbl_expenses.Size = new System.Drawing.Size(49, 20);
+            this.lbl_expenses.TabIndex = 4;
+            this.lbl_expenses.Text = "£0.00";
+            this.lbl_expenses.TextChanged += new System.EventHandler(this.lbl_totals_TextChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(5, 85);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(79, 20);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Expenses";
+            // 
+            // cmbx_currency
+            // 
+            this.cmbx_currency.FormattingEnabled = true;
+            this.cmbx_currency.Items.AddRange(new object[] {
+            "£",
+            "€",
+            "$",
+            "¥",
+            "CHF",
+            "AUD",
+            "CAD"});
+            this.cmbx_currency.Location = new System.Drawing.Point(153, 639);
+            this.cmbx_currency.Name = "cmbx_currency";
+            this.cmbx_currency.Size = new System.Drawing.Size(102, 28);
+            this.cmbx_currency.TabIndex = 31;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(21, 639);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(72, 20);
+            this.label26.TabIndex = 30;
+            this.label26.Text = "Currency";
+            // 
+            // txtbx_inflation
+            // 
+            this.txtbx_inflation.Location = new System.Drawing.Point(155, 603);
+            this.txtbx_inflation.Name = "txtbx_inflation";
+            this.txtbx_inflation.Size = new System.Drawing.Size(100, 26);
+            this.txtbx_inflation.TabIndex = 29;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(20, 606);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(66, 20);
+            this.label25.TabIndex = 28;
+            this.label25.Text = "Inflation";
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.lbl_stocks_shares);
+            this.groupBox5.Controls.Add(this.label7);
+            this.groupBox5.Controls.Add(this.lbl_bonds);
+            this.groupBox5.Controls.Add(this.lbl_savings);
+            this.groupBox5.Controls.Add(this.lbl_cash);
+            this.groupBox5.Controls.Add(this.label17);
+            this.groupBox5.Controls.Add(this.label18);
+            this.groupBox5.Controls.Add(this.label19);
+            this.groupBox5.Controls.Add(this.groupBox1);
+            this.groupBox5.Controls.Add(this.lbl_1st_pass_total);
+            this.groupBox5.Controls.Add(this.label12);
+            this.groupBox5.Controls.Add(this.lbl_income);
+            this.groupBox5.Controls.Add(this.lbl_assets);
+            this.groupBox5.Controls.Add(this.label4);
+            this.groupBox5.Controls.Add(this.label1);
+            this.groupBox5.Location = new System.Drawing.Point(15, 8);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(264, 219);
+            this.groupBox5.TabIndex = 24;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Income";
+            // 
+            // lbl_stocks_shares
+            // 
+            this.lbl_stocks_shares.AutoSize = true;
+            this.lbl_stocks_shares.Location = new System.Drawing.Point(160, 128);
+            this.lbl_stocks_shares.Name = "lbl_stocks_shares";
+            this.lbl_stocks_shares.Size = new System.Drawing.Size(49, 20);
+            this.lbl_stocks_shares.TabIndex = 20;
+            this.lbl_stocks_shares.Text = "£0.00";
+            this.lbl_stocks_shares.TextChanged += new System.EventHandler(this.lbl_totals_TextChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 128);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(144, 20);
+            this.label7.TabIndex = 19;
+            this.label7.Text = "Stocks and Shares";
+            // 
+            // lbl_bonds
+            // 
+            this.lbl_bonds.AutoSize = true;
+            this.lbl_bonds.Location = new System.Drawing.Point(160, 108);
+            this.lbl_bonds.Name = "lbl_bonds";
+            this.lbl_bonds.Size = new System.Drawing.Size(49, 20);
+            this.lbl_bonds.TabIndex = 18;
+            this.lbl_bonds.Text = "£0.00";
+            this.lbl_bonds.TextChanged += new System.EventHandler(this.lbl_totals_TextChanged);
+            // 
+            // lbl_savings
+            // 
+            this.lbl_savings.AutoSize = true;
+            this.lbl_savings.Location = new System.Drawing.Point(160, 88);
+            this.lbl_savings.Name = "lbl_savings";
+            this.lbl_savings.Size = new System.Drawing.Size(49, 20);
+            this.lbl_savings.TabIndex = 17;
+            this.lbl_savings.Text = "£0.00";
+            this.lbl_savings.TextChanged += new System.EventHandler(this.lbl_totals_TextChanged);
+            // 
+            // lbl_cash
+            // 
+            this.lbl_cash.AutoSize = true;
+            this.lbl_cash.Location = new System.Drawing.Point(160, 68);
+            this.lbl_cash.Name = "lbl_cash";
+            this.lbl_cash.Size = new System.Drawing.Size(49, 20);
+            this.lbl_cash.TabIndex = 16;
+            this.lbl_cash.Text = "£0.00";
+            this.lbl_cash.TextChanged += new System.EventHandler(this.lbl_totals_TextChanged);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(6, 108);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(55, 20);
+            this.label17.TabIndex = 15;
+            this.label17.Text = "Bonds";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(6, 88);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(65, 20);
+            this.label18.TabIndex = 14;
+            this.label18.Text = "Savings";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(6, 68);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(46, 20);
+            this.label19.TabIndex = 13;
+            this.label19.Text = "Cash";
             // 
             // groupBox1
             // 
@@ -450,6 +694,32 @@ namespace Can_I_retire_yet
             this.groupBox1.Size = new System.Drawing.Size(245, 8);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Location = new System.Drawing.Point(1, -17);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(245, 8);
+            this.groupBox2.TabIndex = 15;
+            this.groupBox2.TabStop = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(152, 5);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(49, 20);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "£0.00";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(-2, 5);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(44, 20);
+            this.label15.TabIndex = 13;
+            this.label15.Text = "Total";
             // 
             // lbl_1st_pass_total
             // 
@@ -468,6 +738,44 @@ namespace Can_I_retire_yet
             this.label12.Size = new System.Drawing.Size(44, 20);
             this.label12.TabIndex = 10;
             this.label12.Text = "Total";
+            // 
+            // lbl_income
+            // 
+            this.lbl_income.AutoSize = true;
+            this.lbl_income.Location = new System.Drawing.Point(160, 48);
+            this.lbl_income.Name = "lbl_income";
+            this.lbl_income.Size = new System.Drawing.Size(49, 20);
+            this.lbl_income.TabIndex = 5;
+            this.lbl_income.Text = "£0.00";
+            this.lbl_income.TextChanged += new System.EventHandler(this.lbl_totals_TextChanged);
+            // 
+            // lbl_assets
+            // 
+            this.lbl_assets.AutoSize = true;
+            this.lbl_assets.Location = new System.Drawing.Point(160, 28);
+            this.lbl_assets.Name = "lbl_assets";
+            this.lbl_assets.Size = new System.Drawing.Size(49, 20);
+            this.lbl_assets.TabIndex = 3;
+            this.lbl_assets.Text = "£0.00";
+            this.lbl_assets.TextChanged += new System.EventHandler(this.lbl_totals_TextChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 48);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(62, 20);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Income";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 28);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(58, 20);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Assets";
             // 
             // lbl_future_income
             // 
@@ -504,63 +812,6 @@ namespace Can_I_retire_yet
             this.label6.Size = new System.Drawing.Size(130, 20);
             this.label6.TabIndex = 6;
             this.label6.Text = "Future Expenses";
-            // 
-            // lbl_income
-            // 
-            this.lbl_income.AutoSize = true;
-            this.lbl_income.Location = new System.Drawing.Point(160, 48);
-            this.lbl_income.Name = "lbl_income";
-            this.lbl_income.Size = new System.Drawing.Size(49, 20);
-            this.lbl_income.TabIndex = 5;
-            this.lbl_income.Text = "£0.00";
-            this.lbl_income.TextChanged += new System.EventHandler(this.lbl_totals_TextChanged);
-            // 
-            // lbl_expenses
-            // 
-            this.lbl_expenses.AutoSize = true;
-            this.lbl_expenses.Location = new System.Drawing.Point(174, 339);
-            this.lbl_expenses.Name = "lbl_expenses";
-            this.lbl_expenses.Size = new System.Drawing.Size(49, 20);
-            this.lbl_expenses.TabIndex = 4;
-            this.lbl_expenses.Text = "£0.00";
-            this.lbl_expenses.TextChanged += new System.EventHandler(this.lbl_totals_TextChanged);
-            // 
-            // lbl_assets
-            // 
-            this.lbl_assets.AutoSize = true;
-            this.lbl_assets.Location = new System.Drawing.Point(160, 28);
-            this.lbl_assets.Name = "lbl_assets";
-            this.lbl_assets.Size = new System.Drawing.Size(49, 20);
-            this.lbl_assets.TabIndex = 3;
-            this.lbl_assets.Text = "£0.00";
-            this.lbl_assets.TextChanged += new System.EventHandler(this.lbl_totals_TextChanged);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 48);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(62, 20);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Income";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(20, 339);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(79, 20);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Expenses";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 28);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Assets";
             // 
             // panel4
             // 
@@ -657,6 +908,17 @@ namespace Can_I_retire_yet
             this.panel39.Size = new System.Drawing.Size(94, 58);
             this.panel39.TabIndex = 0;
             // 
+            // lbl_assets_add
+            // 
+            this.lbl_assets_add.AutoSize = true;
+            this.lbl_assets_add.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_assets_add.Location = new System.Drawing.Point(20, 15);
+            this.lbl_assets_add.Name = "lbl_assets_add";
+            this.lbl_assets_add.Size = new System.Drawing.Size(56, 29);
+            this.lbl_assets_add.TabIndex = 8;
+            this.lbl_assets_add.Text = "Add";
+            this.lbl_assets_add.Click += new System.EventHandler(this.lbl_assets_add_Click);
+            // 
             // panel40
             // 
             this.panel40.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -711,6 +973,614 @@ namespace Can_I_retire_yet
             this.label2.Size = new System.Drawing.Size(119, 37);
             this.label2.TabIndex = 2;
             this.label2.Text = "Assets";
+            // 
+            // tab_cash
+            // 
+            this.tab_cash.Controls.Add(this.tableLayoutPanel6);
+            this.tab_cash.Location = new System.Drawing.Point(4, 29);
+            this.tab_cash.Name = "tab_cash";
+            this.tab_cash.Size = new System.Drawing.Size(1391, 709);
+            this.tab_cash.TabIndex = 9;
+            this.tab_cash.Text = "Cash";
+            this.tab_cash.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel6
+            // 
+            this.tableLayoutPanel6.ColumnCount = 1;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel6.Controls.Add(this.panel45, 0, 1);
+            this.tableLayoutPanel6.Controls.Add(this.panel46, 0, 0);
+            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 2;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(1391, 709);
+            this.tableLayoutPanel6.TabIndex = 2;
+            // 
+            // panel45
+            // 
+            this.panel45.Controls.Add(this.dgv_cash);
+            this.panel45.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel45.Location = new System.Drawing.Point(3, 73);
+            this.panel45.Name = "panel45";
+            this.panel45.Size = new System.Drawing.Size(1385, 633);
+            this.panel45.TabIndex = 0;
+            // 
+            // dgv_cash
+            // 
+            this.dgv_cash.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_cash.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_cash.Location = new System.Drawing.Point(0, 0);
+            this.dgv_cash.Name = "dgv_cash";
+            this.dgv_cash.RowHeadersWidth = 62;
+            this.dgv_cash.RowTemplate.Height = 28;
+            this.dgv_cash.Size = new System.Drawing.Size(1385, 633);
+            this.dgv_cash.TabIndex = 2;
+            this.dgv_cash.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_CellLeave_FormatCurrency);
+            this.dgv_cash.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_cash_CellValueChanged);
+            // 
+            // panel46
+            // 
+            this.panel46.Controls.Add(this.tableLayoutPanel8);
+            this.panel46.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel46.Location = new System.Drawing.Point(3, 3);
+            this.panel46.Name = "panel46";
+            this.panel46.Size = new System.Drawing.Size(1385, 64);
+            this.panel46.TabIndex = 1;
+            // 
+            // tableLayoutPanel8
+            // 
+            this.tableLayoutPanel8.ColumnCount = 5;
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel8.Controls.Add(this.panel47, 0, 0);
+            this.tableLayoutPanel8.Controls.Add(this.panel48, 1, 0);
+            this.tableLayoutPanel8.Controls.Add(this.panel49, 3, 0);
+            this.tableLayoutPanel8.Controls.Add(this.panel50, 4, 0);
+            this.tableLayoutPanel8.Controls.Add(this.panel51, 2, 0);
+            this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
+            this.tableLayoutPanel8.RowCount = 1;
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(1385, 64);
+            this.tableLayoutPanel8.TabIndex = 11;
+            // 
+            // panel47
+            // 
+            this.panel47.Controls.Add(this.lbl_cash_add);
+            this.panel47.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel47.Location = new System.Drawing.Point(3, 3);
+            this.panel47.Name = "panel47";
+            this.panel47.Size = new System.Drawing.Size(94, 58);
+            this.panel47.TabIndex = 0;
+            // 
+            // lbl_cash_add
+            // 
+            this.lbl_cash_add.AutoSize = true;
+            this.lbl_cash_add.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_cash_add.Location = new System.Drawing.Point(20, 15);
+            this.lbl_cash_add.Name = "lbl_cash_add";
+            this.lbl_cash_add.Size = new System.Drawing.Size(56, 29);
+            this.lbl_cash_add.TabIndex = 8;
+            this.lbl_cash_add.Text = "Add";
+            this.lbl_cash_add.Click += new System.EventHandler(this.lbl_cash_add_Click);
+            // 
+            // panel48
+            // 
+            this.panel48.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel48.Location = new System.Drawing.Point(103, 3);
+            this.panel48.Name = "panel48";
+            this.panel48.Size = new System.Drawing.Size(94, 58);
+            this.panel48.TabIndex = 1;
+            // 
+            // panel49
+            // 
+            this.panel49.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel49.Location = new System.Drawing.Point(1188, 3);
+            this.panel49.Name = "panel49";
+            this.panel49.Size = new System.Drawing.Size(94, 58);
+            this.panel49.TabIndex = 2;
+            // 
+            // panel50
+            // 
+            this.panel50.Controls.Add(this.lbl_cash_delete);
+            this.panel50.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel50.Location = new System.Drawing.Point(1288, 3);
+            this.panel50.Name = "panel50";
+            this.panel50.Size = new System.Drawing.Size(94, 58);
+            this.panel50.TabIndex = 3;
+            // 
+            // lbl_cash_delete
+            // 
+            this.lbl_cash_delete.AutoSize = true;
+            this.lbl_cash_delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_cash_delete.Location = new System.Drawing.Point(7, 15);
+            this.lbl_cash_delete.Name = "lbl_cash_delete";
+            this.lbl_cash_delete.Size = new System.Drawing.Size(84, 29);
+            this.lbl_cash_delete.TabIndex = 8;
+            this.lbl_cash_delete.Text = "Delete";
+            this.lbl_cash_delete.Click += new System.EventHandler(this.lbl_cash_delete_Click);
+            // 
+            // panel51
+            // 
+            this.panel51.Controls.Add(this.label11);
+            this.panel51.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel51.Location = new System.Drawing.Point(203, 3);
+            this.panel51.Name = "panel51";
+            this.panel51.Size = new System.Drawing.Size(979, 58);
+            this.panel51.TabIndex = 4;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(427, 11);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(96, 37);
+            this.label11.TabIndex = 2;
+            this.label11.Text = "Cash";
+            // 
+            // tab_savings
+            // 
+            this.tab_savings.Controls.Add(this.tableLayoutPanel9);
+            this.tab_savings.Location = new System.Drawing.Point(4, 29);
+            this.tab_savings.Name = "tab_savings";
+            this.tab_savings.Size = new System.Drawing.Size(1391, 709);
+            this.tab_savings.TabIndex = 8;
+            this.tab_savings.Text = "Savings";
+            this.tab_savings.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel9
+            // 
+            this.tableLayoutPanel9.ColumnCount = 1;
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel9.Controls.Add(this.panel52, 0, 1);
+            this.tableLayoutPanel9.Controls.Add(this.panel53, 0, 0);
+            this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel9.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel9.Name = "tableLayoutPanel9";
+            this.tableLayoutPanel9.RowCount = 2;
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(1391, 709);
+            this.tableLayoutPanel9.TabIndex = 3;
+            // 
+            // panel52
+            // 
+            this.panel52.Controls.Add(this.dgv_savings);
+            this.panel52.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel52.Location = new System.Drawing.Point(3, 73);
+            this.panel52.Name = "panel52";
+            this.panel52.Size = new System.Drawing.Size(1385, 633);
+            this.panel52.TabIndex = 0;
+            // 
+            // dgv_savings
+            // 
+            this.dgv_savings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_savings.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_savings.Location = new System.Drawing.Point(0, 0);
+            this.dgv_savings.Name = "dgv_savings";
+            this.dgv_savings.RowHeadersWidth = 62;
+            this.dgv_savings.RowTemplate.Height = 28;
+            this.dgv_savings.Size = new System.Drawing.Size(1385, 633);
+            this.dgv_savings.TabIndex = 2;
+            this.dgv_savings.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_CellLeave_FormatCurrency);
+            this.dgv_savings.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_savings_CellValueChanged);
+            // 
+            // panel53
+            // 
+            this.panel53.Controls.Add(this.tableLayoutPanel16);
+            this.panel53.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel53.Location = new System.Drawing.Point(3, 3);
+            this.panel53.Name = "panel53";
+            this.panel53.Size = new System.Drawing.Size(1385, 64);
+            this.panel53.TabIndex = 1;
+            // 
+            // tableLayoutPanel16
+            // 
+            this.tableLayoutPanel16.ColumnCount = 5;
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel16.Controls.Add(this.panel54, 0, 0);
+            this.tableLayoutPanel16.Controls.Add(this.panel55, 1, 0);
+            this.tableLayoutPanel16.Controls.Add(this.panel56, 3, 0);
+            this.tableLayoutPanel16.Controls.Add(this.panel57, 4, 0);
+            this.tableLayoutPanel16.Controls.Add(this.panel58, 2, 0);
+            this.tableLayoutPanel16.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel16.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel16.Name = "tableLayoutPanel16";
+            this.tableLayoutPanel16.RowCount = 1;
+            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel16.Size = new System.Drawing.Size(1385, 64);
+            this.tableLayoutPanel16.TabIndex = 11;
+            // 
+            // panel54
+            // 
+            this.panel54.Controls.Add(this.lbl_savings_add);
+            this.panel54.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel54.Location = new System.Drawing.Point(3, 3);
+            this.panel54.Name = "panel54";
+            this.panel54.Size = new System.Drawing.Size(94, 58);
+            this.panel54.TabIndex = 0;
+            // 
+            // lbl_savings_add
+            // 
+            this.lbl_savings_add.AutoSize = true;
+            this.lbl_savings_add.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_savings_add.Location = new System.Drawing.Point(20, 15);
+            this.lbl_savings_add.Name = "lbl_savings_add";
+            this.lbl_savings_add.Size = new System.Drawing.Size(56, 29);
+            this.lbl_savings_add.TabIndex = 8;
+            this.lbl_savings_add.Text = "Add";
+            this.lbl_savings_add.Click += new System.EventHandler(this.lbl_savings_add_Click);
+            // 
+            // panel55
+            // 
+            this.panel55.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel55.Location = new System.Drawing.Point(103, 3);
+            this.panel55.Name = "panel55";
+            this.panel55.Size = new System.Drawing.Size(94, 58);
+            this.panel55.TabIndex = 1;
+            // 
+            // panel56
+            // 
+            this.panel56.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel56.Location = new System.Drawing.Point(1188, 3);
+            this.panel56.Name = "panel56";
+            this.panel56.Size = new System.Drawing.Size(94, 58);
+            this.panel56.TabIndex = 2;
+            // 
+            // panel57
+            // 
+            this.panel57.Controls.Add(this.lbl_savings_delete);
+            this.panel57.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel57.Location = new System.Drawing.Point(1288, 3);
+            this.panel57.Name = "panel57";
+            this.panel57.Size = new System.Drawing.Size(94, 58);
+            this.panel57.TabIndex = 3;
+            // 
+            // lbl_savings_delete
+            // 
+            this.lbl_savings_delete.AutoSize = true;
+            this.lbl_savings_delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_savings_delete.Location = new System.Drawing.Point(7, 15);
+            this.lbl_savings_delete.Name = "lbl_savings_delete";
+            this.lbl_savings_delete.Size = new System.Drawing.Size(84, 29);
+            this.lbl_savings_delete.TabIndex = 8;
+            this.lbl_savings_delete.Text = "Delete";
+            this.lbl_savings_delete.Click += new System.EventHandler(this.lbl_savings_delete_Click);
+            // 
+            // panel58
+            // 
+            this.panel58.Controls.Add(this.label13);
+            this.panel58.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel58.Location = new System.Drawing.Point(203, 3);
+            this.panel58.Name = "panel58";
+            this.panel58.Size = new System.Drawing.Size(979, 58);
+            this.panel58.TabIndex = 4;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(427, 11);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(137, 37);
+            this.label13.TabIndex = 2;
+            this.label13.Text = "Savings";
+            // 
+            // tab_stocks_shares
+            // 
+            this.tab_stocks_shares.Controls.Add(this.tableLayoutPanel17);
+            this.tab_stocks_shares.Location = new System.Drawing.Point(4, 29);
+            this.tab_stocks_shares.Name = "tab_stocks_shares";
+            this.tab_stocks_shares.Size = new System.Drawing.Size(1391, 709);
+            this.tab_stocks_shares.TabIndex = 10;
+            this.tab_stocks_shares.Text = "Stocks & Shares";
+            this.tab_stocks_shares.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel17
+            // 
+            this.tableLayoutPanel17.ColumnCount = 1;
+            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel17.Controls.Add(this.panel59, 0, 1);
+            this.tableLayoutPanel17.Controls.Add(this.panel60, 0, 0);
+            this.tableLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel17.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel17.Name = "tableLayoutPanel17";
+            this.tableLayoutPanel17.RowCount = 2;
+            this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel17.Size = new System.Drawing.Size(1391, 709);
+            this.tableLayoutPanel17.TabIndex = 4;
+            // 
+            // panel59
+            // 
+            this.panel59.Controls.Add(this.dgv_stocks_shares);
+            this.panel59.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel59.Location = new System.Drawing.Point(3, 73);
+            this.panel59.Name = "panel59";
+            this.panel59.Size = new System.Drawing.Size(1385, 633);
+            this.panel59.TabIndex = 0;
+            // 
+            // dgv_stocks_shares
+            // 
+            this.dgv_stocks_shares.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_stocks_shares.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_stocks_shares.Location = new System.Drawing.Point(0, 0);
+            this.dgv_stocks_shares.Name = "dgv_stocks_shares";
+            this.dgv_stocks_shares.RowHeadersWidth = 62;
+            this.dgv_stocks_shares.RowTemplate.Height = 28;
+            this.dgv_stocks_shares.Size = new System.Drawing.Size(1385, 633);
+            this.dgv_stocks_shares.TabIndex = 2;
+            this.dgv_stocks_shares.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_CellLeave_FormatCurrency);
+            this.dgv_stocks_shares.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_stocks_shares_CellValueChanged);
+            // 
+            // panel60
+            // 
+            this.panel60.Controls.Add(this.tableLayoutPanel18);
+            this.panel60.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel60.Location = new System.Drawing.Point(3, 3);
+            this.panel60.Name = "panel60";
+            this.panel60.Size = new System.Drawing.Size(1385, 64);
+            this.panel60.TabIndex = 1;
+            // 
+            // tableLayoutPanel18
+            // 
+            this.tableLayoutPanel18.ColumnCount = 5;
+            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel18.Controls.Add(this.panel61, 0, 0);
+            this.tableLayoutPanel18.Controls.Add(this.panel62, 1, 0);
+            this.tableLayoutPanel18.Controls.Add(this.panel63, 3, 0);
+            this.tableLayoutPanel18.Controls.Add(this.panel64, 4, 0);
+            this.tableLayoutPanel18.Controls.Add(this.panel65, 2, 0);
+            this.tableLayoutPanel18.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel18.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel18.Name = "tableLayoutPanel18";
+            this.tableLayoutPanel18.RowCount = 1;
+            this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel18.Size = new System.Drawing.Size(1385, 64);
+            this.tableLayoutPanel18.TabIndex = 11;
+            // 
+            // panel61
+            // 
+            this.panel61.Controls.Add(this.lbl_stocks_shares_add);
+            this.panel61.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel61.Location = new System.Drawing.Point(3, 3);
+            this.panel61.Name = "panel61";
+            this.panel61.Size = new System.Drawing.Size(94, 58);
+            this.panel61.TabIndex = 0;
+            // 
+            // lbl_stocks_shares_add
+            // 
+            this.lbl_stocks_shares_add.AutoSize = true;
+            this.lbl_stocks_shares_add.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_stocks_shares_add.Location = new System.Drawing.Point(20, 15);
+            this.lbl_stocks_shares_add.Name = "lbl_stocks_shares_add";
+            this.lbl_stocks_shares_add.Size = new System.Drawing.Size(56, 29);
+            this.lbl_stocks_shares_add.TabIndex = 8;
+            this.lbl_stocks_shares_add.Text = "Add";
+            this.lbl_stocks_shares_add.Click += new System.EventHandler(this.lbl_stocks_shares_add_Click);
+            // 
+            // panel62
+            // 
+            this.panel62.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel62.Location = new System.Drawing.Point(103, 3);
+            this.panel62.Name = "panel62";
+            this.panel62.Size = new System.Drawing.Size(94, 58);
+            this.panel62.TabIndex = 1;
+            // 
+            // panel63
+            // 
+            this.panel63.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel63.Location = new System.Drawing.Point(1188, 3);
+            this.panel63.Name = "panel63";
+            this.panel63.Size = new System.Drawing.Size(94, 58);
+            this.panel63.TabIndex = 2;
+            // 
+            // panel64
+            // 
+            this.panel64.Controls.Add(this.lbl_stocks_shares_delete);
+            this.panel64.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel64.Location = new System.Drawing.Point(1288, 3);
+            this.panel64.Name = "panel64";
+            this.panel64.Size = new System.Drawing.Size(94, 58);
+            this.panel64.TabIndex = 3;
+            // 
+            // lbl_stocks_shares_delete
+            // 
+            this.lbl_stocks_shares_delete.AutoSize = true;
+            this.lbl_stocks_shares_delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_stocks_shares_delete.Location = new System.Drawing.Point(7, 15);
+            this.lbl_stocks_shares_delete.Name = "lbl_stocks_shares_delete";
+            this.lbl_stocks_shares_delete.Size = new System.Drawing.Size(84, 29);
+            this.lbl_stocks_shares_delete.TabIndex = 8;
+            this.lbl_stocks_shares_delete.Text = "Delete";
+            this.lbl_stocks_shares_delete.Click += new System.EventHandler(this.lbl_stocks_shares_delete_Click);
+            // 
+            // panel65
+            // 
+            this.panel65.Controls.Add(this.label14);
+            this.panel65.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel65.Location = new System.Drawing.Point(203, 3);
+            this.panel65.Name = "panel65";
+            this.panel65.Size = new System.Drawing.Size(979, 58);
+            this.panel65.TabIndex = 4;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(427, 11);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(303, 37);
+            this.label14.TabIndex = 2;
+            this.label14.Text = "Stocks and Shares";
+            // 
+            // tab_bonds
+            // 
+            this.tab_bonds.Controls.Add(this.tableLayoutPanel19);
+            this.tab_bonds.Location = new System.Drawing.Point(4, 29);
+            this.tab_bonds.Name = "tab_bonds";
+            this.tab_bonds.Size = new System.Drawing.Size(1391, 709);
+            this.tab_bonds.TabIndex = 11;
+            this.tab_bonds.Text = "Bonds";
+            this.tab_bonds.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel19
+            // 
+            this.tableLayoutPanel19.ColumnCount = 1;
+            this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel19.Controls.Add(this.panel66, 0, 1);
+            this.tableLayoutPanel19.Controls.Add(this.panel67, 0, 0);
+            this.tableLayoutPanel19.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel19.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel19.Name = "tableLayoutPanel19";
+            this.tableLayoutPanel19.RowCount = 2;
+            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel19.Size = new System.Drawing.Size(1391, 709);
+            this.tableLayoutPanel19.TabIndex = 5;
+            // 
+            // panel66
+            // 
+            this.panel66.Controls.Add(this.dgv_bonds);
+            this.panel66.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel66.Location = new System.Drawing.Point(3, 73);
+            this.panel66.Name = "panel66";
+            this.panel66.Size = new System.Drawing.Size(1385, 633);
+            this.panel66.TabIndex = 0;
+            // 
+            // dgv_bonds
+            // 
+            this.dgv_bonds.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_bonds.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_bonds.Location = new System.Drawing.Point(0, 0);
+            this.dgv_bonds.Name = "dgv_bonds";
+            this.dgv_bonds.RowHeadersWidth = 62;
+            this.dgv_bonds.RowTemplate.Height = 28;
+            this.dgv_bonds.Size = new System.Drawing.Size(1385, 633);
+            this.dgv_bonds.TabIndex = 2;
+            this.dgv_bonds.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_CellLeave_FormatCurrency);
+            this.dgv_bonds.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_bonds_CellValueChanged);
+            // 
+            // panel67
+            // 
+            this.panel67.Controls.Add(this.tableLayoutPanel20);
+            this.panel67.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel67.Location = new System.Drawing.Point(3, 3);
+            this.panel67.Name = "panel67";
+            this.panel67.Size = new System.Drawing.Size(1385, 64);
+            this.panel67.TabIndex = 1;
+            // 
+            // tableLayoutPanel20
+            // 
+            this.tableLayoutPanel20.ColumnCount = 5;
+            this.tableLayoutPanel20.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel20.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel20.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel20.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel20.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel20.Controls.Add(this.panel68, 0, 0);
+            this.tableLayoutPanel20.Controls.Add(this.panel69, 1, 0);
+            this.tableLayoutPanel20.Controls.Add(this.panel70, 3, 0);
+            this.tableLayoutPanel20.Controls.Add(this.panel71, 4, 0);
+            this.tableLayoutPanel20.Controls.Add(this.panel72, 2, 0);
+            this.tableLayoutPanel20.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel20.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel20.Name = "tableLayoutPanel20";
+            this.tableLayoutPanel20.RowCount = 1;
+            this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel20.Size = new System.Drawing.Size(1385, 64);
+            this.tableLayoutPanel20.TabIndex = 11;
+            // 
+            // panel68
+            // 
+            this.panel68.Controls.Add(this.lbl_bonds_adds);
+            this.panel68.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel68.Location = new System.Drawing.Point(3, 3);
+            this.panel68.Name = "panel68";
+            this.panel68.Size = new System.Drawing.Size(94, 58);
+            this.panel68.TabIndex = 0;
+            // 
+            // lbl_bonds_adds
+            // 
+            this.lbl_bonds_adds.AutoSize = true;
+            this.lbl_bonds_adds.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_bonds_adds.Location = new System.Drawing.Point(20, 15);
+            this.lbl_bonds_adds.Name = "lbl_bonds_adds";
+            this.lbl_bonds_adds.Size = new System.Drawing.Size(56, 29);
+            this.lbl_bonds_adds.TabIndex = 8;
+            this.lbl_bonds_adds.Text = "Add";
+            this.lbl_bonds_adds.Click += new System.EventHandler(this.lbl_bonds_add_Click);
+            // 
+            // panel69
+            // 
+            this.panel69.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel69.Location = new System.Drawing.Point(103, 3);
+            this.panel69.Name = "panel69";
+            this.panel69.Size = new System.Drawing.Size(94, 58);
+            this.panel69.TabIndex = 1;
+            // 
+            // panel70
+            // 
+            this.panel70.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel70.Location = new System.Drawing.Point(1188, 3);
+            this.panel70.Name = "panel70";
+            this.panel70.Size = new System.Drawing.Size(94, 58);
+            this.panel70.TabIndex = 2;
+            // 
+            // panel71
+            // 
+            this.panel71.Controls.Add(this.lbl_bonds_delete);
+            this.panel71.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel71.Location = new System.Drawing.Point(1288, 3);
+            this.panel71.Name = "panel71";
+            this.panel71.Size = new System.Drawing.Size(94, 58);
+            this.panel71.TabIndex = 3;
+            // 
+            // lbl_bonds_delete
+            // 
+            this.lbl_bonds_delete.AutoSize = true;
+            this.lbl_bonds_delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_bonds_delete.Location = new System.Drawing.Point(7, 15);
+            this.lbl_bonds_delete.Name = "lbl_bonds_delete";
+            this.lbl_bonds_delete.Size = new System.Drawing.Size(84, 29);
+            this.lbl_bonds_delete.TabIndex = 8;
+            this.lbl_bonds_delete.Text = "Delete";
+            this.lbl_bonds_delete.Click += new System.EventHandler(this.lbl_bonds_delete_Click);
+            // 
+            // panel72
+            // 
+            this.panel72.Controls.Add(this.lable5);
+            this.panel72.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel72.Location = new System.Drawing.Point(203, 3);
+            this.panel72.Name = "panel72";
+            this.panel72.Size = new System.Drawing.Size(979, 58);
+            this.panel72.TabIndex = 4;
+            // 
+            // lable5
+            // 
+            this.lable5.AutoSize = true;
+            this.lable5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lable5.Location = new System.Drawing.Point(428, 11);
+            this.lable5.Name = "lable5";
+            this.lable5.Size = new System.Drawing.Size(113, 37);
+            this.lable5.TabIndex = 2;
+            this.lable5.Text = "Bonds";
             // 
             // tab_expenses
             // 
@@ -797,6 +1667,17 @@ namespace Can_I_retire_yet
             this.panel27.Name = "panel27";
             this.panel27.Size = new System.Drawing.Size(94, 58);
             this.panel27.TabIndex = 0;
+            // 
+            // lbl_expenses_add
+            // 
+            this.lbl_expenses_add.AutoSize = true;
+            this.lbl_expenses_add.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_expenses_add.Location = new System.Drawing.Point(19, 15);
+            this.lbl_expenses_add.Name = "lbl_expenses_add";
+            this.lbl_expenses_add.Size = new System.Drawing.Size(56, 29);
+            this.lbl_expenses_add.TabIndex = 3;
+            this.lbl_expenses_add.Text = "Add";
+            this.lbl_expenses_add.Click += new System.EventHandler(this.lbl_expenses_add_Click);
             // 
             // panel28
             // 
@@ -948,6 +1829,17 @@ namespace Can_I_retire_yet
             this.panel33.Size = new System.Drawing.Size(94, 58);
             this.panel33.TabIndex = 0;
             // 
+            // lbl_income_add
+            // 
+            this.lbl_income_add.AutoSize = true;
+            this.lbl_income_add.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_income_add.Location = new System.Drawing.Point(20, 15);
+            this.lbl_income_add.Name = "lbl_income_add";
+            this.lbl_income_add.Size = new System.Drawing.Size(56, 29);
+            this.lbl_income_add.TabIndex = 3;
+            this.lbl_income_add.Text = "Add";
+            this.lbl_income_add.Click += new System.EventHandler(this.lbl_income_add_Click);
+            // 
             // panel34
             // 
             this.panel34.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1098,6 +1990,17 @@ namespace Can_I_retire_yet
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(94, 58);
             this.panel10.TabIndex = 0;
+            // 
+            // lbl_future_expenses_add
+            // 
+            this.lbl_future_expenses_add.AutoSize = true;
+            this.lbl_future_expenses_add.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_future_expenses_add.Location = new System.Drawing.Point(20, 15);
+            this.lbl_future_expenses_add.Name = "lbl_future_expenses_add";
+            this.lbl_future_expenses_add.Size = new System.Drawing.Size(56, 29);
+            this.lbl_future_expenses_add.TabIndex = 8;
+            this.lbl_future_expenses_add.Text = "Add";
+            this.lbl_future_expenses_add.Click += new System.EventHandler(this.lbl_future_expenses_add_Click);
             // 
             // panel11
             // 
@@ -1256,6 +2159,17 @@ namespace Can_I_retire_yet
             this.panel18.Size = new System.Drawing.Size(94, 58);
             this.panel18.TabIndex = 0;
             // 
+            // lbl_future_income_add
+            // 
+            this.lbl_future_income_add.AutoSize = true;
+            this.lbl_future_income_add.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_future_income_add.Location = new System.Drawing.Point(20, 15);
+            this.lbl_future_income_add.Name = "lbl_future_income_add";
+            this.lbl_future_income_add.Size = new System.Drawing.Size(56, 29);
+            this.lbl_future_income_add.TabIndex = 8;
+            this.lbl_future_income_add.Text = "Add";
+            this.lbl_future_income_add.Click += new System.EventHandler(this.lbl_future_income_add_Click);
+            // 
             // panel20
             // 
             this.panel20.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1344,6 +2258,177 @@ namespace Can_I_retire_yet
             this.tab_MonteCarlo.Text = "Monte Carlo Simulation";
             this.tab_MonteCarlo.UseVisualStyleBackColor = true;
             // 
+            // lbl_retirement_age
+            // 
+            this.lbl_retirement_age.AutoSize = true;
+            this.lbl_retirement_age.Location = new System.Drawing.Point(41, 345);
+            this.lbl_retirement_age.Name = "lbl_retirement_age";
+            this.lbl_retirement_age.Size = new System.Drawing.Size(121, 20);
+            this.lbl_retirement_age.TabIndex = 23;
+            this.lbl_retirement_age.Text = "Retirement Age";
+            // 
+            // txtbx_retirement_age
+            // 
+            this.txtbx_retirement_age.Location = new System.Drawing.Point(260, 342);
+            this.txtbx_retirement_age.Name = "txtbx_retirement_age";
+            this.txtbx_retirement_age.Size = new System.Drawing.Size(236, 26);
+            this.txtbx_retirement_age.TabIndex = 22;
+            this.txtbx_retirement_age.Text = "60";
+            // 
+            // lbl_trackbar_value
+            // 
+            this.lbl_trackbar_value.AutoSize = true;
+            this.lbl_trackbar_value.Location = new System.Drawing.Point(270, 316);
+            this.lbl_trackbar_value.Name = "lbl_trackbar_value";
+            this.lbl_trackbar_value.Size = new System.Drawing.Size(58, 20);
+            this.lbl_trackbar_value.TabIndex = 21;
+            this.lbl_trackbar_value.Text = "Value: ";
+            // 
+            // lbl_monte_carlo_runs
+            // 
+            this.lbl_monte_carlo_runs.AutoSize = true;
+            this.lbl_monte_carlo_runs.Location = new System.Drawing.Point(32, 512);
+            this.lbl_monte_carlo_runs.Name = "lbl_monte_carlo_runs";
+            this.lbl_monte_carlo_runs.Size = new System.Drawing.Size(208, 20);
+            this.lbl_monte_carlo_runs.TabIndex = 19;
+            this.lbl_monte_carlo_runs.Text = "Number of Monte Carlo runs";
+            // 
+            // lbl_retirement_length
+            // 
+            this.lbl_retirement_length.AutoSize = true;
+            this.lbl_retirement_length.Location = new System.Drawing.Point(32, 270);
+            this.lbl_retirement_length.Name = "lbl_retirement_length";
+            this.lbl_retirement_length.Size = new System.Drawing.Size(142, 20);
+            this.lbl_retirement_length.TabIndex = 18;
+            this.lbl_retirement_length.Text = "Retirement Length";
+            // 
+            // lbl_allocation_stocks_bonds
+            // 
+            this.lbl_allocation_stocks_bonds.AutoSize = true;
+            this.lbl_allocation_stocks_bonds.Location = new System.Drawing.Point(32, 238);
+            this.lbl_allocation_stocks_bonds.Name = "lbl_allocation_stocks_bonds";
+            this.lbl_allocation_stocks_bonds.Size = new System.Drawing.Size(147, 20);
+            this.lbl_allocation_stocks_bonds.TabIndex = 17;
+            this.lbl_allocation_stocks_bonds.Text = "% Stocks allocation";
+            // 
+            // lbl_bond_volatility
+            // 
+            this.lbl_bond_volatility.AutoSize = true;
+            this.lbl_bond_volatility.Location = new System.Drawing.Point(32, 206);
+            this.lbl_bond_volatility.Name = "lbl_bond_volatility";
+            this.lbl_bond_volatility.Size = new System.Drawing.Size(123, 20);
+            this.lbl_bond_volatility.TabIndex = 16;
+            this.lbl_bond_volatility.Text = "% Bond volatility";
+            // 
+            // lbl_avg_bond_return
+            // 
+            this.lbl_avg_bond_return.AutoSize = true;
+            this.lbl_avg_bond_return.Location = new System.Drawing.Point(32, 174);
+            this.lbl_avg_bond_return.Name = "lbl_avg_bond_return";
+            this.lbl_avg_bond_return.Size = new System.Drawing.Size(140, 20);
+            this.lbl_avg_bond_return.TabIndex = 15;
+            this.lbl_avg_bond_return.Text = "Avg % bond return";
+            // 
+            // lbl_stock_volatility
+            // 
+            this.lbl_stock_volatility.AutoSize = true;
+            this.lbl_stock_volatility.Location = new System.Drawing.Point(32, 142);
+            this.lbl_stock_volatility.Name = "lbl_stock_volatility";
+            this.lbl_stock_volatility.Size = new System.Drawing.Size(126, 20);
+            this.lbl_stock_volatility.TabIndex = 14;
+            this.lbl_stock_volatility.Text = "% Stock volatility";
+            // 
+            // lbl_avg_stock_return
+            // 
+            this.lbl_avg_stock_return.AutoSize = true;
+            this.lbl_avg_stock_return.Location = new System.Drawing.Point(32, 110);
+            this.lbl_avg_stock_return.Name = "lbl_avg_stock_return";
+            this.lbl_avg_stock_return.Size = new System.Drawing.Size(142, 20);
+            this.lbl_avg_stock_return.TabIndex = 13;
+            this.lbl_avg_stock_return.Text = "Avg % stock return";
+            // 
+            // lbl_annual_spending
+            // 
+            this.lbl_annual_spending.AutoSize = true;
+            this.lbl_annual_spending.Location = new System.Drawing.Point(32, 78);
+            this.lbl_annual_spending.Name = "lbl_annual_spending";
+            this.lbl_annual_spending.Size = new System.Drawing.Size(128, 20);
+            this.lbl_annual_spending.TabIndex = 12;
+            this.lbl_annual_spending.Text = "Annual spending";
+            // 
+            // lbl_starting_portfolio
+            // 
+            this.lbl_starting_portfolio.AutoSize = true;
+            this.lbl_starting_portfolio.Location = new System.Drawing.Point(32, 46);
+            this.lbl_starting_portfolio.Name = "lbl_starting_portfolio";
+            this.lbl_starting_portfolio.Size = new System.Drawing.Size(126, 20);
+            this.lbl_starting_portfolio.TabIndex = 11;
+            this.lbl_starting_portfolio.Text = "Starting portfolio";
+            // 
+            // txtbx_monte_carlo_iterations
+            // 
+            this.txtbx_monte_carlo_iterations.Location = new System.Drawing.Point(251, 509);
+            this.txtbx_monte_carlo_iterations.Name = "txtbx_monte_carlo_iterations";
+            this.txtbx_monte_carlo_iterations.Size = new System.Drawing.Size(236, 26);
+            this.txtbx_monte_carlo_iterations.TabIndex = 10;
+            this.txtbx_monte_carlo_iterations.Text = "1000";
+            // 
+            // txtbx_stock_allocation
+            // 
+            this.txtbx_stock_allocation.Location = new System.Drawing.Point(251, 235);
+            this.txtbx_stock_allocation.Name = "txtbx_stock_allocation";
+            this.txtbx_stock_allocation.Size = new System.Drawing.Size(236, 26);
+            this.txtbx_stock_allocation.TabIndex = 8;
+            this.txtbx_stock_allocation.Text = "60";
+            // 
+            // txtbx_bond_volatility
+            // 
+            this.txtbx_bond_volatility.Location = new System.Drawing.Point(251, 203);
+            this.txtbx_bond_volatility.Name = "txtbx_bond_volatility";
+            this.txtbx_bond_volatility.Size = new System.Drawing.Size(236, 26);
+            this.txtbx_bond_volatility.TabIndex = 7;
+            this.txtbx_bond_volatility.Text = "5";
+            // 
+            // txtbx_avg_bond_return
+            // 
+            this.txtbx_avg_bond_return.Location = new System.Drawing.Point(251, 171);
+            this.txtbx_avg_bond_return.Name = "txtbx_avg_bond_return";
+            this.txtbx_avg_bond_return.Size = new System.Drawing.Size(236, 26);
+            this.txtbx_avg_bond_return.TabIndex = 6;
+            this.txtbx_avg_bond_return.Text = "3";
+            // 
+            // txtbx_stock_volatility
+            // 
+            this.txtbx_stock_volatility.Location = new System.Drawing.Point(251, 139);
+            this.txtbx_stock_volatility.Name = "txtbx_stock_volatility";
+            this.txtbx_stock_volatility.Size = new System.Drawing.Size(236, 26);
+            this.txtbx_stock_volatility.TabIndex = 5;
+            this.txtbx_stock_volatility.Text = "15";
+            // 
+            // txtbx_stock_returns
+            // 
+            this.txtbx_stock_returns.Location = new System.Drawing.Point(251, 107);
+            this.txtbx_stock_returns.Name = "txtbx_stock_returns";
+            this.txtbx_stock_returns.Size = new System.Drawing.Size(236, 26);
+            this.txtbx_stock_returns.TabIndex = 4;
+            this.txtbx_stock_returns.Text = "7";
+            // 
+            // txtbx_annual_spending
+            // 
+            this.txtbx_annual_spending.Location = new System.Drawing.Point(251, 75);
+            this.txtbx_annual_spending.Name = "txtbx_annual_spending";
+            this.txtbx_annual_spending.Size = new System.Drawing.Size(236, 26);
+            this.txtbx_annual_spending.TabIndex = 3;
+            this.txtbx_annual_spending.Text = "40 000.00";
+            // 
+            // txtbx_starting_portfolio
+            // 
+            this.txtbx_starting_portfolio.Location = new System.Drawing.Point(251, 43);
+            this.txtbx_starting_portfolio.Name = "txtbx_starting_portfolio";
+            this.txtbx_starting_portfolio.Size = new System.Drawing.Size(236, 26);
+            this.txtbx_starting_portfolio.TabIndex = 2;
+            this.txtbx_starting_portfolio.Text = "1 000 000.00";
+            // 
             // rchtxtbx_monte_carlo_output
             // 
             this.rchtxtbx_monte_carlo_output.Location = new System.Drawing.Point(775, 55);
@@ -1362,6 +2447,17 @@ namespace Can_I_retire_yet
             this.btn_run_monte_carlo.UseVisualStyleBackColor = true;
             this.btn_run_monte_carlo.Click += new System.EventHandler(this.btn_run_monte_carlo_Click);
             // 
+            // trkbr_retirement_age
+            // 
+            this.trkbr_retirement_age.Location = new System.Drawing.Point(251, 267);
+            this.trkbr_retirement_age.Maximum = 100;
+            this.trkbr_retirement_age.Minimum = 1;
+            this.trkbr_retirement_age.Name = "trkbr_retirement_age";
+            this.trkbr_retirement_age.Size = new System.Drawing.Size(236, 69);
+            this.trkbr_retirement_age.TabIndex = 20;
+            this.trkbr_retirement_age.Value = 60;
+            this.trkbr_retirement_age.Scroll += new System.EventHandler(this.trkbr_retirement_length_Scroll);
+            // 
             // panel19
             // 
             this.panel19.Controls.Add(this.btn_new);
@@ -1373,6 +2469,26 @@ namespace Can_I_retire_yet
             this.panel19.Name = "panel19";
             this.panel19.Size = new System.Drawing.Size(1399, 74);
             this.panel19.TabIndex = 1;
+            // 
+            // btn_new
+            // 
+            this.btn_new.Location = new System.Drawing.Point(613, 13);
+            this.btn_new.Name = "btn_new";
+            this.btn_new.Size = new System.Drawing.Size(172, 49);
+            this.btn_new.TabIndex = 3;
+            this.btn_new.Text = "New";
+            this.btn_new.UseVisualStyleBackColor = true;
+            this.btn_new.Click += new System.EventHandler(this.btn_new_Click);
+            // 
+            // btn_save_all
+            // 
+            this.btn_save_all.Location = new System.Drawing.Point(188, 16);
+            this.btn_save_all.Name = "btn_save_all";
+            this.btn_save_all.Size = new System.Drawing.Size(172, 49);
+            this.btn_save_all.TabIndex = 2;
+            this.btn_save_all.Text = "Save";
+            this.btn_save_all.UseVisualStyleBackColor = true;
+            this.btn_save_all.Click += new System.EventHandler(this.btn_save_all_Click);
             // 
             // btn_open_all
             // 
@@ -1394,1118 +2510,19 @@ namespace Can_I_retire_yet
             this.btn_close.UseVisualStyleBackColor = true;
             this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
             // 
-            // txtbx_starting_portfolio
-            // 
-            this.txtbx_starting_portfolio.Location = new System.Drawing.Point(251, 43);
-            this.txtbx_starting_portfolio.Name = "txtbx_starting_portfolio";
-            this.txtbx_starting_portfolio.Size = new System.Drawing.Size(236, 26);
-            this.txtbx_starting_portfolio.TabIndex = 2;
-            this.txtbx_starting_portfolio.Text = "1 000 000.00";
-            // 
-            // txtbx_annual_spending
-            // 
-            this.txtbx_annual_spending.Location = new System.Drawing.Point(251, 75);
-            this.txtbx_annual_spending.Name = "txtbx_annual_spending";
-            this.txtbx_annual_spending.Size = new System.Drawing.Size(236, 26);
-            this.txtbx_annual_spending.TabIndex = 3;
-            this.txtbx_annual_spending.Text = "40 000.00";
-            // 
-            // txtbx_stock_returns
-            // 
-            this.txtbx_stock_returns.Location = new System.Drawing.Point(251, 107);
-            this.txtbx_stock_returns.Name = "txtbx_stock_returns";
-            this.txtbx_stock_returns.Size = new System.Drawing.Size(236, 26);
-            this.txtbx_stock_returns.TabIndex = 4;
-            this.txtbx_stock_returns.Text = "7";
-            // 
-            // txtbx_stock_volatility
-            // 
-            this.txtbx_stock_volatility.Location = new System.Drawing.Point(251, 139);
-            this.txtbx_stock_volatility.Name = "txtbx_stock_volatility";
-            this.txtbx_stock_volatility.Size = new System.Drawing.Size(236, 26);
-            this.txtbx_stock_volatility.TabIndex = 5;
-            this.txtbx_stock_volatility.Text = "15";
-            // 
-            // txtbx_avg_bond_return
-            // 
-            this.txtbx_avg_bond_return.Location = new System.Drawing.Point(251, 171);
-            this.txtbx_avg_bond_return.Name = "txtbx_avg_bond_return";
-            this.txtbx_avg_bond_return.Size = new System.Drawing.Size(236, 26);
-            this.txtbx_avg_bond_return.TabIndex = 6;
-            this.txtbx_avg_bond_return.Text = "3";
-            // 
-            // txtbx_bond_volatility
-            // 
-            this.txtbx_bond_volatility.Location = new System.Drawing.Point(251, 203);
-            this.txtbx_bond_volatility.Name = "txtbx_bond_volatility";
-            this.txtbx_bond_volatility.Size = new System.Drawing.Size(236, 26);
-            this.txtbx_bond_volatility.TabIndex = 7;
-            this.txtbx_bond_volatility.Text = "5";
-            // 
-            // txtbx_stock_allocation
-            // 
-            this.txtbx_stock_allocation.Location = new System.Drawing.Point(251, 235);
-            this.txtbx_stock_allocation.Name = "txtbx_stock_allocation";
-            this.txtbx_stock_allocation.Size = new System.Drawing.Size(236, 26);
-            this.txtbx_stock_allocation.TabIndex = 8;
-            this.txtbx_stock_allocation.Text = "60";
-            // 
-            // txtbx_monte_carlo_iterations
-            // 
-            this.txtbx_monte_carlo_iterations.Location = new System.Drawing.Point(251, 509);
-            this.txtbx_monte_carlo_iterations.Name = "txtbx_monte_carlo_iterations";
-            this.txtbx_monte_carlo_iterations.Size = new System.Drawing.Size(236, 26);
-            this.txtbx_monte_carlo_iterations.TabIndex = 10;
-            this.txtbx_monte_carlo_iterations.Text = "1000";
-            // 
-            // lbl_starting_portfolio
-            // 
-            this.lbl_starting_portfolio.AutoSize = true;
-            this.lbl_starting_portfolio.Location = new System.Drawing.Point(32, 46);
-            this.lbl_starting_portfolio.Name = "lbl_starting_portfolio";
-            this.lbl_starting_portfolio.Size = new System.Drawing.Size(126, 20);
-            this.lbl_starting_portfolio.TabIndex = 11;
-            this.lbl_starting_portfolio.Text = "Starting portfolio";
-            // 
-            // lbl_annual_spending
-            // 
-            this.lbl_annual_spending.AutoSize = true;
-            this.lbl_annual_spending.Location = new System.Drawing.Point(32, 78);
-            this.lbl_annual_spending.Name = "lbl_annual_spending";
-            this.lbl_annual_spending.Size = new System.Drawing.Size(128, 20);
-            this.lbl_annual_spending.TabIndex = 12;
-            this.lbl_annual_spending.Text = "Annual spending";
-            // 
-            // lbl_stock_volatility
-            // 
-            this.lbl_stock_volatility.AutoSize = true;
-            this.lbl_stock_volatility.Location = new System.Drawing.Point(32, 142);
-            this.lbl_stock_volatility.Name = "lbl_stock_volatility";
-            this.lbl_stock_volatility.Size = new System.Drawing.Size(126, 20);
-            this.lbl_stock_volatility.TabIndex = 14;
-            this.lbl_stock_volatility.Text = "% Stock volatility";
-            // 
-            // lbl_avg_stock_return
-            // 
-            this.lbl_avg_stock_return.AutoSize = true;
-            this.lbl_avg_stock_return.Location = new System.Drawing.Point(32, 110);
-            this.lbl_avg_stock_return.Name = "lbl_avg_stock_return";
-            this.lbl_avg_stock_return.Size = new System.Drawing.Size(142, 20);
-            this.lbl_avg_stock_return.TabIndex = 13;
-            this.lbl_avg_stock_return.Text = "Avg % stock return";
-            // 
-            // lbl_bond_volatility
-            // 
-            this.lbl_bond_volatility.AutoSize = true;
-            this.lbl_bond_volatility.Location = new System.Drawing.Point(32, 206);
-            this.lbl_bond_volatility.Name = "lbl_bond_volatility";
-            this.lbl_bond_volatility.Size = new System.Drawing.Size(123, 20);
-            this.lbl_bond_volatility.TabIndex = 16;
-            this.lbl_bond_volatility.Text = "% Bond volatility";
-            // 
-            // lbl_avg_bond_return
-            // 
-            this.lbl_avg_bond_return.AutoSize = true;
-            this.lbl_avg_bond_return.Location = new System.Drawing.Point(32, 174);
-            this.lbl_avg_bond_return.Name = "lbl_avg_bond_return";
-            this.lbl_avg_bond_return.Size = new System.Drawing.Size(140, 20);
-            this.lbl_avg_bond_return.TabIndex = 15;
-            this.lbl_avg_bond_return.Text = "Avg % bond return";
-            // 
-            // lbl_retirement_length
-            // 
-            this.lbl_retirement_length.AutoSize = true;
-            this.lbl_retirement_length.Location = new System.Drawing.Point(32, 270);
-            this.lbl_retirement_length.Name = "lbl_retirement_length";
-            this.lbl_retirement_length.Size = new System.Drawing.Size(142, 20);
-            this.lbl_retirement_length.TabIndex = 18;
-            this.lbl_retirement_length.Text = "Retirement Length";
-            // 
-            // lbl_allocation_stocks_bonds
-            // 
-            this.lbl_allocation_stocks_bonds.AutoSize = true;
-            this.lbl_allocation_stocks_bonds.Location = new System.Drawing.Point(32, 238);
-            this.lbl_allocation_stocks_bonds.Name = "lbl_allocation_stocks_bonds";
-            this.lbl_allocation_stocks_bonds.Size = new System.Drawing.Size(147, 20);
-            this.lbl_allocation_stocks_bonds.TabIndex = 17;
-            this.lbl_allocation_stocks_bonds.Text = "% Stocks allocation";
-            // 
-            // lbl_monte_carlo_runs
-            // 
-            this.lbl_monte_carlo_runs.AutoSize = true;
-            this.lbl_monte_carlo_runs.Location = new System.Drawing.Point(32, 512);
-            this.lbl_monte_carlo_runs.Name = "lbl_monte_carlo_runs";
-            this.lbl_monte_carlo_runs.Size = new System.Drawing.Size(208, 20);
-            this.lbl_monte_carlo_runs.TabIndex = 19;
-            this.lbl_monte_carlo_runs.Text = "Number of Monte Carlo runs";
-            // 
-            // trkbr_retirement_age
-            // 
-            this.trkbr_retirement_age.Location = new System.Drawing.Point(251, 267);
-            this.trkbr_retirement_age.Maximum = 100;
-            this.trkbr_retirement_age.Minimum = 1;
-            this.trkbr_retirement_age.Name = "trkbr_retirement_age";
-            this.trkbr_retirement_age.Size = new System.Drawing.Size(236, 69);
-            this.trkbr_retirement_age.TabIndex = 20;
-            this.trkbr_retirement_age.Value = 60;
-            this.trkbr_retirement_age.Scroll += new System.EventHandler(this.trkbr_retirement_length_Scroll);
-            // 
-            // lbl_trackbar_value
-            // 
-            this.lbl_trackbar_value.AutoSize = true;
-            this.lbl_trackbar_value.Location = new System.Drawing.Point(270, 316);
-            this.lbl_trackbar_value.Name = "lbl_trackbar_value";
-            this.lbl_trackbar_value.Size = new System.Drawing.Size(58, 20);
-            this.lbl_trackbar_value.TabIndex = 21;
-            this.lbl_trackbar_value.Text = "Value: ";
-            // 
-            // lbl_retirement_age
-            // 
-            this.lbl_retirement_age.AutoSize = true;
-            this.lbl_retirement_age.Location = new System.Drawing.Point(41, 345);
-            this.lbl_retirement_age.Name = "lbl_retirement_age";
-            this.lbl_retirement_age.Size = new System.Drawing.Size(121, 20);
-            this.lbl_retirement_age.TabIndex = 23;
-            this.lbl_retirement_age.Text = "Retirement Age";
-            // 
-            // txtbx_retirement_age
-            // 
-            this.txtbx_retirement_age.Location = new System.Drawing.Point(260, 342);
-            this.txtbx_retirement_age.Name = "txtbx_retirement_age";
-            this.txtbx_retirement_age.Size = new System.Drawing.Size(236, 26);
-            this.txtbx_retirement_age.TabIndex = 22;
-            this.txtbx_retirement_age.Text = "60";
-            // 
-            // btn_save_all
-            // 
-            this.btn_save_all.Location = new System.Drawing.Point(188, 16);
-            this.btn_save_all.Name = "btn_save_all";
-            this.btn_save_all.Size = new System.Drawing.Size(172, 49);
-            this.btn_save_all.TabIndex = 2;
-            this.btn_save_all.Text = "Save";
-            this.btn_save_all.UseVisualStyleBackColor = true;
-            this.btn_save_all.Click += new System.EventHandler(this.btn_save_all_Click);
-            // 
-            // tab_savings
-            // 
-            this.tab_savings.Controls.Add(this.tableLayoutPanel9);
-            this.tab_savings.Location = new System.Drawing.Point(4, 29);
-            this.tab_savings.Name = "tab_savings";
-            this.tab_savings.Size = new System.Drawing.Size(1391, 709);
-            this.tab_savings.TabIndex = 8;
-            this.tab_savings.Text = "Savings";
-            this.tab_savings.UseVisualStyleBackColor = true;
-            // 
-            // tab_cash
-            // 
-            this.tab_cash.Controls.Add(this.tableLayoutPanel6);
-            this.tab_cash.Location = new System.Drawing.Point(4, 29);
-            this.tab_cash.Name = "tab_cash";
-            this.tab_cash.Size = new System.Drawing.Size(1391, 709);
-            this.tab_cash.TabIndex = 9;
-            this.tab_cash.Text = "Cash";
-            this.tab_cash.UseVisualStyleBackColor = true;
-            // 
-            // tab_stocks_shares
-            // 
-            this.tab_stocks_shares.Controls.Add(this.tableLayoutPanel17);
-            this.tab_stocks_shares.Location = new System.Drawing.Point(4, 29);
-            this.tab_stocks_shares.Name = "tab_stocks_shares";
-            this.tab_stocks_shares.Size = new System.Drawing.Size(1391, 709);
-            this.tab_stocks_shares.TabIndex = 10;
-            this.tab_stocks_shares.Text = "Stocks & Shares";
-            this.tab_stocks_shares.UseVisualStyleBackColor = true;
-            // 
-            // tab_bonds
-            // 
-            this.tab_bonds.Controls.Add(this.tableLayoutPanel19);
-            this.tab_bonds.Location = new System.Drawing.Point(4, 29);
-            this.tab_bonds.Name = "tab_bonds";
-            this.tab_bonds.Size = new System.Drawing.Size(1391, 709);
-            this.tab_bonds.TabIndex = 11;
-            this.tab_bonds.Text = "Bonds";
-            this.tab_bonds.UseVisualStyleBackColor = true;
-            // 
-            // lbl_assets_add
-            // 
-            this.lbl_assets_add.AutoSize = true;
-            this.lbl_assets_add.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_assets_add.Location = new System.Drawing.Point(20, 15);
-            this.lbl_assets_add.Name = "lbl_assets_add";
-            this.lbl_assets_add.Size = new System.Drawing.Size(56, 29);
-            this.lbl_assets_add.TabIndex = 8;
-            this.lbl_assets_add.Text = "Add";
-            this.lbl_assets_add.Click += new System.EventHandler(this.lbl_assets_add_Click);
-            // 
-            // tableLayoutPanel6
-            // 
-            this.tableLayoutPanel6.ColumnCount = 1;
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Controls.Add(this.panel45, 0, 1);
-            this.tableLayoutPanel6.Controls.Add(this.panel46, 0, 0);
-            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-            this.tableLayoutPanel6.RowCount = 2;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(1391, 709);
-            this.tableLayoutPanel6.TabIndex = 2;
-            // 
-            // panel45
-            // 
-            this.panel45.Controls.Add(this.dgv_cash);
-            this.panel45.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel45.Location = new System.Drawing.Point(3, 73);
-            this.panel45.Name = "panel45";
-            this.panel45.Size = new System.Drawing.Size(1385, 633);
-            this.panel45.TabIndex = 0;
-            // 
-            // dgv_cash
-            // 
-            this.dgv_cash.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_cash.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_cash.Location = new System.Drawing.Point(0, 0);
-            this.dgv_cash.Name = "dgv_cash";
-            this.dgv_cash.RowHeadersWidth = 62;
-            this.dgv_cash.RowTemplate.Height = 28;
-            this.dgv_cash.Size = new System.Drawing.Size(1385, 633);
-            this.dgv_cash.TabIndex = 2;
-            this.dgv_cash.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_CellLeave_FormatCurrency);
-            this.dgv_cash.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_cash_CellValueChanged);
-            // 
-            // panel46
-            // 
-            this.panel46.Controls.Add(this.tableLayoutPanel8);
-            this.panel46.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel46.Location = new System.Drawing.Point(3, 3);
-            this.panel46.Name = "panel46";
-            this.panel46.Size = new System.Drawing.Size(1385, 64);
-            this.panel46.TabIndex = 1;
-            // 
-            // tableLayoutPanel8
-            // 
-            this.tableLayoutPanel8.ColumnCount = 5;
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel8.Controls.Add(this.panel47, 0, 0);
-            this.tableLayoutPanel8.Controls.Add(this.panel48, 1, 0);
-            this.tableLayoutPanel8.Controls.Add(this.panel49, 3, 0);
-            this.tableLayoutPanel8.Controls.Add(this.panel50, 4, 0);
-            this.tableLayoutPanel8.Controls.Add(this.panel51, 2, 0);
-            this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
-            this.tableLayoutPanel8.RowCount = 1;
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(1385, 64);
-            this.tableLayoutPanel8.TabIndex = 11;
-            // 
-            // panel47
-            // 
-            this.panel47.Controls.Add(this.lbl_cash_add);
-            this.panel47.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel47.Location = new System.Drawing.Point(3, 3);
-            this.panel47.Name = "panel47";
-            this.panel47.Size = new System.Drawing.Size(94, 58);
-            this.panel47.TabIndex = 0;
-            // 
-            // lbl_cash_add
-            // 
-            this.lbl_cash_add.AutoSize = true;
-            this.lbl_cash_add.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_cash_add.Location = new System.Drawing.Point(20, 15);
-            this.lbl_cash_add.Name = "lbl_cash_add";
-            this.lbl_cash_add.Size = new System.Drawing.Size(56, 29);
-            this.lbl_cash_add.TabIndex = 8;
-            this.lbl_cash_add.Text = "Add";
-            this.lbl_cash_add.Click += new System.EventHandler(this.lbl_cash_add_Click);
-            // 
-            // panel48
-            // 
-            this.panel48.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel48.Location = new System.Drawing.Point(103, 3);
-            this.panel48.Name = "panel48";
-            this.panel48.Size = new System.Drawing.Size(94, 58);
-            this.panel48.TabIndex = 1;
-            // 
-            // panel49
-            // 
-            this.panel49.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel49.Location = new System.Drawing.Point(1188, 3);
-            this.panel49.Name = "panel49";
-            this.panel49.Size = new System.Drawing.Size(94, 58);
-            this.panel49.TabIndex = 2;
-            // 
-            // panel50
-            // 
-            this.panel50.Controls.Add(this.lbl_cash_delete);
-            this.panel50.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel50.Location = new System.Drawing.Point(1288, 3);
-            this.panel50.Name = "panel50";
-            this.panel50.Size = new System.Drawing.Size(94, 58);
-            this.panel50.TabIndex = 3;
-            // 
-            // lbl_cash_delete
-            // 
-            this.lbl_cash_delete.AutoSize = true;
-            this.lbl_cash_delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_cash_delete.Location = new System.Drawing.Point(7, 15);
-            this.lbl_cash_delete.Name = "lbl_cash_delete";
-            this.lbl_cash_delete.Size = new System.Drawing.Size(84, 29);
-            this.lbl_cash_delete.TabIndex = 8;
-            this.lbl_cash_delete.Text = "Delete";
-            this.lbl_cash_delete.Click += new System.EventHandler(this.lbl_cash_delete_Click);
-            // 
-            // panel51
-            // 
-            this.panel51.Controls.Add(this.label11);
-            this.panel51.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel51.Location = new System.Drawing.Point(203, 3);
-            this.panel51.Name = "panel51";
-            this.panel51.Size = new System.Drawing.Size(979, 58);
-            this.panel51.TabIndex = 4;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(427, 11);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(96, 37);
-            this.label11.TabIndex = 2;
-            this.label11.Text = "Cash";
-            // 
-            // tableLayoutPanel9
-            // 
-            this.tableLayoutPanel9.ColumnCount = 1;
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel9.Controls.Add(this.panel52, 0, 1);
-            this.tableLayoutPanel9.Controls.Add(this.panel53, 0, 0);
-            this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel9.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel9.Name = "tableLayoutPanel9";
-            this.tableLayoutPanel9.RowCount = 2;
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(1391, 709);
-            this.tableLayoutPanel9.TabIndex = 3;
-            // 
-            // panel52
-            // 
-            this.panel52.Controls.Add(this.dgv_savings);
-            this.panel52.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel52.Location = new System.Drawing.Point(3, 73);
-            this.panel52.Name = "panel52";
-            this.panel52.Size = new System.Drawing.Size(1385, 633);
-            this.panel52.TabIndex = 0;
-            // 
-            // dgv_savings
-            // 
-            this.dgv_savings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_savings.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_savings.Location = new System.Drawing.Point(0, 0);
-            this.dgv_savings.Name = "dgv_savings";
-            this.dgv_savings.RowHeadersWidth = 62;
-            this.dgv_savings.RowTemplate.Height = 28;
-            this.dgv_savings.Size = new System.Drawing.Size(1385, 633);
-            this.dgv_savings.TabIndex = 2;
-            this.dgv_savings.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_CellLeave_FormatCurrency);
-            this.dgv_savings.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_savings_CellValueChanged);
-            // 
-            // panel53
-            // 
-            this.panel53.Controls.Add(this.tableLayoutPanel16);
-            this.panel53.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel53.Location = new System.Drawing.Point(3, 3);
-            this.panel53.Name = "panel53";
-            this.panel53.Size = new System.Drawing.Size(1385, 64);
-            this.panel53.TabIndex = 1;
-            // 
-            // tableLayoutPanel16
-            // 
-            this.tableLayoutPanel16.ColumnCount = 5;
-            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel16.Controls.Add(this.panel54, 0, 0);
-            this.tableLayoutPanel16.Controls.Add(this.panel55, 1, 0);
-            this.tableLayoutPanel16.Controls.Add(this.panel56, 3, 0);
-            this.tableLayoutPanel16.Controls.Add(this.panel57, 4, 0);
-            this.tableLayoutPanel16.Controls.Add(this.panel58, 2, 0);
-            this.tableLayoutPanel16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel16.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel16.Name = "tableLayoutPanel16";
-            this.tableLayoutPanel16.RowCount = 1;
-            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel16.Size = new System.Drawing.Size(1385, 64);
-            this.tableLayoutPanel16.TabIndex = 11;
-            // 
-            // panel54
-            // 
-            this.panel54.Controls.Add(this.lbl_savings_add);
-            this.panel54.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel54.Location = new System.Drawing.Point(3, 3);
-            this.panel54.Name = "panel54";
-            this.panel54.Size = new System.Drawing.Size(94, 58);
-            this.panel54.TabIndex = 0;
-            // 
-            // lbl_savings_add
-            // 
-            this.lbl_savings_add.AutoSize = true;
-            this.lbl_savings_add.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_savings_add.Location = new System.Drawing.Point(20, 15);
-            this.lbl_savings_add.Name = "lbl_savings_add";
-            this.lbl_savings_add.Size = new System.Drawing.Size(56, 29);
-            this.lbl_savings_add.TabIndex = 8;
-            this.lbl_savings_add.Text = "Add";
-            this.lbl_savings_add.Click += new System.EventHandler(this.lbl_savings_add_Click);
-            // 
-            // panel55
-            // 
-            this.panel55.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel55.Location = new System.Drawing.Point(103, 3);
-            this.panel55.Name = "panel55";
-            this.panel55.Size = new System.Drawing.Size(94, 58);
-            this.panel55.TabIndex = 1;
-            // 
-            // panel56
-            // 
-            this.panel56.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel56.Location = new System.Drawing.Point(1188, 3);
-            this.panel56.Name = "panel56";
-            this.panel56.Size = new System.Drawing.Size(94, 58);
-            this.panel56.TabIndex = 2;
-            // 
-            // panel57
-            // 
-            this.panel57.Controls.Add(this.lbl_savings_delete);
-            this.panel57.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel57.Location = new System.Drawing.Point(1288, 3);
-            this.panel57.Name = "panel57";
-            this.panel57.Size = new System.Drawing.Size(94, 58);
-            this.panel57.TabIndex = 3;
-            // 
-            // lbl_savings_delete
-            // 
-            this.lbl_savings_delete.AutoSize = true;
-            this.lbl_savings_delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_savings_delete.Location = new System.Drawing.Point(7, 15);
-            this.lbl_savings_delete.Name = "lbl_savings_delete";
-            this.lbl_savings_delete.Size = new System.Drawing.Size(84, 29);
-            this.lbl_savings_delete.TabIndex = 8;
-            this.lbl_savings_delete.Text = "Delete";
-            this.lbl_savings_delete.Click += new System.EventHandler(this.lbl_savings_delete_Click);
-            // 
-            // panel58
-            // 
-            this.panel58.Controls.Add(this.label13);
-            this.panel58.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel58.Location = new System.Drawing.Point(203, 3);
-            this.panel58.Name = "panel58";
-            this.panel58.Size = new System.Drawing.Size(979, 58);
-            this.panel58.TabIndex = 4;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(427, 11);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(137, 37);
-            this.label13.TabIndex = 2;
-            this.label13.Text = "Savings";
-            // 
-            // tableLayoutPanel17
-            // 
-            this.tableLayoutPanel17.ColumnCount = 1;
-            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel17.Controls.Add(this.panel59, 0, 1);
-            this.tableLayoutPanel17.Controls.Add(this.panel60, 0, 0);
-            this.tableLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel17.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel17.Name = "tableLayoutPanel17";
-            this.tableLayoutPanel17.RowCount = 2;
-            this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
-            this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel17.Size = new System.Drawing.Size(1391, 709);
-            this.tableLayoutPanel17.TabIndex = 4;
-            // 
-            // panel59
-            // 
-            this.panel59.Controls.Add(this.dgv_stocks_shares);
-            this.panel59.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel59.Location = new System.Drawing.Point(3, 73);
-            this.panel59.Name = "panel59";
-            this.panel59.Size = new System.Drawing.Size(1385, 633);
-            this.panel59.TabIndex = 0;
-            // 
-            // dgv_stocks_shares
-            // 
-            this.dgv_stocks_shares.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_stocks_shares.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_stocks_shares.Location = new System.Drawing.Point(0, 0);
-            this.dgv_stocks_shares.Name = "dgv_stocks_shares";
-            this.dgv_stocks_shares.RowHeadersWidth = 62;
-            this.dgv_stocks_shares.RowTemplate.Height = 28;
-            this.dgv_stocks_shares.Size = new System.Drawing.Size(1385, 633);
-            this.dgv_stocks_shares.TabIndex = 2;
-            this.dgv_stocks_shares.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_CellLeave_FormatCurrency);
-            this.dgv_stocks_shares.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_stocks_shares_CellValueChanged);
-            // 
-            // panel60
-            // 
-            this.panel60.Controls.Add(this.tableLayoutPanel18);
-            this.panel60.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel60.Location = new System.Drawing.Point(3, 3);
-            this.panel60.Name = "panel60";
-            this.panel60.Size = new System.Drawing.Size(1385, 64);
-            this.panel60.TabIndex = 1;
-            // 
-            // tableLayoutPanel18
-            // 
-            this.tableLayoutPanel18.ColumnCount = 5;
-            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel18.Controls.Add(this.panel61, 0, 0);
-            this.tableLayoutPanel18.Controls.Add(this.panel62, 1, 0);
-            this.tableLayoutPanel18.Controls.Add(this.panel63, 3, 0);
-            this.tableLayoutPanel18.Controls.Add(this.panel64, 4, 0);
-            this.tableLayoutPanel18.Controls.Add(this.panel65, 2, 0);
-            this.tableLayoutPanel18.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel18.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel18.Name = "tableLayoutPanel18";
-            this.tableLayoutPanel18.RowCount = 1;
-            this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel18.Size = new System.Drawing.Size(1385, 64);
-            this.tableLayoutPanel18.TabIndex = 11;
-            // 
-            // panel61
-            // 
-            this.panel61.Controls.Add(this.lbl_stocks_shares_add);
-            this.panel61.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel61.Location = new System.Drawing.Point(3, 3);
-            this.panel61.Name = "panel61";
-            this.panel61.Size = new System.Drawing.Size(94, 58);
-            this.panel61.TabIndex = 0;
-            // 
-            // lbl_stocks_shares_add
-            // 
-            this.lbl_stocks_shares_add.AutoSize = true;
-            this.lbl_stocks_shares_add.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_stocks_shares_add.Location = new System.Drawing.Point(20, 15);
-            this.lbl_stocks_shares_add.Name = "lbl_stocks_shares_add";
-            this.lbl_stocks_shares_add.Size = new System.Drawing.Size(56, 29);
-            this.lbl_stocks_shares_add.TabIndex = 8;
-            this.lbl_stocks_shares_add.Text = "Add";
-            this.lbl_stocks_shares_add.Click += new System.EventHandler(this.lbl_stocks_shares_add_Click);
-            // 
-            // panel62
-            // 
-            this.panel62.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel62.Location = new System.Drawing.Point(103, 3);
-            this.panel62.Name = "panel62";
-            this.panel62.Size = new System.Drawing.Size(94, 58);
-            this.panel62.TabIndex = 1;
-            // 
-            // panel63
-            // 
-            this.panel63.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel63.Location = new System.Drawing.Point(1188, 3);
-            this.panel63.Name = "panel63";
-            this.panel63.Size = new System.Drawing.Size(94, 58);
-            this.panel63.TabIndex = 2;
-            // 
-            // panel64
-            // 
-            this.panel64.Controls.Add(this.lbl_stocks_shares_delete);
-            this.panel64.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel64.Location = new System.Drawing.Point(1288, 3);
-            this.panel64.Name = "panel64";
-            this.panel64.Size = new System.Drawing.Size(94, 58);
-            this.panel64.TabIndex = 3;
-            // 
-            // lbl_stocks_shares_delete
-            // 
-            this.lbl_stocks_shares_delete.AutoSize = true;
-            this.lbl_stocks_shares_delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_stocks_shares_delete.Location = new System.Drawing.Point(7, 15);
-            this.lbl_stocks_shares_delete.Name = "lbl_stocks_shares_delete";
-            this.lbl_stocks_shares_delete.Size = new System.Drawing.Size(84, 29);
-            this.lbl_stocks_shares_delete.TabIndex = 8;
-            this.lbl_stocks_shares_delete.Text = "Delete";
-            this.lbl_stocks_shares_delete.Click += new System.EventHandler(this.lbl_stocks_shares_delete_Click);
-            // 
-            // panel65
-            // 
-            this.panel65.Controls.Add(this.label14);
-            this.panel65.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel65.Location = new System.Drawing.Point(203, 3);
-            this.panel65.Name = "panel65";
-            this.panel65.Size = new System.Drawing.Size(979, 58);
-            this.panel65.TabIndex = 4;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(427, 11);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(303, 37);
-            this.label14.TabIndex = 2;
-            this.label14.Text = "Stocks and Shares";
-            // 
-            // tableLayoutPanel19
-            // 
-            this.tableLayoutPanel19.ColumnCount = 1;
-            this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel19.Controls.Add(this.panel66, 0, 1);
-            this.tableLayoutPanel19.Controls.Add(this.panel67, 0, 0);
-            this.tableLayoutPanel19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel19.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel19.Name = "tableLayoutPanel19";
-            this.tableLayoutPanel19.RowCount = 2;
-            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
-            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel19.Size = new System.Drawing.Size(1391, 709);
-            this.tableLayoutPanel19.TabIndex = 5;
-            // 
-            // panel66
-            // 
-            this.panel66.Controls.Add(this.dgv_bonds);
-            this.panel66.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel66.Location = new System.Drawing.Point(3, 73);
-            this.panel66.Name = "panel66";
-            this.panel66.Size = new System.Drawing.Size(1385, 633);
-            this.panel66.TabIndex = 0;
-            // 
-            // dgv_bonds
-            // 
-            this.dgv_bonds.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_bonds.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_bonds.Location = new System.Drawing.Point(0, 0);
-            this.dgv_bonds.Name = "dgv_bonds";
-            this.dgv_bonds.RowHeadersWidth = 62;
-            this.dgv_bonds.RowTemplate.Height = 28;
-            this.dgv_bonds.Size = new System.Drawing.Size(1385, 633);
-            this.dgv_bonds.TabIndex = 2;
-            this.dgv_bonds.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_CellLeave_FormatCurrency);
-            this.dgv_bonds.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_bonds_CellValueChanged);
-            // 
-            // panel67
-            // 
-            this.panel67.Controls.Add(this.tableLayoutPanel20);
-            this.panel67.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel67.Location = new System.Drawing.Point(3, 3);
-            this.panel67.Name = "panel67";
-            this.panel67.Size = new System.Drawing.Size(1385, 64);
-            this.panel67.TabIndex = 1;
-            // 
-            // tableLayoutPanel20
-            // 
-            this.tableLayoutPanel20.ColumnCount = 5;
-            this.tableLayoutPanel20.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel20.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel20.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel20.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel20.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel20.Controls.Add(this.panel68, 0, 0);
-            this.tableLayoutPanel20.Controls.Add(this.panel69, 1, 0);
-            this.tableLayoutPanel20.Controls.Add(this.panel70, 3, 0);
-            this.tableLayoutPanel20.Controls.Add(this.panel71, 4, 0);
-            this.tableLayoutPanel20.Controls.Add(this.panel72, 2, 0);
-            this.tableLayoutPanel20.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel20.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel20.Name = "tableLayoutPanel20";
-            this.tableLayoutPanel20.RowCount = 1;
-            this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel20.Size = new System.Drawing.Size(1385, 64);
-            this.tableLayoutPanel20.TabIndex = 11;
-            // 
-            // panel68
-            // 
-            this.panel68.Controls.Add(this.lbl_bonds_adds);
-            this.panel68.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel68.Location = new System.Drawing.Point(3, 3);
-            this.panel68.Name = "panel68";
-            this.panel68.Size = new System.Drawing.Size(94, 58);
-            this.panel68.TabIndex = 0;
-            // 
-            // lbl_bonds_adds
-            // 
-            this.lbl_bonds_adds.AutoSize = true;
-            this.lbl_bonds_adds.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_bonds_adds.Location = new System.Drawing.Point(20, 15);
-            this.lbl_bonds_adds.Name = "lbl_bonds_adds";
-            this.lbl_bonds_adds.Size = new System.Drawing.Size(56, 29);
-            this.lbl_bonds_adds.TabIndex = 8;
-            this.lbl_bonds_adds.Text = "Add";
-            this.lbl_bonds_adds.Click += new System.EventHandler(this.lbl_bonds_add_Click);
-            // 
-            // panel69
-            // 
-            this.panel69.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel69.Location = new System.Drawing.Point(103, 3);
-            this.panel69.Name = "panel69";
-            this.panel69.Size = new System.Drawing.Size(94, 58);
-            this.panel69.TabIndex = 1;
-            // 
-            // panel70
-            // 
-            this.panel70.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel70.Location = new System.Drawing.Point(1188, 3);
-            this.panel70.Name = "panel70";
-            this.panel70.Size = new System.Drawing.Size(94, 58);
-            this.panel70.TabIndex = 2;
-            // 
-            // panel71
-            // 
-            this.panel71.Controls.Add(this.lbl_bonds_delete);
-            this.panel71.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel71.Location = new System.Drawing.Point(1288, 3);
-            this.panel71.Name = "panel71";
-            this.panel71.Size = new System.Drawing.Size(94, 58);
-            this.panel71.TabIndex = 3;
-            // 
-            // lbl_bonds_delete
-            // 
-            this.lbl_bonds_delete.AutoSize = true;
-            this.lbl_bonds_delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_bonds_delete.Location = new System.Drawing.Point(7, 15);
-            this.lbl_bonds_delete.Name = "lbl_bonds_delete";
-            this.lbl_bonds_delete.Size = new System.Drawing.Size(84, 29);
-            this.lbl_bonds_delete.TabIndex = 8;
-            this.lbl_bonds_delete.Text = "Delete";
-            this.lbl_bonds_delete.Click += new System.EventHandler(this.lbl_bonds_delete_Click);
-            // 
-            // panel72
-            // 
-            this.panel72.Controls.Add(this.lable5);
-            this.panel72.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel72.Location = new System.Drawing.Point(203, 3);
-            this.panel72.Name = "panel72";
-            this.panel72.Size = new System.Drawing.Size(979, 58);
-            this.panel72.TabIndex = 4;
-            // 
-            // lable5
-            // 
-            this.lable5.AutoSize = true;
-            this.lable5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lable5.Location = new System.Drawing.Point(428, 11);
-            this.lable5.Name = "lable5";
-            this.lable5.Size = new System.Drawing.Size(113, 37);
-            this.lable5.TabIndex = 2;
-            this.lable5.Text = "Bonds";
-            // 
-            // lbl_income_add
-            // 
-            this.lbl_income_add.AutoSize = true;
-            this.lbl_income_add.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_income_add.Location = new System.Drawing.Point(20, 15);
-            this.lbl_income_add.Name = "lbl_income_add";
-            this.lbl_income_add.Size = new System.Drawing.Size(56, 29);
-            this.lbl_income_add.TabIndex = 3;
-            this.lbl_income_add.Text = "Add";
-            this.lbl_income_add.Click += new System.EventHandler(this.lbl_income_add_Click);
-            // 
-            // lbl_future_expenses_add
-            // 
-            this.lbl_future_expenses_add.AutoSize = true;
-            this.lbl_future_expenses_add.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_future_expenses_add.Location = new System.Drawing.Point(20, 15);
-            this.lbl_future_expenses_add.Name = "lbl_future_expenses_add";
-            this.lbl_future_expenses_add.Size = new System.Drawing.Size(56, 29);
-            this.lbl_future_expenses_add.TabIndex = 8;
-            this.lbl_future_expenses_add.Text = "Add";
-            this.lbl_future_expenses_add.Click += new System.EventHandler(this.lbl_future_expenses_add_Click);
-            // 
-            // lbl_future_income_add
-            // 
-            this.lbl_future_income_add.AutoSize = true;
-            this.lbl_future_income_add.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_future_income_add.Location = new System.Drawing.Point(20, 15);
-            this.lbl_future_income_add.Name = "lbl_future_income_add";
-            this.lbl_future_income_add.Size = new System.Drawing.Size(56, 29);
-            this.lbl_future_income_add.TabIndex = 8;
-            this.lbl_future_income_add.Text = "Add";
-            this.lbl_future_income_add.Click += new System.EventHandler(this.lbl_future_income_add_Click);
-            // 
-            // lbl_expenses_add
-            // 
-            this.lbl_expenses_add.AutoSize = true;
-            this.lbl_expenses_add.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_expenses_add.Location = new System.Drawing.Point(19, 15);
-            this.lbl_expenses_add.Name = "lbl_expenses_add";
-            this.lbl_expenses_add.Size = new System.Drawing.Size(56, 29);
-            this.lbl_expenses_add.TabIndex = 3;
-            this.lbl_expenses_add.Text = "Add";
-            this.lbl_expenses_add.Click += new System.EventHandler(this.lbl_expenses_add_Click);
-            // 
-            // lbl_bonds
-            // 
-            this.lbl_bonds.AutoSize = true;
-            this.lbl_bonds.Location = new System.Drawing.Point(160, 108);
-            this.lbl_bonds.Name = "lbl_bonds";
-            this.lbl_bonds.Size = new System.Drawing.Size(49, 20);
-            this.lbl_bonds.TabIndex = 18;
-            this.lbl_bonds.Text = "£0.00";
-            this.lbl_bonds.TextChanged += new System.EventHandler(this.lbl_totals_TextChanged);
-            // 
-            // lbl_savings
-            // 
-            this.lbl_savings.AutoSize = true;
-            this.lbl_savings.Location = new System.Drawing.Point(160, 88);
-            this.lbl_savings.Name = "lbl_savings";
-            this.lbl_savings.Size = new System.Drawing.Size(49, 20);
-            this.lbl_savings.TabIndex = 17;
-            this.lbl_savings.Text = "£0.00";
-            this.lbl_savings.TextChanged += new System.EventHandler(this.lbl_totals_TextChanged);
-            // 
-            // lbl_cash
-            // 
-            this.lbl_cash.AutoSize = true;
-            this.lbl_cash.Location = new System.Drawing.Point(160, 68);
-            this.lbl_cash.Name = "lbl_cash";
-            this.lbl_cash.Size = new System.Drawing.Size(49, 20);
-            this.lbl_cash.TabIndex = 16;
-            this.lbl_cash.Text = "£0.00";
-            this.lbl_cash.TextChanged += new System.EventHandler(this.lbl_totals_TextChanged);
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(6, 108);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(55, 20);
-            this.label17.TabIndex = 15;
-            this.label17.Text = "Bonds";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(6, 88);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(65, 20);
-            this.label18.TabIndex = 14;
-            this.label18.Text = "Savings";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(6, 68);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(46, 20);
-            this.label19.TabIndex = 13;
-            this.label19.Text = "Cash";
-            // 
-            // lbl_stocks_shares
-            // 
-            this.lbl_stocks_shares.AutoSize = true;
-            this.lbl_stocks_shares.Location = new System.Drawing.Point(160, 128);
-            this.lbl_stocks_shares.Name = "lbl_stocks_shares";
-            this.lbl_stocks_shares.Size = new System.Drawing.Size(49, 20);
-            this.lbl_stocks_shares.TabIndex = 20;
-            this.lbl_stocks_shares.Text = "£0.00";
-            this.lbl_stocks_shares.TextChanged += new System.EventHandler(this.lbl_totals_TextChanged);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 128);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(144, 20);
-            this.label7.TabIndex = 19;
-            this.label7.Text = "Stocks and Shares";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Location = new System.Drawing.Point(1, -17);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(245, 8);
-            this.groupBox2.TabIndex = 15;
-            this.groupBox2.TabStop = false;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(152, 5);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(49, 20);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "£0.00";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(-2, 5);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(44, 20);
-            this.label15.TabIndex = 13;
-            this.label15.Text = "Total";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.groupBox4);
-            this.groupBox3.Controls.Add(this.label20);
-            this.groupBox3.Controls.Add(this.label22);
-            this.groupBox3.Location = new System.Drawing.Point(23, 366);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(245, 8);
-            this.groupBox3.TabIndex = 23;
-            this.groupBox3.TabStop = false;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Location = new System.Drawing.Point(1, -17);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(245, 8);
-            this.groupBox4.TabIndex = 15;
-            this.groupBox4.TabStop = false;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(152, 5);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(49, 20);
-            this.label20.TabIndex = 14;
-            this.label20.Text = "£0.00";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(-2, 5);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(44, 20);
-            this.label22.TabIndex = 13;
-            this.label22.Text = "Total";
-            // 
-            // lbl_total_minus_expenses
-            // 
-            this.lbl_total_minus_expenses.AutoSize = true;
-            this.lbl_total_minus_expenses.Location = new System.Drawing.Point(174, 388);
-            this.lbl_total_minus_expenses.Name = "lbl_total_minus_expenses";
-            this.lbl_total_minus_expenses.Size = new System.Drawing.Size(49, 20);
-            this.lbl_total_minus_expenses.TabIndex = 22;
-            this.lbl_total_minus_expenses.Text = "£0.00";
-            // 
-            // Label23
-            // 
-            this.Label23.AutoSize = true;
-            this.Label23.Location = new System.Drawing.Point(20, 388);
-            this.Label23.Name = "Label23";
-            this.Label23.Size = new System.Drawing.Size(44, 20);
-            this.Label23.TabIndex = 21;
-            this.Label23.Text = "Total";
-            // 
-            // btn_new
-            // 
-            this.btn_new.Location = new System.Drawing.Point(613, 13);
-            this.btn_new.Name = "btn_new";
-            this.btn_new.Size = new System.Drawing.Size(172, 49);
-            this.btn_new.TabIndex = 3;
-            this.btn_new.Text = "New";
-            this.btn_new.UseVisualStyleBackColor = true;
-            this.btn_new.Click += new System.EventHandler(this.btn_new_Click);
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.lbl_stocks_shares);
-            this.groupBox5.Controls.Add(this.label7);
-            this.groupBox5.Controls.Add(this.lbl_bonds);
-            this.groupBox5.Controls.Add(this.lbl_savings);
-            this.groupBox5.Controls.Add(this.lbl_cash);
-            this.groupBox5.Controls.Add(this.label17);
-            this.groupBox5.Controls.Add(this.label18);
-            this.groupBox5.Controls.Add(this.label19);
-            this.groupBox5.Controls.Add(this.groupBox1);
-            this.groupBox5.Controls.Add(this.lbl_1st_pass_total);
-            this.groupBox5.Controls.Add(this.label12);
-            this.groupBox5.Controls.Add(this.lbl_income);
-            this.groupBox5.Controls.Add(this.lbl_assets);
-            this.groupBox5.Controls.Add(this.label4);
-            this.groupBox5.Controls.Add(this.label1);
-            this.groupBox5.Location = new System.Drawing.Point(15, 20);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(264, 219);
-            this.groupBox5.TabIndex = 24;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Income";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(19, 283);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(53, 20);
-            this.label24.TabIndex = 25;
-            this.label24.Text = "Salary";
-            // 
-            // lbl_salary
-            // 
-            this.lbl_salary.AutoSize = true;
-            this.lbl_salary.Location = new System.Drawing.Point(176, 443);
-            this.lbl_salary.Name = "lbl_salary";
-            this.lbl_salary.Size = new System.Drawing.Size(49, 20);
-            this.lbl_salary.TabIndex = 26;
-            this.lbl_salary.Text = "£0.00";
-            // 
-            // txtbx_salary
-            // 
-            this.txtbx_salary.Location = new System.Drawing.Point(168, 306);
-            this.txtbx_salary.Name = "txtbx_salary";
-            this.txtbx_salary.Size = new System.Drawing.Size(100, 26);
-            this.txtbx_salary.TabIndex = 27;
-            this.txtbx_salary.TextChanged += new System.EventHandler(this.txtbx_salary_TextChanged);
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(20, 606);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(66, 20);
-            this.label25.TabIndex = 28;
-            this.label25.Text = "Inflation";
-            // 
-            // txtbx_inflation
-            // 
-            this.txtbx_inflation.Location = new System.Drawing.Point(155, 603);
-            this.txtbx_inflation.Name = "txtbx_inflation";
-            this.txtbx_inflation.Size = new System.Drawing.Size(100, 26);
-            this.txtbx_inflation.TabIndex = 29;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(21, 639);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(72, 20);
-            this.label26.TabIndex = 30;
-            this.label26.Text = "Currency";
-            // 
-            // cmbx_currency
-            // 
-            this.cmbx_currency.FormattingEnabled = true;
-            this.cmbx_currency.Items.AddRange(new object[] {
-            "£",
-            "€",
-            "$",
-            "¥",
-            "CHF",
-            "AUD",
-            "CAD"});
-            this.cmbx_currency.Location = new System.Drawing.Point(153, 639);
-            this.cmbx_currency.Name = "cmbx_currency";
-            this.cmbx_currency.Size = new System.Drawing.Size(102, 28);
-            this.cmbx_currency.TabIndex = 31;
+            // thinsldr_salary
+            // 
+            this.thinsldr_salary.Location = new System.Drawing.Point(81, 30);
+            this.thinsldr_salary.Maximum = 50000;
+            this.thinsldr_salary.Minimum = 0;
+            this.thinsldr_salary.Name = "thinsldr_salary";
+            this.thinsldr_salary.Size = new System.Drawing.Size(172, 18);
+            this.thinsldr_salary.TabIndex = 28;
+            this.thinsldr_salary.Text = "thinSlider1";
+            this.thinsldr_salary.ThumbColor = System.Drawing.Color.Red;
+            this.thinsldr_salary.TrackColor = System.Drawing.Color.Gray;
+            this.thinsldr_salary.Value = 20000;
+            this.thinsldr_salary.ValueChanged += new System.EventHandler(this.thinsldr_salary_ValueChanged);
             // 
             // Form1
             // 
@@ -2526,6 +2543,12 @@ namespace Can_I_retire_yet
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tab_assets.ResumeLayout(false);
@@ -2540,6 +2563,54 @@ namespace Can_I_retire_yet
             this.panel42.PerformLayout();
             this.panel43.ResumeLayout(false);
             this.panel43.PerformLayout();
+            this.tab_cash.ResumeLayout(false);
+            this.tableLayoutPanel6.ResumeLayout(false);
+            this.panel45.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_cash)).EndInit();
+            this.panel46.ResumeLayout(false);
+            this.tableLayoutPanel8.ResumeLayout(false);
+            this.panel47.ResumeLayout(false);
+            this.panel47.PerformLayout();
+            this.panel50.ResumeLayout(false);
+            this.panel50.PerformLayout();
+            this.panel51.ResumeLayout(false);
+            this.panel51.PerformLayout();
+            this.tab_savings.ResumeLayout(false);
+            this.tableLayoutPanel9.ResumeLayout(false);
+            this.panel52.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_savings)).EndInit();
+            this.panel53.ResumeLayout(false);
+            this.tableLayoutPanel16.ResumeLayout(false);
+            this.panel54.ResumeLayout(false);
+            this.panel54.PerformLayout();
+            this.panel57.ResumeLayout(false);
+            this.panel57.PerformLayout();
+            this.panel58.ResumeLayout(false);
+            this.panel58.PerformLayout();
+            this.tab_stocks_shares.ResumeLayout(false);
+            this.tableLayoutPanel17.ResumeLayout(false);
+            this.panel59.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_stocks_shares)).EndInit();
+            this.panel60.ResumeLayout(false);
+            this.tableLayoutPanel18.ResumeLayout(false);
+            this.panel61.ResumeLayout(false);
+            this.panel61.PerformLayout();
+            this.panel64.ResumeLayout(false);
+            this.panel64.PerformLayout();
+            this.panel65.ResumeLayout(false);
+            this.panel65.PerformLayout();
+            this.tab_bonds.ResumeLayout(false);
+            this.tableLayoutPanel19.ResumeLayout(false);
+            this.panel66.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_bonds)).EndInit();
+            this.panel67.ResumeLayout(false);
+            this.tableLayoutPanel20.ResumeLayout(false);
+            this.panel68.ResumeLayout(false);
+            this.panel68.PerformLayout();
+            this.panel71.ResumeLayout(false);
+            this.panel71.PerformLayout();
+            this.panel72.ResumeLayout(false);
+            this.panel72.PerformLayout();
             this.tab_expenses.ResumeLayout(false);
             this.tableLayoutPanel10.ResumeLayout(false);
             this.panel24.ResumeLayout(false);
@@ -2593,60 +2664,8 @@ namespace Can_I_retire_yet
             this.panel44.PerformLayout();
             this.tab_MonteCarlo.ResumeLayout(false);
             this.tab_MonteCarlo.PerformLayout();
-            this.panel19.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.trkbr_retirement_age)).EndInit();
-            this.tab_savings.ResumeLayout(false);
-            this.tab_cash.ResumeLayout(false);
-            this.tab_stocks_shares.ResumeLayout(false);
-            this.tab_bonds.ResumeLayout(false);
-            this.tableLayoutPanel6.ResumeLayout(false);
-            this.panel45.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_cash)).EndInit();
-            this.panel46.ResumeLayout(false);
-            this.tableLayoutPanel8.ResumeLayout(false);
-            this.panel47.ResumeLayout(false);
-            this.panel47.PerformLayout();
-            this.panel50.ResumeLayout(false);
-            this.panel50.PerformLayout();
-            this.panel51.ResumeLayout(false);
-            this.panel51.PerformLayout();
-            this.tableLayoutPanel9.ResumeLayout(false);
-            this.panel52.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_savings)).EndInit();
-            this.panel53.ResumeLayout(false);
-            this.tableLayoutPanel16.ResumeLayout(false);
-            this.panel54.ResumeLayout(false);
-            this.panel54.PerformLayout();
-            this.panel57.ResumeLayout(false);
-            this.panel57.PerformLayout();
-            this.panel58.ResumeLayout(false);
-            this.panel58.PerformLayout();
-            this.tableLayoutPanel17.ResumeLayout(false);
-            this.panel59.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_stocks_shares)).EndInit();
-            this.panel60.ResumeLayout(false);
-            this.tableLayoutPanel18.ResumeLayout(false);
-            this.panel61.ResumeLayout(false);
-            this.panel61.PerformLayout();
-            this.panel64.ResumeLayout(false);
-            this.panel64.PerformLayout();
-            this.panel65.ResumeLayout(false);
-            this.panel65.PerformLayout();
-            this.tableLayoutPanel19.ResumeLayout(false);
-            this.panel66.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_bonds)).EndInit();
-            this.panel67.ResumeLayout(false);
-            this.tableLayoutPanel20.ResumeLayout(false);
-            this.panel68.ResumeLayout(false);
-            this.panel68.PerformLayout();
-            this.panel71.ResumeLayout(false);
-            this.panel71.PerformLayout();
-            this.panel72.ResumeLayout(false);
-            this.panel72.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
+            this.panel19.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -2852,12 +2871,13 @@ namespace Can_I_retire_yet
         private System.Windows.Forms.Button btn_new;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.GroupBox groupBox5;
-        public System.Windows.Forms.Label lbl_salary;
         private System.Windows.Forms.TextBox txtbx_salary;
         private System.Windows.Forms.TextBox txtbx_inflation;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.ComboBox cmbx_currency;
         private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private utils.ThinSlider thinsldr_salary;
     }
 }
 

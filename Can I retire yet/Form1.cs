@@ -22,15 +22,15 @@ namespace Can_I_retire_yet
         static public bool flag = true;
         private string lastFilePath = "";
 
-        private ThinSlider salarySlider = new ThinSlider()
-        {
-            Location = new Point(60, 185),
-            Height = 20,
-            Width = 130,
-            Minimum = 0,
-            Maximum = 50000,
-            Value = 20000
-        };
+        //private ThinSlider salarySlider = new ThinSlider()
+        //{
+        //    Location = new Point(55, 170),
+        //    Height = 20,
+        //    Width = 130,
+        //    Minimum = 0,
+        //    Maximum = 50000,
+        //    Value = 20000
+        //};
 
         public Form1()
         {
@@ -58,14 +58,14 @@ namespace Can_I_retire_yet
 
 
 
-            tab_overall.Controls.Add(salarySlider);
-            salarySlider.BringToFront(); //bring to the front
+            //tab_overall.Controls.Add(salarySlider);
+            //salarySlider.BringToFront(); //bring to the front
 
-            //Put in initial value
-            txtbx_salary.Text = $"£{salarySlider.Value}";
+            ////Put in initial value
+            //txtbx_salary.Text = $"£{salarySlider.Value}";
 
-            // Subscribe to slider ValueChanged event
-            salarySlider.ValueChanged += (s, e2) => { txtbx_salary.Text = $"£{salarySlider.Value}"; };
+            //// Subscribe to slider ValueChanged event
+            //salarySlider.ValueChanged += (s, e2) => { txtbx_salary.Text = $"£{salarySlider.Value}"; };
 
         }
 
@@ -440,14 +440,6 @@ namespace Can_I_retire_yet
                 dgv_future_income, dgv_future_expenses);
         }
 
-        private void txtbx_salary_TextChanged(object sender, EventArgs e)
-        {
-            if (txtbx_salary.Text.Length > 1)
-            {
-                salarySlider.Value = Int32.Parse(txtbx_salary.Text.Substring(1, txtbx_salary.Text.Length - 1));
-                Recalculate();
-            }
-        }
 
         private void Dgv_CellLeave_FormatCurrency(object sender, DataGridViewCellEventArgs e)
         {
@@ -524,5 +516,18 @@ namespace Can_I_retire_yet
             formatGrid(dgv_future_expenses);
         }
 
+        private void thinsldr_salary_ValueChanged(object sender, EventArgs e)
+        {
+            txtbx_salary.Text = cmbx_currency.Text + thinsldr_salary.Value.ToString("N2");
+        }
+
+        private void txtbx_salary_TextChanged(object sender, EventArgs e)
+        {
+            if (txtbx_salary.Text.Length > 1)
+            {
+                //    thinsldr_salary.Value = Int32.Parse(txtbx_salary.Text.Substring(1, txtbx_salary.Text.Length - 1));
+                //    Recalculate();
+            }
+        }
     }
 }

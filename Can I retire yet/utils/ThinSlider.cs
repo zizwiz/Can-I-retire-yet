@@ -1,21 +1,31 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
 namespace Can_I_retire_yet.utils
 {
-    class ThinSlider : Control
+    [ToolboxItem(true)] //This makes it visible in the Toolbox
+
+    //Explicitly make this class public so we can get access to it
+    public class ThinSlider : Control
     {
-        public event EventHandler ValueChanged; // Event for value changes
+        public Color ThumbColor { get; set; } = Color.DodgerBlue;
+        public Color TrackColor { get; set; } = Color.Gray;
 
+        [Category("Behavior")]
+        public event EventHandler ValueChanged;
+
+        [Category("Behavior")]
+        [Description("Minimum slider value.")]
         public int Minimum { get; set; }
-        public int Maximum { get; set; } 
-        //public int Value { get; set; } 
 
-        private bool dragging = false;
+        [Category("Behavior")]
+        [Description("Maximum slider value.")]
+        public int Maximum { get; set; }
 
-        private int _value = 20000;
-
+        [Category("Behavior")]
+        [Description("Current slider value.")]
         public int Value
         {
             get => _value;
@@ -25,19 +35,24 @@ namespace Can_I_retire_yet.utils
                 if (_value != newValue)
                 {
                     _value = newValue;
-                    ValueChanged?.Invoke(this, EventArgs.Empty); // Raise event
-                    Invalidate(); // Redraw
+                    ValueChanged?.Invoke(this, EventArgs.Empty);
+                    Invalidate();
                 }
             }
         }
 
 
+        private bool dragging = false;
+
+        private int _value = 20000;
+
 
         public ThinSlider()
         {
             DoubleBuffered = true;
-            
+            Size = new Size(150, 20);   // default designer size
         }
+
 
         protected override void OnPaint(PaintEventArgs e)
         {
@@ -79,7 +94,23 @@ namespace Can_I_retire_yet.utils
             Value = Minimum + (int)(percent * (Maximum - Minimum));
             Invalidate(); // Redraw
 
-            
+
         }
+
+        protected override bool IsInputKey(Keys keyData)
+        {
+            return keyData == Keys.Left || keyData == Keys.Right || base.IsInputKey(keyData);
+        }
+
+        protected override void OnKeyDown(KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Left)
+                Value -= 100;
+            else if (e.KeyCode == Keys.Right)
+                Value += 100;
+
+            base.OnKeyDown(e);
+        }
+
     }
 }
