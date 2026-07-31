@@ -7,7 +7,6 @@ using System.Reflection;
 using Can_I_retire_yet.functions;
 using Can_I_retire_yet.Models;
 using Can_I_retire_yet.MonteCarlo;
-using Can_I_retire_yet.utils;
 using CenteredMessagebox;
 
 namespace Can_I_retire_yet
@@ -21,16 +20,6 @@ namespace Can_I_retire_yet
     {
         static public bool flag = true;
         private string lastFilePath = "";
-
-        //private ThinSlider salarySlider = new ThinSlider()
-        //{
-        //    Location = new Point(55, 170),
-        //    Height = 20,
-        //    Width = 130,
-        //    Minimum = 0,
-        //    Maximum = 50000,
-        //    Value = 20000
-        //};
 
         public Form1()
         {
@@ -55,18 +44,9 @@ namespace Can_I_retire_yet
 
             cmbx_currency.SelectedIndex = 0; // default to £
 
-
-
-
-            //tab_overall.Controls.Add(salarySlider);
-            //salarySlider.BringToFront(); //bring to the front
-
-            ////Put in initial value
-            //txtbx_salary.Text = $"£{salarySlider.Value}";
-
-            //// Subscribe to slider ValueChanged event
-            //salarySlider.ValueChanged += (s, e2) => { txtbx_salary.Text = $"£{salarySlider.Value}"; };
-
+            txtbx_salary.Text = $"£{thinsldr_salary.Value}";
+            txtbx_age.Text = $"{thinsldr_Age.Value}";
+            txtbx_length.Text = $"{thinsldr_Length.Value}";
         }
 
         private void btn_close_Click(object sender, EventArgs e)
@@ -119,7 +99,9 @@ namespace Can_I_retire_yet
                 future_expenses = DatagridviewFunctions.ExtractGrid(dgv_future_expenses),
                 salary = txtbx_salary.Text,
                 inflation = txtbx_inflation.Text,
-                currency = cmbx_currency.Text
+                currency = cmbx_currency.Text,
+                age = txtbx_age.Text,
+                length = txtbx_length.Text
             };
 
             string json = Newtonsoft.Json.JsonConvert.SerializeObject(data, Newtonsoft.Json.Formatting.Indented);
@@ -379,6 +361,8 @@ namespace Can_I_retire_yet
             txtbx_salary.Text = data.salary ?? "";
             txtbx_inflation.Text = data.inflation ?? "";
             cmbx_currency.Text = data.currency ?? "£";
+            txtbx_age.Text = data.age ?? "";
+            txtbx_length.Text = data.length ?? "";
 
             ApplyCurrencyFormattingToAllGrids();
             RecalculateAllTotals();
@@ -528,6 +512,24 @@ namespace Can_I_retire_yet
                 thinsldr_salary.Value = Int32.Parse(txtbx_salary.Text.Substring(1, txtbx_salary.Text.Length - 1));
                 Recalculate();
             }
+        }
+
+        private void thinsldr_Age_ValueChanged(object sender, EventArgs e)
+        {
+            txtbx_age.Text = thinsldr_Age.Value.ToString();
+        }
+
+        private void txtbx_age_TextChanged(object sender, EventArgs e)
+        {
+            thinsldr_Age.Value = Int32.Parse(txtbx_age.Text);
+        }
+        private void thinsldr_Length_ValueChanged(object sender, EventArgs e)
+        {
+            txtbx_length.Text = thinsldr_Length.Value.ToString();
+        }
+        private void txtbx_length_TextChanged(object sender, EventArgs e)
+        {
+            thinsldr_Length.Value = Int32.Parse(txtbx_length.Text);
         }
     }
 }

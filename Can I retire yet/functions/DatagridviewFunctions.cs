@@ -129,7 +129,7 @@ namespace Can_I_retire_yet.functions
             // We tell the ystem which columns are currency ones so can validate and format correctly
             foreach (DataGridViewColumn col in dgv.Columns)
             {
-                if (col.Name == "Amount" || col.Name == "Monthly")
+                if (col.Name == "Amount" || col.Name == "Monthly" || col.Name == "Annually")
                     col.Tag = "currency";
             }
         }

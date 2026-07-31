@@ -2547,6 +2547,7 @@ namespace Can_I_retire_yet
             this.thinsldr_Age.ThumbColor = System.Drawing.Color.DodgerBlue;
             this.thinsldr_Age.TrackColor = System.Drawing.Color.Gray;
             this.thinsldr_Age.Value = 60;
+            this.thinsldr_Age.ValueChanged += new System.EventHandler(this.thinsldr_Age_ValueChanged);
             // 
             // txtbx_age
             // 
@@ -2554,6 +2555,7 @@ namespace Can_I_retire_yet
             this.txtbx_age.Name = "txtbx_age";
             this.txtbx_age.Size = new System.Drawing.Size(100, 26);
             this.txtbx_age.TabIndex = 34;
+            this.txtbx_age.TextChanged += new System.EventHandler(this.txtbx_age_TextChanged);
             // 
             // label27
             // 
@@ -2577,6 +2579,7 @@ namespace Can_I_retire_yet
             this.thinsldr_Length.ThumbColor = System.Drawing.Color.DodgerBlue;
             this.thinsldr_Length.TrackColor = System.Drawing.Color.Gray;
             this.thinsldr_Length.Value = 40;
+            this.thinsldr_Length.ValueChanged += new System.EventHandler(this.thinsldr_Length_ValueChanged);
             // 
             // txtbx_length
             // 
@@ -2584,6 +2587,7 @@ namespace Can_I_retire_yet
             this.txtbx_length.Name = "txtbx_length";
             this.txtbx_length.Size = new System.Drawing.Size(100, 26);
             this.txtbx_length.TabIndex = 37;
+            this.txtbx_length.TextChanged += new System.EventHandler(this.txtbx_length_TextChanged);
             // 
             // label28
             // 
