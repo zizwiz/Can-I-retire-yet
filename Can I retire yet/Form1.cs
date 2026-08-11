@@ -21,6 +21,8 @@ namespace Can_I_retire_yet
         static public bool flag = true;
         private string lastFilePath = "";
 
+        private Timer chartTimer = new Timer { Interval = 150 };
+
         public Form1()
         {
             InitializeComponent();
@@ -47,6 +49,13 @@ namespace Can_I_retire_yet
             txtbx_salary.Text = $"£{thinsldr_salary.Value}";
             txtbx_age.Text = $"{thinsldr_Age.Value}";
             txtbx_length.Text = $"{thinsldr_Length.Value}";
+
+            chartTimer.Tick += (s, f) =>
+            {
+                chartTimer.Stop();
+                DrawOverallChart();
+            };
+
         }
 
         private void btn_close_Click(object sender, EventArgs e)
@@ -112,46 +121,65 @@ namespace Can_I_retire_yet
 
         private void lbl_expenses_add_Click(object sender, EventArgs e)
         {
-            if (DataGridViewAdd(dgv_expenses)) { }
+            if (DataGridViewAdd(dgv_expenses))
+            {
+            }
         }
 
         private void lbl_assets_add_Click(object sender, EventArgs e)
         {
-            if (DataGridViewAdd(dgv_assets)) { }
+            if (DataGridViewAdd(dgv_assets))
+            {
+            }
         }
 
         private void lbl_income_add_Click(object sender, EventArgs e)
         {
-            if (DataGridViewAdd(dgv_income)) { }
+            if (DataGridViewAdd(dgv_income))
+            {
+            }
         }
 
         private void lbl_future_expenses_add_Click(object sender, EventArgs e)
         {
-            if (DataGridViewAdd(dgv_future_expenses)) { }
+            if (DataGridViewAdd(dgv_future_expenses))
+            {
+            }
         }
 
         private void lbl_future_income_add_Click(object sender, EventArgs e)
         {
-            if (DataGridViewAdd(dgv_future_income)) { }
+            if (DataGridViewAdd(dgv_future_income))
+            {
+            }
         }
+
         private void lbl_cash_add_Click(object sender, EventArgs e)
         {
-            if (DataGridViewAdd(dgv_cash)) { }
+            if (DataGridViewAdd(dgv_cash))
+            {
+            }
         }
 
         private void lbl_stocks_shares_add_Click(object sender, EventArgs e)
         {
-            if (DataGridViewAdd(dgv_stocks_shares)) { }
+            if (DataGridViewAdd(dgv_stocks_shares))
+            {
+            }
         }
 
         private void lbl_bonds_add_Click(object sender, EventArgs e)
         {
-            if (DataGridViewAdd(dgv_bonds)) { }
+            if (DataGridViewAdd(dgv_bonds))
+            {
+            }
         }
 
         private void lbl_savings_add_Click(object sender, EventArgs e)
         {
-            if (DataGridViewAdd(dgv_savings)) { }
+            if (DataGridViewAdd(dgv_savings))
+            {
+            }
         }
 
         private bool DataGridViewAdd(DataGridView dgv)
@@ -170,47 +198,65 @@ namespace Can_I_retire_yet
 
         private void lbl_expenses_delete_Click(object sender, EventArgs e)
         {
-            if (DataGridViewDelete(dgv_expenses)) { }
+            if (DataGridViewDelete(dgv_expenses))
+            {
+            }
         }
 
         private void lbl_assets_delete_Click(object sender, EventArgs e)
         {
-            if (DataGridViewDelete(dgv_assets)) { }
+            if (DataGridViewDelete(dgv_assets))
+            {
+            }
         }
 
         private void lbl_income_delete_Click(object sender, EventArgs e)
         {
-            if (DataGridViewDelete(dgv_income)) { }
+            if (DataGridViewDelete(dgv_income))
+            {
+            }
         }
 
         private void lbl_future_expenses_delete_Click(object sender, EventArgs e)
         {
-            if (DataGridViewDelete(dgv_future_expenses)) { }
+            if (DataGridViewDelete(dgv_future_expenses))
+            {
+            }
         }
 
         private void lbl_future_income_delete_Click(object sender, EventArgs e)
         {
-            if (DataGridViewDelete(dgv_future_income)) { }
+            if (DataGridViewDelete(dgv_future_income))
+            {
+            }
         }
 
         private void lbl_cash_delete_Click(object sender, EventArgs e)
         {
-            if (DataGridViewDelete(dgv_cash)) { }
+            if (DataGridViewDelete(dgv_cash))
+            {
+            }
         }
 
         private void lbl_savings_delete_Click(object sender, EventArgs e)
         {
-            if (DataGridViewDelete(dgv_savings)) { }
+            if (DataGridViewDelete(dgv_savings))
+            {
+            }
         }
 
         private void lbl_stocks_shares_delete_Click(object sender, EventArgs e)
         {
-            if (DataGridViewDelete(dgv_stocks_shares)) { }
+            if (DataGridViewDelete(dgv_stocks_shares))
+            {
+            }
         }
 
         private void lbl_bonds_delete_Click(object sender, EventArgs e)
         {
-            if (DataGridViewDelete(dgv_bonds)) { }
+            if (DataGridViewDelete(dgv_bonds))
+            {
+            }
         }
 
         private bool DataGridViewDelete(DataGridView dgv)
@@ -307,22 +353,28 @@ namespace Can_I_retire_yet
         private void Recalculate()
         {
             lbl_1st_pass_total.Text = ((decimal.Parse(lbl_assets.Text, NumberStyles.Currency,
-                                                CultureInfo.CreateSpecificCulture("en-GB").NumberFormat)
-                                            + decimal.Parse(lbl_income.Text, NumberStyles.Currency,
-                                                CultureInfo.CreateSpecificCulture("en-GB").NumberFormat)
-                                            + decimal.Parse(lbl_stocks_shares.Text, NumberStyles.Currency,
-                                                CultureInfo.CreateSpecificCulture("en-GB").NumberFormat)
-                                            + decimal.Parse(lbl_bonds.Text, NumberStyles.Currency,
-                                                CultureInfo.CreateSpecificCulture("en-GB").NumberFormat)
-                                            + decimal.Parse(lbl_savings.Text, NumberStyles.Currency,
-                                                CultureInfo.CreateSpecificCulture("en-GB").NumberFormat)
-                                            + decimal.Parse(lbl_cash.Text, NumberStyles.Currency,
-                                                CultureInfo.CreateSpecificCulture("en-GB").NumberFormat)).ToString("C", new CultureInfo("en-GB"))); ;
+                                            CultureInfo.CreateSpecificCulture("en-GB").NumberFormat)
+                                        + decimal.Parse(lbl_income.Text, NumberStyles.Currency,
+                                            CultureInfo.CreateSpecificCulture("en-GB").NumberFormat)
+                                        + decimal.Parse(lbl_stocks_shares.Text, NumberStyles.Currency,
+                                            CultureInfo.CreateSpecificCulture("en-GB").NumberFormat)
+                                        + decimal.Parse(lbl_bonds.Text, NumberStyles.Currency,
+                                            CultureInfo.CreateSpecificCulture("en-GB").NumberFormat)
+                                        + decimal.Parse(lbl_savings.Text, NumberStyles.Currency,
+                                            CultureInfo.CreateSpecificCulture("en-GB").NumberFormat)
+                                        + decimal.Parse(lbl_cash.Text, NumberStyles.Currency,
+                                            CultureInfo.CreateSpecificCulture("en-GB").NumberFormat))
+                .ToString("C", new CultureInfo("en-GB")));
+            ;
 
 
-            lbl_total_minus_expenses.Text = ((decimal.Parse(lbl_1st_pass_total.Text, NumberStyles.Currency, CultureInfo.CreateSpecificCulture("en-GB").NumberFormat)
-                                             - decimal.Parse(txtbx_salary.Text, NumberStyles.Currency, CultureInfo.CreateSpecificCulture("en-GB").NumberFormat)
-                                                 - decimal.Parse(lbl_expenses.Text, NumberStyles.Currency, CultureInfo.CreateSpecificCulture("en-GB").NumberFormat)).ToString("C", new CultureInfo("en-GB")));
+            lbl_total_minus_expenses.Text = ((decimal.Parse(lbl_1st_pass_total.Text, NumberStyles.Currency,
+                                                  CultureInfo.CreateSpecificCulture("en-GB").NumberFormat)
+                                              - decimal.Parse(txtbx_salary.Text, NumberStyles.Currency,
+                                                  CultureInfo.CreateSpecificCulture("en-GB").NumberFormat)
+                                              - decimal.Parse(lbl_expenses.Text, NumberStyles.Currency,
+                                                  CultureInfo.CreateSpecificCulture("en-GB").NumberFormat))
+                .ToString("C", new CultureInfo("en-GB")));
         }
 
         private void btn_open_all_Click(object sender, EventArgs e)
@@ -389,7 +441,8 @@ namespace Can_I_retire_yet
                 );
 
                 double successProbability = mc.RunSimulation();
-                rchtxtbx_monte_carlo_output.AppendText($"Probability of not running out of money: {successProbability:P2}\r");
+                rchtxtbx_monte_carlo_output.AppendText(
+                    $"Probability of not running out of money: {successProbability:P2}\r");
 
             }
             catch (Exception ex)
@@ -407,20 +460,26 @@ namespace Can_I_retire_yet
         {
             lbl_assets.Text = DatagridviewFunctions.CalculateTabTotal(dgv_assets, new DataGridViewCellEventArgs(1, 0));
             lbl_cash.Text = DatagridviewFunctions.CalculateTabTotal(dgv_cash, new DataGridViewCellEventArgs(1, 0));
-            lbl_savings.Text = DatagridviewFunctions.CalculateTabTotal(dgv_savings, new DataGridViewCellEventArgs(1, 0));
+            lbl_savings.Text =
+                DatagridviewFunctions.CalculateTabTotal(dgv_savings, new DataGridViewCellEventArgs(1, 0));
             lbl_bonds.Text = DatagridviewFunctions.CalculateTabTotal(dgv_bonds, new DataGridViewCellEventArgs(1, 0));
-            lbl_stocks_shares.Text = DatagridviewFunctions.CalculateTabTotal(dgv_stocks_shares, new DataGridViewCellEventArgs(1, 0));
+            lbl_stocks_shares.Text =
+                DatagridviewFunctions.CalculateTabTotal(dgv_stocks_shares, new DataGridViewCellEventArgs(1, 0));
 
             lbl_income.Text = DatagridviewFunctions.CalculateTabTotal(dgv_income, new DataGridViewCellEventArgs(1, 0));
-            lbl_expenses.Text = DatagridviewFunctions.CalculateTabTotal(dgv_expenses, new DataGridViewCellEventArgs(1, 0));
+            lbl_expenses.Text =
+                DatagridviewFunctions.CalculateTabTotal(dgv_expenses, new DataGridViewCellEventArgs(1, 0));
 
-            lbl_future_income.Text = DatagridviewFunctions.CalculateTabTotal(dgv_future_income, new DataGridViewCellEventArgs(2, 0));
-            lbl_future_expenses.Text = DatagridviewFunctions.CalculateTabTotal(dgv_future_expenses, new DataGridViewCellEventArgs(2, 0));
+            lbl_future_income.Text =
+                DatagridviewFunctions.CalculateTabTotal(dgv_future_income, new DataGridViewCellEventArgs(2, 0));
+            lbl_future_expenses.Text =
+                DatagridviewFunctions.CalculateTabTotal(dgv_future_expenses, new DataGridViewCellEventArgs(2, 0));
         }
 
         private void btn_new_Click(object sender, EventArgs e)
         {
-            DatagridviewFunctions.NewSetUp(dgv_assets, dgv_cash, dgv_savings, dgv_bonds, dgv_stocks_shares, dgv_income, dgv_expenses,
+            DatagridviewFunctions.NewSetUp(dgv_assets, dgv_cash, dgv_savings, dgv_bonds, dgv_stocks_shares, dgv_income,
+                dgv_expenses,
                 dgv_future_income, dgv_future_expenses);
         }
 
@@ -502,34 +561,143 @@ namespace Can_I_retire_yet
 
         private void thinsldr_salary_ValueChanged(object sender, EventArgs e)
         {
+            chartTimer.Stop();
             txtbx_salary.Text = cmbx_currency.Text + thinsldr_salary.Value; //ToString("N2");
+            chartTimer.Start();
         }
 
         private void txtbx_salary_TextChanged(object sender, EventArgs e)
         {
             if (txtbx_salary.Text.Length > 1)
             {
+                chartTimer.Stop();
                 thinsldr_salary.Value = Int32.Parse(txtbx_salary.Text.Substring(1, txtbx_salary.Text.Length - 1));
                 Recalculate();
+                chartTimer.Start();
             }
         }
 
         private void thinsldr_Age_ValueChanged(object sender, EventArgs e)
         {
+            chartTimer.Stop(); 
             txtbx_age.Text = thinsldr_Age.Value.ToString();
+            chartTimer.Start();
         }
 
         private void txtbx_age_TextChanged(object sender, EventArgs e)
         {
+            chartTimer.Stop();
             thinsldr_Age.Value = Int32.Parse(txtbx_age.Text);
+            chartTimer.Start();
         }
+
         private void thinsldr_Length_ValueChanged(object sender, EventArgs e)
         {
+            chartTimer.Stop();
             txtbx_length.Text = thinsldr_Length.Value.ToString();
+            chartTimer.Start();
         }
+
         private void txtbx_length_TextChanged(object sender, EventArgs e)
         {
+            chartTimer.Stop();
             thinsldr_Length.Value = Int32.Parse(txtbx_length.Text);
+            chartTimer.Start();
         }
+
+        private void txtbx_inflation_TextChanged(object sender, EventArgs e)
+        {
+            chartTimer.Stop();
+            chartTimer.Start();
+        }
+
+        private void btn_draw_overall_chart_Click(object sender, EventArgs e)
+        {
+            DrawOverallChart();
+        }
+
+        private void DrawOverallChart()
+        {
+            if (string.IsNullOrWhiteSpace(txtbx_age.Text) ||
+                string.IsNullOrWhiteSpace(txtbx_length.Text))
+                return;
+
+            int age = int.Parse(txtbx_age.Text);
+            int length = int.Parse(txtbx_length.Text);
+
+            decimal salary = Parse(txtbx_salary.Text);
+            decimal expenses = Parse(lbl_expenses.Text);
+            decimal inflation = decimal.Parse(txtbx_inflation.Text) / 100m;
+
+            decimal available =
+                Parse(lbl_assets.Text) +
+                Parse(lbl_income.Text) +
+                Parse(lbl_cash.Text) +
+                Parse(lbl_savings.Text) +
+                Parse(lbl_bonds.Text) +
+                Parse(lbl_stocks_shares.Text);
+
+            chart_overall.Series.Clear();
+            var series = chart_overall.Series.Add("Available Funds");
+            series.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
+
+            for (int i = 0; i < length; i++)
+            {
+                int currentYear = age + i;
+
+                decimal futureIncome = SumRows(dgv_future_income, currentYear);
+                decimal futureExpenses = SumRows(dgv_future_expenses, currentYear);
+
+                decimal endOfYear =
+                    available +
+                    futureIncome -
+                    futureExpenses -
+                    salary -
+                    expenses;
+
+                series.Points.AddXY(currentYear, endOfYear);
+
+                available = endOfYear;
+                expenses += expenses * inflation;
+            }
+        }
+
+
+
+        //////////////
+        /// Helpers
+        /////////////
+
+        private decimal Parse(string s)
+        {
+            if (DatagridviewFunctions.TryParseMoney(s, out decimal v))
+                return v;
+            return 0;
+        }
+
+        private decimal SumRows(DataGridView dgv, int year)
+        {
+            decimal total = 0;
+
+            foreach (DataGridViewRow row in dgv.Rows)
+            {
+                if (row.IsNewRow) continue;
+
+                int rowYear;
+                if (!int.TryParse(row.Cells[1].Value?.ToString(), out rowYear))
+                    continue;
+
+                if (rowYear == year)
+                {
+                    string raw = row.Cells[2].Value?.ToString() ?? "";
+                    if (DatagridviewFunctions.TryParseMoney(raw, out decimal val))
+                        total += val;
+                }
+            }
+
+            return total;
+        }
+
+       
     }
 }
