@@ -4,6 +4,7 @@ using System.Globalization;
 using System.IO;
 using System.Windows.Forms;
 using System.Reflection;
+using System.Windows.Forms.DataVisualization.Charting;
 using Can_I_retire_yet.functions;
 using Can_I_retire_yet.Models;
 using Can_I_retire_yet.MonteCarlo;
@@ -55,6 +56,11 @@ namespace Can_I_retire_yet
                 chartTimer.Stop();
                 DrawOverallChart();
             };
+
+            chart_overall.Series[0].ToolTip = "#VALY"; // fallback
+            chart_overall.Series[0].SmartLabelStyle.Enabled = true;
+            chart_overall.Series[0].LabelForeColor = Color.Black;
+            chart_overall.Series[0].LabelBackColor = Color.White;
 
         }
 
@@ -568,18 +574,51 @@ namespace Can_I_retire_yet
 
         private void txtbx_salary_TextChanged(object sender, EventArgs e)
         {
-            if (txtbx_salary.Text.Length > 1)
+            chartTimer.Stop();
+
+            string symbol = cmbx_currency.Text;
+            string text = txtbx_salary.Text.Trim();
+
+            // If empty → reset to symbol + 0
+            if (text == "")
             {
-                chartTimer.Stop();
-                thinsldr_salary.Value = Int32.Parse(txtbx_salary.Text.Substring(1, txtbx_salary.Text.Length - 1));
-                Recalculate();
-                chartTimer.Start();
+                txtbx_salary.Text = symbol + "0";
+                return;
             }
+
+            // Ensure salary always starts with currency symbol
+            if (!text.StartsWith(symbol))
+            {
+                text = symbol + text;
+                txtbx_salary.Text = text;
+            }
+
+            // Extract numeric part
+            string numeric = text.Substring(symbol.Length);
+
+            // If not numeric → reset
+            if (!int.TryParse(numeric, out int value))
+            {
+                txtbx_salary.Text = symbol + "0";
+                thinsldr_salary.Value = thinsldr_salary.Minimum;
+                chartTimer.Start();
+                return;
+            }
+
+            // Clamp to slider range
+            value = Math.Max(thinsldr_salary.Minimum, Math.Min(thinsldr_salary.Maximum, value));
+
+            thinsldr_salary.Value = value;
+
+            // Recalculate totals
+            Recalculate();
+
+            chartTimer.Start();
         }
 
         private void thinsldr_Age_ValueChanged(object sender, EventArgs e)
         {
-            chartTimer.Stop(); 
+            chartTimer.Stop();
             txtbx_age.Text = thinsldr_Age.Value.ToString();
             chartTimer.Start();
         }
@@ -587,9 +626,25 @@ namespace Can_I_retire_yet
         private void txtbx_age_TextChanged(object sender, EventArgs e)
         {
             chartTimer.Stop();
-            thinsldr_Age.Value = Int32.Parse(txtbx_age.Text);
+
+            string text = txtbx_age.Text.Trim();
+
+            if (text == "")
+                return;
+
+            if (!int.TryParse(text, out int value))
+            {
+                txtbx_age.Text = thinsldr_Age.Minimum.ToString();
+                return;
+            }
+
+            value = Math.Max(thinsldr_Age.Minimum, Math.Min(thinsldr_Age.Maximum, value));
+
+            thinsldr_Age.Value = value;
+
             chartTimer.Start();
         }
+
 
         private void thinsldr_Length_ValueChanged(object sender, EventArgs e)
         {
@@ -601,13 +656,48 @@ namespace Can_I_retire_yet
         private void txtbx_length_TextChanged(object sender, EventArgs e)
         {
             chartTimer.Stop();
-            thinsldr_Length.Value = Int32.Parse(txtbx_length.Text);
+
+            string text = txtbx_length.Text.Trim();
+
+            // If empty → do nothing yet (user may still be typing)
+            if (text == "")
+                return;
+
+            // If not numeric → reset
+            if (!int.TryParse(text, out int value))
+            {
+                txtbx_length.Text = thinsldr_Length.Minimum.ToString();
+                return;
+            }
+
+            // Clamp to slider range
+            value = Math.Max(thinsldr_Length.Minimum, Math.Min(thinsldr_Length.Maximum, value));
+
+            thinsldr_Length.Value = value;
+
             chartTimer.Start();
         }
 
         private void txtbx_inflation_TextChanged(object sender, EventArgs e)
         {
             chartTimer.Stop();
+
+            string text = txtbx_inflation.Text.Trim();
+
+            if (text == "")
+                return;
+
+            if (!decimal.TryParse(text, out decimal value))
+            {
+                txtbx_inflation.Text = "0";
+                return;
+            }
+
+            // Optional: clamp inflation between 0% and 100%
+            value = Math.Max(0, Math.Min(100, value));
+
+            txtbx_inflation.Text = value.ToString();
+
             chartTimer.Start();
         }
 
@@ -618,17 +708,23 @@ namespace Can_I_retire_yet
 
         private void DrawOverallChart()
         {
+            // Basic validation
             if (string.IsNullOrWhiteSpace(txtbx_age.Text) ||
                 string.IsNullOrWhiteSpace(txtbx_length.Text))
                 return;
 
+            // Parse inputs safely
             int age = int.Parse(txtbx_age.Text);
             int length = int.Parse(txtbx_length.Text);
 
             decimal salary = Parse(txtbx_salary.Text);
             decimal expenses = Parse(lbl_expenses.Text);
-            decimal inflation = decimal.Parse(txtbx_inflation.Text) / 100m;
 
+            decimal inflation = 0;
+            decimal.TryParse(txtbx_inflation.Text, out inflation);
+            inflation /= 100m;
+
+            // Starting funds
             decimal available =
                 Parse(lbl_assets.Text) +
                 Parse(lbl_income.Text) +
@@ -637,10 +733,19 @@ namespace Can_I_retire_yet
                 Parse(lbl_bonds.Text) +
                 Parse(lbl_stocks_shares.Text);
 
+            // Prepare chart
             chart_overall.Series.Clear();
             var series = chart_overall.Series.Add("Available Funds");
-            series.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
 
+
+            // Add a new series called Trend.
+            var line = chart_overall.Series.Add("Trend");
+            line.ChartType = SeriesChartType.Line;
+            line.Color = Color.Blue;
+            line.BorderWidth = 2;
+           
+
+            // Loop through each year
             for (int i = 0; i < length; i++)
             {
                 int currentYear = age + i;
@@ -655,12 +760,46 @@ namespace Can_I_retire_yet
                     salary -
                     expenses;
 
-                series.Points.AddXY(currentYear, endOfYear);
+                // Add column
+                int index = series.Points.AddXY(currentYear, endOfYear);
+                DataPoint point = series.Points[index];
 
+                // Tooltip text
+                string tip =
+                    $"Age: {currentYear}\n" +
+                    $"Remaining: {endOfYear:C}\n" +
+                    $"Salary: {salary:C}\n" +
+                    $"Expenses: {expenses:C}\n" +
+                    $"Future Income: {futureIncome:C}\n" +
+                    $"Future Expenses: {futureExpenses:C}\n" +
+                    $"Net Change: {(endOfYear - available):C}";
+
+                if (endOfYear < 0)
+                    tip += "\n⚠ Funds exhausted";
+
+                point.ToolTip = tip;
+
+                // Colour coding
+                if (endOfYear < 0)
+                    point.Color = Color.Red;
+                else if (endOfYear < available)
+                    point.Color = Color.Orange;
+                else
+                    point.Color = Color.Green;
+
+                // Prepare next year
                 available = endOfYear;
                 expenses += expenses * inflation;
+
+                line.Points.AddXY(currentYear, endOfYear);
+
             }
+
+            // Axis labels
+            chart_overall.ChartAreas[0].AxisX.Title = "Age";
+            chart_overall.ChartAreas[0].AxisY.Title = "Available Funds";
         }
+
 
 
 
@@ -698,6 +837,6 @@ namespace Can_I_retire_yet
             return total;
         }
 
-       
+
     }
 }

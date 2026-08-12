@@ -486,6 +486,7 @@ namespace Can_I_retire_yet
             this.txtbx_length.Name = "txtbx_length";
             this.txtbx_length.Size = new System.Drawing.Size(100, 26);
             this.txtbx_length.TabIndex = 37;
+            this.txtbx_length.Text = "45";
             this.txtbx_length.TextChanged += new System.EventHandler(this.txtbx_length_TextChanged);
             // 
             // label28
@@ -518,6 +519,7 @@ namespace Can_I_retire_yet
             this.txtbx_age.Name = "txtbx_age";
             this.txtbx_age.Size = new System.Drawing.Size(100, 26);
             this.txtbx_age.TabIndex = 34;
+            this.txtbx_age.Text = "55";
             this.txtbx_age.TextChanged += new System.EventHandler(this.txtbx_age_TextChanged);
             // 
             // label27
