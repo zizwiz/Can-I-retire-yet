@@ -316,6 +316,7 @@ namespace Can_I_retire_yet
             if ((dgv_future_income.Columns[e.ColumnIndex].Name == "Amount") && (flag))
             {
                 lbl_future_income.Text = DatagridviewFunctions.CalculateTabTotal(dgv_future_income, e);
+                DrawOverallChart();
             }
         }
 
@@ -743,12 +744,14 @@ namespace Can_I_retire_yet
             line.ChartType = SeriesChartType.Line;
             line.Color = Color.Blue;
             line.BorderWidth = 2;
-           
+
+            int startYear = DateTime.Now.Year;
 
             // Loop through each year
             for (int i = 0; i < length; i++)
             {
-                int currentYear = age + i;
+                int currentAge = age + i;
+                int currentYear = startYear + i; 
 
                 decimal futureIncome = SumRows(dgv_future_income, currentYear);
                 decimal futureExpenses = SumRows(dgv_future_expenses, currentYear);
@@ -761,12 +764,13 @@ namespace Can_I_retire_yet
                     expenses;
 
                 // Add column
-                int index = series.Points.AddXY(currentYear, endOfYear);
+                int index = series.Points.AddXY(currentAge, endOfYear);
                 DataPoint point = series.Points[index];
 
                 // Tooltip text
                 string tip =
-                    $"Age: {currentYear}\n" +
+                    $"Year: {currentYear}\n" +
+                    $"Age: {currentAge}\n" +
                     $"Remaining: {endOfYear:C}\n" +
                     $"Salary: {salary:C}\n" +
                     $"Expenses: {expenses:C}\n" +
@@ -791,7 +795,7 @@ namespace Can_I_retire_yet
                 available = endOfYear;
                 expenses += expenses * inflation;
 
-                line.Points.AddXY(currentYear, endOfYear);
+                line.Points.AddXY(currentAge, endOfYear);
 
             }
 
@@ -822,13 +826,20 @@ namespace Can_I_retire_yet
             {
                 if (row.IsNewRow) continue;
 
-                int rowYear;
-                if (!int.TryParse(row.Cells[1].Value?.ToString(), out rowYear))
+                // Find the correct columns by name
+                var yearCell = row.Cells["Year"];
+                var amountCell = row.Cells["Amount"];
+
+                if (yearCell == null || amountCell == null)
+                    continue;
+
+                // Parse the year
+                if (!int.TryParse(yearCell.Value?.ToString(), out int rowYear))
                     continue;
 
                 if (rowYear == year)
                 {
-                    string raw = row.Cells[2].Value?.ToString() ?? "";
+                    string raw = amountCell.Value?.ToString() ?? "";
                     if (DatagridviewFunctions.TryParseMoney(raw, out decimal val))
                         total += val;
                 }
@@ -836,6 +847,7 @@ namespace Can_I_retire_yet
 
             return total;
         }
+
 
 
     }

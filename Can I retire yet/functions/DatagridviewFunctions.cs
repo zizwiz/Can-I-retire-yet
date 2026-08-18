@@ -81,14 +81,14 @@ namespace Can_I_retire_yet.functions
             }
             else if (dgv.Name == "dgv_future_income")
             {
-                dgv.Columns[0].Name = "Year";
-                dgv.Columns[1].Name = "Name";
+                dgv.Columns[0].Name = "Name";
+                dgv.Columns[1].Name = "Year";
                 dgv.Columns[2].Name = "Amount";
             }
             else if (dgv.Name == "dgv_future_expenses")
             {
-                dgv.Columns[0].Name = "Year";
-                dgv.Columns[1].Name = "Name";
+                dgv.Columns[0].Name = "Name";
+                dgv.Columns[1].Name = "Year";
                 dgv.Columns[2].Name = "Amount";
             }
             else if (dgv.Name == "dgv_cash")
@@ -118,15 +118,9 @@ namespace Can_I_retire_yet.functions
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; //fit columns to grid view 
             dgv.RowHeadersVisible = false; //remove left hand column
 
-            //dgv.Columns[1].DefaultCellStyle.Format = "c"; //set up column 1 for currency
-
-            //dgv.Columns[1].DefaultCellStyle.Format = "c2";
-            //dgv.Columns[1].DefaultCellStyle.FormatProvider = CultureInfo.GetCultureInfo("en-GB");
-
-            //dgv.Columns[1].DefaultCellStyle.Format = "£0.00  ";
             dgv.Columns[1].DefaultCellStyle.Format = "C";
 
-            // We tell the ystem which columns are currency ones so can validate and format correctly
+            // We tell the system which columns are currency ones so can validate and format correctly
             foreach (DataGridViewColumn col in dgv.Columns)
             {
                 if (col.Name == "Amount" || col.Name == "Monthly" || col.Name == "Annually")
