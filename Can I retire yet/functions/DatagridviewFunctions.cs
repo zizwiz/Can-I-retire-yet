@@ -58,7 +58,7 @@ namespace Can_I_retire_yet.functions
 
         public static void SetUpViews(DataGridView dgv, int NumCols)
         {
-            dgv.ColumnCount = NumCols;
+           dgv.ColumnCount = NumCols;
 
             if (dgv.Name == "dgv_expenses")
             {
@@ -119,34 +119,15 @@ namespace Can_I_retire_yet.functions
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; //fit columns to grid view 
             dgv.RowHeadersVisible = false; //remove left hand column
 
-            dgv.Columns[1].DefaultCellStyle.Format = "C";
+           // dgv.Columns[1].DefaultCellStyle.Format = "C";
 
             // We tell the system which columns are currency ones so can validate and format correctly
             foreach (DataGridViewColumn col in dgv.Columns)
             {
+                col.Tag = "null";
+
                 if (col.Name == "Amount" || col.Name == "Monthly" || col.Name == "Annually")
                     col.Tag = "currency";
-
-                //if (dgv.Name == "dgv_future_income")
-                //{
-                //    dgv.Columns["Amount"].Tag = "currency";
-                //    dgv.Columns["Year"].Tag = null;
-                //    dgv.Columns["Name"].Tag = null;
-                //    dgv.Columns["IsStatePension"].Tag = null;
-                //}
-                //else if (dgv.Name == "dgv_future_expense")
-                //{
-                //    dgv.Columns["Amount"].Tag = "currency";
-                //    dgv.Columns["Year"].Tag = null;
-                //    dgv.Columns["Name"].Tag = null;
-                //}
-                //else
-                //{
-                //    if (col.Name == "Amount" || col.Name == "Monthly" || col.Name == "Annually")
-                //        col.Tag = "currency";
-                //    else
-                //        col.Tag = null;
-                //}
 
             }
         }

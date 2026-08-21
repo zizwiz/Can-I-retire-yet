@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using System.Reflection;
 using System.Windows.Forms.DataVisualization.Charting;
 using Can_I_retire_yet.functions;
+using Can_I_retire_yet.help;
 using Can_I_retire_yet.Models;
 using Can_I_retire_yet.MonteCarlo;
 using CenteredMessagebox;
@@ -78,6 +79,12 @@ namespace Can_I_retire_yet
         {
             SaveInfo();
             Close();
+        }
+
+        private void btn_help_Click(object sender, EventArgs e)
+        {
+            help_form help = new help_form();
+            help.Show();
         }
 
         private void btn_save_all_Click(object sender, EventArgs e)
@@ -986,5 +993,6 @@ namespace Can_I_retire_yet
             }
         }
 
+       
     }
 }

@@ -72,6 +72,13 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="functions\DatagridviewFunctions.cs" />
+    <Compile Include="help\AssemblyInfo.cs" />
+    <Compile Include="help\help_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="help\help_form.Designer.cs">
+      <DependentUpon>help_form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\SavedData.cs" />
     <Compile Include="MonteCarlo\RetirementMonteCarlo.cs" />
     <Compile Include="Program.cs" />
@@ -84,6 +91,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="help\help_form.resx">
+      <DependentUpon>help_form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -92,7 +102,9 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="help\Help.mht" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -107,6 +119,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="help\help.ico" />
     <Content Include="retired.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -126,5 +139,6 @@
       <Version>13.0.4</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

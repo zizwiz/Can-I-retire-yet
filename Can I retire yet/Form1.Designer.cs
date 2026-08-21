@@ -42,14 +42,11 @@ namespace Can_I_retire_yet
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.thinsldr_Length = new Can_I_retire_yet.utils.ThinSlider();
             this.txtbx_length = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
-            this.thinsldr_Age = new Can_I_retire_yet.utils.ThinSlider();
             this.txtbx_age = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.thinsldr_salary = new Can_I_retire_yet.utils.ThinSlider();
             this.txtbx_salary = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -249,6 +246,10 @@ namespace Can_I_retire_yet
             this.btn_save_all = new System.Windows.Forms.Button();
             this.btn_open_all = new System.Windows.Forms.Button();
             this.btn_close = new System.Windows.Forms.Button();
+            this.thinsldr_Length = new Can_I_retire_yet.utils.ThinSlider();
+            this.thinsldr_Age = new Can_I_retire_yet.utils.ThinSlider();
+            this.thinsldr_salary = new Can_I_retire_yet.utils.ThinSlider();
+            this.btn_help = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -465,21 +466,6 @@ namespace Can_I_retire_yet
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Retirement";
             // 
-            // thinsldr_Length
-            // 
-            this.thinsldr_Length.BackColor = System.Drawing.Color.White;
-            this.thinsldr_Length.Location = new System.Drawing.Point(82, 82);
-            this.thinsldr_Length.Maximum = 60;
-            this.thinsldr_Length.Minimum = 0;
-            this.thinsldr_Length.Name = "thinsldr_Length";
-            this.thinsldr_Length.Size = new System.Drawing.Size(172, 18);
-            this.thinsldr_Length.TabIndex = 38;
-            this.thinsldr_Length.Text = "thinSlider1";
-            this.thinsldr_Length.ThumbColor = System.Drawing.Color.DodgerBlue;
-            this.thinsldr_Length.TrackColor = System.Drawing.Color.Gray;
-            this.thinsldr_Length.Value = 40;
-            this.thinsldr_Length.ValueChanged += new System.EventHandler(this.thinsldr_Length_ValueChanged);
-            // 
             // txtbx_length
             // 
             this.txtbx_length.Location = new System.Drawing.Point(154, 104);
@@ -497,21 +483,6 @@ namespace Can_I_retire_yet
             this.label28.Size = new System.Drawing.Size(59, 20);
             this.label28.TabIndex = 36;
             this.label28.Text = "Length";
-            // 
-            // thinsldr_Age
-            // 
-            this.thinsldr_Age.BackColor = System.Drawing.Color.White;
-            this.thinsldr_Age.Location = new System.Drawing.Point(83, 28);
-            this.thinsldr_Age.Maximum = 100;
-            this.thinsldr_Age.Minimum = 50;
-            this.thinsldr_Age.Name = "thinsldr_Age";
-            this.thinsldr_Age.Size = new System.Drawing.Size(172, 18);
-            this.thinsldr_Age.TabIndex = 35;
-            this.thinsldr_Age.Text = "thinSlider1";
-            this.thinsldr_Age.ThumbColor = System.Drawing.Color.DodgerBlue;
-            this.thinsldr_Age.TrackColor = System.Drawing.Color.Gray;
-            this.thinsldr_Age.Value = 60;
-            this.thinsldr_Age.ValueChanged += new System.EventHandler(this.thinsldr_Age_ValueChanged);
             // 
             // txtbx_age
             // 
@@ -547,21 +518,6 @@ namespace Can_I_retire_yet
             this.groupBox6.TabIndex = 32;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Outgoings";
-            // 
-            // thinsldr_salary
-            // 
-            this.thinsldr_salary.BackColor = System.Drawing.Color.White;
-            this.thinsldr_salary.Location = new System.Drawing.Point(81, 30);
-            this.thinsldr_salary.Maximum = 50000;
-            this.thinsldr_salary.Minimum = 0;
-            this.thinsldr_salary.Name = "thinsldr_salary";
-            this.thinsldr_salary.Size = new System.Drawing.Size(172, 18);
-            this.thinsldr_salary.TabIndex = 28;
-            this.thinsldr_salary.Text = "thinSlider1";
-            this.thinsldr_salary.ThumbColor = System.Drawing.Color.DodgerBlue;
-            this.thinsldr_salary.TrackColor = System.Drawing.Color.Gray;
-            this.thinsldr_salary.Value = 20000;
-            this.thinsldr_salary.ValueChanged += new System.EventHandler(this.thinsldr_salary_ValueChanged);
             // 
             // txtbx_salary
             // 
@@ -2589,6 +2545,7 @@ namespace Can_I_retire_yet
             // 
             // panel19
             // 
+            this.panel19.Controls.Add(this.btn_help);
             this.panel19.Controls.Add(this.btn_draw_overall_chart);
             this.panel19.Controls.Add(this.btn_new);
             this.panel19.Controls.Add(this.btn_save_all);
@@ -2649,6 +2606,61 @@ namespace Can_I_retire_yet
             this.btn_close.Text = "Close";
             this.btn_close.UseVisualStyleBackColor = true;
             this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
+            // 
+            // thinsldr_Length
+            // 
+            this.thinsldr_Length.BackColor = System.Drawing.Color.White;
+            this.thinsldr_Length.Location = new System.Drawing.Point(82, 82);
+            this.thinsldr_Length.Maximum = 60;
+            this.thinsldr_Length.Minimum = 0;
+            this.thinsldr_Length.Name = "thinsldr_Length";
+            this.thinsldr_Length.Size = new System.Drawing.Size(172, 18);
+            this.thinsldr_Length.TabIndex = 38;
+            this.thinsldr_Length.Text = "thinSlider1";
+            this.thinsldr_Length.ThumbColor = System.Drawing.Color.DodgerBlue;
+            this.thinsldr_Length.TrackColor = System.Drawing.Color.Gray;
+            this.thinsldr_Length.Value = 40;
+            this.thinsldr_Length.ValueChanged += new System.EventHandler(this.thinsldr_Length_ValueChanged);
+            // 
+            // thinsldr_Age
+            // 
+            this.thinsldr_Age.BackColor = System.Drawing.Color.White;
+            this.thinsldr_Age.Location = new System.Drawing.Point(83, 28);
+            this.thinsldr_Age.Maximum = 100;
+            this.thinsldr_Age.Minimum = 50;
+            this.thinsldr_Age.Name = "thinsldr_Age";
+            this.thinsldr_Age.Size = new System.Drawing.Size(172, 18);
+            this.thinsldr_Age.TabIndex = 35;
+            this.thinsldr_Age.Text = "thinSlider1";
+            this.thinsldr_Age.ThumbColor = System.Drawing.Color.DodgerBlue;
+            this.thinsldr_Age.TrackColor = System.Drawing.Color.Gray;
+            this.thinsldr_Age.Value = 60;
+            this.thinsldr_Age.ValueChanged += new System.EventHandler(this.thinsldr_Age_ValueChanged);
+            // 
+            // thinsldr_salary
+            // 
+            this.thinsldr_salary.BackColor = System.Drawing.Color.White;
+            this.thinsldr_salary.Location = new System.Drawing.Point(81, 30);
+            this.thinsldr_salary.Maximum = 50000;
+            this.thinsldr_salary.Minimum = 0;
+            this.thinsldr_salary.Name = "thinsldr_salary";
+            this.thinsldr_salary.Size = new System.Drawing.Size(172, 18);
+            this.thinsldr_salary.TabIndex = 28;
+            this.thinsldr_salary.Text = "thinSlider1";
+            this.thinsldr_salary.ThumbColor = System.Drawing.Color.DodgerBlue;
+            this.thinsldr_salary.TrackColor = System.Drawing.Color.Gray;
+            this.thinsldr_salary.Value = 20000;
+            this.thinsldr_salary.ValueChanged += new System.EventHandler(this.thinsldr_salary_ValueChanged);
+            // 
+            // btn_help
+            // 
+            this.btn_help.Location = new System.Drawing.Point(1040, 16);
+            this.btn_help.Name = "btn_help";
+            this.btn_help.Size = new System.Drawing.Size(172, 49);
+            this.btn_help.TabIndex = 5;
+            this.btn_help.Text = "Help";
+            this.btn_help.UseVisualStyleBackColor = true;
+            this.btn_help.Click += new System.EventHandler(this.btn_help_Click);
             // 
             // Form1
             // 
@@ -3017,6 +3029,7 @@ namespace Can_I_retire_yet
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart_overall;
         private System.Windows.Forms.Button btn_draw_overall_chart;
+        private System.Windows.Forms.Button btn_help;
     }
 }
 
