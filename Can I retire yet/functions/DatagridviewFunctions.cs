@@ -58,7 +58,7 @@ namespace Can_I_retire_yet.functions
 
         public static void SetUpViews(DataGridView dgv, int NumCols)
         {
-           dgv.ColumnCount = NumCols;
+            dgv.ColumnCount = NumCols;
 
             if (dgv.Name == "dgv_expenses")
             {
@@ -73,7 +73,17 @@ namespace Can_I_retire_yet.functions
             else if (dgv.Name == "dgv_income")
             {
                 dgv.Columns[0].Name = "Name";
-                dgv.Columns[1].Name = "Annually";
+                dgv.Columns[1].Name = "StartYear";
+                dgv.Columns[2].Name = "EndYear";
+                dgv.Columns[3].Name = "Annually";
+                dgv.Columns[4].Name = "AnnualIncrease";
+
+                //dgv.Columns.Add("Name", "Name");
+                //dgv.Columns.Add("StartYear", "Start Year");
+                //dgv.Columns.Add("EndYear", "End Year");
+                //dgv.Columns.Add("Amount", "Annual Amount");
+                //dgv.Columns.Add("AnnualIncrease", "Annual Increase (%)");
+
             }
             else if (dgv.Name == "dgv_future_income")
             {
@@ -119,7 +129,7 @@ namespace Can_I_retire_yet.functions
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; //fit columns to grid view 
             dgv.RowHeadersVisible = false; //remove left hand column
 
-           // dgv.Columns[1].DefaultCellStyle.Format = "C";
+            // dgv.Columns[1].DefaultCellStyle.Format = "C";
 
             // We tell the system which columns are currency ones so can validate and format correctly
             foreach (DataGridViewColumn col in dgv.Columns)

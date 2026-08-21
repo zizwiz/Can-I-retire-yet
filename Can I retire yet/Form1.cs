@@ -42,7 +42,7 @@ namespace Can_I_retire_yet
             DatagridviewFunctions.SetUpViews(dgv_bonds, 2);
             DatagridviewFunctions.SetUpViews(dgv_stocks_shares, 2);
             DatagridviewFunctions.SetUpViews(dgv_assets, 2);
-            DatagridviewFunctions.SetUpViews(dgv_income, 2);
+            DatagridviewFunctions.SetUpViews(dgv_income, 5);
             DatagridviewFunctions.SetUpViews(dgv_future_expenses, 3);
             DatagridviewFunctions.SetUpViews(dgv_future_income, 3);
 
@@ -306,7 +306,7 @@ namespace Can_I_retire_yet
 
         private void dgv_expenses_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            if ((dgv_expenses.Columns[e.ColumnIndex].Name == "Monthly") && (flag))
+            if ((dgv_expenses.Columns[e.ColumnIndex].Name == "Annually") && (flag))
             {
                 lbl_expenses.Text = DatagridviewFunctions.CalculateTabTotal(dgv_expenses, e);
             }
@@ -314,7 +314,7 @@ namespace Can_I_retire_yet
 
         private void dgv_income_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            if ((dgv_income.Columns[e.ColumnIndex].Name == "Monthly") && (flag))
+            if ((dgv_income.Columns[e.ColumnIndex].Name == "Annually") && (flag))
             {
                 lbl_income.Text = DatagridviewFunctions.CalculateTabTotal(dgv_income, e);
             }
@@ -796,8 +796,9 @@ namespace Can_I_retire_yet
             for (int i = 0; i < length; i++)
             {
                 int currentAge = age + i;
-                int currentYear = startYear + i; 
+                int currentYear = startYear + i;
 
+                decimal Income = SumRows(dgv_income, currentYear);
                 decimal futureIncome = SumRows(dgv_future_income, currentYear);
                 decimal futureExpenses = SumRows(dgv_future_expenses, currentYear);
 
@@ -816,12 +817,13 @@ namespace Can_I_retire_yet
                 string tip =
                     $"Year: {currentYear}\n" +
                     $"Age: {currentAge}\n" +
-                    $"Remaining: {endOfYear:C}\n" +
-                    $"Salary: {salary:C}\n" +
-                    $"Expenses: {expenses:C}\n" +
+                    $"Income: {Income:C}\n" +
                     $"Future Income: {futureIncome:C}\n" +
+                    $"Expenses: {expenses:C}\n" +
                     $"Future Expenses: {futureExpenses:C}\n" +
-                    $"Net Change: {(endOfYear - available):C}";
+                    $"Remaining: {endOfYear:C}\n" +
+                    $"\nSalary: {salary:C}\n" +
+                    $"Net Change: {(endOfYear - available):C}\n";
 
                 if (endOfYear < 0)
                     tip += "\n⚠ Funds exhausted";
