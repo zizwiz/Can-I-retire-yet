@@ -78,11 +78,10 @@ namespace Can_I_retire_yet.functions
                 dgv.Columns[3].Name = "Annually";
                 dgv.Columns[4].Name = "AnnualIncrease";
 
-                //dgv.Columns.Add("Name", "Name");
-                //dgv.Columns.Add("StartYear", "Start Year");
-                //dgv.Columns.Add("EndYear", "End Year");
-                //dgv.Columns.Add("Amount", "Annual Amount");
-                //dgv.Columns.Add("AnnualIncrease", "Annual Increase (%)");
+                var chk = new DataGridViewCheckBoxColumn();
+                chk.Name = "Lifetime";
+                chk.HeaderText = "Lifetime?";
+                dgv.Columns.Add(chk);
 
             }
             else if (dgv.Name == "dgv_future_income")

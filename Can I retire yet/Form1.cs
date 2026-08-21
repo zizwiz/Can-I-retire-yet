@@ -316,8 +316,16 @@ namespace Can_I_retire_yet
         {
             if ((dgv_income.Columns[e.ColumnIndex].Name == "Annually") && (flag))
             {
-                lbl_income.Text = DatagridviewFunctions.CalculateTabTotal(dgv_income, e);
+               lbl_income.Text = DatagridviewFunctions.CalculateTabTotal(dgv_income, e);
             }
+
+            // Ignore new rows
+            if (dgv_income.Rows[e.RowIndex].IsNewRow)
+                return;
+
+            // Trigger chart redraw
+            chartTimer.Stop();
+            chartTimer.Start();
         }
 
         private void dgv_future_expenses_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -325,6 +333,7 @@ namespace Can_I_retire_yet
             if ((dgv_future_expenses.Columns[e.ColumnIndex].Name == "Amount") && (flag))
             {
                 lbl_future_expenses.Text = DatagridviewFunctions.CalculateTabTotal(dgv_future_expenses, e);
+                
             }
         }
 
@@ -798,13 +807,16 @@ namespace Can_I_retire_yet
                 int currentAge = age + i;
                 int currentYear = startYear + i;
 
-                decimal Income = SumRows(dgv_income, currentYear);
+               // decimal Income = SumRows(dgv_income, currentYear);
                 decimal futureIncome = SumRows(dgv_future_income, currentYear);
                 decimal futureExpenses = SumRows(dgv_future_expenses, currentYear);
+                decimal recurringIncome = SumRecurringIncome(currentYear);
 
                 decimal endOfYear =
                     available +
-                    futureIncome -
+                    recurringIncome +
+                    futureIncome +
+                    recurringIncome -
                     futureExpenses -
                     salary -
                     expenses;
@@ -817,7 +829,7 @@ namespace Can_I_retire_yet
                 string tip =
                     $"Year: {currentYear}\n" +
                     $"Age: {currentAge}\n" +
-                    $"Income: {Income:C}\n" +
+                    $"Income: {recurringIncome:C}\n" +
                     $"Future Income: {futureIncome:C}\n" +
                     $"Expenses: {expenses:C}\n" +
                     $"Future Expenses: {futureExpenses:C}\n" +
@@ -850,13 +862,6 @@ namespace Can_I_retire_yet
             chart_overall.ChartAreas[0].AxisX.Title = "Age";
             chart_overall.ChartAreas[0].AxisY.Title = "Available Funds";
         }
-
-
-
-
-        //////////////
-        /// Helpers
-        /////////////
 
         private decimal Parse(string s)
         {
@@ -995,6 +1000,70 @@ namespace Can_I_retire_yet
             }
         }
 
-       
+       private decimal SumRecurringIncome(int year)
+       {
+           decimal total = 0;
+
+           foreach (DataGridViewRow row in dgv_income.Rows)
+           {
+               if (row.IsNewRow) continue;
+
+               // Extract values safely
+               string name = row.Cells["Name"].Value?.ToString() ?? "";
+
+               // Lifetime income?
+               bool lifetime = false;
+               var chkCell = row.Cells["Lifetime"];
+               if (chkCell != null && chkCell.Value is bool b && b)
+                   lifetime = true;
+
+               // StartYear
+               int startYear = 0;
+               if (!int.TryParse(row.Cells["StartYear"].Value?.ToString(), out startYear))
+                   startYear = 0; // treat 0 as "starts immediately"
+
+               // EndYear
+               int endYear = 0;
+               if (!int.TryParse(row.Cells["EndYear"].Value?.ToString(), out endYear))
+                   endYear = 0;
+
+               if (lifetime)
+               {
+                   // Lifetime income: end year = retirement end year
+                   endYear = DateTime.Now.Year + int.Parse(txtbx_length.Text);
+               }
+               else
+               {
+                   if (endYear == 0)
+                       endYear = int.MaxValue; // continues forever
+               }
+
+               if (startYear == 0)
+                   startYear = DateTime.Now.Year; // starts immediately
+
+               // Amount
+               if (!DatagridviewFunctions.TryParseMoney(row.Cells["Annually"].Value?.ToString(), out decimal amount))
+                   continue;
+
+               // Annual increase
+               decimal increase = 0;
+               decimal.TryParse(row.Cells["AnnualIncrease"].Value?.ToString(), out increase);
+               increase /= 100m;
+
+               // Check if this income applies to the current year
+               if (year < startYear || year > endYear)
+                   continue;
+
+               // Apply annual increase
+               int yearsSinceStart = year - startYear;
+               decimal adjustedAmount = amount * (decimal)Math.Pow((double)(1 + increase), yearsSinceStart);
+
+               total += adjustedAmount;
+           }
+
+           return total;
+       }
+
+
     }
 }
