@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Text;
 using System.Windows.Forms;
 using CenteredMessagebox;
 
@@ -84,6 +80,11 @@ namespace Can_I_retire_yet.functions
                 dgv.Columns[0].Name = "Name";
                 dgv.Columns[1].Name = "Year";
                 dgv.Columns[2].Name = "Amount";
+
+                var chk = new DataGridViewCheckBoxColumn();
+                chk.Name = "IsStatePension";
+                chk.HeaderText = "State Pension?";
+                dgv.Columns.Add(chk);
             }
             else if (dgv.Name == "dgv_future_expenses")
             {
@@ -125,6 +126,28 @@ namespace Can_I_retire_yet.functions
             {
                 if (col.Name == "Amount" || col.Name == "Monthly" || col.Name == "Annually")
                     col.Tag = "currency";
+
+                //if (dgv.Name == "dgv_future_income")
+                //{
+                //    dgv.Columns["Amount"].Tag = "currency";
+                //    dgv.Columns["Year"].Tag = null;
+                //    dgv.Columns["Name"].Tag = null;
+                //    dgv.Columns["IsStatePension"].Tag = null;
+                //}
+                //else if (dgv.Name == "dgv_future_expense")
+                //{
+                //    dgv.Columns["Amount"].Tag = "currency";
+                //    dgv.Columns["Year"].Tag = null;
+                //    dgv.Columns["Name"].Tag = null;
+                //}
+                //else
+                //{
+                //    if (col.Name == "Amount" || col.Name == "Monthly" || col.Name == "Annually")
+                //        col.Tag = "currency";
+                //    else
+                //        col.Tag = null;
+                //}
+
             }
         }
 

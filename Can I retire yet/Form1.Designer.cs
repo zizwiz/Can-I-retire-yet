@@ -88,6 +88,7 @@ namespace Can_I_retire_yet
             this.lbl_future_expenses = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panel_overall_graph = new System.Windows.Forms.Panel();
+            this.chart_overall = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tab_assets = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
             this.panel16 = new System.Windows.Forms.Panel();
@@ -243,12 +244,11 @@ namespace Can_I_retire_yet
             this.btn_run_monte_carlo = new System.Windows.Forms.Button();
             this.trkbr_retirement_age = new System.Windows.Forms.TrackBar();
             this.panel19 = new System.Windows.Forms.Panel();
+            this.btn_draw_overall_chart = new System.Windows.Forms.Button();
             this.btn_new = new System.Windows.Forms.Button();
             this.btn_save_all = new System.Windows.Forms.Button();
             this.btn_open_all = new System.Windows.Forms.Button();
             this.btn_close = new System.Windows.Forms.Button();
-            this.chart_overall = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.btn_draw_overall_chart = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -262,6 +262,7 @@ namespace Can_I_retire_yet
             this.groupBox5.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel_overall_graph.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart_overall)).BeginInit();
             this.tab_assets.SuspendLayout();
             this.tableLayoutPanel14.SuspendLayout();
             this.panel16.SuspendLayout();
@@ -349,7 +350,6 @@ namespace Can_I_retire_yet
             this.tab_MonteCarlo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trkbr_retirement_age)).BeginInit();
             this.panel19.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart_overall)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -934,6 +934,20 @@ namespace Can_I_retire_yet
             this.panel_overall_graph.Name = "panel_overall_graph";
             this.panel_overall_graph.Size = new System.Drawing.Size(1079, 763);
             this.panel_overall_graph.TabIndex = 1;
+            // 
+            // chart_overall
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chart_overall.ChartAreas.Add(chartArea1);
+            this.chart_overall.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chart_overall.Location = new System.Drawing.Point(0, 0);
+            this.chart_overall.Name = "chart_overall";
+            series1.ChartArea = "ChartArea1";
+            series1.Name = "Series1";
+            this.chart_overall.Series.Add(series1);
+            this.chart_overall.Size = new System.Drawing.Size(1079, 763);
+            this.chart_overall.TabIndex = 0;
+            this.chart_overall.Text = "chart1";
             // 
             // tab_assets
             // 
@@ -2231,6 +2245,7 @@ namespace Can_I_retire_yet
             this.dgv_future_income.RowTemplate.Height = 28;
             this.dgv_future_income.Size = new System.Drawing.Size(1385, 699);
             this.dgv_future_income.TabIndex = 2;
+            this.dgv_future_income.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_future_income_CellContentClick);
             this.dgv_future_income.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_CellLeave_FormatCurrency);
             this.dgv_future_income.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_future_income_CellValueChanged);
             // 
@@ -2585,6 +2600,16 @@ namespace Can_I_retire_yet
             this.panel19.Size = new System.Drawing.Size(1399, 74);
             this.panel19.TabIndex = 1;
             // 
+            // btn_draw_overall_chart
+            // 
+            this.btn_draw_overall_chart.Location = new System.Drawing.Point(840, 13);
+            this.btn_draw_overall_chart.Name = "btn_draw_overall_chart";
+            this.btn_draw_overall_chart.Size = new System.Drawing.Size(172, 49);
+            this.btn_draw_overall_chart.TabIndex = 4;
+            this.btn_draw_overall_chart.Text = "Draw Chart";
+            this.btn_draw_overall_chart.UseVisualStyleBackColor = true;
+            this.btn_draw_overall_chart.Click += new System.EventHandler(this.btn_draw_overall_chart_Click);
+            // 
             // btn_new
             // 
             this.btn_new.Location = new System.Drawing.Point(613, 13);
@@ -2625,30 +2650,6 @@ namespace Can_I_retire_yet
             this.btn_close.UseVisualStyleBackColor = true;
             this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
             // 
-            // chart_overall
-            // 
-            chartArea1.Name = "ChartArea1";
-            this.chart_overall.ChartAreas.Add(chartArea1);
-            this.chart_overall.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chart_overall.Location = new System.Drawing.Point(0, 0);
-            this.chart_overall.Name = "chart_overall";
-            series1.ChartArea = "ChartArea1";
-            series1.Name = "Series1";
-            this.chart_overall.Series.Add(series1);
-            this.chart_overall.Size = new System.Drawing.Size(1079, 763);
-            this.chart_overall.TabIndex = 0;
-            this.chart_overall.Text = "chart1";
-            // 
-            // btn_draw_overall_chart
-            // 
-            this.btn_draw_overall_chart.Location = new System.Drawing.Point(840, 13);
-            this.btn_draw_overall_chart.Name = "btn_draw_overall_chart";
-            this.btn_draw_overall_chart.Size = new System.Drawing.Size(172, 49);
-            this.btn_draw_overall_chart.TabIndex = 4;
-            this.btn_draw_overall_chart.Text = "Draw Chart";
-            this.btn_draw_overall_chart.UseVisualStyleBackColor = true;
-            this.btn_draw_overall_chart.Click += new System.EventHandler(this.btn_draw_overall_chart_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -2679,6 +2680,7 @@ namespace Can_I_retire_yet
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel_overall_graph.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chart_overall)).EndInit();
             this.tab_assets.ResumeLayout(false);
             this.tableLayoutPanel14.ResumeLayout(false);
             this.panel16.ResumeLayout(false);
@@ -2794,7 +2796,6 @@ namespace Can_I_retire_yet
             this.tab_MonteCarlo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trkbr_retirement_age)).EndInit();
             this.panel19.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chart_overall)).EndInit();
             this.ResumeLayout(false);
 
         }
