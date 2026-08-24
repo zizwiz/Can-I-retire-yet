@@ -246,10 +246,11 @@ namespace Can_I_retire_yet
             this.btn_save_all = new System.Windows.Forms.Button();
             this.btn_open_all = new System.Windows.Forms.Button();
             this.btn_close = new System.Windows.Forms.Button();
+            this.btn_help = new System.Windows.Forms.Button();
+            this.chkbx_use_inflation = new System.Windows.Forms.CheckBox();
             this.thinsldr_Length = new Can_I_retire_yet.utils.ThinSlider();
             this.thinsldr_Age = new Can_I_retire_yet.utils.ThinSlider();
             this.thinsldr_salary = new Can_I_retire_yet.utils.ThinSlider();
-            this.btn_help = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -459,7 +460,7 @@ namespace Can_I_retire_yet
             this.groupBox7.Controls.Add(this.thinsldr_Age);
             this.groupBox7.Controls.Add(this.txtbx_age);
             this.groupBox7.Controls.Add(this.label27);
-            this.groupBox7.Location = new System.Drawing.Point(14, 422);
+            this.groupBox7.Location = new System.Drawing.Point(14, 441);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(264, 149);
             this.groupBox7.TabIndex = 39;
@@ -504,6 +505,7 @@ namespace Can_I_retire_yet
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.chkbx_use_inflation);
             this.groupBox6.Controls.Add(this.thinsldr_salary);
             this.groupBox6.Controls.Add(this.txtbx_salary);
             this.groupBox6.Controls.Add(this.label24);
@@ -514,14 +516,14 @@ namespace Can_I_retire_yet
             this.groupBox6.Controls.Add(this.label3);
             this.groupBox6.Location = new System.Drawing.Point(15, 233);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(263, 168);
+            this.groupBox6.Size = new System.Drawing.Size(263, 202);
             this.groupBox6.TabIndex = 32;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Outgoings";
             // 
             // txtbx_salary
             // 
-            this.txtbx_salary.Location = new System.Drawing.Point(153, 52);
+            this.txtbx_salary.Location = new System.Drawing.Point(154, 54);
             this.txtbx_salary.Name = "txtbx_salary";
             this.txtbx_salary.Size = new System.Drawing.Size(100, 26);
             this.txtbx_salary.TabIndex = 27;
@@ -541,7 +543,7 @@ namespace Can_I_retire_yet
             this.groupBox3.Controls.Add(this.groupBox4);
             this.groupBox3.Controls.Add(this.label20);
             this.groupBox3.Controls.Add(this.label22);
-            this.groupBox3.Location = new System.Drawing.Point(8, 112);
+            this.groupBox3.Location = new System.Drawing.Point(8, 145);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(245, 8);
             this.groupBox3.TabIndex = 23;
@@ -576,7 +578,7 @@ namespace Can_I_retire_yet
             // lbl_total_minus_expenses
             // 
             this.lbl_total_minus_expenses.AutoSize = true;
-            this.lbl_total_minus_expenses.Location = new System.Drawing.Point(159, 134);
+            this.lbl_total_minus_expenses.Location = new System.Drawing.Point(159, 167);
             this.lbl_total_minus_expenses.Name = "lbl_total_minus_expenses";
             this.lbl_total_minus_expenses.Size = new System.Drawing.Size(49, 20);
             this.lbl_total_minus_expenses.TabIndex = 22;
@@ -585,7 +587,7 @@ namespace Can_I_retire_yet
             // Label23
             // 
             this.Label23.AutoSize = true;
-            this.Label23.Location = new System.Drawing.Point(5, 134);
+            this.Label23.Location = new System.Drawing.Point(5, 167);
             this.Label23.Name = "Label23";
             this.Label23.Size = new System.Drawing.Size(124, 20);
             this.Label23.TabIndex = 21;
@@ -594,7 +596,7 @@ namespace Can_I_retire_yet
             // lbl_expenses
             // 
             this.lbl_expenses.AutoSize = true;
-            this.lbl_expenses.Location = new System.Drawing.Point(159, 85);
+            this.lbl_expenses.Location = new System.Drawing.Point(159, 118);
             this.lbl_expenses.Name = "lbl_expenses";
             this.lbl_expenses.Size = new System.Drawing.Size(49, 20);
             this.lbl_expenses.TabIndex = 4;
@@ -604,7 +606,7 @@ namespace Can_I_retire_yet
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(5, 85);
+            this.label3.Location = new System.Drawing.Point(5, 118);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(79, 20);
             this.label3.TabIndex = 1;
@@ -2607,6 +2609,27 @@ namespace Can_I_retire_yet
             this.btn_close.UseVisualStyleBackColor = true;
             this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
             // 
+            // btn_help
+            // 
+            this.btn_help.Location = new System.Drawing.Point(1040, 16);
+            this.btn_help.Name = "btn_help";
+            this.btn_help.Size = new System.Drawing.Size(172, 49);
+            this.btn_help.TabIndex = 5;
+            this.btn_help.Text = "Help";
+            this.btn_help.UseVisualStyleBackColor = true;
+            this.btn_help.Click += new System.EventHandler(this.btn_help_Click);
+            // 
+            // chkbx_use_inflation
+            // 
+            this.chkbx_use_inflation.AutoSize = true;
+            this.chkbx_use_inflation.Location = new System.Drawing.Point(8, 86);
+            this.chkbx_use_inflation.Name = "chkbx_use_inflation";
+            this.chkbx_use_inflation.Size = new System.Drawing.Size(226, 24);
+            this.chkbx_use_inflation.TabIndex = 29;
+            this.chkbx_use_inflation.Text = "Increase Salary by Inflation";
+            this.chkbx_use_inflation.UseVisualStyleBackColor = true;
+            this.chkbx_use_inflation.CheckedChanged += new System.EventHandler(this.chkbx_use_inflation_CheckedChanged);
+            // 
             // thinsldr_Length
             // 
             this.thinsldr_Length.BackColor = System.Drawing.Color.White;
@@ -2651,16 +2674,6 @@ namespace Can_I_retire_yet
             this.thinsldr_salary.TrackColor = System.Drawing.Color.Gray;
             this.thinsldr_salary.Value = 20000;
             this.thinsldr_salary.ValueChanged += new System.EventHandler(this.thinsldr_salary_ValueChanged);
-            // 
-            // btn_help
-            // 
-            this.btn_help.Location = new System.Drawing.Point(1040, 16);
-            this.btn_help.Name = "btn_help";
-            this.btn_help.Size = new System.Drawing.Size(172, 49);
-            this.btn_help.TabIndex = 5;
-            this.btn_help.Text = "Help";
-            this.btn_help.UseVisualStyleBackColor = true;
-            this.btn_help.Click += new System.EventHandler(this.btn_help_Click);
             // 
             // Form1
             // 
@@ -3030,6 +3043,7 @@ namespace Can_I_retire_yet
         private System.Windows.Forms.DataVisualization.Charting.Chart chart_overall;
         private System.Windows.Forms.Button btn_draw_overall_chart;
         private System.Windows.Forms.Button btn_help;
+        private System.Windows.Forms.CheckBox chkbx_use_inflation;
     }
 }
 

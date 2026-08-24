@@ -314,19 +314,27 @@ namespace Can_I_retire_yet
 
         private void dgv_income_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            if ((dgv_income.Columns[e.ColumnIndex].Name == "Annually") && (flag))
+            if (dgv_income.Columns[e.ColumnIndex].Name == "AnnualIncrease")
             {
-               lbl_income.Text = DatagridviewFunctions.CalculateTabTotal(dgv_income, e);
+                dgv_income.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.ForeColor = Color.Black;
+                string raw = dgv_income.Rows[e.RowIndex].Cells[e.ColumnIndex].Value?.ToString() ?? "";
+
+                if (!TryParsePercentage(raw, out decimal percent))
+                {
+                    dgv_income.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.ForeColor = Color.Red;
+                    dgv_income.Rows[e.RowIndex].Cells[e.ColumnIndex].ToolTipText = "Enter a number or number followed by %";
+                }
+                else
+                {
+                    dgv_income.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.ForeColor = Color.Black;
+                    dgv_income.Rows[e.RowIndex].Cells[e.ColumnIndex].ToolTipText = "";
+                }
             }
 
-            // Ignore new rows
-            if (dgv_income.Rows[e.RowIndex].IsNewRow)
-                return;
-
-            // Trigger chart redraw
             chartTimer.Stop();
             chartTimer.Start();
         }
+
 
         private void dgv_future_expenses_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
@@ -801,31 +809,31 @@ namespace Can_I_retire_yet
 
             int startYear = DateTime.Now.Year;
 
-            // Loop through each year
+            decimal baseSalary = Parse(txtbx_salary.Text);
+            decimal salaryThisYear = baseSalary;
+
             for (int i = 0; i < length; i++)
             {
-                int currentAge = age + i;
                 int currentYear = startYear + i;
+                int currentAge = age + i;
 
-               // decimal Income = SumRows(dgv_income, currentYear);
+                
                 decimal futureIncome = SumRows(dgv_future_income, currentYear);
                 decimal futureExpenses = SumRows(dgv_future_expenses, currentYear);
                 decimal recurringIncome = SumRecurringIncome(currentYear);
 
                 decimal endOfYear =
                     available +
-                    recurringIncome +
                     futureIncome +
                     recurringIncome -
                     futureExpenses -
-                    salary -
+                    salaryThisYear -
                     expenses;
 
-                // Add column
                 int index = series.Points.AddXY(currentAge, endOfYear);
                 DataPoint point = series.Points[index];
 
-                // Tooltip text
+                // Tooltip
                 string tip =
                     $"Year: {currentYear}\n" +
                     $"Age: {currentAge}\n" +
@@ -836,11 +844,11 @@ namespace Can_I_retire_yet
                     $"Remaining: {endOfYear:C}\n" +
                     $"\nSalary: {salary:C}\n" +
                     $"Net Change: {(endOfYear - available):C}\n";
-
+                
                 if (endOfYear < 0)
                     tip += "\n⚠ Funds exhausted";
 
-                point.ToolTip = tip;
+                    point.ToolTip = tip;
 
                 // Colour coding
                 if (endOfYear < 0)
@@ -852,11 +860,72 @@ namespace Can_I_retire_yet
 
                 // Prepare next year
                 available = endOfYear;
+
+                // Expenses inflation
                 expenses += expenses * inflation;
 
-                line.Points.AddXY(currentAge, endOfYear);
-
+                // Salary inflation (NEW)
+                if (chkbx_use_inflation.Checked)
+                    salaryThisYear += salaryThisYear * inflation;
             }
+
+
+            //// Loop through each year
+            //for (int i = 0; i < length; i++)
+            //{
+            //    int currentAge = age + i;
+            //    int currentYear = startYear + i;
+
+            //   // decimal Income = SumRows(dgv_income, currentYear);
+            //    decimal futureIncome = SumRows(dgv_future_income, currentYear);
+            //    decimal futureExpenses = SumRows(dgv_future_expenses, currentYear);
+            //    decimal recurringIncome = SumRecurringIncome(currentYear);
+
+            //    decimal endOfYear =
+            //        available +
+            //        recurringIncome +
+            //        futureIncome +
+            //        recurringIncome -
+            //        futureExpenses -
+            //        salary -
+            //        expenses;
+
+            //    // Add column
+            //    int index = series.Points.AddXY(currentAge, endOfYear);
+            //    DataPoint point = series.Points[index];
+
+            //    // Tooltip text
+            //    string tip =
+            //        $"Year: {currentYear}\n" +
+            //        $"Age: {currentAge}\n" +
+            //        $"Income: {recurringIncome:C}\n" +
+            //        $"Future Income: {futureIncome:C}\n" +
+            //        $"Expenses: {expenses:C}\n" +
+            //        $"Future Expenses: {futureExpenses:C}\n" +
+            //        $"Remaining: {endOfYear:C}\n" +
+            //        $"\nSalary: {salary:C}\n" +
+            //        $"Net Change: {(endOfYear - available):C}\n";
+
+            //    if (endOfYear < 0)
+            //        tip += "\n⚠ Funds exhausted";
+
+            //    point.ToolTip = tip;
+
+            //    // Colour coding
+            //    if (endOfYear < 0)
+            //        point.Color = Color.Red;
+            //    else if (endOfYear < available)
+            //        point.Color = Color.Orange;
+            //    else
+            //        point.Color = Color.Green;
+
+            //    // Prepare next year
+            //    available = endOfYear;
+            //    expenses += expenses * inflation;
+
+            //    line.Points.AddXY(currentAge, endOfYear);
+
+            //}
 
             // Axis labels
             chart_overall.ChartAreas[0].AxisX.Title = "Age";
@@ -1045,13 +1114,33 @@ namespace Can_I_retire_yet
                if (!DatagridviewFunctions.TryParseMoney(row.Cells["Annually"].Value?.ToString(), out decimal amount))
                    continue;
 
-               // Annual increase
-               decimal increase = 0;
-               decimal.TryParse(row.Cells["AnnualIncrease"].Value?.ToString(), out increase);
-               increase /= 100m;
+                // Annual increase
+                // Check this is valid
+                decimal increasePercent = 0;
+                string incRaw = row.Cells["AnnualIncrease"].Value?.ToString() ?? "";
 
-               // Check if this income applies to the current year
-               if (year < startYear || year > endYear)
+                row.Cells["AnnualIncrease"].ToolTipText = "Please enter a number or number followed by %";
+
+                if (!TryParsePercentage(incRaw, out increasePercent))
+                {
+                    // Mark cell red to warn user
+                    row.Cells["AnnualIncrease"].Style.ForeColor = Color.Red;
+                    
+                    // No increase applied
+                    increasePercent = 0;
+                }
+                else
+                {
+                    row.Cells["AnnualIncrease"].Style.ForeColor = Color.Black;
+                   // row.Cells["AnnualIncrease"].ToolTipText = "";
+
+                }
+
+                decimal increase = increasePercent / 100m;
+
+
+                // Check if this income applies to the current year
+                if (year < startYear || year > endYear)
                    continue;
 
                // Apply annual increase
@@ -1064,6 +1153,31 @@ namespace Can_I_retire_yet
            return total;
        }
 
+       private bool TryParsePercentage(string input, out decimal value)
+       {
+           value = 0;
 
+           if (string.IsNullOrWhiteSpace(input))
+               return false;
+
+           input = input.Trim();
+
+           // Remove trailing % if present
+           if (input.EndsWith("%"))
+               input = input.Substring(0, input.Length - 1).Trim();
+
+           // Now input must be numeric
+           if (!decimal.TryParse(input, out decimal parsed))
+               return false;
+
+           value = parsed;
+           return true;
+       }
+
+        private void chkbx_use_inflation_CheckedChanged(object sender, EventArgs e)
+        {
+            chartTimer.Stop();
+            chartTimer.Start();
+        }
     }
 }
