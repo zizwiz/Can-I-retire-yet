@@ -133,7 +133,8 @@ namespace Can_I_retire_yet
                 inflation = txtbx_inflation.Text,
                 currency = cmbx_currency.Text,
                 age = txtbx_age.Text,
-                length = txtbx_length.Text
+                length = txtbx_length.Text,
+                salary_inflation = chkbx_use_inflation.Checked.ToString()
             };
 
             string json = Newtonsoft.Json.JsonConvert.SerializeObject(data, Newtonsoft.Json.Formatting.Indented);
@@ -484,6 +485,9 @@ namespace Can_I_retire_yet
             cmbx_currency.Text = data.currency ?? "£";
             txtbx_age.Text = data.age ?? "";
             txtbx_length.Text = data.length ?? "";
+
+            bool.TryParse(data.salary_inflation, out bool value);
+            chkbx_use_inflation.Checked = value;
 
             ApplyCurrencyFormattingToAllGrids();
             RecalculateAllTotals();

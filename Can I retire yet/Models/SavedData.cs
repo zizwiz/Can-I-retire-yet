@@ -18,6 +18,7 @@ namespace Can_I_retire_yet.Models
         public string currency { get; set; }
         public string age { get; set; }
         public string length { get; set; }
+        public string salary_inflation { get; set; }
 
     }
 }
