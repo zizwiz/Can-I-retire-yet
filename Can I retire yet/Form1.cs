@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Globalization;
 using System.IO;
 using System.Windows.Forms;
@@ -139,8 +140,12 @@ namespace Can_I_retire_yet
 
             string json = Newtonsoft.Json.JsonConvert.SerializeObject(data, Newtonsoft.Json.Formatting.Indented);
             File.WriteAllText(finalPath, json);
-
             MsgBox.Show("Saved successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            DialogResult result = MsgBox.Show("Would you also like to save the Chart image?", "Question", MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes) SaveChartImage(finalPath);
         }
 
         private void lbl_expenses_add_Click(object sender, EventArgs e)
@@ -1182,6 +1187,75 @@ namespace Can_I_retire_yet
         {
             chartTimer.Stop();
             chartTimer.Start();
+        }
+
+        private void btn_save_chart_Click(object sender, EventArgs e)
+        {
+            SaveChartImage("myChart.jpg");
+        }
+
+        private void SaveChartImage(string myPath)
+        {
+            try
+
+            {
+                using (SaveFileDialog sfd = new SaveFileDialog())
+                {
+                    sfd.Filter = "PNG Image|*.png|JPEG Image|*.jpg|Bitmap Image|*.bmp";
+                    sfd.Title = "Save TableLayoutPanel as Image";
+                    sfd.FileName = GetUntilOrEmpty(myPath, "_") + DateTime.Now.ToString("_ddMMMyyyy_HHmmss");
+
+                    if (sfd.ShowDialog() == DialogResult.OK)
+                    {
+                        SaveControlAsImage(tbl_lyot_pnl_overall, sfd.FileName);
+
+                        MessageBox.Show("Image saved successfully!", "Success",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error saving image: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        
+    }
+
+        /// <summary>
+        /// Captures a control (including TableLayoutPanel) as an image and saves it.
+        /// </summary>
+        private void SaveControlAsImage(Control control, string filePath)
+        {
+            if (control.Width <= 0 || control.Height <= 0)
+                throw new InvalidOperationException("Control has invalid dimensions.");
+
+            using (Bitmap bmp = new Bitmap(control.Width, control.Height))
+            {
+                control.DrawToBitmap(bmp, new Rectangle(0, 0, bmp.Width, bmp.Height));
+
+                ImageFormat format = ImageFormat.Png;
+                string ext = Path.GetExtension(filePath)?.ToLower();
+                if (ext == ".jpg" || ext == ".jpeg") format = ImageFormat.Jpeg;
+                else if (ext == ".bmp") format = ImageFormat.Bmp;
+
+                bmp.Save(filePath, format);
+            }
+        }
+
+        public static string GetUntilOrEmpty(string text, string stopAt)
+        {
+            if (!String.IsNullOrWhiteSpace(text))
+            {
+                int charLocation = text.IndexOf(stopAt, StringComparison.Ordinal);
+
+                if (charLocation > 0)
+                {
+                    return text.Substring(0, charLocation);
+                }
+            }
+
+            return String.Empty;
         }
     }
 }
