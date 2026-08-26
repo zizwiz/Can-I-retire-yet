@@ -851,7 +851,7 @@ namespace Can_I_retire_yet
                     $"Expenses: {expenses:C}\n" +
                     $"Future Expenses: {futureExpenses:C}\n" +
                     $"Remaining: {endOfYear:C}\n" +
-                    $"\nSalary: {salary:C}\n" +
+                    $"\nSalary: {salaryThisYear:C}\n" +
                     $"Net Change: {(endOfYear - available):C}\n";
                 
                 if (endOfYear < 0)
@@ -877,64 +877,6 @@ namespace Can_I_retire_yet
                 if (chkbx_use_inflation.Checked)
                     salaryThisYear += salaryThisYear * inflation;
             }
-
-
-            //// Loop through each year
-            //for (int i = 0; i < length; i++)
-            //{
-            //    int currentAge = age + i;
-            //    int currentYear = startYear + i;
-
-            //   // decimal Income = SumRows(dgv_income, currentYear);
-            //    decimal futureIncome = SumRows(dgv_future_income, currentYear);
-            //    decimal futureExpenses = SumRows(dgv_future_expenses, currentYear);
-            //    decimal recurringIncome = SumRecurringIncome(currentYear);
-
-            //    decimal endOfYear =
-            //        available +
-            //        recurringIncome +
-            //        futureIncome +
-            //        recurringIncome -
-            //        futureExpenses -
-            //        salary -
-            //        expenses;
-
-            //    // Add column
-            //    int index = series.Points.AddXY(currentAge, endOfYear);
-            //    DataPoint point = series.Points[index];
-
-            //    // Tooltip text
-            //    string tip =
-            //        $"Year: {currentYear}\n" +
-            //        $"Age: {currentAge}\n" +
-            //        $"Income: {recurringIncome:C}\n" +
-            //        $"Future Income: {futureIncome:C}\n" +
-            //        $"Expenses: {expenses:C}\n" +
-            //        $"Future Expenses: {futureExpenses:C}\n" +
-            //        $"Remaining: {endOfYear:C}\n" +
-            //        $"\nSalary: {salary:C}\n" +
-            //        $"Net Change: {(endOfYear - available):C}\n";
-
-            //    if (endOfYear < 0)
-            //        tip += "\n⚠ Funds exhausted";
-
-            //    point.ToolTip = tip;
-
-            //    // Colour coding
-            //    if (endOfYear < 0)
-            //        point.Color = Color.Red;
-            //    else if (endOfYear < available)
-            //        point.Color = Color.Orange;
-            //    else
-            //        point.Color = Color.Green;
-
-            //    // Prepare next year
-            //    available = endOfYear;
-            //    expenses += expenses * inflation;
-
-            //    line.Points.AddXY(currentAge, endOfYear);
-
-            //}
 
             // Axis labels
             chart_overall.ChartAreas[0].AxisX.Title = "Age";
@@ -1035,11 +977,12 @@ namespace Can_I_retire_yet
 
             // Generate new auto rows
             decimal current = amount;
-            int currentYear = startYear;
+            int currentYear = startYear + 1;
 
-            for (int i = 0; i < 50; i++)
+            //Start writing for the next year
+            for (int i = 1; i < 50; i++)
             {
-                if (i > 0)
+                //if (i > 0)
                     current *= 1.01875m; // April uplift
 
                 dgv_future_income.Rows.Add(
