@@ -145,7 +145,7 @@ namespace Can_I_retire_yet
             DialogResult result = MsgBox.Show("Would you also like to save the Chart image?", "Question", MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);
 
-            if (result == DialogResult.Yes) SaveChartImage(finalPath);
+            if (result == DialogResult.Yes) SaveChartImage(finalPath, true);
         }
 
         private void lbl_expenses_add_Click(object sender, EventArgs e)
@@ -1191,10 +1191,10 @@ namespace Can_I_retire_yet
 
         private void btn_save_chart_Click(object sender, EventArgs e)
         {
-            SaveChartImage("myChart.jpg");
+            SaveChartImage("myChart.jpg", false);
         }
 
-        private void SaveChartImage(string myPath)
+        private void SaveChartImage(string myPath, bool flag)
         {
             try
 
@@ -1203,6 +1203,10 @@ namespace Can_I_retire_yet
                 {
                     sfd.Filter = "PNG Image|*.png|JPEG Image|*.jpg|Bitmap Image|*.bmp";
                     sfd.Title = "Save TableLayoutPanel as Image";
+                    sfd.FileName = "Image.png";
+
+                    // flag means call it the same as the json file name
+                    if (flag)
                     sfd.FileName = GetUntilOrEmpty(myPath, "_") + DateTime.Now.ToString("_ddMMMyyyy_HHmmss");
 
                     if (sfd.ShowDialog() == DialogResult.OK)
