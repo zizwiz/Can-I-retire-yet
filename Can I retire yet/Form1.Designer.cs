@@ -81,10 +81,6 @@ namespace Can_I_retire_yet
             this.lbl_assets = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.lbl_future_income = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.lbl_future_expenses = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.panel_overall_graph = new System.Windows.Forms.Panel();
             this.chart_overall = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tab_assets = new System.Windows.Forms.TabPage();
@@ -254,6 +250,9 @@ namespace Can_I_retire_yet
             this.thinsldr_salary = new Can_I_retire_yet.utils.ThinSlider();
             this.tab_tax_summary = new System.Windows.Forms.TabPage();
             this.dgv_tax_summary = new System.Windows.Forms.DataGridView();
+            this.grpbx_uk_tax_country = new System.Windows.Forms.GroupBox();
+            this.rdobtn_eng_wal_ni = new System.Windows.Forms.RadioButton();
+            this.rdobtn_scotland = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -357,6 +356,7 @@ namespace Can_I_retire_yet
             this.panel19.SuspendLayout();
             this.tab_tax_summary.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tax_summary)).BeginInit();
+            this.grpbx_uk_tax_country.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -441,6 +441,7 @@ namespace Can_I_retire_yet
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.grpbx_uk_tax_country);
             this.panel3.Controls.Add(this.groupBox7);
             this.panel3.Controls.Add(this.groupBox6);
             this.panel3.Controls.Add(this.cmbx_currency);
@@ -448,10 +449,6 @@ namespace Can_I_retire_yet
             this.panel3.Controls.Add(this.txtbx_inflation);
             this.panel3.Controls.Add(this.label25);
             this.panel3.Controls.Add(this.groupBox5);
-            this.panel3.Controls.Add(this.lbl_future_income);
-            this.panel3.Controls.Add(this.label8);
-            this.panel3.Controls.Add(this.lbl_future_expenses);
-            this.panel3.Controls.Add(this.label6);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
@@ -640,7 +637,7 @@ namespace Can_I_retire_yet
             "CHF",
             "AUD",
             "CAD"});
-            this.cmbx_currency.Location = new System.Drawing.Point(153, 639);
+            this.cmbx_currency.Location = new System.Drawing.Point(153, 635);
             this.cmbx_currency.Name = "cmbx_currency";
             this.cmbx_currency.Size = new System.Drawing.Size(102, 28);
             this.cmbx_currency.TabIndex = 31;
@@ -648,7 +645,7 @@ namespace Can_I_retire_yet
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(21, 639);
+            this.label26.Location = new System.Drawing.Point(21, 638);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(72, 20);
             this.label26.TabIndex = 30;
@@ -656,7 +653,7 @@ namespace Can_I_retire_yet
             // 
             // txtbx_inflation
             // 
-            this.txtbx_inflation.Location = new System.Drawing.Point(155, 603);
+            this.txtbx_inflation.Location = new System.Drawing.Point(155, 604);
             this.txtbx_inflation.Name = "txtbx_inflation";
             this.txtbx_inflation.Size = new System.Drawing.Size(100, 26);
             this.txtbx_inflation.TabIndex = 29;
@@ -666,7 +663,7 @@ namespace Can_I_retire_yet
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(20, 606);
+            this.label25.Location = new System.Drawing.Point(20, 607);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(66, 20);
             this.label25.TabIndex = 28;
@@ -864,42 +861,6 @@ namespace Can_I_retire_yet
             this.label1.Size = new System.Drawing.Size(58, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Assets";
-            // 
-            // lbl_future_income
-            // 
-            this.lbl_future_income.AutoSize = true;
-            this.lbl_future_income.Location = new System.Drawing.Point(176, 729);
-            this.lbl_future_income.Name = "lbl_future_income";
-            this.lbl_future_income.Size = new System.Drawing.Size(49, 20);
-            this.lbl_future_income.TabIndex = 9;
-            this.lbl_future_income.Text = "£0.00";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(22, 729);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(113, 20);
-            this.label8.TabIndex = 8;
-            this.label8.Text = "Future Income";
-            // 
-            // lbl_future_expenses
-            // 
-            this.lbl_future_expenses.AutoSize = true;
-            this.lbl_future_expenses.Location = new System.Drawing.Point(176, 685);
-            this.lbl_future_expenses.Name = "lbl_future_expenses";
-            this.lbl_future_expenses.Size = new System.Drawing.Size(49, 20);
-            this.lbl_future_expenses.TabIndex = 7;
-            this.lbl_future_expenses.Text = "£0.00";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(22, 685);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(130, 20);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "Future Expenses";
             // 
             // panel_overall_graph
             // 
@@ -2713,6 +2674,41 @@ namespace Can_I_retire_yet
             this.dgv_tax_summary.Size = new System.Drawing.Size(1391, 775);
             this.dgv_tax_summary.TabIndex = 0;
             // 
+            // grpbx_uk_tax_country
+            // 
+            this.grpbx_uk_tax_country.Controls.Add(this.rdobtn_scotland);
+            this.grpbx_uk_tax_country.Controls.Add(this.rdobtn_eng_wal_ni);
+            this.grpbx_uk_tax_country.Location = new System.Drawing.Point(12, 677);
+            this.grpbx_uk_tax_country.Name = "grpbx_uk_tax_country";
+            this.grpbx_uk_tax_country.Size = new System.Drawing.Size(266, 83);
+            this.grpbx_uk_tax_country.TabIndex = 40;
+            this.grpbx_uk_tax_country.TabStop = false;
+            this.grpbx_uk_tax_country.Text = "UK Tax Country";
+            // 
+            // rdobtn_eng_wal_ni
+            // 
+            this.rdobtn_eng_wal_ni.AutoSize = true;
+            this.rdobtn_eng_wal_ni.Checked = true;
+            this.rdobtn_eng_wal_ni.Location = new System.Drawing.Point(11, 25);
+            this.rdobtn_eng_wal_ni.Name = "rdobtn_eng_wal_ni";
+            this.rdobtn_eng_wal_ni.Size = new System.Drawing.Size(209, 24);
+            this.rdobtn_eng_wal_ni.TabIndex = 0;
+            this.rdobtn_eng_wal_ni.TabStop = true;
+            this.rdobtn_eng_wal_ni.Text = "England/Wales/N Ireland";
+            this.rdobtn_eng_wal_ni.UseVisualStyleBackColor = true;
+            this.rdobtn_eng_wal_ni.CheckedChanged += new System.EventHandler(this.rdobtn_eng_wal_ni_CheckedChanged);
+            // 
+            // rdobtn_scotland
+            // 
+            this.rdobtn_scotland.AutoSize = true;
+            this.rdobtn_scotland.Location = new System.Drawing.Point(11, 53);
+            this.rdobtn_scotland.Name = "rdobtn_scotland";
+            this.rdobtn_scotland.Size = new System.Drawing.Size(97, 24);
+            this.rdobtn_scotland.TabIndex = 1;
+            this.rdobtn_scotland.Text = "Scotland";
+            this.rdobtn_scotland.UseVisualStyleBackColor = true;
+            this.rdobtn_scotland.CheckedChanged += new System.EventHandler(this.rdobtn_scotland_CheckedChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -2861,6 +2857,8 @@ namespace Can_I_retire_yet
             this.panel19.ResumeLayout(false);
             this.tab_tax_summary.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tax_summary)).EndInit();
+            this.grpbx_uk_tax_country.ResumeLayout(false);
+            this.grpbx_uk_tax_country.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2925,10 +2923,6 @@ namespace Can_I_retire_yet
         protected internal System.Windows.Forms.Label lbl_assets;
         private System.Windows.Forms.Label lbl_1st_pass_total;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label lbl_future_income;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label lbl_future_expenses;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TabPage tab_future_expenses;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
@@ -3087,6 +3081,9 @@ namespace Can_I_retire_yet
         private System.Windows.Forms.Button btn_save_chart;
         private System.Windows.Forms.TabPage tab_tax_summary;
         private System.Windows.Forms.DataGridView dgv_tax_summary;
+        private System.Windows.Forms.GroupBox grpbx_uk_tax_country;
+        private System.Windows.Forms.RadioButton rdobtn_scotland;
+        private System.Windows.Forms.RadioButton rdobtn_eng_wal_ni;
     }
 }
 

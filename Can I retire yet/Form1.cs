@@ -27,6 +27,9 @@ namespace Can_I_retire_yet
         private Timer chartTimer = new Timer { Interval = 150 };
         private Timer pensionTimer = new Timer { Interval = 10 };
 
+        // Are we looking at Scottish Tax Bands
+        private bool UseScottishTaxBands => rdobtn_scotland.Checked;
+
 
         public Form1()
         {
@@ -347,7 +350,7 @@ namespace Can_I_retire_yet
         {
             if ((dgv_future_expenses.Columns[e.ColumnIndex].Name == "Amount") && (flag))
             {
-                lbl_future_expenses.Text = DatagridviewFunctions.CalculateTabTotal(dgv_future_expenses, e);
+                //lbl_future_expenses.Text = DatagridviewFunctions.CalculateTabTotal(dgv_future_expenses, e);
 
             }
         }
@@ -549,10 +552,10 @@ namespace Can_I_retire_yet
             lbl_expenses.Text =
                 DatagridviewFunctions.CalculateTabTotal(dgv_expenses, new DataGridViewCellEventArgs(1, 0));
 
-            lbl_future_income.Text =
-                DatagridviewFunctions.CalculateTabTotal(dgv_uk_state_pension, new DataGridViewCellEventArgs(2, 0));
-            lbl_future_expenses.Text =
-                DatagridviewFunctions.CalculateTabTotal(dgv_future_expenses, new DataGridViewCellEventArgs(2, 0));
+            //lbl_future_income.Text =
+            //    DatagridviewFunctions.CalculateTabTotal(dgv_uk_state_pension, new DataGridViewCellEventArgs(2, 0));
+            //lbl_future_expenses.Text =
+            //    DatagridviewFunctions.CalculateTabTotal(dgv_future_expenses, new DataGridViewCellEventArgs(2, 0));
         }
 
         private void btn_new_Click(object sender, EventArgs e)
@@ -836,10 +839,13 @@ namespace Can_I_retire_yet
                 // Taxable income (excluding salary)
                 decimal taxableIncome = GetTaxableIncomeForYear(currentYear);
 
-                TaxBreakdown tb = CalculateIncomeTaxBreakdown(taxableIncome);
+                //Calculate for particular UK country
+                TaxBreakdown tb = UseScottishTaxBands
+                    ? CalculateScottishTaxBreakdown(taxableIncome)
+                    : CalculateEnglandTaxBreakdown(taxableIncome);
 
                 // Income tax as an expense
-                decimal incomeTax = CalculateIncomeTax(taxableIncome);
+                decimal incomeTax = tb.TotalTax; 
 
                 decimal endOfYear =
                     available +
@@ -1274,7 +1280,7 @@ namespace Can_I_retire_yet
                 if (year < startYear || year > endYear)
                     continue;
 
-                if (!DatagridviewFunctions.TryParseMoney(row.Cells["Amount"].Value?.ToString(), out decimal amount))
+                if (!DatagridviewFunctions.TryParseMoney(row.Cells["Annually"].Value?.ToString(), out decimal amount))
                     continue;
 
                 decimal increasePercent = 0;
@@ -1294,44 +1300,8 @@ namespace Can_I_retire_yet
             return total;
         }
 
-        private decimal CalculateIncomeTax(decimal taxableIncome)
-        {
-            const decimal personalAllowance = 12570m;
-            const decimal basicRateLimit = 50270m;
-            const decimal higherRateLimit = 125140m;
-
-            // Personal allowance taper (simplified)
-            decimal allowance = personalAllowance;
-            if (taxableIncome > 100000m)
-            {
-                decimal reduction = (taxableIncome - 100000m) / 2m;
-                allowance = Math.Max(0, personalAllowance - reduction);
-            }
-
-            decimal remaining = Math.Max(0, taxableIncome - allowance);
-            decimal tax = 0;
-
-            // Basic rate
-            decimal basicBand = Math.Min(remaining, basicRateLimit - allowance);
-            tax += basicBand * 0.20m;
-            remaining -= basicBand;
-
-            if (remaining <= 0) return tax;
-
-            // Higher rate
-            decimal higherBand = Math.Min(remaining, higherRateLimit - basicRateLimit);
-            tax += higherBand * 0.40m;
-            remaining -= higherBand;
-
-            if (remaining <= 0) return tax;
-
-            // Additional rate
-            tax += remaining * 0.45m;
-
-            return tax;
-        }
-
-        private TaxBreakdown CalculateIncomeTaxBreakdown(decimal taxableIncome)
+        
+        private TaxBreakdown CalculateEnglandTaxBreakdown(decimal taxableIncome)
         {
             const decimal personalAllowance = 12570m;
             const decimal basicRateLimit = 50270m;
@@ -1371,6 +1341,75 @@ namespace Can_I_retire_yet
             result.TotalTax = result.TaxBasic + result.TaxHigher + result.TaxAdditional;
 
             return result;
+        }
+
+        private TaxBreakdown CalculateScottishTaxBreakdown(decimal taxableIncome)
+        {
+            const decimal personalAllowance = 12570m;
+
+            var result = new TaxBreakdown();
+            result.TaxableIncome = taxableIncome;
+
+            // Personal allowance taper (same as England)
+            decimal allowance = personalAllowance;
+            if (taxableIncome > 100000m)
+            {
+                decimal reduction = (taxableIncome - 100000m) / 2m;
+                allowance = Math.Max(0, personalAllowance - reduction);
+            }
+
+            result.PersonalAllowanceUsed = Math.Min(taxableIncome, allowance);
+
+            decimal remaining = Math.Max(0, taxableIncome - allowance);
+
+            // Starter rate (19%)
+            decimal starterBand = Math.Min(remaining, 14732m - 12570m);
+            result.BasicRateUsed = starterBand; // reuse field
+            result.TaxBasic = starterBand * 0.19m;
+            remaining -= starterBand;
+
+            // Basic rate (20%)
+            decimal basicBand = Math.Min(remaining, 25688m - 14732m);
+            result.HigherRateUsed = basicBand; // reuse field
+            result.TaxHigher = basicBand * 0.20m;
+            remaining -= basicBand;
+
+            // Intermediate rate (21%)
+            decimal intermediateBand = Math.Min(remaining, 43662m - 25688m);
+            result.AdditionalRateUsed = intermediateBand; // reuse field
+            result.TaxAdditional = intermediateBand * 0.21m;
+            remaining -= intermediateBand;
+
+            // Higher rate (42%)
+            decimal higherBand = Math.Min(remaining, 75000m - 43662m);
+            result.TaxHigher += higherBand * 0.42m;
+            remaining -= higherBand;
+
+            // Top rate (47%)
+            result.TaxAdditional += remaining * 0.47m;
+
+            result.TotalTax = result.TaxBasic + result.TaxHigher + result.TaxAdditional;
+
+            return result;
+        }
+
+
+        private void rdobtn_eng_wal_ni_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdobtn_eng_wal_ni.Checked)
+            {
+                chartTimer.Stop();
+                chartTimer.Start();   // triggers full redraw
+            }
+        }
+
+        private void rdobtn_scotland_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdobtn_scotland.Checked)
+            {
+                chartTimer.Stop();
+                chartTimer.Start();   // triggers full redraw
+            }
         }
     }
 }
