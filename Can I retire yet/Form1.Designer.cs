@@ -202,11 +202,11 @@ namespace Can_I_retire_yet
             this.panel14 = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.tab_future_income = new System.Windows.Forms.TabPage();
+            this.tab_uk_state_pension = new System.Windows.Forms.TabPage();
             this.panel6 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.panel15 = new System.Windows.Forms.Panel();
-            this.dgv_future_income = new System.Windows.Forms.DataGridView();
+            this.dgv_uk_state_pension = new System.Windows.Forms.DataGridView();
             this.panel17 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.panel18 = new System.Windows.Forms.Panel();
@@ -252,6 +252,8 @@ namespace Can_I_retire_yet
             this.thinsldr_Length = new Can_I_retire_yet.utils.ThinSlider();
             this.thinsldr_Age = new Can_I_retire_yet.utils.ThinSlider();
             this.thinsldr_salary = new Can_I_retire_yet.utils.ThinSlider();
+            this.tab_tax_summary = new System.Windows.Forms.TabPage();
+            this.dgv_tax_summary = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -340,11 +342,11 @@ namespace Can_I_retire_yet
             this.panel10.SuspendLayout();
             this.panel13.SuspendLayout();
             this.panel14.SuspendLayout();
-            this.tab_future_income.SuspendLayout();
+            this.tab_uk_state_pension.SuspendLayout();
             this.panel6.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.panel15.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_future_income)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_uk_state_pension)).BeginInit();
             this.panel17.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.panel18.SuspendLayout();
@@ -353,6 +355,8 @@ namespace Can_I_retire_yet
             this.tab_MonteCarlo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trkbr_retirement_age)).BeginInit();
             this.panel19.SuspendLayout();
+            this.tab_tax_summary.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_tax_summary)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -382,6 +386,7 @@ namespace Can_I_retire_yet
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tab_overall);
+            this.tabControl1.Controls.Add(this.tab_tax_summary);
             this.tabControl1.Controls.Add(this.tab_assets);
             this.tabControl1.Controls.Add(this.tab_cash);
             this.tabControl1.Controls.Add(this.tab_savings);
@@ -390,7 +395,7 @@ namespace Can_I_retire_yet
             this.tabControl1.Controls.Add(this.tab_expenses);
             this.tabControl1.Controls.Add(this.tab_income);
             this.tabControl1.Controls.Add(this.tab_future_expenses);
-            this.tabControl1.Controls.Add(this.tab_future_income);
+            this.tabControl1.Controls.Add(this.tab_uk_state_pension);
             this.tabControl1.Controls.Add(this.tab_MonteCarlo);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(3, 3);
@@ -980,9 +985,9 @@ namespace Can_I_retire_yet
             // 
             this.tableLayoutPanel15.ColumnCount = 5;
             this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 140F));
+            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel15.Controls.Add(this.panel39, 0, 0);
             this.tableLayoutPanel15.Controls.Add(this.panel40, 1, 0);
@@ -1022,24 +1027,24 @@ namespace Can_I_retire_yet
             this.panel40.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel40.Location = new System.Drawing.Point(103, 3);
             this.panel40.Name = "panel40";
-            this.panel40.Size = new System.Drawing.Size(94, 58);
+            this.panel40.Size = new System.Drawing.Size(513, 58);
             this.panel40.TabIndex = 1;
             // 
             // panel41
             // 
             this.panel41.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel41.Location = new System.Drawing.Point(1182, 3);
+            this.panel41.Location = new System.Drawing.Point(762, 3);
             this.panel41.Name = "panel41";
-            this.panel41.Size = new System.Drawing.Size(94, 58);
+            this.panel41.Size = new System.Drawing.Size(513, 58);
             this.panel41.TabIndex = 2;
             // 
             // panel42
             // 
             this.panel42.Controls.Add(this.lbl_assets_delete);
             this.panel42.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel42.Location = new System.Drawing.Point(1282, 3);
+            this.panel42.Location = new System.Drawing.Point(1281, 3);
             this.panel42.Name = "panel42";
-            this.panel42.Size = new System.Drawing.Size(94, 58);
+            this.panel42.Size = new System.Drawing.Size(95, 58);
             this.panel42.TabIndex = 3;
             // 
             // lbl_assets_delete
@@ -1057,16 +1062,16 @@ namespace Can_I_retire_yet
             // 
             this.panel43.Controls.Add(this.label2);
             this.panel43.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel43.Location = new System.Drawing.Point(203, 3);
+            this.panel43.Location = new System.Drawing.Point(622, 3);
             this.panel43.Name = "panel43";
-            this.panel43.Size = new System.Drawing.Size(973, 58);
+            this.panel43.Size = new System.Drawing.Size(134, 58);
             this.panel43.TabIndex = 4;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(427, 11);
+            this.label2.Location = new System.Drawing.Point(8, 11);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(119, 37);
             this.label2.TabIndex = 2;
@@ -1132,9 +1137,9 @@ namespace Can_I_retire_yet
             // 
             this.tableLayoutPanel8.ColumnCount = 5;
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel8.Controls.Add(this.panel47, 0, 0);
             this.tableLayoutPanel8.Controls.Add(this.panel48, 1, 0);
@@ -1174,24 +1179,24 @@ namespace Can_I_retire_yet
             this.panel48.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel48.Location = new System.Drawing.Point(103, 3);
             this.panel48.Name = "panel48";
-            this.panel48.Size = new System.Drawing.Size(94, 58);
+            this.panel48.Size = new System.Drawing.Size(526, 58);
             this.panel48.TabIndex = 1;
             // 
             // panel49
             // 
             this.panel49.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel49.Location = new System.Drawing.Point(1188, 3);
+            this.panel49.Location = new System.Drawing.Point(755, 3);
             this.panel49.Name = "panel49";
-            this.panel49.Size = new System.Drawing.Size(94, 58);
+            this.panel49.Size = new System.Drawing.Size(526, 58);
             this.panel49.TabIndex = 2;
             // 
             // panel50
             // 
             this.panel50.Controls.Add(this.lbl_cash_delete);
             this.panel50.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel50.Location = new System.Drawing.Point(1288, 3);
+            this.panel50.Location = new System.Drawing.Point(1287, 3);
             this.panel50.Name = "panel50";
-            this.panel50.Size = new System.Drawing.Size(94, 58);
+            this.panel50.Size = new System.Drawing.Size(95, 58);
             this.panel50.TabIndex = 3;
             // 
             // lbl_cash_delete
@@ -1209,16 +1214,16 @@ namespace Can_I_retire_yet
             // 
             this.panel51.Controls.Add(this.label11);
             this.panel51.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel51.Location = new System.Drawing.Point(203, 3);
+            this.panel51.Location = new System.Drawing.Point(635, 3);
             this.panel51.Name = "panel51";
-            this.panel51.Size = new System.Drawing.Size(979, 58);
+            this.panel51.Size = new System.Drawing.Size(114, 58);
             this.panel51.TabIndex = 4;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(427, 11);
+            this.label11.Location = new System.Drawing.Point(9, 11);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(96, 37);
             this.label11.TabIndex = 2;
@@ -1284,9 +1289,9 @@ namespace Can_I_retire_yet
             // 
             this.tableLayoutPanel16.ColumnCount = 5;
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 160F));
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel16.Controls.Add(this.panel54, 0, 0);
             this.tableLayoutPanel16.Controls.Add(this.panel55, 1, 0);
@@ -1326,24 +1331,24 @@ namespace Can_I_retire_yet
             this.panel55.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel55.Location = new System.Drawing.Point(103, 3);
             this.panel55.Name = "panel55";
-            this.panel55.Size = new System.Drawing.Size(94, 58);
+            this.panel55.Size = new System.Drawing.Size(506, 58);
             this.panel55.TabIndex = 1;
             // 
             // panel56
             // 
             this.panel56.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel56.Location = new System.Drawing.Point(1188, 3);
+            this.panel56.Location = new System.Drawing.Point(775, 3);
             this.panel56.Name = "panel56";
-            this.panel56.Size = new System.Drawing.Size(94, 58);
+            this.panel56.Size = new System.Drawing.Size(506, 58);
             this.panel56.TabIndex = 2;
             // 
             // panel57
             // 
             this.panel57.Controls.Add(this.lbl_savings_delete);
             this.panel57.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel57.Location = new System.Drawing.Point(1288, 3);
+            this.panel57.Location = new System.Drawing.Point(1287, 3);
             this.panel57.Name = "panel57";
-            this.panel57.Size = new System.Drawing.Size(94, 58);
+            this.panel57.Size = new System.Drawing.Size(95, 58);
             this.panel57.TabIndex = 3;
             // 
             // lbl_savings_delete
@@ -1361,16 +1366,16 @@ namespace Can_I_retire_yet
             // 
             this.panel58.Controls.Add(this.label13);
             this.panel58.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel58.Location = new System.Drawing.Point(203, 3);
+            this.panel58.Location = new System.Drawing.Point(615, 3);
             this.panel58.Name = "panel58";
-            this.panel58.Size = new System.Drawing.Size(979, 58);
+            this.panel58.Size = new System.Drawing.Size(154, 58);
             this.panel58.TabIndex = 4;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(427, 11);
+            this.label13.Location = new System.Drawing.Point(9, 11);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(137, 37);
             this.label13.TabIndex = 2;
@@ -1436,9 +1441,9 @@ namespace Can_I_retire_yet
             // 
             this.tableLayoutPanel18.ColumnCount = 5;
             this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 320F));
+            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel18.Controls.Add(this.panel61, 0, 0);
             this.tableLayoutPanel18.Controls.Add(this.panel62, 1, 0);
@@ -1478,24 +1483,24 @@ namespace Can_I_retire_yet
             this.panel62.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel62.Location = new System.Drawing.Point(103, 3);
             this.panel62.Name = "panel62";
-            this.panel62.Size = new System.Drawing.Size(94, 58);
+            this.panel62.Size = new System.Drawing.Size(426, 58);
             this.panel62.TabIndex = 1;
             // 
             // panel63
             // 
             this.panel63.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel63.Location = new System.Drawing.Point(1188, 3);
+            this.panel63.Location = new System.Drawing.Point(855, 3);
             this.panel63.Name = "panel63";
-            this.panel63.Size = new System.Drawing.Size(94, 58);
+            this.panel63.Size = new System.Drawing.Size(426, 58);
             this.panel63.TabIndex = 2;
             // 
             // panel64
             // 
             this.panel64.Controls.Add(this.lbl_stocks_shares_delete);
             this.panel64.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel64.Location = new System.Drawing.Point(1288, 3);
+            this.panel64.Location = new System.Drawing.Point(1287, 3);
             this.panel64.Name = "panel64";
-            this.panel64.Size = new System.Drawing.Size(94, 58);
+            this.panel64.Size = new System.Drawing.Size(95, 58);
             this.panel64.TabIndex = 3;
             // 
             // lbl_stocks_shares_delete
@@ -1513,16 +1518,16 @@ namespace Can_I_retire_yet
             // 
             this.panel65.Controls.Add(this.label14);
             this.panel65.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel65.Location = new System.Drawing.Point(203, 3);
+            this.panel65.Location = new System.Drawing.Point(535, 3);
             this.panel65.Name = "panel65";
-            this.panel65.Size = new System.Drawing.Size(979, 58);
+            this.panel65.Size = new System.Drawing.Size(314, 58);
             this.panel65.TabIndex = 4;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(427, 11);
+            this.label14.Location = new System.Drawing.Point(6, 11);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(303, 37);
             this.label14.TabIndex = 2;
@@ -1588,9 +1593,9 @@ namespace Can_I_retire_yet
             // 
             this.tableLayoutPanel20.ColumnCount = 5;
             this.tableLayoutPanel20.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel20.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel20.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel20.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel20.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel20.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 140F));
+            this.tableLayoutPanel20.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel20.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel20.Controls.Add(this.panel68, 0, 0);
             this.tableLayoutPanel20.Controls.Add(this.panel69, 1, 0);
@@ -1630,24 +1635,24 @@ namespace Can_I_retire_yet
             this.panel69.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel69.Location = new System.Drawing.Point(103, 3);
             this.panel69.Name = "panel69";
-            this.panel69.Size = new System.Drawing.Size(94, 58);
+            this.panel69.Size = new System.Drawing.Size(516, 58);
             this.panel69.TabIndex = 1;
             // 
             // panel70
             // 
             this.panel70.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel70.Location = new System.Drawing.Point(1188, 3);
+            this.panel70.Location = new System.Drawing.Point(765, 3);
             this.panel70.Name = "panel70";
-            this.panel70.Size = new System.Drawing.Size(94, 58);
+            this.panel70.Size = new System.Drawing.Size(516, 58);
             this.panel70.TabIndex = 2;
             // 
             // panel71
             // 
             this.panel71.Controls.Add(this.lbl_bonds_delete);
             this.panel71.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel71.Location = new System.Drawing.Point(1288, 3);
+            this.panel71.Location = new System.Drawing.Point(1287, 3);
             this.panel71.Name = "panel71";
-            this.panel71.Size = new System.Drawing.Size(94, 58);
+            this.panel71.Size = new System.Drawing.Size(95, 58);
             this.panel71.TabIndex = 3;
             // 
             // lbl_bonds_delete
@@ -1665,16 +1670,16 @@ namespace Can_I_retire_yet
             // 
             this.panel72.Controls.Add(this.lable5);
             this.panel72.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel72.Location = new System.Drawing.Point(203, 3);
+            this.panel72.Location = new System.Drawing.Point(625, 3);
             this.panel72.Name = "panel72";
-            this.panel72.Size = new System.Drawing.Size(979, 58);
+            this.panel72.Size = new System.Drawing.Size(134, 58);
             this.panel72.TabIndex = 4;
             // 
             // lable5
             // 
             this.lable5.AutoSize = true;
             this.lable5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lable5.Location = new System.Drawing.Point(428, 11);
+            this.lable5.Location = new System.Drawing.Point(11, 11);
             this.lable5.Name = "lable5";
             this.lable5.Size = new System.Drawing.Size(113, 37);
             this.lable5.TabIndex = 2;
@@ -1740,9 +1745,9 @@ namespace Can_I_retire_yet
             // 
             this.tableLayoutPanel12.ColumnCount = 5;
             this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 175F));
+            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel12.Controls.Add(this.panel27, 0, 0);
             this.tableLayoutPanel12.Controls.Add(this.panel28, 1, 0);
@@ -1782,15 +1787,15 @@ namespace Can_I_retire_yet
             this.panel28.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel28.Location = new System.Drawing.Point(103, 3);
             this.panel28.Name = "panel28";
-            this.panel28.Size = new System.Drawing.Size(94, 58);
+            this.panel28.Size = new System.Drawing.Size(499, 58);
             this.panel28.TabIndex = 1;
             // 
             // panel29
             // 
             this.panel29.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel29.Location = new System.Drawing.Point(1188, 3);
+            this.panel29.Location = new System.Drawing.Point(783, 3);
             this.panel29.Name = "panel29";
-            this.panel29.Size = new System.Drawing.Size(94, 58);
+            this.panel29.Size = new System.Drawing.Size(499, 58);
             this.panel29.TabIndex = 2;
             // 
             // panel30
@@ -1817,16 +1822,16 @@ namespace Can_I_retire_yet
             // 
             this.panel31.Controls.Add(this.label9);
             this.panel31.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel31.Location = new System.Drawing.Point(203, 3);
+            this.panel31.Location = new System.Drawing.Point(608, 3);
             this.panel31.Name = "panel31";
-            this.panel31.Size = new System.Drawing.Size(979, 58);
+            this.panel31.Size = new System.Drawing.Size(169, 58);
             this.panel31.TabIndex = 4;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(408, 11);
+            this.label9.Location = new System.Drawing.Point(3, 11);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(163, 37);
             this.label9.TabIndex = 1;
@@ -1901,9 +1906,9 @@ namespace Can_I_retire_yet
             // 
             this.tableLayoutPanel13.ColumnCount = 5;
             this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 140F));
+            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel13.Controls.Add(this.panel33, 0, 0);
             this.tableLayoutPanel13.Controls.Add(this.panel34, 1, 0);
@@ -1943,24 +1948,24 @@ namespace Can_I_retire_yet
             this.panel34.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel34.Location = new System.Drawing.Point(103, 3);
             this.panel34.Name = "panel34";
-            this.panel34.Size = new System.Drawing.Size(94, 58);
+            this.panel34.Size = new System.Drawing.Size(516, 58);
             this.panel34.TabIndex = 1;
             // 
             // panel35
             // 
             this.panel35.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel35.Location = new System.Drawing.Point(1188, 3);
+            this.panel35.Location = new System.Drawing.Point(765, 3);
             this.panel35.Name = "panel35";
-            this.panel35.Size = new System.Drawing.Size(94, 58);
+            this.panel35.Size = new System.Drawing.Size(516, 58);
             this.panel35.TabIndex = 2;
             // 
             // panel36
             // 
             this.panel36.Controls.Add(this.lbl_income_delete);
             this.panel36.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel36.Location = new System.Drawing.Point(1288, 3);
+            this.panel36.Location = new System.Drawing.Point(1287, 3);
             this.panel36.Name = "panel36";
-            this.panel36.Size = new System.Drawing.Size(94, 58);
+            this.panel36.Size = new System.Drawing.Size(95, 58);
             this.panel36.TabIndex = 3;
             // 
             // lbl_income_delete
@@ -1978,16 +1983,16 @@ namespace Can_I_retire_yet
             // 
             this.panel37.Controls.Add(this.label10);
             this.panel37.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel37.Location = new System.Drawing.Point(203, 3);
+            this.panel37.Location = new System.Drawing.Point(625, 3);
             this.panel37.Name = "panel37";
-            this.panel37.Size = new System.Drawing.Size(979, 58);
+            this.panel37.Size = new System.Drawing.Size(134, 58);
             this.panel37.TabIndex = 4;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(426, 11);
+            this.label10.Location = new System.Drawing.Point(4, 11);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(127, 37);
             this.label10.TabIndex = 1;
@@ -2063,9 +2068,9 @@ namespace Can_I_retire_yet
             // 
             this.tableLayoutPanel3.ColumnCount = 5;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 290F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel3.Controls.Add(this.panel10, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.panel11, 1, 0);
@@ -2105,24 +2110,24 @@ namespace Can_I_retire_yet
             this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel11.Location = new System.Drawing.Point(103, 3);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(94, 58);
+            this.panel11.Size = new System.Drawing.Size(441, 58);
             this.panel11.TabIndex = 1;
             // 
             // panel12
             // 
             this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel12.Location = new System.Drawing.Point(1188, 3);
+            this.panel12.Location = new System.Drawing.Point(840, 3);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(94, 58);
+            this.panel12.Size = new System.Drawing.Size(441, 58);
             this.panel12.TabIndex = 2;
             // 
             // panel13
             // 
             this.panel13.Controls.Add(this.lbl_future_expenses_delete);
             this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel13.Location = new System.Drawing.Point(1288, 3);
+            this.panel13.Location = new System.Drawing.Point(1287, 3);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(94, 58);
+            this.panel13.Size = new System.Drawing.Size(95, 58);
             this.panel13.TabIndex = 3;
             // 
             // lbl_future_expenses_delete
@@ -2140,16 +2145,16 @@ namespace Can_I_retire_yet
             // 
             this.panel14.Controls.Add(this.label16);
             this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel14.Location = new System.Drawing.Point(203, 3);
+            this.panel14.Location = new System.Drawing.Point(550, 3);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(979, 58);
+            this.panel14.Size = new System.Drawing.Size(284, 58);
             this.panel14.TabIndex = 4;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(353, 11);
+            this.label16.Location = new System.Drawing.Point(6, 11);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(272, 37);
             this.label16.TabIndex = 2;
@@ -2162,15 +2167,15 @@ namespace Can_I_retire_yet
             this.panel5.Size = new System.Drawing.Size(200, 100);
             this.panel5.TabIndex = 0;
             // 
-            // tab_future_income
+            // tab_uk_state_pension
             // 
-            this.tab_future_income.Controls.Add(this.panel6);
-            this.tab_future_income.Location = new System.Drawing.Point(4, 29);
-            this.tab_future_income.Name = "tab_future_income";
-            this.tab_future_income.Size = new System.Drawing.Size(1391, 775);
-            this.tab_future_income.TabIndex = 6;
-            this.tab_future_income.Text = "Future Income";
-            this.tab_future_income.UseVisualStyleBackColor = true;
+            this.tab_uk_state_pension.Controls.Add(this.panel6);
+            this.tab_uk_state_pension.Location = new System.Drawing.Point(4, 29);
+            this.tab_uk_state_pension.Name = "tab_uk_state_pension";
+            this.tab_uk_state_pension.Size = new System.Drawing.Size(1391, 775);
+            this.tab_uk_state_pension.TabIndex = 6;
+            this.tab_uk_state_pension.Text = "UK State Pension";
+            this.tab_uk_state_pension.UseVisualStyleBackColor = true;
             // 
             // panel6
             // 
@@ -2198,26 +2203,26 @@ namespace Can_I_retire_yet
             // 
             // panel15
             // 
-            this.panel15.Controls.Add(this.dgv_future_income);
+            this.panel15.Controls.Add(this.dgv_uk_state_pension);
             this.panel15.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel15.Location = new System.Drawing.Point(3, 73);
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(1385, 699);
             this.panel15.TabIndex = 0;
             // 
-            // dgv_future_income
+            // dgv_uk_state_pension
             // 
-            this.dgv_future_income.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_future_income.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_future_income.Location = new System.Drawing.Point(0, 0);
-            this.dgv_future_income.Name = "dgv_future_income";
-            this.dgv_future_income.RowHeadersWidth = 62;
-            this.dgv_future_income.RowTemplate.Height = 28;
-            this.dgv_future_income.Size = new System.Drawing.Size(1385, 699);
-            this.dgv_future_income.TabIndex = 2;
-            this.dgv_future_income.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_future_income_CellContentClick);
-            this.dgv_future_income.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_CellLeave_FormatCurrency);
-            this.dgv_future_income.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_future_income_CellValueChanged);
+            this.dgv_uk_state_pension.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_uk_state_pension.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_uk_state_pension.Location = new System.Drawing.Point(0, 0);
+            this.dgv_uk_state_pension.Name = "dgv_uk_state_pension";
+            this.dgv_uk_state_pension.RowHeadersWidth = 62;
+            this.dgv_uk_state_pension.RowTemplate.Height = 28;
+            this.dgv_uk_state_pension.Size = new System.Drawing.Size(1385, 699);
+            this.dgv_uk_state_pension.TabIndex = 2;
+            this.dgv_uk_state_pension.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_future_income_CellContentClick);
+            this.dgv_uk_state_pension.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_CellLeave_FormatCurrency);
+            this.dgv_uk_state_pension.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_future_income_CellValueChanged);
             // 
             // panel17
             // 
@@ -2232,9 +2237,9 @@ namespace Can_I_retire_yet
             // 
             this.tableLayoutPanel5.ColumnCount = 5;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 300F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel5.Controls.Add(this.panel18, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.panel20, 1, 0);
@@ -2274,24 +2279,24 @@ namespace Can_I_retire_yet
             this.panel20.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel20.Location = new System.Drawing.Point(103, 3);
             this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(94, 58);
+            this.panel20.Size = new System.Drawing.Size(436, 58);
             this.panel20.TabIndex = 1;
             // 
             // panel21
             // 
             this.panel21.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel21.Location = new System.Drawing.Point(1188, 3);
+            this.panel21.Location = new System.Drawing.Point(845, 3);
             this.panel21.Name = "panel21";
-            this.panel21.Size = new System.Drawing.Size(94, 58);
+            this.panel21.Size = new System.Drawing.Size(436, 58);
             this.panel21.TabIndex = 2;
             // 
             // panel22
             // 
             this.panel22.Controls.Add(this.lbl_future_income_delete);
             this.panel22.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel22.Location = new System.Drawing.Point(1288, 3);
+            this.panel22.Location = new System.Drawing.Point(1287, 3);
             this.panel22.Name = "panel22";
-            this.panel22.Size = new System.Drawing.Size(94, 58);
+            this.panel22.Size = new System.Drawing.Size(95, 58);
             this.panel22.TabIndex = 3;
             // 
             // lbl_future_income_delete
@@ -2309,20 +2314,20 @@ namespace Can_I_retire_yet
             // 
             this.panel44.Controls.Add(this.label21);
             this.panel44.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel44.Location = new System.Drawing.Point(203, 3);
+            this.panel44.Location = new System.Drawing.Point(545, 3);
             this.panel44.Name = "panel44";
-            this.panel44.Size = new System.Drawing.Size(979, 58);
+            this.panel44.Size = new System.Drawing.Size(294, 58);
             this.panel44.TabIndex = 4;
             // 
             // label21
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(371, 11);
+            this.label21.Location = new System.Drawing.Point(5, 11);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(236, 37);
+            this.label21.Size = new System.Drawing.Size(284, 37);
             this.label21.TabIndex = 2;
-            this.label21.Text = "Future Income";
+            this.label21.Text = "UK State Pension";
             // 
             // tab_MonteCarlo
             // 
@@ -2687,6 +2692,27 @@ namespace Can_I_retire_yet
             this.thinsldr_salary.Value = 20000;
             this.thinsldr_salary.ValueChanged += new System.EventHandler(this.thinsldr_salary_ValueChanged);
             // 
+            // tab_tax_summary
+            // 
+            this.tab_tax_summary.Controls.Add(this.dgv_tax_summary);
+            this.tab_tax_summary.Location = new System.Drawing.Point(4, 29);
+            this.tab_tax_summary.Name = "tab_tax_summary";
+            this.tab_tax_summary.Size = new System.Drawing.Size(1391, 775);
+            this.tab_tax_summary.TabIndex = 12;
+            this.tab_tax_summary.Text = "Tax Summary";
+            this.tab_tax_summary.UseVisualStyleBackColor = true;
+            // 
+            // dgv_tax_summary
+            // 
+            this.dgv_tax_summary.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_tax_summary.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_tax_summary.Location = new System.Drawing.Point(0, 0);
+            this.dgv_tax_summary.Name = "dgv_tax_summary";
+            this.dgv_tax_summary.RowHeadersWidth = 62;
+            this.dgv_tax_summary.RowTemplate.Height = 28;
+            this.dgv_tax_summary.Size = new System.Drawing.Size(1391, 775);
+            this.dgv_tax_summary.TabIndex = 0;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -2816,11 +2842,11 @@ namespace Can_I_retire_yet
             this.panel13.PerformLayout();
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
-            this.tab_future_income.ResumeLayout(false);
+            this.tab_uk_state_pension.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.panel15.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_future_income)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_uk_state_pension)).EndInit();
             this.panel17.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.panel18.ResumeLayout(false);
@@ -2833,6 +2859,8 @@ namespace Can_I_retire_yet
             this.tab_MonteCarlo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trkbr_retirement_age)).EndInit();
             this.panel19.ResumeLayout(false);
+            this.tab_tax_summary.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_tax_summary)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2916,11 +2944,11 @@ namespace Can_I_retire_yet
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.TabPage tab_future_income;
+        private System.Windows.Forms.TabPage tab_uk_state_pension;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Panel panel15;
-        public System.Windows.Forms.DataGridView dgv_future_income;
+        public System.Windows.Forms.DataGridView dgv_uk_state_pension;
         private System.Windows.Forms.Panel panel17;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Panel panel18;
@@ -3057,6 +3085,8 @@ namespace Can_I_retire_yet
         private System.Windows.Forms.Button btn_help;
         private System.Windows.Forms.CheckBox chkbx_use_inflation;
         private System.Windows.Forms.Button btn_save_chart;
+        private System.Windows.Forms.TabPage tab_tax_summary;
+        private System.Windows.Forms.DataGridView dgv_tax_summary;
     }
 }
 

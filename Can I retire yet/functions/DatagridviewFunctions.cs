@@ -83,8 +83,14 @@ namespace Can_I_retire_yet.functions
                 chk.HeaderText = "Lifetime?";
                 dgv.Columns.Add(chk);
 
+                var taxableCol = new DataGridViewCheckBoxColumn();
+                taxableCol.Name = "IsTaxable";
+                taxableCol.HeaderText = "Taxable?";
+                dgv.Columns.Add(taxableCol);
+
+
             }
-            else if (dgv.Name == "dgv_future_income")
+            else if (dgv.Name == "dgv_uk_state_pension")
             {
                 dgv.Columns[0].Name = "Name";
                 dgv.Columns[1].Name = "Year";
@@ -92,7 +98,7 @@ namespace Can_I_retire_yet.functions
 
                 var chk = new DataGridViewCheckBoxColumn();
                 chk.Name = "IsStatePension";
-                chk.HeaderText = "State Pension?";
+                chk.HeaderText = "Full Year?";
                 dgv.Columns.Add(chk);
             }
             else if (dgv.Name == "dgv_future_expenses")
@@ -122,6 +128,20 @@ namespace Can_I_retire_yet.functions
             {
                 dgv.Columns[0].Name = "Institution";
                 dgv.Columns[1].Name = "Amount";
+            }
+            else if (dgv.Name == "dgv_tax_summary")
+            {
+                dgv.Columns.Add("Year", "Year");
+                dgv.Columns.Add("TaxableIncome", "Taxable Income");
+                dgv.Columns.Add("PersonalAllowanceUsed", "Personal Allowance Used");
+                dgv.Columns.Add("BasicRateUsed", "Basic Rate Used");
+                dgv.Columns.Add("HigherRateUsed", "Higher Rate Used");
+                dgv.Columns.Add("AdditionalRateUsed", "Additional Rate Used");
+                dgv.Columns.Add("TaxBasic", "Tax at 20%");
+                dgv.Columns.Add("TaxHigher", "Tax at 40%");
+                dgv.Columns.Add("TaxAdditional", "Tax at 45%");
+                dgv.Columns.Add("TotalTax", "Total Tax");
+                dgv.Columns.Add("EffectiveRate", "Effective Tax Rate (%)");
             }
 
             dgv.AllowUserToAddRows = false; //remove last empty row
@@ -321,6 +341,8 @@ namespace Can_I_retire_yet.functions
             dgv.Rows.Clear();
             dgv.Refresh();
         }
+
+      
 
     }
 }

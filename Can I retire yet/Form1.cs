@@ -38,6 +38,7 @@ namespace Can_I_retire_yet
             Text += " : v" + Assembly.GetExecutingAssembly().GetName().Version; // put in the version number
 
             DatagridviewFunctions.SetUpViews(dgv_expenses, 2);
+            DatagridviewFunctions.SetUpViews(dgv_tax_summary, 0);
             DatagridviewFunctions.SetUpViews(dgv_cash, 2);
             DatagridviewFunctions.SetUpViews(dgv_savings, 4);
             DatagridviewFunctions.SetUpViews(dgv_bonds, 2);
@@ -45,7 +46,7 @@ namespace Can_I_retire_yet
             DatagridviewFunctions.SetUpViews(dgv_assets, 2);
             DatagridviewFunctions.SetUpViews(dgv_income, 5);
             DatagridviewFunctions.SetUpViews(dgv_future_expenses, 3);
-            DatagridviewFunctions.SetUpViews(dgv_future_income, 3);
+            DatagridviewFunctions.SetUpViews(dgv_uk_state_pension, 3);
 
             lbl_trackbar_value.Text = $"Value: {trkbr_retirement_age.Value}";
 
@@ -128,7 +129,7 @@ namespace Can_I_retire_yet
                 stocks_shares = DatagridviewFunctions.ExtractGrid(dgv_stocks_shares),
                 income = DatagridviewFunctions.ExtractGrid(dgv_income),
                 expenses = DatagridviewFunctions.ExtractGrid(dgv_expenses),
-                future_income = DatagridviewFunctions.ExtractGrid(dgv_future_income),
+                future_income = DatagridviewFunctions.ExtractGrid(dgv_uk_state_pension),
                 future_expenses = DatagridviewFunctions.ExtractGrid(dgv_future_expenses),
                 salary = txtbx_salary.Text,
                 inflation = txtbx_inflation.Text,
@@ -178,7 +179,7 @@ namespace Can_I_retire_yet
 
         private void lbl_future_income_add_Click(object sender, EventArgs e)
         {
-            if (DataGridViewAdd(dgv_future_income))
+            if (DataGridViewAdd(dgv_uk_state_pension))
             {
             }
         }
@@ -255,7 +256,7 @@ namespace Can_I_retire_yet
 
         private void lbl_future_income_delete_Click(object sender, EventArgs e)
         {
-            if (DataGridViewDelete(dgv_future_income))
+            if (DataGridViewDelete(dgv_uk_state_pension))
             {
             }
         }
@@ -347,29 +348,29 @@ namespace Can_I_retire_yet
             if ((dgv_future_expenses.Columns[e.ColumnIndex].Name == "Amount") && (flag))
             {
                 lbl_future_expenses.Text = DatagridviewFunctions.CalculateTabTotal(dgv_future_expenses, e);
-                
+
             }
         }
 
         private void dgv_future_income_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgv_future_income.Columns[e.ColumnIndex].Name == "IsStatePension" ||
-                dgv_future_income.Columns[e.ColumnIndex].Name == "Year" ||
-                dgv_future_income.Columns[e.ColumnIndex].Name == "Amount")
+            if (dgv_uk_state_pension.Columns[e.ColumnIndex].Name == "IsStatePension" ||
+                dgv_uk_state_pension.Columns[e.ColumnIndex].Name == "Year" ||
+                dgv_uk_state_pension.Columns[e.ColumnIndex].Name == "Amount")
             {
                 pensionTimer.Stop();
                 pensionTimer.Start();   // defer update safely
             }
 
-            if (dgv_future_income.Columns[e.ColumnIndex].Name == "IsStatePension")
+            if (dgv_uk_state_pension.Columns[e.ColumnIndex].Name == "IsStatePension")
             {
 
                 bool flag = true;
 
-                if ((bool)dgv_future_income.Rows[e.RowIndex].Cells["IsStatePension"].Value)
+                if ((bool)dgv_uk_state_pension.Rows[e.RowIndex].Cells["IsStatePension"].Value)
                 {
                     // Disable ticking on all other rows
-                    foreach (DataGridViewRow r in dgv_future_income.Rows)
+                    foreach (DataGridViewRow r in dgv_uk_state_pension.Rows)
                     {
                         if (r.Index != e.RowIndex && !r.IsNewRow)
                         {
@@ -482,7 +483,7 @@ namespace Can_I_retire_yet
             DatagridviewFunctions.LoadGrid(dgv_stocks_shares, data.stocks_shares);
             DatagridviewFunctions.LoadGrid(dgv_income, data.income);
             DatagridviewFunctions.LoadGrid(dgv_expenses, data.expenses);
-            DatagridviewFunctions.LoadGrid(dgv_future_income, data.future_income);
+            DatagridviewFunctions.LoadGrid(dgv_uk_state_pension, data.future_income);
             DatagridviewFunctions.LoadGrid(dgv_future_expenses, data.future_expenses);
 
             txtbx_salary.Text = data.salary ?? "";
@@ -549,7 +550,7 @@ namespace Can_I_retire_yet
                 DatagridviewFunctions.CalculateTabTotal(dgv_expenses, new DataGridViewCellEventArgs(1, 0));
 
             lbl_future_income.Text =
-                DatagridviewFunctions.CalculateTabTotal(dgv_future_income, new DataGridViewCellEventArgs(2, 0));
+                DatagridviewFunctions.CalculateTabTotal(dgv_uk_state_pension, new DataGridViewCellEventArgs(2, 0));
             lbl_future_expenses.Text =
                 DatagridviewFunctions.CalculateTabTotal(dgv_future_expenses, new DataGridViewCellEventArgs(2, 0));
         }
@@ -558,7 +559,7 @@ namespace Can_I_retire_yet
         {
             DatagridviewFunctions.NewSetUp(dgv_assets, dgv_cash, dgv_savings, dgv_bonds, dgv_stocks_shares, dgv_income,
                 dgv_expenses,
-                dgv_future_income, dgv_future_expenses);
+                dgv_uk_state_pension, dgv_future_expenses);
         }
 
 
@@ -633,7 +634,7 @@ namespace Can_I_retire_yet
             formatGrid(dgv_assets);
             formatGrid(dgv_income);
             formatGrid(dgv_expenses);
-            formatGrid(dgv_future_income);
+            formatGrid(dgv_uk_state_pension);
             formatGrid(dgv_future_expenses);
         }
 
@@ -809,6 +810,7 @@ namespace Can_I_retire_yet
             chart_overall.Series.Clear();
             var series = chart_overall.Series.Add("Available Funds");
 
+            dgv_tax_summary.Rows.Clear();
 
             // Add a new series called Trend.
             var line = chart_overall.Series.Add("Trend");
@@ -826,18 +828,27 @@ namespace Can_I_retire_yet
                 int currentYear = startYear + i;
                 int currentAge = age + i;
 
-                
-                decimal futureIncome = SumRows(dgv_future_income, currentYear);
+
+                decimal UKStatePension = SumRows(dgv_uk_state_pension, currentYear);
                 decimal futureExpenses = SumRows(dgv_future_expenses, currentYear);
                 decimal recurringIncome = SumRecurringIncome(currentYear);
 
+                // Taxable income (excluding salary)
+                decimal taxableIncome = GetTaxableIncomeForYear(currentYear);
+
+                TaxBreakdown tb = CalculateIncomeTaxBreakdown(taxableIncome);
+
+                // Income tax as an expense
+                decimal incomeTax = CalculateIncomeTax(taxableIncome);
+
                 decimal endOfYear =
                     available +
-                    futureIncome +
+                    UKStatePension +
                     recurringIncome -
                     futureExpenses -
                     salaryThisYear -
-                    expenses;
+                    expenses -
+                    incomeTax;
 
                 int index = series.Points.AddXY(currentAge, endOfYear);
                 DataPoint point = series.Points[index];
@@ -846,18 +857,28 @@ namespace Can_I_retire_yet
                 string tip =
                     $"Year: {currentYear}\n" +
                     $"Age: {currentAge}\n" +
-                    $"Income: {recurringIncome:C}\n" +
-                    $"Future Income: {futureIncome:C}\n" +
+                    $"UK State Pension: {UKStatePension:C}\n" +
                     $"Expenses: {expenses:C}\n" +
+                    $"Income: {recurringIncome:C}\n" +
                     $"Future Expenses: {futureExpenses:C}\n" +
-                    $"Remaining: {endOfYear:C}\n" +
+                    $"\nTaxable Income: {taxableIncome:C}\n" +
+                    $"Income Tax: {incomeTax:C}\n" +
+                    $"\nRemaining: {endOfYear:C}\n" +
                     $"\nSalary: {salaryThisYear:C}\n" +
-                    $"Net Change: {(endOfYear - available):C}\n";
-                
+                    $"Net Change: {(endOfYear - available):C}\n" +
+
+                    $"\nTax Breakdown:" +
+                    $"\n  Personal Allowance Used: {tb.PersonalAllowanceUsed:C}" +
+                    $"\n  Basic Rate: {tb.TaxBasic:C}" +
+                    $"\n  Higher Rate: {tb.TaxHigher:C}" +
+                    $"\n  Additional Rate: {tb.TaxAdditional:C}" +
+                    $"\n  Total Tax: {tb.TotalTax:C}\n";
+
+
                 if (endOfYear < 0)
                     tip += "\n⚠ Funds exhausted";
 
-                    point.ToolTip = tip;
+                point.ToolTip = tip;
 
                 // Colour coding
                 if (endOfYear < 0)
@@ -876,6 +897,28 @@ namespace Can_I_retire_yet
                 // Salary inflation (NEW)
                 if (chkbx_use_inflation.Checked)
                     salaryThisYear += salaryThisYear * inflation;
+
+                try
+                {
+                    dgv_tax_summary.Rows.Add(
+                    currentYear,
+                    tb.TaxableIncome.ToString("C"),
+                    tb.PersonalAllowanceUsed.ToString("C"),
+                    tb.BasicRateUsed.ToString("C"),
+                    tb.HigherRateUsed.ToString("C"),
+                    tb.AdditionalRateUsed.ToString("C"),
+                    tb.TaxBasic.ToString("C"),
+                    tb.TaxHigher.ToString("C"),
+                    tb.TaxAdditional.ToString("C"),
+                    tb.TotalTax.ToString("C"),
+                    (tb.TotalTax / tb.TaxableIncome * 100m).ToString("N2")
+                );
+                }
+                catch 
+                {
+                    //do nothing to eliminate potential div by zero error
+                }
+
             }
 
             // Axis labels
@@ -926,7 +969,7 @@ namespace Can_I_retire_yet
             DataGridViewRow pensionRow = null;
 
             // Find the state pension row
-            foreach (DataGridViewRow row in dgv_future_income.Rows)
+            foreach (DataGridViewRow row in dgv_uk_state_pension.Rows)
             {
                 if (row.IsNewRow) continue;
 
@@ -945,7 +988,7 @@ namespace Can_I_retire_yet
                 RemoveAutoGeneratedStatePensionRows();
 
                 // Re-enable all checkboxes
-                foreach (DataGridViewRow row in dgv_future_income.Rows)
+                foreach (DataGridViewRow row in dgv_uk_state_pension.Rows)
                 {
                     if (!row.IsNewRow)
                         row.Cells["IsStatePension"].ReadOnly = false;
@@ -956,7 +999,7 @@ namespace Can_I_retire_yet
             }
 
             // If ticked → disable other checkboxes
-            foreach (DataGridViewRow row in dgv_future_income.Rows)
+            foreach (DataGridViewRow row in dgv_uk_state_pension.Rows)
             {
                 if (!row.IsNewRow && row != pensionRow)
                     row.Cells["IsStatePension"].ReadOnly = true;
@@ -983,9 +1026,9 @@ namespace Can_I_retire_yet
             for (int i = 1; i < 50; i++)
             {
                 //if (i > 0)
-                    current *= 1.01875m; // April uplift
+                current *= 1.01875m; // April uplift
 
-                dgv_future_income.Rows.Add(
+                dgv_uk_state_pension.Rows.Add(
                     "State Pension (auto)",
                     currentYear,
                     cmbx_currency.Text + current.ToString("N2"),
@@ -997,74 +1040,74 @@ namespace Can_I_retire_yet
 
             DrawOverallChart();
         }
-        
+
         private void RemoveAutoGeneratedStatePensionRows()
         {
-            for (int i = dgv_future_income.Rows.Count - 1; i >= 0; i--)
+            for (int i = dgv_uk_state_pension.Rows.Count - 1; i >= 0; i--)
             {
-                var row = dgv_future_income.Rows[i];
+                var row = dgv_uk_state_pension.Rows[i];
                 if (row.IsNewRow) continue;
 
                 if (row.Cells[0].Value?.ToString() == "State Pension (auto)")
-                    dgv_future_income.Rows.RemoveAt(i);
+                    dgv_uk_state_pension.Rows.RemoveAt(i);
             }
         }
 
-       private void dgv_future_income_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgv_future_income_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgv_future_income.Columns[e.ColumnIndex].Name == "IsStatePension")
+            if (dgv_uk_state_pension.Columns[e.ColumnIndex].Name == "IsStatePension")
             {
-                dgv_future_income.EndEdit();   // commit checkbox change immediately
+                dgv_uk_state_pension.EndEdit();   // commit checkbox change immediately
 
                 pensionTimer.Stop();
                 pensionTimer.Start();          // trigger pension expansion safely
             }
         }
 
-       private decimal SumRecurringIncome(int year)
-       {
-           decimal total = 0;
+        private decimal SumRecurringIncome(int year)
+        {
+            decimal total = 0;
 
-           foreach (DataGridViewRow row in dgv_income.Rows)
-           {
-               if (row.IsNewRow) continue;
+            foreach (DataGridViewRow row in dgv_income.Rows)
+            {
+                if (row.IsNewRow) continue;
 
-               // Extract values safely
-               string name = row.Cells["Name"].Value?.ToString() ?? "";
+                // Extract values safely
+                string name = row.Cells["Name"].Value?.ToString() ?? "";
 
-               // Lifetime income?
-               bool lifetime = false;
-               var chkCell = row.Cells["Lifetime"];
-               if (chkCell != null && chkCell.Value is bool b && b)
-                   lifetime = true;
+                // Lifetime income?
+                bool lifetime = false;
+                var chkCell = row.Cells["Lifetime"];
+                if (chkCell != null && chkCell.Value is bool b && b)
+                    lifetime = true;
 
-               // StartYear
-               int startYear = 0;
-               if (!int.TryParse(row.Cells["StartYear"].Value?.ToString(), out startYear))
-                   startYear = 0; // treat 0 as "starts immediately"
+                // StartYear
+                int startYear = 0;
+                if (!int.TryParse(row.Cells["StartYear"].Value?.ToString(), out startYear))
+                    startYear = 0; // treat 0 as "starts immediately"
 
-               // EndYear
-               int endYear = 0;
-               if (!int.TryParse(row.Cells["EndYear"].Value?.ToString(), out endYear))
-                   endYear = 0;
+                // EndYear
+                int endYear = 0;
+                if (!int.TryParse(row.Cells["EndYear"].Value?.ToString(), out endYear))
+                    endYear = 0;
 
-               if (lifetime)
-               {
-                   // Lifetime income: end year = retirement end year
-                   endYear = DateTime.Now.Year + int.Parse(txtbx_length.Text);
-               }
-               else
-               {
-                   if (endYear == 0)
-                       endYear = int.MaxValue; // continues forever
-               }
+                if (lifetime)
+                {
+                    // Lifetime income: end year = retirement end year
+                    endYear = DateTime.Now.Year + int.Parse(txtbx_length.Text);
+                }
+                else
+                {
+                    if (endYear == 0)
+                        endYear = int.MaxValue; // continues forever
+                }
 
-               if (startYear == 0)
-                   startYear = DateTime.Now.Year; // starts immediately
+                if (startYear == 0)
+                    startYear = DateTime.Now.Year; // starts immediately
 
-               // Amount
-               if (!DatagridviewFunctions.TryParseMoney(row.Cells["Annually"].Value?.ToString(), out decimal amount))
-                   continue;
+                // Amount
+                if (!DatagridviewFunctions.TryParseMoney(row.Cells["Annually"].Value?.ToString(), out decimal amount))
+                    continue;
 
                 // Annual increase
                 // Check this is valid
@@ -1077,14 +1120,14 @@ namespace Can_I_retire_yet
                 {
                     // Mark cell red to warn user
                     row.Cells["AnnualIncrease"].Style.ForeColor = Color.Red;
-                    
+
                     // No increase applied
                     increasePercent = 0;
                 }
                 else
                 {
                     row.Cells["AnnualIncrease"].Style.ForeColor = Color.Black;
-                   // row.Cells["AnnualIncrease"].ToolTipText = "";
+                    // row.Cells["AnnualIncrease"].ToolTipText = "";
 
                 }
 
@@ -1093,38 +1136,38 @@ namespace Can_I_retire_yet
 
                 // Check if this income applies to the current year
                 if (year < startYear || year > endYear)
-                   continue;
+                    continue;
 
-               // Apply annual increase
-               int yearsSinceStart = year - startYear;
-               decimal adjustedAmount = amount * (decimal)Math.Pow((double)(1 + increase), yearsSinceStart);
+                // Apply annual increase
+                int yearsSinceStart = year - startYear;
+                decimal adjustedAmount = amount * (decimal)Math.Pow((double)(1 + increase), yearsSinceStart);
 
-               total += adjustedAmount;
-           }
+                total += adjustedAmount;
+            }
 
-           return total;
-       }
+            return total;
+        }
 
-       private bool TryParsePercentage(string input, out decimal value)
-       {
-           value = 0;
+        private bool TryParsePercentage(string input, out decimal value)
+        {
+            value = 0;
 
-           if (string.IsNullOrWhiteSpace(input))
-               return false;
+            if (string.IsNullOrWhiteSpace(input))
+                return false;
 
-           input = input.Trim();
+            input = input.Trim();
 
-           // Remove trailing % if present
-           if (input.EndsWith("%"))
-               input = input.Substring(0, input.Length - 1).Trim();
+            // Remove trailing % if present
+            if (input.EndsWith("%"))
+                input = input.Substring(0, input.Length - 1).Trim();
 
-           // Now input must be numeric
-           if (!decimal.TryParse(input, out decimal parsed))
-               return false;
+            // Now input must be numeric
+            if (!decimal.TryParse(input, out decimal parsed))
+                return false;
 
-           value = parsed;
-           return true;
-       }
+            value = parsed;
+            return true;
+        }
 
         private void chkbx_use_inflation_CheckedChanged(object sender, EventArgs e)
         {
@@ -1150,7 +1193,7 @@ namespace Can_I_retire_yet
 
                     // flag means call it the same as the json file name
                     if (flag)
-                    sfd.FileName = GetUntilOrEmpty(myPath, "_") + DateTime.Now.ToString("_ddMMMyyyy_HHmmss");
+                        sfd.FileName = GetUntilOrEmpty(myPath, "_") + DateTime.Now.ToString("_ddMMMyyyy_HHmmss");
 
                     if (sfd.ShowDialog() == DialogResult.OK)
                     {
@@ -1166,8 +1209,8 @@ namespace Can_I_retire_yet
                 MessageBox.Show($"Error saving image: {ex.Message}", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        
-    }
+
+        }
 
         /// <summary>
         /// Captures a control (including TableLayoutPanel) as an image and saves it.
@@ -1203,6 +1246,131 @@ namespace Can_I_retire_yet
             }
 
             return String.Empty;
+        }
+
+        private decimal GetTaxableIncomeForYear(int year)
+        {
+            decimal total = 0;
+
+            // 1. Taxable recurring income from dgv_income
+            foreach (DataGridViewRow row in dgv_income.Rows)
+            {
+                if (row.IsNewRow) continue;
+
+                bool taxable = false;
+                var taxCell = row.Cells["IsTaxable"];
+                if (taxCell != null && taxCell.Value is bool b && b)
+                    taxable = true;
+
+                if (!taxable) continue;
+
+                // Use your existing recurring income logic
+                // but only for this row and this year
+                if (!int.TryParse(row.Cells["StartYear"].Value?.ToString(), out int startYear))
+                    continue;
+                if (!int.TryParse(row.Cells["EndYear"].Value?.ToString(), out int endYear))
+                    endYear = int.MaxValue;
+
+                if (year < startYear || year > endYear)
+                    continue;
+
+                if (!DatagridviewFunctions.TryParseMoney(row.Cells["Amount"].Value?.ToString(), out decimal amount))
+                    continue;
+
+                decimal increasePercent = 0;
+                string incRaw = row.Cells["AnnualIncrease"].Value?.ToString() ?? "";
+                TryParsePercentage(incRaw, out increasePercent);
+                decimal increase = increasePercent / 100m;
+
+                int yearsSinceStart = year - startYear;
+                decimal adjustedAmount = amount * (decimal)Math.Pow((double)(1 + increase), yearsSinceStart);
+
+                total += adjustedAmount;
+            }
+
+            // 2. UK State Pension (from dgv_uk_state_pension)
+            total += SumRows(dgv_uk_state_pension, year); // you already have SumRows(year)
+
+            return total;
+        }
+
+        private decimal CalculateIncomeTax(decimal taxableIncome)
+        {
+            const decimal personalAllowance = 12570m;
+            const decimal basicRateLimit = 50270m;
+            const decimal higherRateLimit = 125140m;
+
+            // Personal allowance taper (simplified)
+            decimal allowance = personalAllowance;
+            if (taxableIncome > 100000m)
+            {
+                decimal reduction = (taxableIncome - 100000m) / 2m;
+                allowance = Math.Max(0, personalAllowance - reduction);
+            }
+
+            decimal remaining = Math.Max(0, taxableIncome - allowance);
+            decimal tax = 0;
+
+            // Basic rate
+            decimal basicBand = Math.Min(remaining, basicRateLimit - allowance);
+            tax += basicBand * 0.20m;
+            remaining -= basicBand;
+
+            if (remaining <= 0) return tax;
+
+            // Higher rate
+            decimal higherBand = Math.Min(remaining, higherRateLimit - basicRateLimit);
+            tax += higherBand * 0.40m;
+            remaining -= higherBand;
+
+            if (remaining <= 0) return tax;
+
+            // Additional rate
+            tax += remaining * 0.45m;
+
+            return tax;
+        }
+
+        private TaxBreakdown CalculateIncomeTaxBreakdown(decimal taxableIncome)
+        {
+            const decimal personalAllowance = 12570m;
+            const decimal basicRateLimit = 50270m;
+            const decimal higherRateLimit = 125140m;
+
+            var result = new TaxBreakdown();
+            result.TaxableIncome = taxableIncome;
+
+            // Personal allowance taper
+            decimal allowance = personalAllowance;
+            if (taxableIncome > 100000m)
+            {
+                decimal reduction = (taxableIncome - 100000m) / 2m;
+                allowance = Math.Max(0, personalAllowance - reduction);
+            }
+
+            result.PersonalAllowanceUsed = Math.Min(taxableIncome, allowance);
+
+            decimal remaining = Math.Max(0, taxableIncome - allowance);
+
+            // Basic rate
+            decimal basicBand = Math.Min(remaining, basicRateLimit - allowance);
+            result.BasicRateUsed = basicBand;
+            result.TaxBasic = basicBand * 0.20m;
+            remaining -= basicBand;
+
+            // Higher rate
+            decimal higherBand = Math.Min(remaining, higherRateLimit - basicRateLimit);
+            result.HigherRateUsed = higherBand;
+            result.TaxHigher = higherBand * 0.40m;
+            remaining -= higherBand;
+
+            // Additional rate
+            result.AdditionalRateUsed = remaining;
+            result.TaxAdditional = remaining * 0.45m;
+
+            result.TotalTax = result.TaxBasic + result.TaxHigher + result.TaxAdditional;
+
+            return result;
         }
     }
 }
