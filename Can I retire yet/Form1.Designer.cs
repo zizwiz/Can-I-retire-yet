@@ -253,6 +253,8 @@ namespace Can_I_retire_yet
             this.grpbx_uk_tax_country = new System.Windows.Forms.GroupBox();
             this.rdobtn_eng_wal_ni = new System.Windows.Forms.RadioButton();
             this.rdobtn_scotland = new System.Windows.Forms.RadioButton();
+            this.tab_withdrawal_strategy = new System.Windows.Forms.TabPage();
+            this.dgv_withdrawal_priority = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -357,6 +359,8 @@ namespace Can_I_retire_yet
             this.tab_tax_summary.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tax_summary)).BeginInit();
             this.grpbx_uk_tax_country.SuspendLayout();
+            this.tab_withdrawal_strategy.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_withdrawal_priority)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -386,6 +390,7 @@ namespace Can_I_retire_yet
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tab_overall);
+            this.tabControl1.Controls.Add(this.tab_withdrawal_strategy);
             this.tabControl1.Controls.Add(this.tab_tax_summary);
             this.tabControl1.Controls.Add(this.tab_assets);
             this.tabControl1.Controls.Add(this.tab_cash);
@@ -2709,6 +2714,26 @@ namespace Can_I_retire_yet
             this.rdobtn_scotland.UseVisualStyleBackColor = true;
             this.rdobtn_scotland.CheckedChanged += new System.EventHandler(this.rdobtn_scotland_CheckedChanged);
             // 
+            // tab_withdrawal_strategy
+            // 
+            this.tab_withdrawal_strategy.Controls.Add(this.dgv_withdrawal_priority);
+            this.tab_withdrawal_strategy.Location = new System.Drawing.Point(4, 29);
+            this.tab_withdrawal_strategy.Name = "tab_withdrawal_strategy";
+            this.tab_withdrawal_strategy.Size = new System.Drawing.Size(1391, 775);
+            this.tab_withdrawal_strategy.TabIndex = 13;
+            this.tab_withdrawal_strategy.Text = "Withdrawal Strategy";
+            this.tab_withdrawal_strategy.UseVisualStyleBackColor = true;
+            // 
+            // dgv_withdrawal_priority
+            // 
+            this.dgv_withdrawal_priority.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_withdrawal_priority.Location = new System.Drawing.Point(289, 89);
+            this.dgv_withdrawal_priority.Name = "dgv_withdrawal_priority";
+            this.dgv_withdrawal_priority.RowHeadersWidth = 62;
+            this.dgv_withdrawal_priority.RowTemplate.Height = 28;
+            this.dgv_withdrawal_priority.Size = new System.Drawing.Size(925, 426);
+            this.dgv_withdrawal_priority.TabIndex = 0;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -2859,6 +2884,8 @@ namespace Can_I_retire_yet
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tax_summary)).EndInit();
             this.grpbx_uk_tax_country.ResumeLayout(false);
             this.grpbx_uk_tax_country.PerformLayout();
+            this.tab_withdrawal_strategy.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_withdrawal_priority)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3084,6 +3111,8 @@ namespace Can_I_retire_yet
         private System.Windows.Forms.GroupBox grpbx_uk_tax_country;
         private System.Windows.Forms.RadioButton rdobtn_scotland;
         private System.Windows.Forms.RadioButton rdobtn_eng_wal_ni;
+        private System.Windows.Forms.TabPage tab_withdrawal_strategy;
+        private System.Windows.Forms.DataGridView dgv_withdrawal_priority;
     }
 }
 

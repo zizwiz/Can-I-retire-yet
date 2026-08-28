@@ -111,13 +111,23 @@ namespace Can_I_retire_yet.functions
             {
                 dgv.Columns[0].Name = "Institution";
                 dgv.Columns[1].Name = "Amount";
+                dgv.Columns[2].Name = "Interest";
+
+                var taxableCol = new DataGridViewCheckBoxColumn();
+                taxableCol.Name = "IsTaxable";
+                taxableCol.HeaderText = "Taxable?";
+                dgv.Columns.Add(taxableCol);
             }
             else if (dgv.Name == "dgv_savings")
             {
                 dgv.Columns[0].Name = "Institution";
                 dgv.Columns[1].Name = "Amount";
                 dgv.Columns[2].Name = "Interest";
-                dgv.Columns[3].Name = "Taxable";
+               
+                var taxableCol = new DataGridViewCheckBoxColumn();
+                taxableCol.Name = "IsTaxable";
+                taxableCol.HeaderText = "Taxable?";
+                dgv.Columns.Add(taxableCol);
             }
             else if (dgv.Name == "dgv_bonds")
             {
@@ -143,6 +153,18 @@ namespace Can_I_retire_yet.functions
                 dgv.Columns.Add("TotalTax", "Total Tax");
                 dgv.Columns.Add("EffectiveRate", "Effective Tax Rate (%)");
             }
+            else if (dgv.Name == "dgv_withdrawal_priority")
+            {
+                dgv.Columns.Add("Source", "Source");
+                dgv.Columns.Add("Priority", "Priority");
+
+                dgv.Rows.Add("Cash", 1);
+                dgv.Rows.Add("Savings", 2);
+                dgv.Rows.Add("Bonds", 3);
+                dgv.Rows.Add("Stocks", 4);
+
+            }
+
 
             dgv.AllowUserToAddRows = false; //remove last empty row
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; //fit columns to grid view 

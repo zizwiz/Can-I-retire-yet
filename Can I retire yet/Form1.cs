@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 using System.Reflection;
 using System.Windows.Forms.DataVisualization.Charting;
@@ -42,14 +44,16 @@ namespace Can_I_retire_yet
 
             DatagridviewFunctions.SetUpViews(dgv_expenses, 2);
             DatagridviewFunctions.SetUpViews(dgv_tax_summary, 0);
-            DatagridviewFunctions.SetUpViews(dgv_cash, 2);
-            DatagridviewFunctions.SetUpViews(dgv_savings, 4);
+            DatagridviewFunctions.SetUpViews(dgv_cash, 3);
+            DatagridviewFunctions.SetUpViews(dgv_savings, 3);
             DatagridviewFunctions.SetUpViews(dgv_bonds, 2);
             DatagridviewFunctions.SetUpViews(dgv_stocks_shares, 2);
             DatagridviewFunctions.SetUpViews(dgv_assets, 2);
             DatagridviewFunctions.SetUpViews(dgv_income, 5);
             DatagridviewFunctions.SetUpViews(dgv_future_expenses, 3);
             DatagridviewFunctions.SetUpViews(dgv_uk_state_pension, 3);
+            DatagridviewFunctions.SetUpViews(dgv_withdrawal_priority, 0);
+
 
             lbl_trackbar_value.Text = $"Value: {trkbr_retirement_age.Value}";
 
@@ -844,6 +848,10 @@ namespace Can_I_retire_yet
                     ? CalculateScottishTaxBreakdown(taxableIncome)
                     : CalculateEnglandTaxBreakdown(taxableIncome);
 
+                //work out where the salary comes from
+                WithdrawSalary(salaryThisYear, currentYear);
+
+
                 // Income tax as an expense
                 decimal incomeTax = tb.TotalTax; 
 
@@ -879,6 +887,14 @@ namespace Can_I_retire_yet
                     $"\n  Higher Rate: {tb.TaxHigher:C}" +
                     $"\n  Additional Rate: {tb.TaxAdditional:C}" +
                     $"\n  Total Tax: {tb.TotalTax:C}\n";
+
+
+                //tip += "\nSalary Withdrawals:";
+                //foreach (string src in GetWithdrawalOrder())
+                //{
+                //    tip += $"\n  {src}: {withdrawals[src]:C}";
+                //}
+
 
 
                 if (endOfYear < 0)
@@ -1411,5 +1427,64 @@ namespace Can_I_retire_yet
                 chartTimer.Start();   // triggers full redraw
             }
         }
+
+        private List<string> GetWithdrawalOrder()
+        {
+            return dgv_withdrawal_priority.Rows
+                .Cast<DataGridViewRow>()
+                .Where(r => !r.IsNewRow)
+                .OrderBy(r => Convert.ToInt32(r.Cells["Priority"].Value))
+                .Select(r => r.Cells["Source"].Value.ToString())
+                .ToList();
+        }
+
+        private void WithdrawSalary(decimal salary, int year)
+        {
+            var order = GetWithdrawalOrder();
+
+            foreach (string source in order)
+            {
+                decimal available = GetBalance(source);
+
+                if (available >= salary)
+                {
+                    SetBalance(source, available - salary);
+                    return;
+                }
+                else
+                {
+                    // Deplete this pot entirely
+                    salary -= available;
+                    SetBalance(source, 0);
+                }
+            }
+
+            // If we reach here, all pots are empty
+            // Salary cannot be withdrawn fully
+        }
+
+        decimal GetBalance(string source)
+        {
+            switch (source)
+            {
+                case "Cash": return Parse(lbl_cash.Text);
+                case "Savings": return Parse(lbl_savings.Text);
+                case "Bonds": return Parse(lbl_bonds.Text);
+                case "Stocks": return Parse(lbl_stocks_shares.Text);
+                default: return 0;
+            }
+        }
+
+        void SetBalance(string source, decimal value)
+        {
+            switch (source)
+            {
+                case "Cash": lbl_cash.Text = value.ToString("N2"); break;
+                case "Savings": lbl_savings.Text = value.ToString("N2"); break;
+                case "Bonds": lbl_bonds.Text = value.ToString("N2"); break;
+                case "Stocks": lbl_stocks_shares.Text = value.ToString("N2"); break;
+            }
+        }
+
     }
 }
