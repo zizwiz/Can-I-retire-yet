@@ -255,6 +255,8 @@ namespace Can_I_retire_yet
             this.rdobtn_scotland = new System.Windows.Forms.RadioButton();
             this.tab_withdrawal_strategy = new System.Windows.Forms.TabPage();
             this.dgv_withdrawal_priority = new System.Windows.Forms.DataGridView();
+            this.txtbx_start_year = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -369,7 +371,7 @@ namespace Can_I_retire_yet
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1405, 894);
+            this.panel1.Size = new System.Drawing.Size(1405, 958);
             this.panel1.TabIndex = 0;
             // 
             // tableLayoutPanel7
@@ -384,7 +386,7 @@ namespace Can_I_retire_yet
             this.tableLayoutPanel7.RowCount = 2;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(1405, 894);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(1405, 958);
             this.tableLayoutPanel7.TabIndex = 1;
             // 
             // tabControl1
@@ -406,7 +408,7 @@ namespace Can_I_retire_yet
             this.tabControl1.Location = new System.Drawing.Point(3, 3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1399, 808);
+            this.tabControl1.Size = new System.Drawing.Size(1399, 872);
             this.tabControl1.TabIndex = 0;
             // 
             // tab_overall
@@ -415,7 +417,7 @@ namespace Can_I_retire_yet
             this.tab_overall.Location = new System.Drawing.Point(4, 29);
             this.tab_overall.Name = "tab_overall";
             this.tab_overall.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_overall.Size = new System.Drawing.Size(1391, 775);
+            this.tab_overall.Size = new System.Drawing.Size(1391, 839);
             this.tab_overall.TabIndex = 0;
             this.tab_overall.Text = "Overall";
             this.tab_overall.UseVisualStyleBackColor = true;
@@ -426,7 +428,7 @@ namespace Can_I_retire_yet
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1385, 769);
+            this.panel2.Size = new System.Drawing.Size(1385, 833);
             this.panel2.TabIndex = 0;
             // 
             // tbl_lyot_pnl_overall
@@ -441,11 +443,13 @@ namespace Can_I_retire_yet
             this.tbl_lyot_pnl_overall.Name = "tbl_lyot_pnl_overall";
             this.tbl_lyot_pnl_overall.RowCount = 1;
             this.tbl_lyot_pnl_overall.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tbl_lyot_pnl_overall.Size = new System.Drawing.Size(1385, 769);
+            this.tbl_lyot_pnl_overall.Size = new System.Drawing.Size(1385, 833);
             this.tbl_lyot_pnl_overall.TabIndex = 0;
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.txtbx_start_year);
+            this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.grpbx_uk_tax_country);
             this.panel3.Controls.Add(this.groupBox7);
             this.panel3.Controls.Add(this.groupBox6);
@@ -457,7 +461,7 @@ namespace Can_I_retire_yet
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(294, 763);
+            this.panel3.Size = new System.Drawing.Size(294, 827);
             this.panel3.TabIndex = 0;
             // 
             // groupBox7
@@ -873,7 +877,7 @@ namespace Can_I_retire_yet
             this.panel_overall_graph.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_overall_graph.Location = new System.Drawing.Point(303, 3);
             this.panel_overall_graph.Name = "panel_overall_graph";
-            this.panel_overall_graph.Size = new System.Drawing.Size(1079, 763);
+            this.panel_overall_graph.Size = new System.Drawing.Size(1079, 827);
             this.panel_overall_graph.TabIndex = 1;
             // 
             // chart_overall
@@ -886,7 +890,7 @@ namespace Can_I_retire_yet
             series1.ChartArea = "ChartArea1";
             series1.Name = "Series1";
             this.chart_overall.Series.Add(series1);
-            this.chart_overall.Size = new System.Drawing.Size(1079, 763);
+            this.chart_overall.Size = new System.Drawing.Size(1079, 827);
             this.chart_overall.TabIndex = 0;
             this.chart_overall.Text = "chart1";
             // 
@@ -2538,7 +2542,7 @@ namespace Can_I_retire_yet
             this.panel19.Controls.Add(this.btn_open_all);
             this.panel19.Controls.Add(this.btn_close);
             this.panel19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel19.Location = new System.Drawing.Point(3, 817);
+            this.panel19.Location = new System.Drawing.Point(3, 881);
             this.panel19.Name = "panel19";
             this.panel19.Size = new System.Drawing.Size(1399, 74);
             this.panel19.TabIndex = 1;
@@ -2734,11 +2738,28 @@ namespace Can_I_retire_yet
             this.dgv_withdrawal_priority.Size = new System.Drawing.Size(925, 426);
             this.dgv_withdrawal_priority.TabIndex = 0;
             // 
+            // txtbx_start_year
+            // 
+            this.txtbx_start_year.Location = new System.Drawing.Point(156, 785);
+            this.txtbx_start_year.Name = "txtbx_start_year";
+            this.txtbx_start_year.Size = new System.Drawing.Size(100, 26);
+            this.txtbx_start_year.TabIndex = 42;
+            this.txtbx_start_year.TextChanged += new System.EventHandler(this.txtbx_start_year_TextChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(21, 788);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(82, 20);
+            this.label6.TabIndex = 41;
+            this.label6.Text = "Start Year";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1405, 894);
+            this.ClientSize = new System.Drawing.Size(1405, 958);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
@@ -3113,6 +3134,8 @@ namespace Can_I_retire_yet
         private System.Windows.Forms.RadioButton rdobtn_eng_wal_ni;
         private System.Windows.Forms.TabPage tab_withdrawal_strategy;
         private System.Windows.Forms.DataGridView dgv_withdrawal_priority;
+        private System.Windows.Forms.TextBox txtbx_start_year;
+        private System.Windows.Forms.Label label6;
     }
 }
 

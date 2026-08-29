@@ -4,6 +4,7 @@ namespace Can_I_retire_yet.Models
 {
     public class SavedData
     {
+        public string start_year { get; set; }
         public List<List<string>> assets { get; set; }
         public List<List<string>> cash { get; set; }
         public List<List<string>> savings { get; set; }

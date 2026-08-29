@@ -32,6 +32,8 @@ namespace Can_I_retire_yet
         // Are we looking at Scottish Tax Bands
         private bool UseScottishTaxBands => rdobtn_scotland.Checked;
 
+        // Show error in chosen year.
+        private ErrorProvider errorProvider = new ErrorProvider();
 
         public Form1()
         {
@@ -52,7 +54,7 @@ namespace Can_I_retire_yet
             DatagridviewFunctions.SetUpViews(dgv_income, 5);
             DatagridviewFunctions.SetUpViews(dgv_future_expenses, 3);
             DatagridviewFunctions.SetUpViews(dgv_uk_state_pension, 3);
-            DatagridviewFunctions.SetUpViews(dgv_withdrawal_priority, 0);
+           // DatagridviewFunctions.SetUpViews(dgv_withdrawal_priority, 0);
 
 
             lbl_trackbar_value.Text = $"Value: {trkbr_retirement_age.Value}";
@@ -82,6 +84,7 @@ namespace Can_I_retire_yet
             chart_overall.Series[0].LabelForeColor = Color.Black;
             chart_overall.Series[0].LabelBackColor = Color.White;
 
+            txtbx_start_year.Text = DateTime.Now.Year.ToString();
         }
 
         private void btn_close_Click(object sender, EventArgs e)
@@ -129,6 +132,7 @@ namespace Can_I_retire_yet
 
             var data = new SavedData
             {
+                start_year = txtbx_start_year.Text,
                 assets = DatagridviewFunctions.ExtractGrid(dgv_assets),
                 cash = DatagridviewFunctions.ExtractGrid(dgv_cash),
                 savings = DatagridviewFunctions.ExtractGrid(dgv_savings),
@@ -401,6 +405,8 @@ namespace Can_I_retire_yet
             if ((dgv_cash.Columns[e.ColumnIndex].Name == "Amount") && (flag))
             {
                 lbl_cash.Text = DatagridviewFunctions.CalculateTabTotal(dgv_cash, e);
+                chartTimer.Stop();
+                chartTimer.Start();
             }
         }
 
@@ -409,6 +415,8 @@ namespace Can_I_retire_yet
             if ((dgv_savings.Columns[e.ColumnIndex].Name == "Amount") && (flag))
             {
                 lbl_savings.Text = DatagridviewFunctions.CalculateTabTotal(dgv_savings, e);
+                chartTimer.Stop();
+                chartTimer.Start();
             }
         }
 
@@ -417,6 +425,8 @@ namespace Can_I_retire_yet
             if ((dgv_stocks_shares.Columns[e.ColumnIndex].Name == "Amount") && (flag))
             {
                 lbl_stocks_shares.Text = DatagridviewFunctions.CalculateTabTotal(dgv_stocks_shares, e);
+                chartTimer.Stop();
+                chartTimer.Start();
             }
         }
 
@@ -425,6 +435,8 @@ namespace Can_I_retire_yet
             if ((dgv_bonds.Columns[e.ColumnIndex].Name == "Amount") && (flag))
             {
                 lbl_bonds.Text = DatagridviewFunctions.CalculateTabTotal(dgv_bonds, e);
+                chartTimer.Stop();
+                chartTimer.Start();
             }
         }
 
@@ -498,6 +510,7 @@ namespace Can_I_retire_yet
             cmbx_currency.Text = data.currency ?? "£";
             txtbx_age.Text = data.age ?? "";
             txtbx_length.Text = data.length ?? "";
+            txtbx_start_year.Text = data.start_year ?? "";
 
             bool.TryParse(data.salary_inflation, out bool value);
             chkbx_use_inflation.Checked = value;
@@ -552,14 +565,9 @@ namespace Can_I_retire_yet
             lbl_stocks_shares.Text =
                 DatagridviewFunctions.CalculateTabTotal(dgv_stocks_shares, new DataGridViewCellEventArgs(1, 0));
 
-            lbl_income.Text = DatagridviewFunctions.CalculateTabTotal(dgv_income, new DataGridViewCellEventArgs(1, 0));
+            lbl_income.Text = DatagridviewFunctions.CalculateTabTotal(dgv_income, new DataGridViewCellEventArgs(3, 0));
             lbl_expenses.Text =
                 DatagridviewFunctions.CalculateTabTotal(dgv_expenses, new DataGridViewCellEventArgs(1, 0));
-
-            //lbl_future_income.Text =
-            //    DatagridviewFunctions.CalculateTabTotal(dgv_uk_state_pension, new DataGridViewCellEventArgs(2, 0));
-            //lbl_future_expenses.Text =
-            //    DatagridviewFunctions.CalculateTabTotal(dgv_future_expenses, new DataGridViewCellEventArgs(2, 0));
         }
 
         private void btn_new_Click(object sender, EventArgs e)
@@ -783,12 +791,12 @@ namespace Can_I_retire_yet
 
         private void btn_draw_overall_chart_Click(object sender, EventArgs e)
         {
-            DrawOverallChart();
+            //DrawOverallChart();
         }
 
         private void DrawOverallChart()
         {
-            // Basic validation
+           // Basic validation
             if (string.IsNullOrWhiteSpace(txtbx_age.Text) ||
                 string.IsNullOrWhiteSpace(txtbx_length.Text))
                 return;
@@ -813,6 +821,8 @@ namespace Can_I_retire_yet
                 Parse(lbl_bonds.Text) +
                 Parse(lbl_stocks_shares.Text);
 
+            // decimal available = GetTotalAvailable();
+
             // Prepare chart
             chart_overall.Series.Clear();
             var series = chart_overall.Series.Add("Available Funds");
@@ -825,13 +835,23 @@ namespace Can_I_retire_yet
             line.Color = Color.Blue;
             line.BorderWidth = 2;
 
-            int startYear = DateTime.Now.Year;
+            //int startYear = DateTime.Now.Year;
+
+            int startYear = Int32.Parse(txtbx_start_year.Text);
 
             decimal baseSalary = Parse(txtbx_salary.Text);
             decimal salaryThisYear = baseSalary;
 
             for (int i = 0; i < length; i++)
             {
+                //Dictionary<string, decimal> withdrawals = new Dictionary<string, decimal>
+                //{
+                //    { "Cash", 0 },
+                //    { "Savings", 0 },
+                //    { "Bonds", 0 },
+                //    { "Stocks", 0 }
+                //};
+
                 int currentYear = startYear + i;
                 int currentAge = age + i;
 
@@ -848,12 +868,14 @@ namespace Can_I_retire_yet
                     ? CalculateScottishTaxBreakdown(taxableIncome)
                     : CalculateEnglandTaxBreakdown(taxableIncome);
 
-                //work out where the salary comes from
-                WithdrawSalary(salaryThisYear, currentYear);
+                ////work out where the salary comes from
+                //WithdrawSalary(salaryThisYear, withdrawals);
 
+                //// Recompute available after withdrawals
+                //available = GetTotalAvailable();
 
                 // Income tax as an expense
-                decimal incomeTax = tb.TotalTax; 
+                decimal incomeTax = tb.TotalTax;
 
                 decimal endOfYear =
                     available +
@@ -863,6 +885,11 @@ namespace Can_I_retire_yet
                     salaryThisYear -
                     expenses -
                     incomeTax;
+
+                //SetBalance("Cash", endOfYear);
+                //SetBalance("Savings", 0);
+                //SetBalance("Bonds", 0);
+                //SetBalance("Stocks", 0);
 
                 int index = series.Points.AddXY(currentAge, endOfYear);
                 DataPoint point = series.Points[index];
@@ -881,22 +908,19 @@ namespace Can_I_retire_yet
                     $"\nSalary: {salaryThisYear:C}\n" +
                     $"Net Change: {(endOfYear - available):C}\n" +
 
-                    $"\nTax Breakdown:" +
+                    "\nTax Breakdown:" +
                     $"\n  Personal Allowance Used: {tb.PersonalAllowanceUsed:C}" +
                     $"\n  Basic Rate: {tb.TaxBasic:C}" +
                     $"\n  Higher Rate: {tb.TaxHigher:C}" +
                     $"\n  Additional Rate: {tb.TaxAdditional:C}" +
                     $"\n  Total Tax: {tb.TotalTax:C}\n";
-
-
-                //tip += "\nSalary Withdrawals:";
-                //foreach (string src in GetWithdrawalOrder())
-                //{
-                //    tip += $"\n  {src}: {withdrawals[src]:C}";
-                //}
-
-
-
+                    
+                    //"\nSalary Withdrawals:"; //Show where the money came from
+                    //foreach (string src in GetWithdrawalOrder())
+                    //{
+                    //   tip += $"\n  {src}: {withdrawals[src]:C}";
+                    //}
+                
                 if (endOfYear < 0)
                     tip += "\n⚠ Funds exhausted";
 
@@ -940,6 +964,12 @@ namespace Can_I_retire_yet
                 {
                     //do nothing to eliminate potential div by zero error
                 }
+
+                //available =
+                //    GetBalance("Cash") +
+                //    GetBalance("Savings") +
+                //    GetBalance("Bonds") +
+                //    GetBalance("Stocks");
 
             }
 
@@ -1438,7 +1468,7 @@ namespace Can_I_retire_yet
                 .ToList();
         }
 
-        private void WithdrawSalary(decimal salary, int year)
+        private void WithdrawSalary(decimal salary, Dictionary<string, decimal> withdrawals)
         {
             var order = GetWithdrawalOrder();
 
@@ -1449,19 +1479,18 @@ namespace Can_I_retire_yet
                 if (available >= salary)
                 {
                     SetBalance(source, available - salary);
+                    withdrawals[source] += salary;
                     return;
                 }
                 else
                 {
-                    // Deplete this pot entirely
+                    withdrawals[source] += available;
                     salary -= available;
                     SetBalance(source, 0);
                 }
             }
-
-            // If we reach here, all pots are empty
-            // Salary cannot be withdrawn fully
         }
+
 
         decimal GetBalance(string source)
         {
@@ -1484,6 +1513,102 @@ namespace Can_I_retire_yet
                 case "Bonds": lbl_bonds.Text = value.ToString("N2"); break;
                 case "Stocks": lbl_stocks_shares.Text = value.ToString("N2"); break;
             }
+        }
+
+        private decimal GetTotalAvailable()
+        {
+            return
+                GetBalance("Cash") +
+                GetBalance("Savings") +
+                GetBalance("Bonds") +
+                GetBalance("Stocks");
+        }
+        
+        private void txtbx_start_year_TextChanged(object sender, EventArgs e)
+        {
+            // redraw the chart if the year entered is valid.
+            if (validateYear(txtbx_start_year))
+            {
+                int year = int.Parse(txtbx_start_year.Text);
+
+               // UpdateOverallTabLabelsForYear(year);
+                DrawOverallChart();
+            }
+        }
+
+        private bool validateYear(TextBox txtYear)
+        {
+            bool result = false;
+            string input = txtYear.Text.Trim();
+
+            // Default: clear error
+            errorProvider.SetError(txtYear, "");
+            txtYear.BackColor = Color.White;
+
+            // Validate only if something is entered
+            if (!string.IsNullOrEmpty(input))
+            {
+                if (input.Length == 4 && int.TryParse(input, out int year))
+                {
+                    if (year >= 2026 && year <= 2126)
+                    {
+                        // Valid year
+                        txtYear.BackColor = Color.LightGreen;
+                        result = true;
+                    }
+                    else
+                    {
+                        // Out of range
+                        txtYear.BackColor = Color.LightPink;
+                        errorProvider.SetError(txtYear, "Year must be between 2026 and 2126.");
+                    }
+                }
+                else
+                {
+                    // Not a valid 4-digit number
+                    txtYear.BackColor = Color.LightPink;
+                    errorProvider.SetError(txtYear, "Enter a valid 4-digit year.");
+                }
+            }
+
+            return result;
+        }
+        private void UpdateOverallTabLabelsForYear(int year)
+        {
+            // 1. Recurring income (from dgv_income)
+            decimal recurringIncome = SumRecurringIncome(year);
+
+            // 2. UK State Pension
+            decimal statePension = SumRows(dgv_uk_state_pension, year);
+
+            // 3. Future expenses
+            decimal futureExpenses = SumRows(dgv_future_expenses, year);
+
+            // 4. Taxable income
+            decimal taxableIncome = GetTaxableIncomeForYear(year);
+
+            // 5. Tax breakdown
+            TaxBreakdown tb = UseScottishTaxBands
+                ? CalculateScottishTaxBreakdown(taxableIncome)
+                : CalculateEnglandTaxBreakdown(taxableIncome);
+
+            decimal incomeTax = tb.TotalTax;
+
+            // 6. Total income (non-salary)
+            decimal totalIncome = recurringIncome + statePension;
+
+            // 7. Total expenses (non-salary)
+            decimal totalExpenses = futureExpenses + incomeTax;
+
+            // 8. Net income (non-salary)
+            decimal netIncome = totalIncome - totalExpenses;
+
+            // 9. Update labels
+            lbl_income.Text = totalIncome.ToString("C");
+            lbl_expenses.Text = totalExpenses.ToString("C");
+            //lbl_taxable_income.Text = taxableIncome.ToString("C");
+            //lbl_income_tax.Text = incomeTax.ToString("C");
+            //lbl_net_income.Text = netIncome.ToString("C");
         }
 
     }
